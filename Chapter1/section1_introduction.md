@@ -14,7 +14,7 @@ The latter portion of this book will introduce the "W" in UTCDW. Section 5 will 
 
 A Note About Computational Resource Requirements
 
-The volume of data to be processed as a part of a climate impact study can be very large. Multiple decades of global climate model data for a single variable at daily time frequency (e.g., air temperature at 2 m height) can add up to tens or even hundreds of GB. Most data hosting services do not support spatial sub-setting before downloading the data, so for most use cases you will need significant data storage resources, if not significant computing (processor and memory) resources as well. This guide will assume you have access to such resources, either via your research group's in-house cluster, a HPC cluster such as SciNet at the University of Toronto, or a cloud computing service such as Amazon Web Services. Certain free-to-use climate analytics platforms are available, such as [PAVICS](https://pavics.ouranos.ca/index.html) but this guide aims to be independent of the computing platform you intend to use and does not provide support or guidance regarding their use.
+The volume of data to be processed as a part of a climate impact study can be very large. Multiple decades of global climate model data for a single variable at daily time frequency (e.g., air temperature at 2 m height) can add up to tens or even hundreds of GB. Most data hosting services do not support spatial sub-setting before downloading the data, so for most use cases you will need significant data storage resources, if not significant computing (processor and memory) resources as well. This guide will assume you have access to such resources, either via your research group's in-house cluster, a HPC cluster such as SciNet at the University of Toronto, or a cloud computing service such as Amazon Web Services. Certain free-to-use climate analytics platforms are available, such as [PAVICS](https://pavics.ouranos.ca/index.html), but this guide aims to be independent of the computing platform you intend to use and does not provide support or guidance regarding their use.
 
 ### A Note about Statistics
 
@@ -35,6 +35,7 @@ Next, activate the environment using:
 Because one of the packages you need to install (ec3, used for downloading weather station observational data from Environment and Climate Change Canada) is a custom package from a personal channel, the following commands will need to be run for conda to be able to find the package:
 
 `conda config --prepend channels conda-forge`
+
 `conda config --append channels claut`
 
 And install the following packages, each using the command:
