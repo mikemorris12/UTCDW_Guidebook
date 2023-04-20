@@ -20,7 +20,7 @@ In the next figure, the bias-corrected (or "downscaled") distribution is shown i
 
 ![](./figures/deltamethod_JanTMean_sds.png)
 
-The time series of the bias-corrected output is shown in the third figure. Notice how the month-to-month fluctuations in the bias-adjusted (red) curve match those for the station data exactly. This is again by construction, since this time series was produced by simply adding a constant to the station data.
+The time series of the bias-corrected output is shown in the third figure. Notice how the month-to-month fluctuations in the bias-adjusted (brown) curve match those for the station data exactly. This is again by construction, since this time series was produced by simply adding a constant to the station data.
 
 ![](./figures/timeseries_JanTMean_deltamethod.png)
 
