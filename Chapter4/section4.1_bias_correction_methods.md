@@ -38,6 +38,30 @@ The second simplest method of bias correction involves correction of both the me
 
 $$X_{SDS} = \left(X_{GCM}^{proj} - \overline{X_{GCM}^{hist}} \right) \times \frac{\sigma_{OBS}}{\sigma_{GCM}^{hist}} + \overline{X_{OBS}}$$
 
-While still not accounting for changes in the variance of $X$ due to climate change, this method expands on the Delta method by accounting for potential model biases in the variance of $X$, and retains the temporal fluctuations of the model output data. If the distribution of $X$ is Gaussian, this method is equivalent to **empirical quantile mapping**, which will be an important part of the more sophisticated methods to be discussed later. For highly non-Gaussian variables, such as precipitation or wind speed, this method would be inappropriate. These variables are bounded below by zero, and this method could result in unphysical negative values. For variables which are approximately Gaussian, like temperature (for a given month of the year), this method may be more appropriate, as illustrated in the figure below.
+This method expands on the Delta method by accounting for potential model biases in the variance of $X$, and retains the temporal fluctuations of the model output data. If the distribution of $X$ is Gaussian, this method is equivalent to **empirical quantile mapping**, which will be an important part of the more sophisticated methods to be discussed later. For highly non-Gaussian variables, such as precipitation or wind speed, this method would be inappropriate. These variables are bounded below by zero, and this method could result in unphysical negative values. For variables which are approximately Gaussian, like temperature (for a given month of the year), this method may be more appropriate, as illustrated in the figure below.
 
 ![](./figures/pdfs_JanTMean_BiasVarianceCorrection.png)
+
+If mean temperatures are the most relevant metric for your study, this method of bias correction is likely sufficient. If extremes are important for your application, this method is not appropriate because the tails of an approximately-Gaussian distribution are where it may be most likely to have non-Gaussian behavior. For this reason, non-parametric quantile mapping methods are preferred, as they can handle data generated from any probability distribution.
+
+### 4.1.3 Quantile Mapping Methods
+**Empirical Quantile Mapping** 
+As discussed, empirical quantile mapping can be used to map data sampled from one probability distribution to another. Empirical quantile mapping takes the $k$'th quantile of the input (climate model) distribution and maps it to the $k$'th quantile of the target (observed) distribution. For a random variable $X$, the $k$'th quantile is given by the inverse CDF evaluated at $k$, i.e. 
+
+$$x_{k} = F_{X}^{-1}(k)$$
+
+or equivalently,
+
+$$k = F_{X}(x_{k})$$
+
+Using these two equations, we derive the transfer function for empirical quantile mapping:
+
+$$x_{SDS} = F_{OBS}^{-1}(F_{GCM}(x_{GCM}))$$
+
+The process is illustrated in the figure below. By design, the distribution of the adjusted model historical data matches the observed distribution exactly.
+
+![](./figures/pdfs_and_cdfs_eqm.png)
+
+On its own, empirical quantile mapping is not so useful for adjusting climate change projections, because the projected changes will be washed out by mapping the data back to the observed historical distribution. This can be seen in the massively deflated variance of the adjusted end-of-century projections, relative to the unadjusted raw model projections. Clever individuals have developed two variants of quantile mapping, which preserve projected changes while also correcting for biases in all quantiles of the target variable's distribution.
+
+**Detrended Quantile Mapping**
