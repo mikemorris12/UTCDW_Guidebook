@@ -46,6 +46,7 @@ If mean temperatures are the most relevant metric for your study, this method of
 
 ### 4.1.3 Quantile Mapping Methods
 **Empirical Quantile Mapping** 
+
 As discussed, empirical quantile mapping can be used to map data sampled from one probability distribution to another. Empirical quantile mapping takes the $k$'th quantile of the input (climate model) distribution and maps it to the $k$'th quantile of the target (observed) distribution. For a random variable $X$, the $k$'th quantile is given by the inverse CDF evaluated at $k$, i.e. 
 
 $$x_{k} = F_{X}^{-1}(k)$$
