@@ -82,20 +82,24 @@ A comparison between EQM and DQM is presented in the figure below. Note how the 
 
 As noted in Cannon et. al. (2015), DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution *and* preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation $x_{GCM}^{proj}(t)$, the quantile $\tau(t)$ is calculated using the empirical CDF $F_{GCM}^{proj}$ for a time window around $t$:
 
-$$\tau(t) = F_{GCM}^{proj}(x_{GCM}^{proj}(t))$$
+$$\tau(t) = F_{GCM}^{proj}[x_{GCM}^{proj}(t)]$$
 
 Next we calculate change in the value of $x$ at this quantile between the historical and future simulations, i.e. the "Delta" in QDM. For a ratio variable, $\Delta$ is a relative change, but for an interval variable $\Delta$ is a difference rather than a ratio, i.e.
 
+$$
 \begin{align}
     \Delta(t) &= \frac{x_{GCM}^{proj}(t)} {(F_{GCM}^{hist})^{-1}[\tau(t)]} \quad\text{or} \\
     \Delta(t) &= x_{GCM}^{proj}(t) - (F_{GCM}^{hist})^{-1}[\tau(t)]
 \end{align}
+$$
 
 Finally, the adjustment is applied by imposing the climate change $\Delta$ on the $\tau$'th quantile of the observed CDF:
 
+$$
 \begin{align}
     x_{SDS}^{proj}(t) = F^{-1}_{OBS}[\tau(t)] \times \Delta(t) \quad\text{or}\\
     x_{SDS}^{proj}(t) = F^{-1}_{OBS}[\tau(t)] + \Delta(t)
 \end{align}
+$$
 
 
