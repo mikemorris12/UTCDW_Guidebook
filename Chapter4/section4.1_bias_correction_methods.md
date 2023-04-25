@@ -47,7 +47,7 @@ If mean temperatures are the most relevant metric for your study, this method of
 ### 4.1.3 Quantile Mapping Methods
 **Empirical Quantile Mapping** 
 
-As discussed, empirical quantile mapping can be used to map data sampled from one probability distribution to another. Empirical quantile mapping takes the $k$'th quantile of the input (climate model) distribution and maps it to the $k$'th quantile of the target (observed) distribution. For a random variable $X$, the $k$'th quantile is given by the inverse CDF evaluated at $k$, i.e. 
+As discussed, empirical quantile mapping (EQM) can be used to map data sampled from one probability distribution to another. Empirical quantile mapping takes the $k$'th quantile of the input (climate model) distribution and maps it to the $k$'th quantile of the target (observed) distribution. For a random variable $X$, the $k$'th quantile is given by the inverse CDF evaluated at $k$, i.e. 
 
 $$x_{k} = F_{X}^{-1}(k)$$
 
@@ -66,3 +66,36 @@ The process is illustrated in the figure below. By design, the distribution of t
 On its own, empirical quantile mapping is not so useful for adjusting climate change projections, because the projected changes will be washed out by mapping the data back to the observed historical distribution. This can be seen in the massively deflated variance of the adjusted end-of-century projections, relative to the unadjusted raw model projections. Clever individuals have developed two variants of quantile mapping, which preserve projected changes while also correcting for biases in all quantiles of the target variable's distribution.
 
 **Detrended Quantile Mapping**
+Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping introduced by [Cannon et. al. (2015)](https://doi.org/10.1175/JCLI-D-14-00754.1) designed to preserve the model climate change signal, while also bias-correcting the distribution of the target variable. EQM cannot handle projected future values that fall outside of the range of historical values - the maximum (or minimum) future projected value will be mapped to the maximum (minimum) historical value, even though it may be physically realistic that new record-setting extreme values will occur under increased radiative forcing. Alternatively, some extrapolaion algorithm must be invoked, but there is no agreed upon method for doing so. DQM avoids the need for extrapolation by removing the long-term mean change from the model projections before quantile mapping, so the input values lie in the range of the historical simulation values. The trend is then reimposed after. For a ratio variable such as precipitation, the mean change is removed by multaplicative scaling, i.e.
+
+$$x_{SDS}^{proj}(t) = F_{OBS}^{-1}\left[F_{GCM}\left(x_{GCM}^{proj}(t) \times \frac{\overline{x_{GCM}^{hist}}} {\overline{x_{GCM}^{proj}}} \right)\right] \times \frac{\overline{x_{GCM}^{proj}}} {\overline{x_{GCM}^{hist}}}$$
+
+Where overlines indicate the long-term mean for the given time period. For an interval variable (like temperature), the de-trending and re-trending would be done addititvely, instead of multaplicatively, i.e.
+
+$$x_{SDS}^{proj}(t) = F_{OBS}^{-1}\left[F_{GCM}\left(x_{GCM}^{proj}(t) - \overline{x_{GCM}^{proj}} + \overline{x_{GCM}^{hist}}  \right)\right] - \overline{x_{GCM}^{hist}} + \overline{x_{GCM}^{proj}}$$
+
+A comparison between EQM and DQM is presented in the figure below. Note how the model-projected negative skewness of the distribution is somewhat preserved in the DQM-adjusted projections, but is completely attenuated in the EQM-adjusted data.
+
+![](./figures/pdfs_and_cdfs_dqm_temp.png)
+
+**Quantile Delta Mapping**
+
+As noted in Cannon et. al. (2015), DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution *and* preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation $x_{GCM}^{proj}(t)$, the quantile $\tau(t)$ is calculated using the empirical CDF $F_{GCM}^{proj}$ for a time window around $t$:
+
+$$\tau(t) = F_{GCM}^{proj}(x_{GCM}^{proj}(t))$$
+
+Next we calculate change in the value of $x$ at this quantile between the historical and future simulations, i.e. the "Delta" in QDM. For a ratio variable, $\Delta$ is a relative change, but for an interval variable $\Delta$ is a difference rather than a ratio, i.e.
+
+\begin{align}
+    \Delta(t) &= \frac{x_{GCM}^{proj}(t)} {(F_{GCM}^{hist})^{-1}[\tau(t)]} \quad\text{or} \\
+    \Delta(t) &= x_{GCM}^{proj}(t) - (F_{GCM}^{hist})^{-1}[\tau(t)]
+\end{align}
+
+Finally, the adjustment is applied by imposing the climate change $\Delta$ on the $\tau$'th quantile of the observed CDF:
+
+\begin{align}
+    x_{SDS}^{proj}(t) = F^{-1}_{OBS}[\tau(t)] \times \Delta(t) \quad\text{or}\\
+    x_{SDS}^{proj}(t) = F^{-1}_{OBS}[\tau(t)] + \Delta(t)
+\end{align}
+
+
