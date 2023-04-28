@@ -84,12 +84,12 @@ As noted in Cannon et. al. (2015), DQM will preserve the mean climate change sig
 
 $$\tau(t) = F_{GCM}^{proj}[x_{GCM}^{proj}(t)]$$
 
-Next we calculate change in the value of $x$ at this quantile between the historical and future simulations, i.e. the "Delta" in QDM. For a ratio variable, $\Delta$ is a relative change, but for an interval variable $\Delta$ is a difference rather than a ratio, i.e.
+Next we calculate change in the value of $x$ at this quantile between the historical and future simulations, i.e. the "Delta" in QDM. For a ratio variable, $\Delta$ is a relative change, but for an interval variable $\Delta$ is a difference rather than a ratio. In the additive case, QDM is equivalent to another method of bias correction called "equidistant CDF matching" [(Li et. al., 2010)](doi.org/10.1029/2009JD012882)
 
 $$
 \begin{align}
-    \Delta(t) &= \frac{x_{GCM}^{proj}(t)} {(F_{GCM}^{hist})^{-1}[\tau(t)]} \quad\text{or} \\
-    \Delta(t) &= x_{GCM}^{proj}(t) - (F_{GCM}^{hist})^{-1}[\tau(t)]
+    \Delta(t) &= \frac{x_{GCM}^{proj}(t)} {(F_{GCM}^{hist})^{-1}[\tau(t)]} \quad\text{(multaplicative) or} \\
+    \Delta(t) &= x_{GCM}^{proj}(t) - (F_{GCM}^{hist})^{-1}[\tau(t)]   \quad\text{(additive)}
 \end{align}
 $$
 
@@ -97,9 +97,11 @@ Finally, the adjustment is applied by imposing the climate change $\Delta$ on th
 
 $$
 \begin{align}
-    x_{SDS}^{proj}(t) = F^{-1}_{OBS}[\tau(t)] \times \Delta(t) \quad\text{or}\\
-    x_{SDS}^{proj}(t) = F^{-1}_{OBS}[\tau(t)] + \Delta(t)
+    x_{SDS}^{proj}(t) &= F^{-1}_{OBS}[\tau(t)] \times \Delta(t) \quad\text{(multaplicative) or} \\
+    x_{SDS}^{proj}(t) &= F^{-1}_{OBS}[\tau(t)] + \Delta(t) \quad\text{(additive)}
 \end{align}
 $$
 
+A comparison between each of the three quantile mapping-based methods is shown in the following figure. While the difference between QDM and DQM is only marginal for this case, [Cannon et. al. (2015)](https://doi.org/10.1175/JCLI-D-14-00754.1) demonstrates that QDM suffers from fewer artefacts relating to changes in extreme values than DQM, and especially fewer than EQM. For this reason, QDM is the preferred bias-correction method to be employed as a part of the UTCDW.
 
+![](./figures/pdfs_and_cdfs_qdm_temp.png)
