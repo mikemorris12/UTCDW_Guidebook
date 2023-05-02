@@ -88,7 +88,7 @@ Next we calculate change in the value of $x$ at this quantile between the histor
 
 $$
 \begin{align}
-    \Delta(t) &= \frac{x_{GCM}^{proj}(t)} {(F_{GCM}^{hist})^{-1}[\tau(t)]} \quad\text{(multaplicative) or} \\
+    \Delta(t) &= \frac{x_{GCM}^{proj}(t)} {(F_{GCM}^{hist})^{-1}[\tau(t)]} \quad\text{(multaplicative) or} \newline
     \Delta(t) &= x_{GCM}^{proj}(t) - (F_{GCM}^{hist})^{-1}[\tau(t)]   \quad\text{(additive)}
 \end{align}
 $$
