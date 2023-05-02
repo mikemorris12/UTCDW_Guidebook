@@ -96,10 +96,10 @@ $$
 Finally, the adjustment is applied by imposing the climate change $\Delta$ on the $\tau$'th quantile of the observed CDF:
 
 $$
-\begin{align}
+\begin{align_}
     x_{SDS}^{proj}(t) &= F^{-1}_{OBS}[\tau(t)] \times \Delta(t) \quad\text{(multaplicative) or} \\
     x_{SDS}^{proj}(t) &= F^{-1}_{OBS}[\tau(t)] + \Delta(t) \quad\text{(additive)}
-\end{align}
+\end{align_}
 $$
 
 A comparison between each of the three quantile mapping-based methods is shown in the following figure. While the difference between QDM and DQM is only marginal for this case, [Cannon et. al. (2015)](https://doi.org/10.1175/JCLI-D-14-00754.1) demonstrates that QDM suffers from fewer artefacts relating to changes in extreme values than DQM, and especially fewer than EQM. For this reason, QDM is the preferred bias-correction method to be employed as a part of the UTCDW.
