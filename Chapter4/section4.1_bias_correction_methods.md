@@ -97,8 +97,8 @@ Finally, the adjustment is applied by imposing the climate change $\Delta$ on th
 
 $$
 \begin{align}
-    x_{SDS}^{proj}(t) &= F^{-1}_{OBS}[\tau(t)] \times \Delta(t) \quad \text{(multaplicative) or} \newline
-    x_{SDS}^{proj}(t) &= F^{-1}_{OBS}[\tau(t)] + \Delta(t) \quad \text{(additive)}
+    x_{SDS}^{proj}(t) &= F^{-1}_{OBS}\left[\tau(t)\right] \times \Delta(t) \quad \text{(multaplicative) or} \newline
+    x_{SDS}^{proj}(t) &= F^{-1}_{OBS}\left[\tau(t)\right] + \Delta(t) \quad \text{(additive)}
 \end{align}
 $$
 
