@@ -66,7 +66,7 @@ The process is illustrated in the figure below. By design, the distribution of t
 On its own, empirical quantile mapping is not so useful for adjusting climate change projections, because the projected changes will be washed out by mapping the data back to the observed historical distribution. This can be seen in the massively deflated variance of the adjusted end-of-century projections, relative to the unadjusted raw model projections. Clever individuals have developed two variants of quantile mapping, which preserve projected changes while also correcting for biases in all quantiles of the target variable's distribution.
 
 **Detrended Quantile Mapping**
-Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping introduced by [Cannon et. al. (2015)](https://doi.org/10.1175/JCLI-D-14-00754.1) designed to preserve the model climate change signal, while also bias-correcting the distribution of the target variable. EQM cannot handle projected future values that fall outside of the range of historical values - the maximum (or minimum) future projected value will be mapped to the maximum (minimum) historical value, even though it may be physically realistic that new record-setting extreme values will occur under increased radiative forcing. Alternatively, some extrapolaion algorithm must be invoked, but there is no agreed upon method for doing so. DQM avoids the need for extrapolation by removing the long-term mean change from the model projections before quantile mapping, so the input values lie in the range of the historical simulation values. The trend is then reimposed after. For a ratio variable such as precipitation, the mean change is removed by multaplicative scaling, i.e.
+Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping introduced by [Cannon et al. (2015)](https://doi.org/10.1175/JCLI-D-14-00754.1) designed to preserve the model climate change signal, while also bias-correcting the distribution of the target variable. EQM cannot handle projected future values that fall outside of the range of historical values - the maximum (or minimum) future projected value will be mapped to the maximum (minimum) historical value, even though it may be physically realistic that new record-setting extreme values will occur under increased radiative forcing. Alternatively, some extrapolaion algorithm must be invoked, but there is no agreed upon method for doing so. DQM avoids the need for extrapolation by removing the long-term mean change from the model projections before quantile mapping, so the input values lie in the range of the historical simulation values. The trend is then reimposed after. For a ratio variable such as precipitation, the mean change is removed by multaplicative scaling, i.e.
 
 $$x_{SDS}^{proj}(t) = F_{OBS}^{-1}\left[F_{GCM}\left(x_{GCM}^{proj}(t) \times \frac{\overline{x_{GCM}^{hist}}} {\overline{x_{GCM}^{proj}}} \right)\right] \times \frac{\overline{x_{GCM}^{proj}}} {\overline{x_{GCM}^{hist}}}$$
 
@@ -84,7 +84,7 @@ As noted in Cannon et. al. (2015), DQM will preserve the mean climate change sig
 
 $$\tau(t) = F_{GCM}^{proj}[x_{GCM}^{proj}(t)]$$
 
-Next we calculate change in the value of $x$ at this quantile between the historical and future simulations, i.e. the "Delta" in QDM. For a ratio variable, $\Delta$ is a relative change, but for an interval variable $\Delta$ is a difference rather than a ratio. In the additive case, QDM is equivalent to another method of bias correction called "equidistant CDF matching" [(Li et. al., 2010)](doi.org/10.1029/2009JD012882).
+Next we calculate change in the value of $x$ at this quantile between the historical and future simulations, i.e. the "Delta" in QDM. For a ratio variable, $\Delta$ is a relative change, but for an interval variable $\Delta$ is a difference rather than a ratio. In the additive case, QDM is equivalent to another method of bias correction called "equidistant CDF matching" [(Li et al., 2010)](doi.org/10.1029/2009JD012882).
 
 $$
 \begin{align*}
@@ -102,6 +102,6 @@ $$
 \end{align*}
 $$
 
-A comparison between each of the three quantile mapping-based methods is shown in the following figure. While the difference between QDM and DQM is only marginal for this case, [Cannon et. al. (2015)](https://doi.org/10.1175/JCLI-D-14-00754.1) demonstrates that QDM suffers from fewer artefacts relating to changes in extreme values than DQM, and especially fewer than EQM. For this reason, QDM is the preferred bias-correction method to be employed as a part of the UTCDW.
+A comparison between each of the three quantile mapping-based methods is shown in the following figure. While the difference between QDM and DQM is only marginal for this case, [Cannon et al. (2015)](https://doi.org/10.1175/JCLI-D-14-00754.1) demonstrates that QDM suffers from fewer artefacts relating to changes in extreme values than DQM, and especially fewer than EQM. For this reason, QDM is the preferred bias-correction method to be employed as a part of the UTCDW.
 
 ![](./figures/pdfs_and_cdfs_qdm_temp.png)
