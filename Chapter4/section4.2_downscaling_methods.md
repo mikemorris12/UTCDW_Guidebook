@@ -38,4 +38,27 @@ Because of its strength at representing both spatial patterns and location-wise 
 
 The second method proposed by [Werner and Cannon (2016)](doi.org/10.5194/hess-20-1483-2016) is called BCCAQ, or "Bias-Corrected Constructed Analogues with Quantile Mapping Reordering". This method is similar to BCCAP, but performs better regarding the three metrics by which [Murdock et al. (2014)](https://www.pacificclimate.org/sites/default/files/publications/PCIC_EC_downscaling_report_2014.pdf) assessed the skill of different methods of statistical downscaling: reproducing the observed temporal sequencing, probability distributions, and spatial variability.
 
-BCCAQ involves running both the BCCI (using QDM for bias correction) and BCCA methods independently. Then, for each month of the BCCI/QDM output, the days are re-ordered according to the daily BCCA ranks. In other words, the BCCI/QDM output is post-processed using Empirical Quantile Mapping, with the BCCA output for that same simulated month treated like observations.
+BCCAQv2 involves running both the BCCI (using QDM for bias correction, v1 used EQM) and BCCA methods independently. Then, for each month of the BCCI/QDM output, the values at each grid cell for each day are re-ordered to match the rank structure of the BCCA data for days in that same month, using a method called the "Schaake Shuffle" ([Clark et al., 2004](doi.org/10.1175/1525-7541(2004)005%3C0243:TSSAMF%3E2.0.CO;2)). The daily QDM data is sorted in increasing order, and the BCCA output is ranked. The sorted QDM output is then indexed by the ranks of the BCCA. This re-ordering reduces the excessive spatial smoothness of the QDM output ([Werner and Cannon, 2016](doi.org/10.5194/hess-20-1483-2016), [Murdock et al., 2014](https://www.pacificclimate.org/sites/default/files/publications/PCIC_EC_downscaling_report_2014.pdf)) and retains the accurate representation of spatial structures in BCCA.
+
+[Clark et al. (2004)](doi.org/10.1175/1525-7541(2004)005%3C0243:TSSAMF%3E2.0.CO;2) give the following example of the Schaake Shuffle. Let $X$ and $Y$ be two time series of data, with $\chi$ and $\gamma$ being the sorted versions of $X$ and $Y$ respectively, i.e.
+
+$$
+\begin{align*}
+    \chi_{i} &= X_{(i)} \\
+    \gamma_{i} &= Y_{(i)}
+\end{align*}
+$$
+
+Where subscript $(i)$ indicates the $i$'th smallest value of the set. In our case, $X$ is the QDM output for a given month and grid cell, and $Y$ is the BCCA output for that same month and grid cell. Let $B$ be the vector of indices of $Y$ that map the values of $Y$ to the corresponding value of $\gamma$ ($\gamma_{i} = Y_{B_{i}}$); i.e. the ranks of $Y$. Then the re-ranked values of $X$ are given by:
+
+$$
+\begin{align*}
+    X^{SS}_{i} &= \chi_{(r)} \\
+    i &= B_{r} \\
+    r &= 1,...,\text{len}(B)
+\end{align*}
+$$
+
+A schematic of each of these gridded downscaling methods is provided in Figure 3a of [Werner and Cannon (2016)](doi.org/10.5194/hess-20-1483-2016), shown below.
+
+![](./figures/werner_cannon_2016_fig3.png)
