@@ -12,7 +12,7 @@ Module 2 (Regional Downscaling) will discuss the basics of post-processing clima
 
 The latter portion of this book will introduce the "W" in UTCDW. Section 5 will help make explicit the decisions and compromises that must be made during study design, and help the user develop a workflow for acquiring, processing, and analyzing climate change projection data tailored for their study application. Finally, Section 6 will lay out examples of implementing this workflow for several different downscaling methods.
 
-A Note About Computational Resource Requirements
+### A Note About Computational Resource Requirements
 
 The volume of data to be processed as a part of a climate impact study can be very large. Multiple decades of global climate model data for a single variable at daily time frequency (e.g., air temperature at 2 m height) can add up to tens or even hundreds of GB. Most data hosting services do not support spatial sub-setting before downloading the data, so for most use cases you will need significant data storage resources, if not significant computing (processor and memory) resources as well. This guide will assume you have access to such resources, either via your research group's in-house cluster, a HPC cluster such as SciNet at the University of Toronto, or a cloud computing service such as Amazon Web Services. Certain free-to-use climate analytics platforms are available, such as [PAVICS](https://pavics.ouranos.ca/index.html), but this guide aims to be independent of the computing platform you intend to use and does not provide support or guidance regarding their use.
 
@@ -61,4 +61,4 @@ List of environments:
 * `xesmf` (for re-gridding climate data)
 * `xclim` (workhorse package for statistical downscaling and other climate analysis)
 
-Once you've installed each of these packages, your Python environment will be ready for you to run the examples in this book, and eventually, to get started on working with climate data in Python.
+Once you've set up your Python environment, you will be able to run the examples in this book, and eventually, to get started on working with climate data in Python.
