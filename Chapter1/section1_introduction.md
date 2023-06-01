@@ -24,23 +24,26 @@ The downscaling methods described and implemented in this guidebook make use of 
 
 The programming language used in the UTCDW is the latest version of Python 3, with the Anaconda3 package/environment manager. This guide will assume basic familiarity with Python, but not necessarily the packages used for analysis. If you do not have Python/Anaconda installed on your machine, [you can follow the instructions here](https://docs.anaconda.com/anaconda/install/).
 
-Once you have Anaconda installed, you must create an environment in which you will install all the necessary packages. Do this using by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.
-
-conda create -n UTCDW python=3.9
-
-Next, activate the environment using:
-
-`conda activate UTCDW`
-
-Because one of the packages you need to install (ec3, used for downloading weather station observational data from Environment and Climate Change Canada) is a custom package from a personal channel, the following commands will need to be run for conda to be able to find the package:
+Once you have Anaconda installed, you must create an environment in which you will install all the necessary packages. Because one of the packages you need to install (ec3, used for downloading weather station observational data from Environment and Climate Change Canada) is a custom package from a personal channel, the following commands will need to be run for conda to be able to find the package:
 
 `conda config --prepend channels conda-forge`
 
 `conda config --append channels claut`
 
-And install the following packages, each using the command:
+Now you are ready to set up your Conda environemnt. To ensure version compatability, we have provided the file `UTCDW_env.yml` which can be used to install all of the required Python packages with the versions used for development of the guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.
+
+`conda env create -f UTCDW_env.yml`
+
+Once set up, you can activate the environment using the command:
+
+`conda activate UTCDW`
+
+
+Most, but not all, of the packages used for this guidebook are listed below. If you prefer to work in your pre-existing conda environment, you can install them using
 
 `conda install <package name>`
+
+List of environments:
 
 * `numpy` (used for arrays and other mathematical operations)
 * `scipy` (additional scientific and mathematical operations)
