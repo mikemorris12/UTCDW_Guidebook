@@ -1,6 +1,6 @@
 ## Chapter Summary
 
-This chapter has been about accessing downloading, and exploratory analysis of different sources of climate data. These include:
+This chapter has been about accessing, downloading, and exploratory analysis of different sources of climate data. These include:
 
 * Station observations
 * Gridded observations
