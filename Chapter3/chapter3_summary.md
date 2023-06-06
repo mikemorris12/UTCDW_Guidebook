@@ -1,4 +1,4 @@
-## Chapter Summary
+## 3.5 Chapter Summary
 
 This chapter has been about accessing, downloading, and exploratory analysis of different sources of climate data. These include:
 

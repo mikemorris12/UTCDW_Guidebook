@@ -11,7 +11,7 @@ Also referred to as Bias Correction and Spatial Downscaling, BCSD ([Wood et al.,
 The Climate Imprint (CI) method is a sort of delta method applied to gridded data. A GCM monthly climatology is constructed from a historical reference simulation, and this climatology is subtracted to produce daily GCM anomaly patterns. These GCM anomalies are interpolated to the fine-resolution grid of the observations, and added to the observed historical monthly climatology. A more advanced version of CI called BCCI (Bias Corrected CI) is described in [Werner and Cannon (2016)](doi.org/10.5194/hess-20-1483-2016), where a quantile mapping bias correction is applied to the CI outputs. Neither CI or BCCI are methods reccommended by the UTCDW, but CI is a key step in the BCCAQv2 method used by PCIC to produce their [statistically downscaled climate scenarios for Canada](https://www.pacificclimate.org/data/statistically-downscaled-climate-scenarios) (described in the following subsection).
 
 ### 4.2.3 Analogue Methods
-**Constructed Analogues**
+**4.2.3.1 Constructed Analogues**
 
 Constructed Analogue (CA) based methods produce downscaled data by aggregating observed data from real days which best match a particular simulated day. As described in [Werner and Cannon (2016)](doi.org/10.5194/hess-20-1483-2016), high-resolution observations are coarsened to the model grid, and $N$ (typically $N$ = 30) days with most similar to the given simulated day are selected. Typically anomaly fields (i.e. with the daily or monthly climatology subtracted) are used for each data product, instead of the total fields, to avoid the mean bias of the model influencing the selection of analogue days. The original authors ([Hidalgo et al., 2008](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=2ccaf3294385bc206b751c466b4d6e2ceecf70af)) measure similarity using RMSE, but other similarity metrics are also supported in `xclim`. When searching for candidate observed patterns, only those within $\pm$ 45 days of of the day to be downscaled are included (i.e. for a simlated April 15th, only observed days from March 1st and May 30th are included, across all years in the observational dataset, for a pool of 90 $\times N_{YRS,OBS}$ candidate observed analogue days for each simulated day).
 
@@ -26,7 +26,7 @@ The optimal linear combination of these $N$ observed anomaly patterns to reprodu
 |:--:|
 |*Illustration of analogue construction, from [Abatzoglou (2011)](https://climate.northwestknowledge.net/MACA/MACAmethod.php)*|
 
-**Bias-Corrected Constructed Analogues**
+**4.2.3.2 Bias-Corrected Constructed Analogues**
 
 [Maurer et. al. (2010)](doi.org/10.5194/hess-14-1125-2010) proposed an adapted version of CA which corrects biases in the coarse-resolution GCM output using quantile mapping, before selecting the observed analogues. Total fields are compared to observations in the CA step, instead of anomalies, because biases relative to the observed climatology have already been adjusted. When using BCCA for downscaling future projections, Detrended Quantile Mapping is used for bias-correction, with separate trends estimated for each month of the year [(Hiebert et al., 2018)](doi.org/10.21105/joss.00360).
 
@@ -34,7 +34,7 @@ The optimal linear combination of these $N$ observed anomaly patterns to reprodu
 
 Because of its strength at representing both spatial patterns and location-wise distributions, and its ease of implementation (relative to BCCAQ), DBCCA/BCCAP, with Quantile Delta Mapping as the post-processing step, is the reccomended method of spatial statistical downscaling for the UTCDW.
 
-**BCCA with Quantile Mapping Reordering**
+**4.2.3.3 BCCA with Quantile Mapping Reordering**
 
 The second method proposed by [Werner and Cannon (2016)](doi.org/10.5194/hess-20-1483-2016) is called BCCAQ, or "Bias-Corrected Constructed Analogues with Quantile Mapping Reordering". This method is similar to BCCAP, but performs better regarding the three metrics by which [Murdock et al. (2014)](https://www.pacificclimate.org/sites/default/files/publications/PCIC_EC_downscaling_report_2014.pdf) assessed the skill of different methods of statistical downscaling: reproducing the observed temporal sequencing, probability distributions, and spatial variability.
 
