@@ -1,0 +1,1219 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2 Gridded Observations &#8212; UTCDW Guidebook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter3/section3.2_gridded_obs';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.3 Reanalysis Data" href="section3.3_reanalysis.html" />
+    <link rel="prev" title="3.1 Station Observations" href="section3.1_station_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">UTCDW Guidebook</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    UTCDW_Guidebook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1/chapter1.html">UTCDW Guidebook</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Section 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 - Climate Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.2_climate_modeling.html">2.2 Climate Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.3_climate_model_uncertainty.html">2.3 Climate Model Uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/chapter2_summary.html">2.4 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter3.html">Section 3: Exploring Climate Data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="section3.1_station_data.html">3.1 Station Observations</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2 Gridded Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.3_reanalysis.html">3.3 Reanalysis Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.4_climate_model_output.html">Section 3.4 - Climate Model Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter3_summary.html">3.5 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/chapter4.html">Chapter 4 - Statistical Downscaling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter3/section3.2_gridded_obs.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.2 Gridded Observations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-netcdf-data-file-format">3.2.1 The netCDF Data File Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-data-with-opendap">3.2.2 Accessing the Data with OPeNDAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-data">3.2.3 Analyzing the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-calculations">3.2.4 Other Calculations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-data-locally">3.2.5 Saving the Data Locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-other-gridded-observational-datasets">Appendix: Other gridded observational datasets</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="gridded-observations">
+<h1>3.2 Gridded Observations<a class="headerlink" href="#gridded-observations" title="Permalink to this headline">#</a></h1>
+<p>When climate information is needed for an expanded spatial region, instead of a collection of individual points, it is necessary that we use gridded observations in our analysis. To be useful for downscaling, the spatial resolution of the gridded observations must be finer than that of the climate model data being downscaled. With gridded obs, we can do all of the same exploratory data analysis as we did with station data, but results will typically be plotted as maps instead of 1D curves.</p>
+<div class="section" id="the-netcdf-data-file-format">
+<h2>3.2.1 The netCDF Data File Format<a class="headerlink" href="#the-netcdf-data-file-format" title="Permalink to this headline">#</a></h2>
+<p>In the previous section, we worked with 1D time series data from weather station observations. This sort of data is easy to handle with the tabular format of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames, but gridded climate data can have two or three spatial dimensions (typically latitude, longitude, and a vertical dimension such as pressure or height). The time dimension makes 4 dimensions in total, which means we need to use multi-dimensional arrays to manipulate the data. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is not designed for working with multidimensional arrays in an easy way, so we need a new sort of data type to handle gridded data. Additionally, gridded climate data is often too “big” (in terms of file size) to store in the ASCII text formats (such as .csv) that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> handles. So in addition to a new data type, we also need a new file format that saves the data in the more efficient binary format (instead of plain text, which is less efficient storage-wise).</p>
+<p>The standard file type for spatio-temporal climate data is called netCDF, or “Network Common Data Form”. netCDF is a “self-describing” data format, in the sense that the files contain metadata about the physical dimensions and coordinates of the data, and other attributes such as units and possibly, history of how the data was generated.</p>
+<p>You can open and read netCDF files with Python using the package <a class="reference external" href="https://unidata.github.io/netcdf4-python/">netcdf4-python</a>, and extract the data in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays. This package is a basic, low-level interface that is expanded upon in the higher-level package  <a class="reference external" href="https://docs.xarray.dev/en/stable/">xarray</a>. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> is built for working with arrays with named dimensions (such as “time” or “latitude”) and is the workhorse for doing climate analysis in Python. It shares much of the same functionality as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> for doing calculations, and supports <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/dask.html">parallelizing operations</a> with <a class="reference external" href="https://docs.dask.org/en/stable/">dask</a>, which can significantly speed up calculations involving large datasets. From here on, nearly all of our code will rely on <code class="docutils literal notranslate"><span class="pre">xarray</span></code> for working with netCDF data and doing analyis.</p>
+<p>In this guidebook, we’ll focus on the gridded observational products hosted on the <a class="reference external" href="https://pavics.ouranos.ca/datasets.html#a">PAVICS THREDDS server</a>, which can be accessed directly using the OPeNDAP capability of <code class="docutils literal notranslate"><span class="pre">xarray</span></code>.</p>
+<p>The dataset we’ll explore here is the NRCan gridded observations, derived from station oberservations using the ANUSPLIN interpolation algorithm. The spatial resolution is 10 km<span class="math notranslate nohighlight">\(\times\)</span>10 km, and data is available from 1950-2017. More information on this dataset can be found in <a class="reference external" href="https://journals.ametsoc.org/doi/pdf/10.1175/2011BAMS3132.1">this publication</a>. The entire dataset is large (about 50 GB per variable), so we will work with subsets of the data which are easy to load into memory. Thankfully, the OPeNDAP protocol allows for the subsetting to happen at the host end, before the data is loaded onto your local machine.</p>
+<p>There is a limit to how much data can be transferred from the PAVICS server to your local machine via OPeNDAP, so for production uses you’ll need to download the data and store it locally. See the end of this section for a brief tutorial on how to download and save the NRCAN gridded oservational data.</p>
+<p><strong>NB: It’s important to remember that working with gridded data can require significantly more computational resources (storage, memory, and processor time) than data for a single location, especially for high temporal frequencies (daily or greater), fine spatial resolutions (finer than 1 degree), and large spatial domains. Keep this in mind when downloading gridded data.</strong></p>
+</div>
+<div class="section" id="accessing-the-data-with-opendap">
+<h2>3.2.2 Accessing the Data with OPeNDAP<a class="headerlink" href="#accessing-the-data-with-opendap" title="Permalink to this headline">#</a></h2>
+<p>First, we will use the python module <code class="docutils literal notranslate"><span class="pre">siphon</span></code> to set up a connection to the PAVICS server, and then we’ll load the data using <code class="docutils literal notranslate"><span class="pre">xarray.open_dataset()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
+<span class="kn">from</span> <span class="nn">siphon.catalog</span> <span class="kn">import</span> <span class="n">TDSCatalog</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1"># this is the URL for PAVICS&#39; THREDDS server which hosts gridded observations. You can</span>
+<span class="c1"># enter this URL into a browser (but change the .xml to .html) to explore the data catalog</span>
+<span class="n">url_gridded_obs</span> <span class="o">=</span> <span class="s2">&quot;https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/datasets/gridded_obs/catalog.xml&quot;</span>
+
+<span class="c1"># Create Catalog object - this contains the info for the datasets in this directory</span>
+<span class="n">cat</span> <span class="o">=</span> <span class="n">TDSCatalog</span><span class="p">(</span><span class="n">url_gridded_obs</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">cat</span><span class="o">.</span><span class="n">datasets</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nrcan_v2.ncml
+nrcan.ncml
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># there are two versions of the NRCAN dataset. We will use the more recent one, version 2.</span>
+<span class="n">cds</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+
+<span class="c1"># open the dataset using the OPenDAP URL</span>
+<span class="n">nrcan_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">cds</span><span class="o">.</span><span class="n">access_urls</span><span class="p">[</span><span class="s2">&quot;OPENDAP&quot;</span><span class="p">])</span>
+
+<span class="c1"># this will print out an interactive summary of the contents of the dataset</span>
+<span class="n">nrcan_ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:  (lat: 510, lon: 1068, time: 24837)
+Coordinates:
+  * lat      (lat) float32 83.46 83.38 83.29 83.21 ... 41.29 41.21 41.12 41.04
+  * lon      (lon) float32 -141.0 -140.9 -140.8 -140.7 ... -52.21 -52.13 -52.04
+  * time     (time) datetime64[ns] 1950-01-01 1950-01-02 ... 2017-12-31
+Data variables:
+    tasmin   (time, lat, lon) float32 ...
+    tasmax   (time, lat, lon) float32 ...
+    pr       (time, lat, lon) float32 ...
+Attributes: (12/15)
+    Conventions:          CF-1.5
+    title:                NRCAN ANUSPLIN daily gridded dataset : version 2
+    history:              Fri Jan 25 14:11:15 2019 : Convert from original fo...
+    institute_id:         NRCAN
+    frequency:            day
+    abstract:             Gridded daily observational dataset produced by Nat...
+    ...                   ...
+    dataset_id:           NRCAN_anusplin_daily_v2
+    version:              2.0
+    license_type:         permissive
+    license:              https://open.canada.ca/en/open-government-licence-c...
+    attribution:          The authors provide this data under the Environment...
+    citation:             Natural Resources Canada ANUSPLIN interpolated hist...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-c04fbed2-2ac7-4024-acda-0643030dea53' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c04fbed2-2ac7-4024-acda-0643030dea53' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 510</li><li><span class='xr-has-index'>lon</span>: 1068</li><li><span class='xr-has-index'>time</span>: 24837</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-60add63d-4a30-4a27-b04b-e234dd0f2e26' class='xr-section-summary-in' type='checkbox'  checked><label for='section-60add63d-4a30-4a27-b04b-e234dd0f2e26' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>83.46 83.38 83.29 ... 41.12 41.04</div><input id='attrs-83af4910-7d57-48f6-b645-a73a1e0ba942' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-83af4910-7d57-48f6-b645-a73a1e0ba942' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-044f221b-4e5c-4835-a0b6-548354caeeb8' class='xr-var-data-in' type='checkbox'><label for='data-044f221b-4e5c-4835-a0b6-548354caeeb8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>_ChunkSizes :</span></dt><dd>510</dd></dl></div><div class='xr-var-data'><pre>array([83.45833 , 83.375   , 83.291664, ..., 41.208332, 41.125   , 41.041668],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-141.0 -140.9 ... -52.13 -52.04</div><input id='attrs-ce68a886-78a0-4baf-83d0-47d9b0dd62f7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ce68a886-78a0-4baf-83d0-47d9b0dd62f7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5bb3b89e-ff64-49dc-99e8-8532d8dd3e25' class='xr-var-data-in' type='checkbox'><label for='data-5bb3b89e-ff64-49dc-99e8-8532d8dd3e25' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>_ChunkSizes :</span></dt><dd>1068</dd></dl></div><div class='xr-var-data'><pre>array([-140.95833 , -140.875   , -140.79167 , ...,  -52.208336,  -52.125004,
+        -52.04167 ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1950-01-01 ... 2017-12-31</div><input id='attrs-623c5f71-873a-463d-b4d4-dfd1518ce884' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-623c5f71-873a-463d-b4d4-dfd1518ce884' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2b60060b-d66a-4853-b196-304882e557fc' class='xr-var-data-in' type='checkbox'><label for='data-2b60060b-d66a-4853-b196-304882e557fc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>_ChunkSizes :</span></dt><dd>1024</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1950-01-01T00:00:00.000000000&#x27;, &#x27;1950-01-02T00:00:00.000000000&#x27;,
+       &#x27;1950-01-03T00:00:00.000000000&#x27;, ..., &#x27;2017-12-29T00:00:00.000000000&#x27;,
+       &#x27;2017-12-30T00:00:00.000000000&#x27;, &#x27;2017-12-31T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-df3d3d0b-5c03-4545-b68c-88ffb961d235' class='xr-section-summary-in' type='checkbox'  checked><label for='section-df3d3d0b-5c03-4545-b68c-88ffb961d235' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tasmin</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-51b762a3-e29c-4fa6-854b-3088a7ce28fb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-51b762a3-e29c-4fa6-854b-3088a7ce28fb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bdb61e74-60ed-4bd5-93cd-7aee6d2c11b5' class='xr-var-data-in' type='checkbox'><label for='data-bdb61e74-60ed-4bd5-93cd-7aee6d2c11b5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>air_temperature</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>_ChunkSizes :</span></dt><dd>[366  50  50]</dd></dl></div><div class='xr-var-data'><pre>[13528217160 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tasmax</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4fcc51af-0996-46c3-9950-fc76bb9c40e5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4fcc51af-0996-46c3-9950-fc76bb9c40e5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b8fcdae4-55ed-49cb-9f53-eb454c778d70' class='xr-var-data-in' type='checkbox'><label for='data-b8fcdae4-55ed-49cb-9f53-eb454c778d70' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>air_temperature</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>_ChunkSizes :</span></dt><dd>[366  50  50]</dd></dl></div><div class='xr-var-data'><pre>[13528217160 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pr</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4ec638ad-6f56-41d9-9050-347c1f91caaf' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4ec638ad-6f56-41d9-9050-347c1f91caaf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-350ba448-fede-4a8d-8c91-5750e5946b05' class='xr-var-data-in' type='checkbox'><label for='data-350ba448-fede-4a8d-8c91-5750e5946b05' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>mm s-1</dd><dt><span>long_name :</span></dt><dd>lwe_precipitation_rate</dd><dt><span>standard_name :</span></dt><dd>lwe_precipitation_rate</dd><dt><span>_ChunkSizes :</span></dt><dd>[366  50  50]</dd></dl></div><div class='xr-var-data'><pre>[13528217160 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6dd0927a-a1fa-4550-a03c-6bc98052ac60' class='xr-section-summary-in' type='checkbox'  ><label for='section-6dd0927a-a1fa-4550-a03c-6bc98052ac60' class='xr-section-summary' >Attributes: <span>(15)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.5</dd><dt><span>title :</span></dt><dd>NRCAN ANUSPLIN daily gridded dataset : version 2</dd><dt><span>history :</span></dt><dd>Fri Jan 25 14:11:15 2019 : Convert from original format to NetCDF</dd><dt><span>institute_id :</span></dt><dd>NRCAN</dd><dt><span>frequency :</span></dt><dd>day</dd><dt><span>abstract :</span></dt><dd>Gridded daily observational dataset produced by Natural Resources Canada (NRCan), available at 300 arc second spatial resolution (1/12° grids, ~10 km) over Canada. The version 2 dataset was updated in its entirety compared with version 1 and is not a simple extension of version 1 with additional years of data. Gridding was accomplished with the Australian National University Spline (ANUSPLIN) implementation of the trivariate thin plate splines interpolation method with latitude, longitude and elevation as predictors. </dd><dt><span>dataset_description :</span></dt><dd>https://cfs.nrcan.gc.ca/projects/3/1</dd><dt><span>type :</span></dt><dd>gridded_obs</dd><dt><span>institute :</span></dt><dd>Natural Resources Canada : Canadian Forest Service</dd><dt><span>dataset_id :</span></dt><dd>NRCAN_anusplin_daily_v2</dd><dt><span>version :</span></dt><dd>2.0</dd><dt><span>license_type :</span></dt><dd>permissive</dd><dt><span>license :</span></dt><dd>https://open.canada.ca/en/open-government-licence-canada</dd><dt><span>attribution :</span></dt><dd>The authors provide this data under the Environment and Climate Change Canada Data Server End Use License and demand that any references to or derivative works based on this dataset be cited using the provided citation information</dd><dt><span>citation :</span></dt><dd>Natural Resources Canada ANUSPLIN interpolated historical climate model from McKenney, D.W., M.F. Hutchinson, P. Papadol, K. Lawrence, J. Pedlar, K. Campbell, E. Milewska, R.F. Hopkinson, D. Price, and T. Owen, 2011. Customized Spatial Climate Models for North America. Bull. Amer. Meteor. Soc., 92, 1611-1622, https://doi.org/10.1175/2011BAMS3132.1</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<p>Acessing the data with <code class="docutils literal notranslate"><span class="pre">xr.open_dataset()</span></code> has returned an <code class="docutils literal notranslate"><span class="pre">xr.Dataset</span></code> object, which itself contains three <code class="docutils literal notranslate"><span class="pre">xr.DataArray</span></code>s that store each of the three variables: precipitation, and daily maximum and minimum temperature. Using the package <a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">cartopy</a>, we can take a peek at the data for a particular day and plot it on a map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up axes with the &#39;PlateCarree&#39; rectangular coordinate projection for plotting a map</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> 
+                                         <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()),</span>
+                       <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># select the precipitation data for a particular day</span>
+<span class="n">sample_time</span> <span class="o">=</span> <span class="s1">&#39;2007-06-05&#39;</span>
+<span class="n">precip_sample</span> <span class="o">=</span> <span class="n">nrcan_ds</span><span class="o">.</span><span class="n">pr</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">sample_time</span><span class="p">)</span> 
+
+<span class="c1"># units of the data are mm/s, but we prefer the standard unit of mm/day so let&#39;s convert units</span>
+<span class="c1"># by multiplying by the number of seconds per day</span>
+<span class="n">precip_sample</span> <span class="o">=</span> <span class="n">precip_sample</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">24</span>
+
+<span class="c1"># plot the data with 20 filled contours</span>
+<span class="n">precip_sample</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> 
+                            <span class="n">levels</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> 
+                            <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;mm/day&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;horizontal&#39;</span><span class="p">}</span>
+                            <span class="p">)</span>
+
+<span class="c1"># add coastlines to the map so we can easily determine what is land and what is not</span>
+<span class="c1"># (although this dataset only includes data over land so it won&#39;t really make much of a difference)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1"># add provincial borders and make sure they&#39;re plotted on top of the contour data</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">STATES</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># plot title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Precipitation for </span><span class="si">{</span><span class="n">sample_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/eadae78fc97fa02cdc01a90743c9d90654b7c74915303b273a28d6b93190dda0.png" src="../_images/eadae78fc97fa02cdc01a90743c9d90654b7c74915303b273a28d6b93190dda0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="analyzing-the-data">
+<h2>3.2.3 Analyzing the Data<a class="headerlink" href="#analyzing-the-data" title="Permalink to this headline">#</a></h2>
+<p>The above map shows that on the day in question, there was fairly heavy precipitation in Alberta, near Calgary. Let’s subset the data in this region so we can analyze it further.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subset for Calgary</span>
+<span class="n">lat_bnds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">52</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="n">lon_bnds</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">115</span><span class="p">,</span> <span class="o">-</span><span class="mi">113</span><span class="p">]</span>
+
+<span class="n">ds_region</span> <span class="o">=</span> <span class="n">nrcan_ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lat_bnds</span><span class="p">),</span> <span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lon_bnds</span><span class="p">))</span>
+
+<span class="c1"># get the precip data for all times</span>
+<span class="n">precip</span> <span class="o">=</span> <span class="n">ds_region</span><span class="o">.</span><span class="n">pr</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">24</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the data on the same day as before</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> 
+                                         <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()),</span>
+                       <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">precip</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">sample_time</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> 
+                                             <span class="n">levels</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> 
+                                             <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;mm/day&#39;</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">STATES</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># plot the location of Calgary as a dot</span>
+<span class="n">lat_cgy</span> <span class="o">=</span> <span class="mf">51.0447</span>
+<span class="n">lon_cgy</span> <span class="o">=</span> <span class="o">-</span><span class="mf">114.0719</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lon_cgy</span><span class="p">,</span> <span class="n">lat_cgy</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Calgary&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># latitude and longitude ticks</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">*</span><span class="n">lon_bnds</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">*</span><span class="n">lat_bnds</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.3</span><span class="p">))</span>
+
+<span class="c1"># plot title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Precipitation for </span><span class="si">{</span><span class="n">sample_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6fa6492ed4f8894221059f96f079d18bedc398c24af0c777ad33c82e6bac7ff9.png" src="../_images/6fa6492ed4f8894221059f96f079d18bedc398c24af0c777ad33c82e6bac7ff9.png" />
+</div>
+</div>
+<p>Zooming in around Calgary confirms that there was heavy precipitation there on this particular day - about 27 mm. How does it compare to the 50-year return values for this region? We can calculate this by fitting a GEV distribution to the data for each grid cell. The function <code class="docutils literal notranslate"><span class="pre">dask.array.apply_along_axis</span></code> is useful for this, since the <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> fitting functions work only for 1D data by default.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># annual maximum precip</span>
+<span class="n">precip_annmax</span> <span class="o">=</span> <span class="n">precip</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="c1"># fit the GEV distribution at each grid cell - this will return a dask array, which is like a numpy array,</span>
+<span class="c1"># so it loses the named dimensions</span>
+<span class="n">gev_params</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">fit</span><span class="p">,</span> 
+                                         <span class="n">precip_annmax</span><span class="o">.</span><span class="n">get_axis_num</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">),</span>
+                                         <span class="n">precip_annmax</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># calculate 50-year return period value  - this fuction will automatically do the calculation</span>
+<span class="c1"># for each grid cell without any</span>
+<span class="n">precip_return50</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">50</span><span class="p">),</span> <span class="n">gev_params</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gev_params</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">gev_params</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/scipy/stats/_distn_infrastructure.py:406: RuntimeWarning: invalid value encountered in double_scalars
+  return m3 / np.power(m2, 1.5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a map of 50-year return values</span>
+
+<span class="n">lons</span> <span class="o">=</span> <span class="n">precip</span><span class="o">.</span><span class="n">lon</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">precip</span><span class="o">.</span><span class="n">lat</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> 
+                                         <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()),</span>
+                       <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">precip_return50</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;mm/day&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;50-Year Return Value Precipitation&quot;</span><span class="p">)</span>
+<span class="n">lat_cgy</span> <span class="o">=</span> <span class="mf">51.0447</span>
+<span class="n">lon_cgy</span> <span class="o">=</span> <span class="o">-</span><span class="mf">114.0719</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lon_cgy</span><span class="p">,</span> <span class="n">lat_cgy</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Calgary&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># latitude and longitude ticks</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">*</span><span class="n">lon_bnds</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">*</span><span class="n">lat_bnds</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.3</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f7a9a4090c4e848e77a3b0e4d31512307ae72f0e7bb793b05b6bb58be1f8e748.png" src="../_images/f7a9a4090c4e848e77a3b0e4d31512307ae72f0e7bb793b05b6bb58be1f8e748.png" />
+</div>
+</div>
+<p>This map tells us that the 50-year return value of precipitation near Calgary is about 65 mm/day, so the event on the day we selected was certainly a lot of rain, but not particularly close to a 50-year event.</p>
+</div>
+<div class="section" id="other-calculations">
+<h2>3.2.4 Other Calculations<a class="headerlink" href="#other-calculations" title="Permalink to this headline">#</a></h2>
+<p>Doing the calculation of 50-year return values for gridded data with xarray was a particularly cumbersome task. For most typical calculations, we can do everything with just xarray and numpy, there is usually no need to use <code class="docutils literal notranslate"><span class="pre">dask</span></code> directly. Next let’s use the pandas-like functionality of xarray to calculate a monthly climatlogy of daily maximum temperature for the Toronto region, to compare to our previous station-based estimates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subset for Toronto region</span>
+<span class="n">lat_bnds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+<span class="n">lon_bnds</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">81</span><span class="p">,</span> <span class="o">-</span><span class="mi">78</span><span class="p">]</span>
+
+<span class="n">ds_region</span> <span class="o">=</span> <span class="n">nrcan_ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lat_bnds</span><span class="p">),</span> <span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lon_bnds</span><span class="p">))</span>
+
+<span class="c1"># daily maximum temperature data for 1992-2021, similar time period to the station analysis</span>
+<span class="n">tmax</span> <span class="o">=</span> <span class="n">ds_region</span><span class="o">.</span><span class="n">tasmax</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">ds_region</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">2022</span><span class="p">)))</span>
+
+<span class="c1"># divide the data into chunks for automatic parallelization of the calculations</span>
+<span class="n">tmax</span> <span class="o">=</span> <span class="n">tmax</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">chunks</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate monthly climatology - one line of code!</span>
+<span class="n">tmax_monthly_clim</span> <span class="o">=</span> <span class="n">tmax</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span> 
+
+<span class="c1"># NB: calling ds.compute() will trigger computation immediately, and store the numerical results in memory.</span>
+<span class="c1"># it can be good to do before plotting results, so it&#39;s easier to fix small details of a plot</span>
+<span class="c1"># without redoing the computation each time (which can be slow). Only use ds.compute() when you&#39;re ready</span>
+<span class="c1"># to calculate a final result - you don&#39;t need to use it for calculating intermediate quantities you won&#39;t</span>
+<span class="c1"># plot or write to a file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot maps in a grid</span>
+<span class="n">monthnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span> <span class="s1">&#39;Jul&#39;</span><span class="p">,</span> <span class="s1">&#39;Aug&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span> <span class="p">,</span><span class="s1">&#39;Dec&#39;</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> 
+                         <span class="n">constrained_layout</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                         <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> 
+                         <span class="n">subplot_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> 
+                                            <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()))</span>
+<span class="n">axes_flat</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">axes_flat</span><span class="p">)):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">tmax_monthly_clim</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">month</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span> <span class="c1"># convert from K to Celsius</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes_flat</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">axes_flat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+    <span class="n">axes_flat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">monthnames</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="c1"># plot the Great Lakes</span>
+    <span class="n">axes_flat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAKES</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> 
+
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes_flat</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> 
+             <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;Temperature ($^{\circ}$C)&#39;</span><span class="p">,</span> 
+             <span class="n">aspect</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+             <span class="n">extendrect</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Monthly Climatology of Daily Maximum Temperature for Toronto Region&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e414f3f3d153c9018b9f6ea3dc6f0079ba3d2c2997dbdc1b527f6bc1ec88115f.png" src="../_images/e414f3f3d153c9018b9f6ea3dc6f0079ba3d2c2997dbdc1b527f6bc1ec88115f.png" />
+</div>
+</div>
+<p>The climatology maps plotted here largely agree with those from the station observations in Section 3.1, which is no surprise since the gridded data here is derived from station observations. This notebook has demonstrated some of the capabilities and limitations of xarray regarding handling climate data.</p>
+<p>A major limitation many observational data products, including gridded data products like the NRCAN ANUSPLIN dataset, is a lack of complete spatial coverage. This this product only includes data for Canada, it is cut off at the border with the United states, which is why the above maps are blank in the southern part of the domain. One solution to this issue regarding spatial coverage is to use <strong>reanalysis</strong> data as a proxy for observations. Reanalysis data will be the subject of the following section.</p>
+</div>
+<div class="section" id="saving-the-data-locally">
+<h2>3.2.5 Saving the Data Locally<a class="headerlink" href="#saving-the-data-locally" title="Permalink to this headline">#</a></h2>
+<p>As mention in the preamble to this notebook, only small subsets of the NRCAN observational data can be accessed remotely through OPeNDAP. For most practical uses, you’ll need to download and save the data to your own machine. This cannot be done from the PAVICS server due to technical limitations, but you can access this dataset from the <a class="reference external" href="https://pacificclimate.org/data">PCIC data portal</a> as well (albeit only for the period 1950-2010). More documentation about the PCIC data portal can be found <a class="reference external" href="https://data.pacificclimate.org/portal/docs/index.html">here</a>.</p>
+<p>Below is code for a function that can be used to download the data (it is the same function we’ll use in section 3.4 for downloading climate model output from the ESGF archive).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading &quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">total_size</span><span class="p">,</span> <span class="n">block_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content-length&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="mi">1024</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">block_size</span><span class="p">),</span>
+                         <span class="n">total</span><span class="o">=</span><span class="n">total_size</span><span class="o">//</span><span class="n">block_size</span><span class="p">,</span>
+                         <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;MiB&#39;</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">total_size</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">!=</span> <span class="n">total_size</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloaded size does not match expected size!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;FYI, the status code was &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In a similar way to accessing data from a THREDDS server using OPeNDAP, we’ll need to load a data catalog from a URL, and parse the results to find the URL for the dataset we want. Let’s do that below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://tools.pacificclimate.org/dataportal/gridded_observations/catalog/catalog.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
+    <span class="n">datasets</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datasets</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;pr_day_TPS_NWNA_v1_historical_19450101-20121231&#39;, &#39;pr_day_ANUSPLIN_CDA_v2012.1_historical_19500101-20101231&#39;, &#39;tasmin_day_SYMAP_BC_v1_historical_19500101-20061231&#39;, &#39;tasmax_day_TPS_NWNA_v1_historical_19450101-20121231&#39;, &#39;pr_day_SYMAP_BC_v1_historical_19500101-20061231&#39;, &#39;tasmin_day_TPS_NWNA_v1_historical_19450101-20121231&#39;, &#39;tasmin_day_ANUSPLIN_CDA_v2012.1_historical_19500101-20101231&#39;, &#39;tasmax_day_SYMAP_BC_v1_historical_19500101-20061231&#39;, &#39;wind_day_SYMAP_BC_v1_historical_19500101-20061231&#39;, &#39;tasmax_day_ANUSPLIN_CDA_v2012.1_historical_19500101-20101231&#39;, &#39;wind_day_TPS_NWNA_v1_historical_19450101-20121231&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">datasets</span></code> is a Python dictionary object, where the keys are the names of each dataset stored in this data catalog. The ones with ANUSPLIN in their name are the NRCAN gridded observations. Unlike PAVICS, each variable is in its own dataset, so if you only want the precipitation data, you don’t need to download the daily max and min temperature data as well.</p>
+<p>If you want to download a subset (either spatially or temporally) of the data, you can add an extension to the URL indicating the slices of the data array to access (inclusive of the ending index, which is different from Python-style array slicing). For example the code below will download the first 10 timesteps of the precipitation data, for a 10 <span class="math notranslate nohighlight">\(\times\)</span> 20 (lat <span class="math notranslate nohighlight">\(\times\)</span> lon) grid cell box somewhere in the domain. To help inform your data selection for spatial regions, it could be helpful to download a sample for a single timestep that covers the whole domain, and then figure out which indicies of the latitude and longitude arrays correspond to the bounding box you desire.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_download</span> <span class="o">=</span> <span class="n">datasets</span><span class="p">[</span><span class="s2">&quot;pr_day_ANUSPLIN_CDA_v2012.1_historical_19500101-20101231&quot;</span><span class="p">]</span>
+<span class="n">url_download_subset</span> <span class="o">=</span> <span class="n">url_download</span> <span class="o">+</span> <span class="s2">&quot;?pr[0:9][150:159][330:349]&quot;</span>
+<span class="n">filename_to_write</span> <span class="o">=</span> <span class="s2">&quot;test_NRCAN_download.nc&quot;</span>
+<span class="n">download</span><span class="p">(</span><span class="n">url_download_subset</span><span class="p">,</span> <span class="n">filename_to_write</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading  test_NRCAN_download.nc
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                                                                                           | 0.00/10.0 [00:00&lt;?, ?MiB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|███████████████████████████████████████████████████████████████████████████████████████████████████████▌                                            | 7.00/10.0 [00:00&lt;00:00, 48.3MiB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.0MiB [00:00, 65.8MiB/s]                                                                                                                                                                   
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since this was only a tiny subset of the data (which we could have certainly accessed via OPeNDAP), the download was very quick, but when the subset of the data is larger, it can take over an hour for the download to complete (depending on the volume of data and the speed of your connection). Once completed, you can open the file using <code class="docutils literal notranslate"><span class="pre">xr.open_dataset()</span></code> and manipulate it in exactly the same way as the examples above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_downloaded</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filename_to_write</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> 
+                                         <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()))</span>
+<span class="n">ds_downloaded</span><span class="o">.</span><span class="n">pr</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ds_downloaded</span><span class="o">.</span><span class="n">lon</span><span class="p">[::</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">ds_downloaded</span><span class="o">.</span><span class="n">lat</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/303121a72b982ac97500e9e59d3d09b3b74d2af222dfb432b8fa3ec47ac008d7.png" src="../_images/303121a72b982ac97500e9e59d3d09b3b74d2af222dfb432b8fa3ec47ac008d7.png" />
+</div>
+</div>
+</div>
+<div class="section" id="appendix-other-gridded-observational-datasets">
+<h2>Appendix: Other gridded observational datasets<a class="headerlink" href="#appendix-other-gridded-observational-datasets" title="Permalink to this headline">#</a></h2>
+<p>The NRCan gridded observations are at daily frequency and include spatial coverage for Canada only - if you require coverage for other regions or sub-daily data, you may be able to find what you’re looking for by searching the <a class="reference external" href="https://climatedataguide.ucar.edu/">NCAR Climate Data Guide</a>, or you may need to rely on reanalysis data (described in the next section).</p>
+<p>Another commonly used gridded observational dataset, with coverage over southern Canada, the contiguous United States, and Mexico, is the <a class="reference external" href="https://doi.org/10.7289/v5x34vf6">Livneh dataset</a>. Further information about this dataset, how it was created, and how to access it, can be found on its <a class="reference external" href="https://climatedataguide.ucar.edu/climate-data/livneh-gridded-precipitation-and-other-meteorological-variables-continental-us-mexico">NCAR Climate Data Guide page</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="section3.1_station_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.1 Station Observations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="section3.3_reanalysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.3 Reanalysis Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-netcdf-data-file-format">3.2.1 The netCDF Data File Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-data-with-opendap">3.2.2 Accessing the Data with OPeNDAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-data">3.2.3 Analyzing the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-calculations">3.2.4 Other Calculations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-data-locally">3.2.5 Saving the Data Locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-other-gridded-observational-datasets">Appendix: Other gridded observational datasets</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Morris, Karen Smith, and Paul Kushner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

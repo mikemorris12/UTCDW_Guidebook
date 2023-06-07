@@ -1,0 +1,1268 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.5 Assessing Downscaled Climate Projections &#8212; UTCDW Guidebook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter4/section4.5_assessing_downscaled_projections';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="4.4 Downscaling Validation" href="section4.4_downscaling_validation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">UTCDW Guidebook</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    UTCDW_Guidebook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1/chapter1.html">UTCDW Guidebook</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Section 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 - Climate Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.2_climate_modeling.html">2.2 Climate Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.3_climate_model_uncertainty.html">2.3 Climate Model Uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/chapter2_summary.html">2.4 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/chapter3.html">Section 3: Exploring Climate Data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.1_station_data.html">3.1 Station Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.2_gridded_obs.html">3.2 Gridded Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.3_reanalysis.html">3.3 Reanalysis Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.4_climate_model_output.html">Section 3.4 - Climate Model Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/chapter3_summary.html">3.5 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter4.html">Chapter 4 - Statistical Downscaling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="section4.1_downscaling_basics.html">4.1 Downscaling Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section4.2_bias_correction_methods.html">4.2 Bias-Correction Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section4.3_downscaling_methods.html">4.3 Downscaling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section4.4_downscaling_validation.html">4.4 Downscaling Validation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.5 Assessing Downscaled Climate Projections</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter4/section4.5_assessing_downscaled_projections.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4.5 Assessing Downscaled Climate Projections</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-tropical-nights-again">4.5.1 Calculating Tropical Nights (Again)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-significance-of-uncorrected-and-downscaled-projected-changes">4.5.2 Testing Significance of Uncorrected and Downscaled Projected Changes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="assessing-downscaled-climate-projections">
+<h1>4.5 Assessing Downscaled Climate Projections<a class="headerlink" href="#assessing-downscaled-climate-projections" title="Permalink to this headline">#</a></h1>
+<p>Once satisfied with the quality of the historical downscaled data, one can proceed with analyzing the downscaled future projections from the model. Since of course there are no observations of the future, we cannot do <em>validation</em> of the projected changes per se, but we can check that the changes/trends make physical sense, and are statistically significant in the context of natural climate variability. We did similar work in Chapter 3.4, but this time we will apply those methods to the downscaled data. In principle, the projected changes from the downscaled data should be similar to those from the raw, unadjusted model output, just with more spatial detail and with, at minimum, the effects of mean model biases diminished. Multivariate downscaling methods may introduce qualitative changes to the downscaled projections relative to the raw model projections because of differing changes to the different inpur variables, so this may not always be true. However, it is a good rule of thumb as a first pass check.</p>
+<p>Continuing with our example from Chapter 4.3, and the focus on extreme climate indices, let’s calculate the projected change in the number of Tropical Nights between 1971-2000 and 2071-2100, using the both the uncorrected and downscaled GCM data. This way we can see the effects of the downscaling, and compare the climate change signals between the two sets of data. Since BCCAQv2, the downscaling method used by PCIC, is a univariate method, the climate change signal should not be substantially different from that of the raw data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary packages</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
+<span class="n">spkws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+<span class="kn">from</span> <span class="nn">siphon.catalog</span> <span class="kn">import</span> <span class="n">TDSCatalog</span>
+<span class="kn">from</span> <span class="nn">xclim.core.calendar</span> <span class="kn">import</span> <span class="n">convert_calendar</span><span class="p">,</span> <span class="n">percentile_doy</span>
+<span class="kn">import</span> <span class="nn">xclim.indices</span> <span class="k">as</span> <span class="nn">xci</span>
+
+<span class="c1"># for getting data from the ESGF</span>
+<span class="kn">from</span> <span class="nn">pyesgf.search</span> <span class="kn">import</span> <span class="n">SearchConnection</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ESGF_PYCLIENT_NO_FACETS_STAR_WARNING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+
+<span class="c1"># centre of domain to analyze - same as for section 4.3 but slightly larger so we can fit multiple grid cells</span>
+<span class="n">lat_mtl</span> <span class="o">=</span> <span class="mf">45.5019</span>
+<span class="n">lon_mtl</span> <span class="o">=</span> <span class="o">-</span><span class="mf">73.5674</span>
+
+<span class="c1"># bounds of domain</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon_mtl</span> <span class="o">-</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">lon_mtl</span> <span class="o">+</span> <span class="mf">2.5</span><span class="p">]</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">[</span><span class="n">lat_mtl</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">lat_mtl</span> <span class="o">+</span> <span class="mf">4.75</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aquire downscaled data from PAVICS - same as section 4.3</span>
+<span class="n">url_pavics</span> <span class="o">=</span> <span class="s2">&quot;https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/datasets/&quot;</span>
+<span class="n">url_downscaled</span> <span class="o">=</span> <span class="n">url_pavics</span> <span class="o">+</span> <span class="s2">&quot;simulations/bias_adjusted/cmip6/pcic/CanDCS-U6/catalog.xml&quot;</span>
+<span class="n">cat_sds</span> <span class="o">=</span> <span class="n">TDSCatalog</span><span class="p">(</span><span class="n">url_downscaled</span><span class="p">)</span>
+
+<span class="c1"># open the downscaled gcm dataset and load the tasmax data</span>
+<span class="n">opendap_urls</span> <span class="o">=</span> <span class="p">[</span><span class="n">cat_sds</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">access_urls</span><span class="p">[</span><span class="s2">&quot;OPENDAP&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cat_sds</span><span class="o">.</span><span class="n">datasets</span><span class="p">))]</span>
+<span class="n">datasets_canesm_sds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;CanESM&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">,</span> <span class="n">opendap_urls</span><span class="p">))</span>
+
+<span class="n">url_sds</span> <span class="o">=</span> <span class="n">datasets_canesm_sds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">url_sds</span><span class="p">)</span>
+<span class="n">ds_sds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url_sds</span><span class="p">)</span>
+<span class="n">ds_sds</span> <span class="o">=</span> <span class="n">ds_sds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lats</span><span class="p">),</span> <span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lons</span><span class="p">))</span>
+
+<span class="c1"># select GCM data for historical and future periods</span>
+<span class="n">data_sds_hist</span> <span class="o">=</span> <span class="n">ds_sds</span><span class="o">.</span><span class="n">tasmin</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">ds_sds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1971</span><span class="p">,</span> <span class="mi">2001</span><span class="p">)))</span>
+<span class="n">data_sds_future</span> <span class="o">=</span> <span class="n">ds_sds</span><span class="o">.</span><span class="n">tasmin</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">ds_sds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2071</span><span class="p">,</span> <span class="mi">2101</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/dodsC/datasets/simulations/bias_adjusted/cmip6/pcic/CanDCS-U6/day_BCCAQv2+ANUSPLIN300_CanESM5_historical+ssp585_r9i1p2f1_gn_1950-2100.ncml
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the data for the raw simulation from ESGF for this same ensemble member.</span>
+<span class="c1"># this time we&#39;ll use the OPeNDAP URL for the ESGF node, so we don&#39;t need to download and save the files.</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">SearchConnection</span><span class="p">(</span><span class="s1">&#39;https://esgf-node.llnl.gov/esg-search&#39;</span><span class="p">,</span> <span class="n">distrib</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">new_context</span><span class="p">(</span><span class="n">latest</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="c1"># search for most recent versions of the file</span>
+                         <span class="n">project</span><span class="o">=</span><span class="s2">&quot;CMIP6&quot;</span><span class="p">,</span>
+                         <span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;historical,ssp585&#39;</span><span class="p">,</span>
+                         <span class="n">source_id</span> <span class="o">=</span> <span class="s2">&quot;CanESM5&quot;</span><span class="p">,</span>
+                         <span class="n">frequency</span> <span class="o">=</span> <span class="s1">&#39;day&#39;</span><span class="p">,</span>
+                         <span class="n">member_id</span><span class="o">=</span><span class="s2">&quot;r9i1p2f1&quot;</span><span class="p">,</span>
+                         <span class="n">variable_id</span> <span class="o">=</span> <span class="s2">&quot;tasmin&quot;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)):</span>
+    <span class="n">hit</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">file_context</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+    <span class="n">files</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> 
+                                 <span class="s1">&#39;opendap_url&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">opendap_url</span><span class="p">},</span> <span class="n">hit</span><span class="p">))</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span>
+<span class="n">files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/pyesgf/search/connection.py:268,</span> in <span class="ni">SearchConnection._load_available_shards</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">268</span>     <span class="n">shards</span> <span class="o">=</span> <span class="p">(</span><span class="n">response_json</span><span class="p">[</span><span class="s1">&#39;responseHeader&#39;</span><span class="p">][</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="s1">&#39;shards&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span>               <span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="ne">KeyError</span>: &#39;shards&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">EsgfSearchException</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)):</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">hit</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">file_context</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">files</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                                  <span class="s1">&#39;opendap_url&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">opendap_url</span><span class="p">},</span> <span class="n">hit</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/pyesgf/search/results.py:221,</span> in <span class="ni">DatasetResult.file_context</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span> <span class="kn">from</span> <span class="nn">.context</span> <span class="kn">import</span> <span class="n">FileSearchContext</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">distrib</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span>     <span class="c1"># If the index node is in the available shards for this connection</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># then restrict shards to that node.  Otherwise do nothing to</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="c1"># handle the case when the shard is replicated</span>
+<span class="ne">--&gt; </span><span class="mi">221</span>     <span class="n">available_shards</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">get_shard_list</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_node</span> <span class="ow">in</span> <span class="n">available_shards</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>         <span class="n">shards</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">index_node</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/pyesgf/search/connection.py:304,</span> in <span class="ni">SearchConnection.get_shard_list</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span><span class="sd"> return the list of all available shards.  A subset of the returned list</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span><span class="sd"> can be supplied to &#39;send_query()&#39; to limit the query to selected</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_available_shards</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">304</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_load_available_shards</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_available_shards</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/pyesgf/search/connection.py:273,</span> in <span class="ni">SearchConnection._load_available_shards</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>     <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;_load_available_shards() fails with this exception&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span>     <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;response_json = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">response_json</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">273</span>     <span class="k">raise</span> <span class="n">EsgfSearchException</span><span class="p">(</span><span class="s1">&#39;Error loading available shards&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span> <span class="c1"># Extract hostname and port from each shard.</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span> <span class="k">for</span> <span class="n">shard</span> <span class="ow">in</span> <span class="n">shards</span><span class="p">:</span>
+
+<span class="ne">EsgfSearchException</span>: Error loading available shards
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_hist_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;opendap_url&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># get lons bounds on [0, 360] scale</span>
+<span class="n">lons360</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="mi">360</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lons</span><span class="p">]</span>
+<span class="n">ds_hist_raw</span> <span class="o">=</span> <span class="n">ds_hist_raw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lats</span><span class="p">),</span> <span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lons360</span><span class="p">),</span> 
+                              <span class="n">time</span> <span class="o">=</span> <span class="n">ds_hist_raw</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1971</span><span class="p">,</span> <span class="mi">2001</span><span class="p">)))</span>
+<span class="c1"># convert back to [-180, 180] to match sds data</span>
+<span class="n">ds_hist_raw</span> <span class="o">=</span> <span class="n">ds_hist_raw</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">lon</span> <span class="o">=</span> <span class="n">ds_hist_raw</span><span class="o">.</span><span class="n">lon</span> <span class="o">-</span> <span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_hist_raw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:    (time: 10950, bnds: 2, lat: 2, lon: 2)
+Coordinates:
+  * time       (time) object 1971-01-01 12:00:00 ... 2000-12-31 12:00:00
+  * lat        (lat) float64 46.04 48.84
+  * lon        (lon) float64 -75.94 -73.12
+    height     float64 2.0
+Dimensions without coordinates: bnds
+Data variables:
+    time_bnds  (time, bnds) object 1971-01-01 00:00:00 ... 2001-01-01 00:00:00
+    lat_bnds   (lat, bnds) float64 44.66 47.45 47.45 50.24
+    lon_bnds   (lon, bnds) float64 282.7 285.5 285.5 288.3
+    tasmin     (time, lat, lon) float32 245.5 247.0 242.5 ... 257.9 254.8 247.7
+Attributes: (12/54)
+    CCCma_model_hash:                Unknown
+    CCCma_parent_runid:              p2-pictrl
+    CCCma_pycmor_hash:               7c87dd3a822d55650b3c17cd65db0ca251282530
+    CCCma_runid:                     p2-his09
+    Conventions:                     CF-1.7 CMIP-6.2
+    YMDH_branch_time_in_child:       1850:01:01:00
+    ...                              ...
+    variable_id:                     tasmin
+    variant_label:                   r9i1p2f1
+    version:                         v20190429
+    license:                         CMIP6 model data produced by The Governm...
+    cmor_version:                    3.4.0
+    DODS_EXTRA.Unlimited_Dimension:  time</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-c45fc340-f676-40ae-8b85-7638bdee2649' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c45fc340-f676-40ae-8b85-7638bdee2649' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 10950</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lat</span>: 2</li><li><span class='xr-has-index'>lon</span>: 2</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-bc6c1f92-a4b6-493c-a0c2-02b633582393' class='xr-section-summary-in' type='checkbox'  checked><label for='section-bc6c1f92-a4b6-493c-a0c2-02b633582393' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1971-01-01 12:00:00 ... 2000-12-...</div><input id='attrs-fcc52199-d924-49ce-b1c3-844cf5d6a2a5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fcc52199-d924-49ce-b1c3-844cf5d6a2a5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d7e97cf7-cdc7-44b3-9b64-b399b9bf0087' class='xr-var-data-in' type='checkbox'><label for='data-d7e97cf7-cdc7-44b3-9b64-b399b9bf0087' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>_ChunkSizes :</span></dt><dd>1</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1971, 1, 1, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1971, 1, 2, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1971, 1, 3, 12, 0, 0, 0, has_year_zero=True), ...,
+       cftime.DatetimeNoLeap(2000, 12, 29, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2000, 12, 30, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2000, 12, 31, 12, 0, 0, 0, has_year_zero=True)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>46.04 48.84</div><input id='attrs-b3e34ab8-a666-422d-8faf-9b03a14ad252' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b3e34ab8-a666-422d-8faf-9b03a14ad252' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1609758b-7a9c-40b8-9015-57f6387de5b5' class='xr-var-data-in' type='checkbox'><label for='data-1609758b-7a9c-40b8-9015-57f6387de5b5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([46.044727, 48.835241])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-75.94 -73.12</div><input id='attrs-a1addab6-2df8-439e-ab9e-414db643f525' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a1addab6-2df8-439e-ab9e-414db643f525' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3bded31a-6bed-4b7e-a970-49b728453585' class='xr-var-data-in' type='checkbox'><label for='data-3bded31a-6bed-4b7e-a970-49b728453585' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([-75.9375, -73.125 ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>height</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f168a82a-d49c-4ab7-9c0d-8821590cce8f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f168a82a-d49c-4ab7-9c0d-8821590cce8f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-14bae746-aba0-49ca-ad18-bfbef15c080a' class='xr-var-data-in' type='checkbox'><label for='data-14bae746-aba0-49ca-ad18-bfbef15c080a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>long_name :</span></dt><dd>height</dd><dt><span>standard_name :</span></dt><dd>height</dd></dl></div><div class='xr-var-data'><pre>array(2.)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e04bfab2-022b-47ca-b80d-59ba59791966' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e04bfab2-022b-47ca-b80d-59ba59791966' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-54282817-f567-4655-905d-e31f27983071' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-54282817-f567-4655-905d-e31f27983071' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-88f411fa-d9d2-4321-8e6a-9773aa9f0435' class='xr-var-data-in' type='checkbox'><label for='data-88f411fa-d9d2-4321-8e6a-9773aa9f0435' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_ChunkSizes :</span></dt><dd>[1 2]</dd></dl></div><div class='xr-var-data'><pre>array([[cftime.DatetimeNoLeap(1971, 1, 1, 0, 0, 0, 0, has_year_zero=True),
+        cftime.DatetimeNoLeap(1971, 1, 2, 0, 0, 0, 0, has_year_zero=True)],
+       [cftime.DatetimeNoLeap(1971, 1, 2, 0, 0, 0, 0, has_year_zero=True),
+        cftime.DatetimeNoLeap(1971, 1, 3, 0, 0, 0, 0, has_year_zero=True)],
+       [cftime.DatetimeNoLeap(1971, 1, 3, 0, 0, 0, 0, has_year_zero=True),
+        cftime.DatetimeNoLeap(1971, 1, 4, 0, 0, 0, 0, has_year_zero=True)],
+       ...,
+       [cftime.DatetimeNoLeap(2000, 12, 29, 0, 0, 0, 0, has_year_zero=True),
+        cftime.DatetimeNoLeap(2000, 12, 30, 0, 0, 0, 0, has_year_zero=True)],
+       [cftime.DatetimeNoLeap(2000, 12, 30, 0, 0, 0, 0, has_year_zero=True),
+        cftime.DatetimeNoLeap(2000, 12, 31, 0, 0, 0, 0, has_year_zero=True)],
+       [cftime.DatetimeNoLeap(2000, 12, 31, 0, 0, 0, 0, has_year_zero=True),
+        cftime.DatetimeNoLeap(2001, 1, 1, 0, 0, 0, 0, has_year_zero=True)]],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(lat, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-494b6528-7501-49a0-aa1c-bcb4998770f7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-494b6528-7501-49a0-aa1c-bcb4998770f7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7bfc1d25-ff25-4dda-a3a6-91b66129eff9' class='xr-var-data-in' type='checkbox'><label for='data-7bfc1d25-ff25-4dda-a3a6-91b66129eff9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_ChunkSizes :</span></dt><dd>[64  2]</dd></dl></div><div class='xr-var-data'><pre>array([[44.655058, 47.446155],
+       [47.446155, 50.237296]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(lon, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4eb70135-107b-4c73-8367-b8ce1bf730f1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4eb70135-107b-4c73-8367-b8ce1bf730f1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0b1567f8-85a1-4279-af3e-3303740804bc' class='xr-var-data-in' type='checkbox'><label for='data-0b1567f8-85a1-4279-af3e-3303740804bc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_ChunkSizes :</span></dt><dd>[128   2]</dd></dl></div><div class='xr-var-data'><pre>array([[282.65625, 285.46875],
+       [285.46875, 288.28125]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tasmin</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-97bbd0fa-0289-463e-9ac3-b3c97a0bbcf7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-97bbd0fa-0289-463e-9ac3-b3c97a0bbcf7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3c6ed892-5e58-4ba2-b88b-7b4faac91a85' class='xr-var-data-in' type='checkbox'><label for='data-3c6ed892-5e58-4ba2-b88b-7b4faac91a85' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Daily Minimum Near-Surface Air Temperature</dd><dt><span>comment :</span></dt><dd>minimum near-surface (usually, 2 meter) air temperature (add cell_method attribute &#x27;time: min&#x27;)</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>original_name :</span></dt><dd>STMN</dd><dt><span>cell_methods :</span></dt><dd>area: mean time: minimum</dd><dt><span>cell_measures :</span></dt><dd>area: areacella</dd><dt><span>history :</span></dt><dd>2019-05-30T06:22:22Z altered by CMOR: Treated scalar dimension: &#x27;height&#x27;. 2019-05-30T06:22:22Z altered by CMOR: Reordered dimensions, original order: lat lon time. 2019-05-30T06:22:22Z altered by CMOR: replaced missing value flag (1e+38) with standard missing value (1e+20).</dd><dt><span>_ChunkSizes :</span></dt><dd>[  1  64 128]</dd></dl></div><div class='xr-var-data'><pre>array([[[245.46028, 246.95842],
+        [242.50182, 246.127  ]],
+
+       [[238.87335, 240.12915],
+        [237.2039 , 241.22649]],
+
+       ...,
+
+       [[250.8655 , 240.91914],
+        [255.63405, 250.16466]],
+
+       [[258.56805, 257.94107],
+        [254.81924, 247.67055]]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-551fbf75-23dd-4c73-ade0-b5c8bdc4b712' class='xr-section-summary-in' type='checkbox'  ><label for='section-551fbf75-23dd-4c73-ade0-b5c8bdc4b712' class='xr-section-summary' >Attributes: <span>(54)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CCCma_model_hash :</span></dt><dd>Unknown</dd><dt><span>CCCma_parent_runid :</span></dt><dd>p2-pictrl</dd><dt><span>CCCma_pycmor_hash :</span></dt><dd>7c87dd3a822d55650b3c17cd65db0ca251282530</dd><dt><span>CCCma_runid :</span></dt><dd>p2-his09</dd><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>YMDH_branch_time_in_child :</span></dt><dd>1850:01:01:00</dd><dt><span>YMDH_branch_time_in_parent :</span></dt><dd>5950:01:01:00</dd><dt><span>activity_id :</span></dt><dd>CMIP</dd><dt><span>branch_method :</span></dt><dd>Spin-up documentation</dd><dt><span>branch_time_in_child :</span></dt><dd>0.0</dd><dt><span>branch_time_in_parent :</span></dt><dd>1496500.0</dd><dt><span>contact :</span></dt><dd>ec.cccma.info-info.ccmac.ec@canada.ca</dd><dt><span>creation_date :</span></dt><dd>2019-05-30T06:22:22Z</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>all-forcing simulation of the recent past</dd><dt><span>experiment_id :</span></dt><dd>historical</dd><dt><span>external_variables :</span></dt><dd>areacella</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>day</dd><dt><span>further_info_url :</span></dt><dd>https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.historical.none.r9i1p2f1</dd><dt><span>grid :</span></dt><dd>T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa</dd><dt><span>grid_label :</span></dt><dd>gn</dd><dt><span>history :</span></dt><dd>2019-05-30T06:22:22Z ;rewrote data to be consistent with CMIP for variable tasmin found in table day.</dd><dt><span>initialization_index :</span></dt><dd>1</dd><dt><span>institution :</span></dt><dd>Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada, Victoria, BC V8P 5C2, Canada</dd><dt><span>institution_id :</span></dt><dd>CCCma</dd><dt><span>mip_era :</span></dt><dd>CMIP6</dd><dt><span>nominal_resolution :</span></dt><dd>500 km</dd><dt><span>parent_activity_id :</span></dt><dd>CMIP</dd><dt><span>parent_experiment_id :</span></dt><dd>piControl</dd><dt><span>parent_mip_era :</span></dt><dd>CMIP6</dd><dt><span>parent_source_id :</span></dt><dd>CanESM5</dd><dt><span>parent_time_units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>parent_variant_label :</span></dt><dd>r1i1p2f1</dd><dt><span>physics_index :</span></dt><dd>2</dd><dt><span>product :</span></dt><dd>model-output</dd><dt><span>realization_index :</span></dt><dd>9</dd><dt><span>realm :</span></dt><dd>atmos</dd><dt><span>references :</span></dt><dd>Geophysical Model Development Special issue on CanESM5 (https://www.geosci-model-dev.net/special_issues.html)</dd><dt><span>source :</span></dt><dd>CanESM5 (2019): 
+aerosol: interactive
+atmos: CanAM5 (T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa)
+atmosChem: specified oxidants for aerosols
+land: CLASS3.6/CTEM1.2
+landIce: specified ice sheets
+ocean: NEMO3.4.1 (ORCA1 tripolar grid, 1 deg with refinement to 1/3 deg within 20 degrees of the equator; 361 x 290 longitude/latitude; 45 vertical levels; top grid cell 0-6.19 m)
+ocnBgchem: Canadian Model of Ocean Carbon (CMOC); NPZD ecosystem with OMIP prescribed carbonate chemistry
+seaIce: LIM2</dd><dt><span>source_id :</span></dt><dd>CanESM5</dd><dt><span>source_type :</span></dt><dd>AOGCM</dd><dt><span>sub_experiment :</span></dt><dd>none</dd><dt><span>sub_experiment_id :</span></dt><dd>none</dd><dt><span>table_id :</span></dt><dd>day</dd><dt><span>table_info :</span></dt><dd>Creation Date:(20 February 2019) MD5:374fbe5a2bcca535c40f7f23da271e49</dd><dt><span>title :</span></dt><dd>CanESM5 output prepared for CMIP6</dd><dt><span>tracking_id :</span></dt><dd>hdl:21.14100/c203ac2b-1ba4-41f7-a9b5-cf9665481ab2</dd><dt><span>variable_id :</span></dt><dd>tasmin</dd><dt><span>variant_label :</span></dt><dd>r9i1p2f1</dd><dt><span>version :</span></dt><dd>v20190429</dd><dt><span>license :</span></dt><dd>CMIP6 model data produced by The Government of Canada (Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada) is licensed under a Creative Commons Attribution ShareAlike 4.0 International License (https://creativecommons.org/licenses). Consult https://pcmdi.llnl.gov/CMIP6/TermsOfUse for terms of use governing CMIP6 output, including citation requirements and proper acknowledgment. Further information about this data, including some limitations, can be found via the further_info_url (recorded as a global attribute in this file) and at https:///pcmdi.llnl.gov/. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.</dd><dt><span>cmor_version :</span></dt><dd>3.4.0</dd><dt><span>DODS_EXTRA.Unlimited_Dimension :</span></dt><dd>time</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># future raw data</span>
+<span class="n">ds_future_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;opendap_url&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ds_future_raw</span> <span class="o">=</span> <span class="n">ds_future_raw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lats</span><span class="p">),</span> <span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lons360</span><span class="p">),</span> 
+                              <span class="n">time</span> <span class="o">=</span> <span class="n">ds_future_raw</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2071</span><span class="p">,</span> <span class="mi">2101</span><span class="p">)))</span>
+<span class="c1"># convert back to [-180, 180] to match sds data</span>
+<span class="n">ds_future_raw</span> <span class="o">=</span> <span class="n">ds_future_raw</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">lon</span> <span class="o">=</span> <span class="n">ds_future_raw</span><span class="o">.</span><span class="n">lon</span> <span class="o">-</span> <span class="mi">360</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select tasmin data from dataarrays</span>
+<span class="n">data_raw_hist</span> <span class="o">=</span> <span class="n">ds_hist_raw</span><span class="o">.</span><span class="n">tasmin</span> <span class="o">-</span> <span class="mf">273.15</span>
+<span class="n">data_raw_future</span> <span class="o">=</span> <span class="n">ds_future_raw</span><span class="o">.</span><span class="n">tasmin</span> <span class="o">-</span> <span class="mf">273.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="calculating-tropical-nights-again">
+<h2>4.5.1 Calculating Tropical Nights (Again)<a class="headerlink" href="#calculating-tropical-nights-again" title="Permalink to this headline">#</a></h2>
+<p>Now that we’ve acquired both the downscaled and raw model output for our chosen model, study region, and time periods, we can calculate our indicator (Tropical Nights).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function for calculating effective sample size, copied from Chapter 3.4</span>
+<span class="k">def</span> <span class="nf">effective_sample_size</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">ntime</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="c1"># times not including the final timestep</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ntime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># data not including the first timestep</span>
+    <span class="n">data_lag</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ntime</span><span class="p">))</span>
+    <span class="c1"># match up time values, otherwise the xr.corr function won&#39;t return the correct output</span>
+    <span class="n">data_lag</span> <span class="o">=</span> <span class="n">data_lag</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">times</span><span class="p">)</span>
+    
+    <span class="c1"># calculate correlation</span>
+    <span class="n">autocor</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">times</span><span class="p">),</span>
+                      <span class="n">data_lag</span><span class="p">,</span>
+                      <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span>
+    
+    <span class="n">neff</span> <span class="o">=</span> <span class="n">ntime</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">autocor</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">autocor</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">neff</span>
+
+<span class="k">def</span> <span class="nf">get_hist_future_mean_trop_nights</span><span class="p">(</span><span class="n">data_hist</span><span class="p">,</span> <span class="n">data_future</span><span class="p">):</span>
+    <span class="c1"># assign units for use with xclim</span>
+    <span class="n">data_hist</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
+    <span class="n">data_future</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
+
+    <span class="c1"># calculate tropical nights</span>
+    <span class="n">tn_hist</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">tn_days_above</span><span class="p">(</span><span class="n">data_hist</span><span class="p">)</span>
+    <span class="n">tn_future</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">tn_days_above</span><span class="p">(</span><span class="n">data_future</span><span class="p">)</span>
+
+    <span class="c1"># get effective sample size for each period, for significance testing later on</span>
+    <span class="n">neff_hist</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">tn_hist</span><span class="p">)</span>
+    <span class="n">neff_future</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">tn_future</span><span class="p">)</span>
+
+    <span class="c1"># summary statistics (mean and stdev) - inputs for ttest_ind_from_stats</span>
+    <span class="n">tn_hist_mean</span> <span class="o">=</span> <span class="n">tn_hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+    <span class="n">tn_future_mean</span> <span class="o">=</span> <span class="n">tn_future</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+    <span class="n">tn_hist_std</span> <span class="o">=</span> <span class="n">tn_hist</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+    <span class="n">tn_future_std</span> <span class="o">=</span> <span class="n">tn_future</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+    
+    <span class="n">ds_out_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">:</span> <span class="n">tn_hist_mean</span><span class="p">,</span> <span class="s1">&#39;std_tn&#39;</span><span class="p">:</span> <span class="n">tn_hist_std</span><span class="p">,</span> <span class="s1">&#39;neff&#39;</span><span class="p">:</span> <span class="n">neff_hist</span><span class="p">})</span>
+    <span class="n">ds_out_future</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">({</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">:</span> <span class="n">tn_future_mean</span><span class="p">,</span> <span class="s1">&#39;std_tn&#39;</span><span class="p">:</span> <span class="n">tn_future_std</span><span class="p">,</span> <span class="s1">&#39;neff&#39;</span><span class="p">:</span> <span class="n">neff_future</span><span class="p">})</span>
+    
+    <span class="k">return</span> <span class="n">ds_out_hist</span><span class="p">,</span> <span class="n">ds_out_future</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># apply the function on the raw and downscaled data</span>
+<span class="n">ds_tn_hist_raw</span><span class="p">,</span> <span class="n">ds_tn_future_raw</span> <span class="o">=</span> <span class="n">get_hist_future_mean_trop_nights</span><span class="p">(</span><span class="n">data_raw_hist</span><span class="p">,</span> <span class="n">data_raw_future</span><span class="p">)</span>
+<span class="n">ds_tn_hist_sds</span><span class="p">,</span> <span class="n">ds_tn_future_sds</span> <span class="o">=</span> <span class="n">get_hist_future_mean_trop_nights</span><span class="p">(</span><span class="n">data_sds_hist</span><span class="p">,</span> <span class="n">data_sds_future</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the historical results for both the raw and downscaled data</span>
+<span class="n">clevs_tn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nrows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">)</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">ds_tn_hist_raw</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Raw GCM 1971-2000&quot;</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">ds_tn_hist_sds</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Downscaled GCM 1971-2000&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Mean Tropical Nights per Year&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c33126b189ac5ad3b8c09d4b11e6f6e6b11cf8c8531c755b310749b42a92d673.png" src="../_images/c33126b189ac5ad3b8c09d4b11e6f6e6b11cf8c8531c755b310749b42a92d673.png" />
+</div>
+</div>
+<p>The downscaling is clearly adding a lot of value to the GCM simulations! The selected domain is covered by only 4 grid cells in the raw model, so basically none of the spatial variability seen in the downscaled data are represented. The raw model data also appears to have a significant high bias in Tropical Nights, which is consistent with the positive summertime tempertaure bias in CanESM5 seen in Section 3.4.</p>
+</div>
+<div class="section" id="testing-significance-of-uncorrected-and-downscaled-projected-changes">
+<h2>4.5.2 Testing Significance of Uncorrected and Downscaled Projected Changes<a class="headerlink" href="#testing-significance-of-uncorrected-and-downscaled-projected-changes" title="Permalink to this headline">#</a></h2>
+<p>Now let’s look at the projected changes and assess the statistical significance using the two-sample <span class="math notranslate nohighlight">\(t\)</span>-test and the effective sample size correction.</p>
+<p>Becuase we are now working with spatial data instead of a 1D time series, we will be doing many hypothesis tests simultaneously (one for each grid cell). Each hypothesis test comes with a chance of a false positive (Type I error) determined by the <span class="math notranslate nohighlight">\(p\)</span>-value threshold <span class="math notranslate nohighlight">\(\alpha\)</span>. A test where <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> is the threshold for rejecting the null hypothesis has a 5% chance of Type I error. For a large spatial domain, with hundreds of grid cells (and thus hundreds of hypothesis tests), this means a substantial number of locations will be affected by Type I error.</p>
+<p>We can correct for the effects of this issue using the <em>False Discovery Rate</em> correction (<a class="reference external" href="https://librarysearch.library.utoronto.ca/permalink/01UTORONTO_INST/14bjeso/alma991106907255706196">Wilks, 2011</a>). For this procedure, the <span class="math notranslate nohighlight">\(N\)</span> <span class="math notranslate nohighlight">\(p\)</span>-values (where <span class="math notranslate nohighlight">\(N\)</span> is the number of hypothesis tests being conducted) are sorted lowest to highest, and a new significance threshold <span class="math notranslate nohighlight">\(\alpha_{FDR}\)</span> is calculated:</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha_{FDR} = max_{j=1,...,N} \left(p_{(j)}: p_{(j)} &lt; \frac{j}{N} \alpha_{global} \right)
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\alpha_{global}\)</span> is the significance threshold for the field as a whole (your usual chosen <span class="math notranslate nohighlight">\(\alpha\)</span> value, typically 0.05). <span class="math notranslate nohighlight">\(p_{(j)}\)</span> is the <span class="math notranslate nohighlight">\(j\)</span>’th order statistic of the <span class="math notranslate nohighlight">\(N\)</span> <span class="math notranslate nohighlight">\(p\)</span>-values, in other words the <span class="math notranslate nohighlight">\(j\)</span>’th smallest <span class="math notranslate nohighlight">\(p\)</span>-value.</p>
+<p>If an individual test has <span class="math notranslate nohighlight">\(p &lt; \alpha_{FDR}\)</span>, then for that location we reject the null hypothesis. If none of the <span class="math notranslate nohighlight">\(p_{(j)}\)</span> are less than <span class="math notranslate nohighlight">\(\alpha_{FDR}\)</span>, then the global null hypothesis of no effect at all <span class="math notranslate nohighlight">\(N\)</span> locations is not rejected at the <span class="math notranslate nohighlight">\(\alpha_{global}\)</span> significance level.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function for calculating FDR-corrected significance threshold</span>
+<span class="k">def</span> <span class="nf">fdr</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
+    <span class="c1">## p - an array of p-values</span>
+    <span class="c1">## alpha - significance p-value threshold</span>
+   
+    <span class="c1"># flatten p</span>
+    <span class="n">dims</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">sortp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">alpha</span>
+    <span class="n">where_p</span> <span class="o">=</span> <span class="n">sortp</span> <span class="o">&lt;=</span> <span class="n">slope</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">where_p</span><span class="p">):</span>
+        <span class="n">a_fdr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sortp</span><span class="p">[</span><span class="n">where_p</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a_fdr</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">a_fdr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to do the significance test</span>
+<span class="k">def</span> <span class="nf">test_significance</span><span class="p">(</span><span class="n">ds_hist</span><span class="p">,</span> <span class="n">ds_future</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">):</span>
+    <span class="c1"># do the t-test</span>
+    <span class="n">tstats</span><span class="p">,</span> <span class="n">pvals</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind_from_stats</span><span class="p">(</span><span class="n">ds_hist</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">],</span> <span class="n">ds_hist</span><span class="p">[</span><span class="s1">&#39;std_tn&#39;</span><span class="p">],</span> <span class="n">ds_hist</span><span class="p">[</span><span class="s1">&#39;neff&#39;</span><span class="p">],</span>
+                                               <span class="n">ds_future</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">],</span> <span class="n">ds_future</span><span class="p">[</span><span class="s1">&#39;std_tn&#39;</span><span class="p">],</span> <span class="n">ds_future</span><span class="p">[</span><span class="s1">&#39;neff&#39;</span><span class="p">],</span>
+                                               <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># get new threshold using alpha_FDR and get array of 1&#39;s where p &lt; alpha_FDR (and 0&#39;s otherwise)</span>
+    <span class="n">alpha_FDR</span> <span class="o">=</span> <span class="n">fdr</span><span class="p">(</span><span class="n">pvals</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="n">reject_null</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pvals</span> <span class="o">&lt;</span> <span class="n">alpha_FDR</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">reject_null</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># do the significance testing</span>
+<span class="n">reject_null_raw</span> <span class="o">=</span> <span class="n">test_significance</span><span class="p">(</span><span class="n">ds_tn_hist_raw</span><span class="p">,</span> <span class="n">ds_tn_future_raw</span><span class="p">)</span>
+<span class="n">reject_null_sds</span> <span class="o">=</span> <span class="n">test_significance</span><span class="p">(</span><span class="n">ds_tn_hist_sds</span><span class="p">,</span> <span class="n">ds_tn_future_sds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot maps for the three cases - historical, future, and the change, for both the raw and downscaled model</span>
+<span class="c1"># on the delta plot, add stippling to indicate where the changes are statstically significant</span>
+<span class="n">clevs_delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">orientation</span> <span class="o">=</span> <span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Tropical Nights per Year&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes_2d</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">)</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes_2d</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;CanESM5 Tropical Nights - Historical, Projected, and Changes&quot;</span><span class="p">)</span>
+
+<span class="c1"># raw model</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">ds_tn_hist_raw</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="n">cbar_kwargs</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Raw 1971-2000&quot;</span><span class="p">)</span>
+
+<span class="n">p2</span> <span class="o">=</span> <span class="n">ds_tn_future_raw</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="n">cbar_kwargs</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Raw 2071-2100&quot;</span><span class="p">)</span>
+
+<span class="n">delta_tn_raw</span> <span class="o">=</span> <span class="n">ds_tn_future_raw</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ds_tn_hist_raw</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">delta_tn_raw</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_delta</span><span class="p">,</span> <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="n">cbar_kwargs</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Raw Climate Change&quot;</span><span class="p">)</span>
+
+<span class="c1"># add dots (stippling) where reject_null == 1 using plt.contourf</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">delta_tn_raw</span><span class="o">.</span><span class="n">lon</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">delta_tn_raw</span><span class="o">.</span><span class="n">lat</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">reject_null_raw</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">hatches</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">])</span>
+
+<span class="c1"># downscaled model</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">ds_tn_hist_sds</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="n">cbar_kwargs</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Downscaled 1971-2000&quot;</span><span class="p">)</span>
+
+<span class="n">p5</span> <span class="o">=</span> <span class="n">ds_tn_future_sds</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="n">cbar_kwargs</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Downscaled 2071-2100&quot;</span><span class="p">)</span>
+
+<span class="n">delta_tn_sds</span> <span class="o">=</span> <span class="n">ds_tn_future_sds</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ds_tn_hist_sds</span><span class="p">[</span><span class="s1">&#39;mean_tn&#39;</span><span class="p">]</span>
+<span class="n">p6</span> <span class="o">=</span> <span class="n">delta_tn_sds</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_delta</span><span class="p">,</span> <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="n">cbar_kwargs</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Downscaled Climate Change&quot;</span><span class="p">)</span>
+
+<span class="c1"># add dots (stippling) where reject_null == 1 using plt.contourf</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">delta_tn_sds</span><span class="o">.</span><span class="n">lon</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">delta_tn_sds</span><span class="o">.</span><span class="n">lat</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">reject_null_sds</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">hatches</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/811e94291d18c814047dfedd029cd0e41bbc1836aa002b87ce325d034b921243.png" src="../_images/811e94291d18c814047dfedd029cd0e41bbc1836aa002b87ce325d034b921243.png" />
+</div>
+</div>
+<p>Comparing the raw and downscaled model data, both show very large increases to the number of Tropical Nights. While the raw simulations are biases high relative to observations (and to the downscaled data), the climate change differences are comparable in magnitude. As mentioned at the start of this notebook, this is a property of univariate statistical downscaling. The downscaling method itself cannot substantially alter the nature of the future projections from the model, all it can do is add spatial detail and adjust for biases relative to historical observations.</p>
+<p>Because the projected changes for this metric are so huge, the changes are statistically significant nearly everywhere in the chosen domain. The changes are too large for us to use a common range of contour intervals for both the historical and future scenarios! Remember that CanESM5 is somewhat of an outlier model in terms of the amount of projected warming, so the downscaled projections for this model will show greater increases to indices like Tropical Nights than other models which fall closer to the middle of the range of warming projections. Choosing a model with lower climate sensitivity will likely show smaller increases to indices of extreme heat, but nevertheless are still likely to have statistically significant results, since increasing temperature is amongst the most robust of any climate change projections.</p>
+<p>For more noisy variables, like precipitation, you may not detect significant changes to your climate index of interest, or some models may project significant changes while others do not. This is something that cannot be emphasized enough - if your impact study does not include results from multiple models, then you are very likely undersampling uncertainty due to variations in modeling choices. Including only CanESM5 might lead you to overestimate potential impacts of changes to heat extremes, but equivalently using only a model on the low end of warming projections would lead to underestimation of the impacts. The only way to know where a given model lies on the spectrum of projections is to perform a multi-model analysis.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="section4.4_downscaling_validation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4.4 Downscaling Validation</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-tropical-nights-again">4.5.1 Calculating Tropical Nights (Again)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-significance-of-uncorrected-and-downscaled-projected-changes">4.5.2 Testing Significance of Uncorrected and Downscaled Projected Changes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Morris, Karen Smith, and Paul Kushner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

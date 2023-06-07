@@ -1,0 +1,25 @@
+# _toc.yml
+format: jb-book
+root: README
+chapters:
+  - file: Chapter1/chapter1
+  - file: Chapter2/chapter2
+    sections:
+      - file: Chapter2/section2.1_climate_basics
+      - file: Chapter2/section2.2_climate_modeling
+      - file: Chapter2/section2.3_climate_model_uncertainty
+      - file: Chapter2/chapter2_summary
+  - file: Chapter3/chapter3
+    sections:
+    - file: Chapter3/section3.1_station_data
+    - file: Chapter3/section3.2_gridded_obs
+    - file: Chapter3/section3.3_reanalysis
+    - file: Chapter3/section3.4_climate_model_output
+    - file: Chapter3/chapter3_summary
+  - file: Chapter4/chapter4
+    sections:
+    - file: Chapter4/section4.1_downscaling_basics
+    - file: Chapter4/section4.2_bias_correction_methods
+    - file: Chapter4/section4.3_downscaling_methods
+    - file: Chapter4/section4.4_downscaling_validation
+    - file: Chapter4/section4.5_assessing_downscaled_projections

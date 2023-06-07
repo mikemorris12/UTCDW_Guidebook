@@ -1,0 +1,18 @@
+# _config.yml
+title: UTCDW Guidebook
+author: Mike Morris, Karen Smith, and Paul Kushner
+exclude_patterns: [.DS_Store, "**.ipynb_checkpoints"]
+execute:
+    execute_notebooks: cache
+    exclude_patterns: []
+    timeout: 180
+
+latex:
+    latex_engine: pdflatex
+    use_jupyter_latex: true
+
+repository:
+    url: https://github.com/mikemorris12/UTCDW_Guidebook
+
+html:
+  use_respository_button: true

@@ -1,0 +1,918 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.1 Station Observations &#8212; UTCDW Guidebook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter3/section3.1_station_data';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.2 Gridded Observations" href="section3.2_gridded_obs.html" />
+    <link rel="prev" title="Section 3: Exploring Climate Data" href="chapter3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">UTCDW Guidebook</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    UTCDW_Guidebook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1/chapter1.html">UTCDW Guidebook</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Section 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 - Climate Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.2_climate_modeling.html">2.2 Climate Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.3_climate_model_uncertainty.html">2.3 Climate Model Uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/chapter2_summary.html">2.4 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter3.html">Section 3: Exploring Climate Data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1 Station Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.2_gridded_obs.html">3.2 Gridded Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.3_reanalysis.html">3.3 Reanalysis Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.4_climate_model_output.html">Section 3.4 - Climate Model Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter3_summary.html">3.5 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/chapter4.html">Chapter 4 - Statistical Downscaling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter3/section3.1_station_data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.1 Station Observations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-data-cleaning">3.1.1 Downloading and Data Cleaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-cycles-and-climatologies">3.1.2 Seasonal Cycles and Climatologies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-values">3.1.3 Extreme Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-other-sources-of-station-data">Appendix: Other Sources of Station Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="station-observations">
+<h1>3.1 Station Observations<a class="headerlink" href="#station-observations" title="Permalink to this headline">#</a></h1>
+<div class="section" id="downloading-and-data-cleaning">
+<h2>3.1.1 Downloading and Data Cleaning<a class="headerlink" href="#downloading-and-data-cleaning" title="Permalink to this headline">#</a></h2>
+<p>For many practical applications, expecially in fields like engineering design, it is common practice to use observations at a nearby weather station to calculate the relevant climate indicators for a piece of infrastructure. Environment and Climate Change Canada (ECCC) has historical station observations available for hundreds of weather stations in Canada. The comprehensive list of stations, including their names, locations, and unique Station ID codes, can be found in the <code class="docutils literal notranslate"><span class="pre">Station</span> <span class="pre">Inventory</span> <span class="pre">EN.csv</span></code> file in <a class="reference external" href="https://drive.google.com/drive/folders/1WJCDEU34c60IfOnG4rv5EPZ4IhhW9vZH">this Google Drive</a></p>
+<p>This notebook will show you how to download ECCC weather station observational data, plot some time series of climate variables, and calculate climatologies and extreme values. The above Google Drive includes instructions on how to download the data files using shell scripting, but here we will use the Python package <code class="docutils literal notranslate"><span class="pre">ec3</span></code> to download the data in an easier way. <a class="reference external" href="https://gitlab.com/claut/ec3.py">The source code and limited documentation for this module can be found on GitLab</a>.</p>
+<p>First we’ll import the necessary Python packages</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">ec3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we’ll make a list IDs for the stations we want to download. ECCC identifies each weather station with a Station ID, in addition to a name and coordinates. Each row in <code class="docutils literal notranslate"><span class="pre">Station</span> <span class="pre">Inventory</span> <span class="pre">EN.csv</span></code> corresponds to a different Station ID, though some stations have their Station ID (and possibly their name) changed over time. <code class="docutils literal notranslate"><span class="pre">ec3.find_station</span></code> is a function which can find all the stations that fit given search parameters. Calling <code class="docutils literal notranslate"><span class="pre">help</span></code> on this function will display the arguments it takes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ec3</span><span class="o">.</span><span class="n">find_station</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function find_station in module ec3:
+
+find_station(name=None, province=None, period=None, type=None, detect_recodes=False, target=None, dist=range(0, 101))
+    Find data available in the Environment and Climate Change Canada
+    historical data archive
+    
+    Optional Parameters
+    ----------
+    name : str
+        A pattern by which to filter station names.
+    province : list or str
+        One of more two-letter province codes, e.g. ON
+    period : int or range
+        Range of years for which data must be available
+    type : int or str
+        The type of data to search for (required if period is not None)
+        Options are: 1, hourly; 2, daily; 3, monthly
+    detect_recodes : Boolean
+        Whether to try to detect stations that have been recoded when
+        searching for stations that provide enough data for period.
+    target : tuple or int
+        Either the station code of a target station, or a tuple of
+        latitude and longitude to use as a target.
+    dist : range
+        Desired distance from target (in km); Default: range(101).
+</pre></div>
+</div>
+</div>
+</div>
+<p>As an example, we will search for stations within 25 km of the latitude and longitude which come up when you Google search “Toronto latitude and longitude”, and try to download data at daily frequency for the 30-year period 1992-2021. Passing the keyword argument <code class="docutils literal notranslate"><span class="pre">detect_recodes</span> <span class="pre">=</span> <span class="pre">True</span></code> will allow the function to print out combinations of station IDs that correspond to the same station. Data from these different Station IDs can be combned to form a single long-term record for that location.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">toronto_lat</span> <span class="o">=</span> <span class="mf">43.6532</span>
+<span class="n">toronto_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">79.3832</span> <span class="c1"># convention is degrees West are negative in a (180 W, 180 E) convention.</span>
+<span class="n">find_stn_results</span> <span class="o">=</span> <span class="n">ec3</span><span class="o">.</span><span class="n">find_station</span><span class="p">(</span><span class="n">target</span> <span class="o">=</span> <span class="p">(</span><span class="n">toronto_lat</span><span class="p">,</span> <span class="n">toronto_lon</span><span class="p">),</span> 
+                                    <span class="n">period</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">2022</span><span class="p">),</span>
+                                    <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;daily&#39;</span><span class="p">,</span>
+                                    <span class="n">dist</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+                                    <span class="n">detect_recodes</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">find_stn_results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmpctlttre9
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
+  warnings.warn(&quot;Cannot find the station inventory in the current working directory.&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: In addition to the stations found, the following combinations may provide sufficient baseline data.
+
+
+&gt;&gt; Combination 1 at coordinates 43.63 -79.4 
+
+Station 5085 : TORONTO ISLAND A (1957-2006)
+Station 5086 : TORONTO IS A (AUT) (1973-1973)
+Station 30247 : TORONTO CITY CENTRE (2006-2014)
+Station 48549 : TORONTO CITY CENTRE (2010-2023)
+
+
+&gt;&gt; Combination 2 at coordinates 43.67 -79.4 
+
+Station 5051 : TORONTO (1840-2017)
+Station 31688 : TORONTO CITY (2002-2023)
+Station 41863 : TORONTO SOLAR RADIATION (2018-2018)
+
+
+&gt;&gt; Combination 3 at coordinates 43.68 -79.63 
+
+Station 5097 : TORONTO LESTER B. PEARSON INT&#39;L A (1937-2013)
+Station 51459 : TORONTO INTL A (2013-2023)
+
+
+&gt;&gt; Combination 4 at coordinates 43.86 -79.37 
+
+Station 4841 : TORONTO BUTTONVILLE A (1986-2015)
+Station 53678 : TORONTO BUTTONVILLE A (2015-2019)
+Station 54239 : TORONTO BUTTONVILLE A (2018-2023)
+
+
+No results!
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stn_ids_toronto_city</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5051</span><span class="p">,</span> <span class="mi">31688</span><span class="p">,</span> <span class="mi">41863</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The search returned no results, because no single Station ID fit all of the search criteria. Luckily, the <code class="docutils literal notranslate"><span class="pre">detect_recodes</span></code> option returned 4 combinations of Station IDs which could be used. For simplicity, we will proceed using Combination 2, the downtown Toronto station.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">ec3.get_data</span></code> will download the data for a given Station ID at a specified time frequency (daily by default) and year range, and return it in a Pandas <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> object. However, the data is not necessarily in the best format for further analysis. In particular, the column name for the daily mean temperature is <code class="docutils literal notranslate"><span class="pre">'Mean</span> <span class="pre">Temp</span> <span class="pre">(°C)'</span></code>, which contains a non-standard character, and many of the column names contain spaces, which isn’t ideal for working with Pandas. Additionally, the dates are stored as strings, but for calculating climatologies or selecting certain date ranges, it’s much more convenient to work with a Python datetime object, which can intelligently handle different units of time.</p>
+<p>Below is a function which wraps <code class="docutils literal notranslate"><span class="pre">ec3.get_data</span></code> and performs some of the data cleaning described above on a select few variables. If you are interested in a variable not listed, such as wind speed, you can use <code class="docutils literal notranslate"><span class="pre">ec3.get_data</span></code> by itself and perform any necessary data cleaning afterwards.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_station_data</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">2022</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download ECCC observational data at the weather station identified with stn_id,</span>
+<span class="sd">    re-name the columns to more useful names. Optional: select specific years of data,</span>
+<span class="sd">    but by default, download all data from 1990--2020.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># download the data</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">ec3</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="n">years</span><span class="p">,</span> <span class="n">progress</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1"># dictionary mapping original column names to new ones</span>
+    <span class="n">column_name_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Date/Time&#39;</span><span class="p">:</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;Max Temp (°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;MaxTemp&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;Min Temp (°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;MinTemp&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Mean Temp (°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;MeanTemp&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Total Precip (mm)&#39;</span><span class="p">:</span> <span class="s1">&#39;TotalPrecip&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Latitude (y)&#39;</span><span class="p">:</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Longitude (x)&#39;</span><span class="p">:</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Station Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">}</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_name_dict</span><span class="p">)</span>
+    
+    <span class="c1"># select only the variables we re-named - you can comment this out if you want to keep all variables</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">column_name_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>
+    
+    <span class="c1"># set the &quot;Date&quot; column as an index column and convert it from strings to Datetime objects to make</span>
+    <span class="c1"># selecting times easier</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># sort the data in proper chronological order</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">df</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iterate through the station ID list and store the results in a dictionary, with keys being the station IDs</span>
+<span class="n">df_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+<span class="k">for</span> <span class="n">stn_id</span> <span class="ow">in</span> <span class="n">stn_ids_toronto_city</span><span class="p">:</span>
+    <span class="n">df_dict</span><span class="p">[</span><span class="n">stn_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">download_station_data</span><span class="p">(</span><span class="n">stn_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a peek at the daily max temperature data for the first station ID</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">df_dict</span><span class="p">[</span><span class="n">stn_ids_toronto_city</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">MaxTemp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9931a895dfe4dc60c7a763f8fb99b1c84d5f0842f36f1783753fdbe2d5cbd467.png" src="../_images/9931a895dfe4dc60c7a763f8fb99b1c84d5f0842f36f1783753fdbe2d5cbd467.png" />
+</div>
+</div>
+<p>The plot shows that the data for the Station ID 5051 ends in the early 2000s, which isn’t exactly what was stated in the output of <code class="docutils literal notranslate"><span class="pre">ec3.find_station</span></code>. Let’s check exactly when the daily data for each of the three Station IDs starts and ends, by dropping NaNs and then finding the min and max date values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a peek at the daily mean temperature data for the first station ID</span>
+<span class="k">for</span> <span class="n">stn_id</span> <span class="ow">in</span> <span class="n">stn_ids_toronto_city</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df_dict</span><span class="p">[</span><span class="n">stn_id</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5051 1992-01-01 00:00:00 2003-06-30 00:00:00
+31688 2002-06-04 00:00:00 2021-12-31 00:00:00
+41863 NaT NaT
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looks like the Station ID 41863 has no daily data at all, so we can now disregard it. We have now identified a new issue, and it’s that the end of the Station ID 5051 record overlaps the Station ID 31688 record by almost a year. Let’s plot the daily maximum temperature for each of these stations during their overlapping period, to see if they are just repeats of the same measurements, or at least close to each other.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">df_dict</span><span class="p">[</span><span class="n">stn_ids_toronto_city</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df_dict</span><span class="p">[</span><span class="n">stn_ids_toronto_city</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">df1_overlap_period</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+<span class="n">df2_overlap_period</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">df1_overlap_period</span><span class="o">.</span><span class="n">MaxTemp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">stn_ids_toronto_city</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">df2_overlap_period</span><span class="o">.</span><span class="n">MaxTemp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">stn_ids_toronto_city</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/42d6876037ef2a04978af3f7faee7545624b16e98c77572574a3f34b7d6e2990.png" src="../_images/42d6876037ef2a04978af3f7faee7545624b16e98c77572574a3f34b7d6e2990.png" />
+</div>
+</div>
+<p>The data from the two sources agree very well during the overlapping period, though are not perfectly identical. Perhaps there was an instrument change that led to the ID change in the first place, it’s difficult to know. Regardless, in a situtation like this it should be safe to choose the data from either record. We will choose the data from Station ID 31688 because it contribues to a greater proportion of the chosen time period. Now that all of the data cleaning is finished, let’s plot at the daily maximum temperature over the whole record.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># merge the data from different station IDs into a single dataframe</span>
+<span class="n">df_toronto_city</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">df2</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+
+<span class="c1"># plot time series of daily max temperature for the whole record</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Toronto City Weather Station Daily Maximum Temperature 1992-2021&quot;</span><span class="p">)</span>
+<span class="n">df_toronto_city</span><span class="o">.</span><span class="n">MaxTemp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Temperature ($^{\circ}$C)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a26806a5ff7f72080f79cb0fe0b029c0df351fff71089c5e6e7d9edc90fc40c2.png" src="../_images/a26806a5ff7f72080f79cb0fe0b029c0df351fff71089c5e6e7d9edc90fc40c2.png" />
+</div>
+</div>
+<p>One feature that stands out is the oscillatory nature of the data. Each year there are maxima in the summer and minima in the winter, but because we’ve plotted many years of data, it can be hard to discern any other features, such as day-to-day changes. Let’s plot the data for one year in particular to see these features:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">df_toronto_city</span><span class="p">[</span><span class="n">df_toronto_city</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2015</span><span class="p">][</span><span class="s1">&#39;MaxTemp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Toronto City Weather Station Daily Maximum Temperature&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4e3abcbef85fb35daa0e8a0610ff2d7913f9045b638572d45fb6fd96e3442d6c.png" src="../_images/4e3abcbef85fb35daa0e8a0610ff2d7913f9045b638572d45fb6fd96e3442d6c.png" />
+</div>
+</div>
+<p>Now we can really see the day-to-day variations in temperature, as well as the seasonal cycle. There was evidently a a few warm days early in the year, and a short cold spell in early May, but otherwise, we see the temperature rising into the summer, peaking in July and August, and then falling again in the winter.</p>
+</div>
+<div class="section" id="seasonal-cycles-and-climatologies">
+<h2>3.1.2 Seasonal Cycles and Climatologies<a class="headerlink" href="#seasonal-cycles-and-climatologies" title="Permalink to this headline">#</a></h2>
+<p>To get an idea of the typical seaosonal cycle of temperaure, we can calculate the <em>daily climatology</em> of the daily maximum temperature. What this means is we calculate a long-term average for each day of the year.  We can do this using the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> functionality of Pandas, taking advantage of the <code class="docutils literal notranslate"><span class="pre">dayofyear</span></code> attribute of the pd.Datetime datatype we converted the date values to in the function <code class="docutils literal notranslate"><span class="pre">download_station_data</span></code>.</p>
+<p>Because we’re taking a long-term average, the plot will be much smoother, since we’re averaging out much of the noise that makes up the day-to-day variability, like we see in the plot of one specific year. To get an idea of what typical variations look like, we can also calculate the standard deviation of temperature for each day, across all years, and add it to our plot as shading.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate long-term mean and standard deviation for each day of the year, for the 30-year period</span>
+<span class="n">tmax_toronto_clim_avg</span> <span class="o">=</span> <span class="n">df_toronto_city</span><span class="p">[</span><span class="s1">&#39;MaxTemp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_toronto_city</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">tmax_toronto_clim_std</span> <span class="o">=</span> <span class="n">df_toronto_city</span><span class="p">[</span><span class="s1">&#39;MaxTemp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_toronto_city</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="c1"># make some variables with short names to pass to maptlotlib plotting functions</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tmax_toronto_clim_avg</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="c1"># time values - the day of the year</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tmax_toronto_clim_avg</span><span class="o">.</span><span class="n">values</span> <span class="c1"># daily max temperature climatology</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">tmax_toronto_clim_std</span><span class="o">.</span><span class="n">values</span> <span class="c1"># lower shading range </span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">tmax_toronto_clim_std</span><span class="o">.</span><span class="n">values</span> <span class="c1"># upper shading range</span>
+
+<span class="c1"># plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Daily Climatology of Daily Maximum Temperature </span><span class="se">\n</span><span class="s2"> at Toronto City Weather Station (1992-2021)&quot;</span><span class="p">)</span>
+<span class="c1"># the \n is a line break, included since the title is a bit long</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Day of the Year&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># plot </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> 
+<span class="c1"># the &#39;alpha&#39; kwarg sets the opacity of the shading (1 means totally opaque)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/eaccfacdd09cebe4aca899fee481382e51bf7216126ea569f0d5e0d1f81554e9.png" src="../_images/eaccfacdd09cebe4aca899fee481382e51bf7216126ea569f0d5e0d1f81554e9.png" />
+</div>
+</div>
+<p>While this plot isn’t perfectly smooth, the day-to-day variations in the solid line are smaller than in the time series for the year 2015, because of the long-term averaging. The shading represents the typical range of temperatures for each day. It’s important to note that grouped averaging for each day of the year individually isn’t the only way to calculate a climatology. A method that could give a smoother result would be to first calculate a rolling average of the data (i.e. 7-day rolling mean) before taking the long-term mean or standard deviation. This is valid, since there isn’t a good reason why the typical temperature range for a given day should be meaningfully different than for the rest of the week.</p>
+<p>Let’s calculate the climatology for daily maximum temperature at Toronto using this alternative method. We can see that it indeed produces a smoother mean curve, with a similar overall range of temperatures for each day.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate long-term mean and standard deviation for each day of the year, for the 30-year period</span>
+<span class="n">n_roll</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># rolling mean window size</span>
+
+<span class="c1"># climatological average</span>
+<span class="n">tmax_toronto_rollingmean</span> <span class="o">=</span> <span class="n">df_toronto_city</span><span class="p">[</span><span class="s1">&#39;MaxTemp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">n_roll</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">tmax_toronto_clim_avg_rolling</span> <span class="o">=</span> <span class="n">tmax_toronto_rollingmean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">tmax_toronto_rollingmean</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># we need to be careful about how to get the standard deviation - we don&#39;t want the standard deviation of the </span>
+<span class="c1"># rolling mean, we want the standard deviation across all days in the n-day-of-year window. </span>
+<span class="c1"># we can do this by calculating the mean variance for each n-day window, and then taking the square root </span>
+<span class="c1"># to get the standard deviation. This works because variances add linearly.</span>
+<span class="n">tmax_toronto_rollingvar</span> <span class="o">=</span> <span class="n">df_toronto_city</span><span class="p">[</span><span class="s1">&#39;MaxTemp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">n_roll</span><span class="p">)</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="n">tmax_toronto_clim_var_rolling</span> <span class="o">=</span> <span class="n">tmax_toronto_rollingvar</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">tmax_toronto_rollingvar</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">tmax_toronto_clim_std_rolling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tmax_toronto_clim_var_rolling</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">tmax_toronto_clim_avg_rolling</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">tmax_toronto_clim_avg_rolling</span><span class="o">.</span><span class="n">values</span> <span class="c1"># daily max temperature climatology</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">tmax_toronto_clim_std_rolling</span><span class="o">.</span><span class="n">values</span> <span class="c1"># lower shading range </span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">tmax_toronto_clim_std_rolling</span><span class="o">.</span><span class="n">values</span> <span class="c1"># upper shading range</span>
+
+<span class="c1"># plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n_roll</span><span class="si">}</span><span class="s2">-Day Rolling Daily Climatology of Daily Maximum Temperature &quot;</span> <span class="o">+</span> \
+          <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> at Toronto City Weather Station (1992-2021)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Day of the Year&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># plot </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/518c5ead2a721bc8a8c93e294cfb81c26a42bc5c72e64d5ecd2094e2c4003634.png" src="../_images/518c5ead2a721bc8a8c93e294cfb81c26a42bc5c72e64d5ecd2094e2c4003634.png" />
+</div>
+</div>
+<p>Temperature has a strong and relatively obvious seasonal cycle. But what about other climate variables, like precipitation? Let’s do the same analysis that we just did for daily maximum temperature, for daily total precipitation amounts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate long-term mean and standard deviation for each day of the year, for the 30-year period</span>
+
+<span class="c1"># direct averaging of each day separately</span>
+<span class="n">precip_toronto_clim_avg</span> <span class="o">=</span> <span class="n">df_toronto_city</span><span class="p">[</span><span class="s1">&#39;TotalPrecip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_toronto_city</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">precip_toronto_clim_std</span> <span class="o">=</span> <span class="n">df_toronto_city</span><span class="p">[</span><span class="s1">&#39;TotalPrecip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_toronto_city</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+
+<span class="c1"># 7-day rolling average</span>
+<span class="n">n_roll</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">precip_toronto_rollingmean</span> <span class="o">=</span> <span class="n">df_toronto_city</span><span class="p">[</span><span class="s1">&#39;TotalPrecip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">n_roll</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">precip_toronto_clim_rollingavg</span> <span class="o">=</span> <span class="n">precip_toronto_rollingmean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">precip_toronto_rollingmean</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># stdev</span>
+<span class="n">precip_toronto_rollingvar</span> <span class="o">=</span> <span class="n">df_toronto_city</span><span class="p">[</span><span class="s1">&#39;TotalPrecip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">n_roll</span><span class="p">)</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="n">precip_toronto_clim_var_rolling</span> <span class="o">=</span> <span class="n">precip_toronto_rollingvar</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">precip_toronto_rollingvar</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">precip_toronto_clim_std_rolling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">precip_toronto_clim_var_rolling</span><span class="p">)</span>
+
+<span class="n">clim_avgs</span> <span class="o">=</span> <span class="p">(</span><span class="n">precip_toronto_clim_avg</span><span class="p">,</span> <span class="n">precip_toronto_clim_rollingavg</span><span class="p">)</span>
+<span class="n">clim_stds</span> <span class="o">=</span> <span class="p">(</span><span class="n">precip_toronto_clim_std</span><span class="p">,</span> <span class="n">precip_toronto_clim_std_rolling</span><span class="p">)</span>
+
+<span class="c1"># two-panel figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">sharey</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># plot</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Daily Climatology of Precipitation at Toronto City Weather Station (1992-2021)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">avg</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">clim_avgs</span><span class="p">,</span> <span class="n">clim_stds</span><span class="p">)):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">avg</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">avg</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">std</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">ymin</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">std</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># plot </span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> 
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Precipitation (mm/day)&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Day of the Year&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mean of Individual Days&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n_roll</span><span class="si">}</span><span class="s2">-day Rolling Mean&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c5becd3dcb9474e94cbc34b935fb2aa71427efa5d2dec9864b5be3909fedcb47.png" src="../_images/c5becd3dcb9474e94cbc34b935fb2aa71427efa5d2dec9864b5be3909fedcb47.png" />
+</div>
+</div>
+<p>The daily climatology of precipitation at this station clearly looks much different from that of temperature. There are no major swings over the course of the year, which means that it may be less important to account for the time of year when doing analysis with precipitation (unlike temperature, where conditions in winter are much different than for summer).</p>
+<p>Next, even after applying the 7-day rolling mean, the day-to-day variations are much less smooth than for temperature. One reason for this is that precipitation is very much an “on-or-off” phenomenon - many days will have zero precipitation, but when it does precipitate, there can be very large amounts (i.e. extreme values) which affect the long-term mean for that day.</p>
+<p>Finally, it looks like the method of estimating the typical range of values using <span class="math notranslate nohighlight">\(\pm\)</span> one standard deviation produces negative values at the lower end of the range, which is unphysical. This last issue can be resolved by choosing a different method for characterizing the range of typical values. One such method is to use a range of <em>percentiles</em> (also called <em>quantiles</em>) as the upper and lower bounds for the typical range (i.e. 10th-90th percentile). This is how <a class="reference external" href="https://climatedata.ca/">climatedata.ca</a> (a source of observational data and post-processed climate model output for Canada) reports the typical ranges of variability for climate data.</p>
+</div>
+<div class="section" id="extreme-values">
+<h2>3.1.3 Extreme Values<a class="headerlink" href="#extreme-values" title="Permalink to this headline">#</a></h2>
+<p>Weather outside of the typical range of variability, termed “extreme weather” is often of interest for climate-sensitive domain applications. Extreme temperatures can elevate building energy use due to air conditioning and heating. Extreme precipitation can cause flooding and damage to infrastructure near water basins or rivers, and extreme wind speeds can damage bridges, power lines, and other infrastructure.</p>
+<p>There are two broad-strokes categories of methods by which extreme values of climate variables are quantified. The first is a <strong>peaks over threshold</strong> (POT) approach, by which values above (or below) some pre-determined threshold are considered to be extreme events. For example, when calculating the climate index “Tropical Nights”, we consider extreme warm days to be those with daily minimum temperature above 20<span class="math notranslate nohighlight">\(^{\circ}\)</span>C. The threshold need not be a single fixed value - for many applications it is common to use a certain percentile value (i.e. the 95th percentile) as a threshold for defining extreme values, based on the distribution of the climate variable for a particular location. This allows one to tailor the threshold to the local climate, which is often how infrastructure is designed in practice.</p>
+<p>The second approach to quantifying extreme values is the <strong>block maxima</strong> method. Under this paradigm, we subdivide the data record into non-overlapping “blocks” of time (usually one year), and take the maximum (or minimum) value for each block. Practitioners often characterize the intensity of extreme weather using the <span class="math notranslate nohighlight">\(N\)</span>-year <strong>return period value</strong> of a climate variable, which is calculated using the block maxima method. The <span class="math notranslate nohighlight">\(N\)</span>-year return period value is the value which, in each year, has an exceedance probability of <span class="math notranslate nohighlight">\(1/N\)</span>. The return period <span class="math notranslate nohighlight">\(N\)</span> is usually 50, 100, or even 1000 years, and the longer the return period, the greater the return period value. Return period values are commonly used when planning the expected lifetime of infrastructure. If we want a bridge to last 100 years, then it should be designed to withstand wind speeds of up to the 100 year return value.</p>
+<p>Statistical extreme value theory tells us that block maxima follow a probability distribution called the <a class="reference external" href="https://en.wikipedia.org/wiki/Generalized_extreme_value_distribution">Generalized Extreme Value</a> (GEV) distribution. Fitting a time series of annual maxima of the variable <span class="math notranslate nohighlight">\(x\)</span> to a GEV distribution, we can estimate the CDF of this distribution <span class="math notranslate nohighlight">\(F(x)\)</span>, and calculate the return value <span class="math notranslate nohighlight">\(x_{N}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[x_{N} = F^{-1}\left(1 - \frac{1}{N}\right)\]</div>
+<p>As an example, let’s calculate the 50-year return period value of daily total precipitation at the Toronto City weather station. Since we were previously only working with 30 years of data, which is rather short for studying extreme events (which are by definition uncommon), we’ll re-download the record for this station extending back to 1950</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download data for this station for an earlier period</span>
+<span class="n">df_1950_1991</span> <span class="o">=</span> <span class="n">download_station_data</span><span class="p">(</span><span class="n">stn_ids_toronto_city</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1950</span><span class="p">,</span> <span class="mi">1992</span><span class="p">))</span>
+
+<span class="c1"># stitch together with what we had already</span>
+<span class="n">df_toronto_city_longrecord</span> <span class="o">=</span> <span class="n">df_1950_1991</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_toronto_city</span><span class="p">)</span>                                 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get annual maximum precipitation values and plot</span>
+<span class="n">precip_toronto_annmax</span> <span class="o">=</span> <span class="n">df_toronto_city_longrecord</span><span class="p">[</span><span class="s1">&#39;TotalPrecip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;1Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Annual Maxumum Daily Precipitation at Toronto City Weather Station&quot;</span><span class="p">)</span>
+<span class="n">precip_toronto_annmax</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/045200bc5f1a9b0a4402a7c04191575226195e5ea05efee00aa8058b1611fe0d.png" src="../_images/045200bc5f1a9b0a4402a7c04191575226195e5ea05efee00aa8058b1611fe0d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># parameter estimates for GEV distribution</span>
+<span class="n">gev_params</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">precip_toronto_annmax</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># 50-year return period value</span>
+<span class="n">N_return</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">precip_50yr_return</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">N_return</span><span class="p">),</span> <span class="o">*</span><span class="n">gev_params</span><span class="p">)</span> 
+<span class="c1"># ppf is the &#39;percent point function&#39; - another name for the inverse CDF F^{-1}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">precip_50yr_return</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>87.50195232590536
+</pre></div>
+</div>
+</div>
+</div>
+<p>This very quick analysis has shown that the 50-year return value of daily precipitation for Toronto is about 87 mm. As a sanity check, the time series of annual maximum values for the 71 year period 1950-2021 has a peak value of just under 100 mm, so 87 mm could plausibly have a one-in-50 chance of occurrence in any given year.</p>
+<p>This analysis assumes that the distribution of precipitation in Toronto is <em>stationary</em> for the entire period used for calculation. In other words, there is no trend in the frequency or intensity of extreme events in the study period. When considering how climate change affects return period values of a climate variable, one would need to allow for  time-dependence of the GEV parameters (or dependance on the level of global warming, to avoid dependance on the future forcing scenario). This more advanced method is outside the scope of this guidebook. A simple alternative is to focus the future analysis on a time period distinct from the historical period used to establish the baseline climate.</p>
+<p>This section of the guidebook has introduced you to working with climate data from weather station observations. While useful for many impact studies, some applications require data with coverage over some larger spatial domain. The following section will introduce you to gridded observational data products, and how to download and analyze them.</p>
+</div>
+<div class="section" id="appendix-other-sources-of-station-data">
+<h2>Appendix: Other Sources of Station Data<a class="headerlink" href="#appendix-other-sources-of-station-data" title="Permalink to this headline">#</a></h2>
+<p>This notebook focused only on ECCC Weather Station data for Canada. For studies outside of Canada that require station observations, you’ll of course need alternate sources of data. One such dataset is the <a class="reference external" href="https://doi.org/10.7289/V5D21VHZ">Global Historical Climatology Network - Daily</a>, which is a database of station observations across the world. Python packages for downloading this data exist, but have not yet been tested or implemented by the UTCDW developers. Sub-daily station observations can be found by searching the <a class="reference external" href="https://www.ncdc.noaa.gov/cdo-web/search">NOAA Climate Data Online database</a>. Other sources of station data certainly exist, but intstructions for accessing them are outside the current scope of this guide.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Section 3: Exploring Climate Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="section3.2_gridded_obs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.2 Gridded Observations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-data-cleaning">3.1.1 Downloading and Data Cleaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-cycles-and-climatologies">3.1.2 Seasonal Cycles and Climatologies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-values">3.1.3 Extreme Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-other-sources-of-station-data">Appendix: Other Sources of Station Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Morris, Karen Smith, and Paul Kushner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
