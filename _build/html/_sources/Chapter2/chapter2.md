@@ -1,4 +1,4 @@
-# Section 2: Intro to Climate Science and Modeling
+# Chapter 2: Intro to Climate Science and Modeling
 
 As a user of this guide, you likely have expertise in engineering, ecology, or some other field of study which has elements sensitive to the state of the climate, and your goal is to study how changes to the climate will affect some system you're deeply familiar with. This type of work is referred to as climate change impact analysis. Before you can start doing serious work on a climate change impact analysis study, you need to have some background in climate science. Users without any previous experience working with climate change projections or climate science in general should stop here and work through [Module 1: Introduction to Climate Science and Modeling](https://edtech.engineering.utoronto.ca/subproject/introduction-climate-science-and-modeling) from the *Engineering in a Changing Climate* e-Learning resource. This chapter will discuss similar material to the e-Learning module, but with less detail and interactiveness that would be highly beneficial to someone brand new to climate science.
 
