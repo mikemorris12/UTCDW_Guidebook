@@ -153,18 +153,18 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Chapter1/chapter1.html">UTCDW Guidebook</a></li>
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Section 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 - Climate Basics</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Chapter 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 Climate Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.2_climate_modeling.html">2.2 Climate Modeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.3_climate_model_uncertainty.html">2.3 Climate Model Uncertainty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter2/chapter2_summary.html">2.4 Chapter Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/chapter3.html">Section 3: Exploring Climate Data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/chapter3.html">Chapter 3: Exploring Climate Data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.1_station_data.html">3.1 Station Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.2_gridded_obs.html">3.2 Gridded Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.3_reanalysis.html">3.3 Reanalysis Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.4_climate_model_output.html">Section 3.4 - Climate Model Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.4_climate_model_output.html">3.4 Climate Model Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/chapter3_summary.html">3.5 Chapter Summary</a></li>
 </ul>
 </li>
@@ -393,10 +393,10 @@ Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping intr
 <p>A comparison between EQM and DQM is presented in the figure below. Note how the model-projected negative skewness of the distribution is somewhat preserved in the DQM-adjusted projections, but is completely attenuated in the EQM-adjusted data.</p>
 <p><img alt="" src="../_images/pdfs_and_cdfs_dqm_temp.png" /></p>
 <p><strong>Quantile Delta Mapping</strong></p>
-<p>As noted in Cannon et. al. (2015), DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution <em>and</em> preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation <span class="math notranslate nohighlight">\(x_{GCM}^{proj}(t)\)</span>, the quantile <span class="math notranslate nohighlight">\(\tau(t)\)</span> is calculated using the empirical CDF <span class="math notranslate nohighlight">\(F_{GCM}^{proj}\)</span> for a time window around <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<p>As noted in <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">Cannon et. al. (2015)</a>, DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution <em>and</em> preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation <span class="math notranslate nohighlight">\(x_{GCM}^{proj}(t)\)</span>, the quantile <span class="math notranslate nohighlight">\(\tau(t)\)</span> is calculated using the empirical CDF <span class="math notranslate nohighlight">\(F_{GCM}^{proj}\)</span> for a time window around <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\tau(t) = F_{GCM}^{proj}[x_{GCM}^{proj}(t)]\]</div>
-<p>Next we calculate change in the value of <span class="math notranslate nohighlight">\(x\)</span> at this quantile between the historical and future simulations, i.e. the “Delta” in QDM. For a ratio variable, <span class="math notranslate nohighlight">\(\Delta\)</span> is a relative change, but for an interval variable <span class="math notranslate nohighlight">\(\Delta\)</span> is a difference rather than a ratio. In the additive case, QDM is equivalent to another method of bias correction called “equidistant CDF matching” <span class="xref myst">(Li et al., 2010)</span>.</p>
+<p>Next we calculate change in the value of <span class="math notranslate nohighlight">\(x\)</span> at this quantile between the historical and future simulations, i.e. the “Delta” in QDM. For a ratio variable, <span class="math notranslate nohighlight">\(\Delta\)</span> is a relative change, but for an interval variable <span class="math notranslate nohighlight">\(\Delta\)</span> is a difference rather than a ratio. In the additive case, QDM is equivalent to another method of bias correction called “equidistant CDF matching” <a class="reference external" href="https://doi.org/10.1029/2009JD012882">(Li et al., 2010)</a>.</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{align*}

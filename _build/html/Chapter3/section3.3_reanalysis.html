@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter3/section3.3_reanalysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Section 3.4 - Climate Model Output" href="section3.4_climate_model_output.html" />
+    <link rel="next" title="3.4 Climate Model Output" href="section3.4_climate_model_output.html" />
     <link rel="prev" title="3.2 Gridded Observations" href="section3.2_gridded_obs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -153,18 +153,18 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Chapter1/chapter1.html">UTCDW Guidebook</a></li>
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Section 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 - Climate Basics</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Chapter 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 Climate Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.2_climate_modeling.html">2.2 Climate Modeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.3_climate_model_uncertainty.html">2.3 Climate Model Uncertainty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter2/chapter2_summary.html">2.4 Chapter Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter3.html">Section 3: Exploring Climate Data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter3.html">Chapter 3: Exploring Climate Data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="section3.1_station_data.html">3.1 Station Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section3.2_gridded_obs.html">3.2 Gridded Observations</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.3 Reanalysis Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="section3.4_climate_model_output.html">Section 3.4 - Climate Model Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.4_climate_model_output.html">3.4 Climate Model Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter3_summary.html">3.5 Chapter Summary</a></li>
 </ul>
 </li>
@@ -479,7 +479,7 @@ day_ERA5-Land_NAM.ncml
   warnings.warn(&quot;Cannot find the station inventory in the current working directory.&quot;)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmpod5cfwuo
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmpi3y179gf
 </pre></div>
 </div>
 </div>
@@ -570,7 +570,7 @@ day_ERA5-Land_NAM.ncml
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">stn_df_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">stn_df_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-    <span class="c1">#ds = df.MaxTemp.to_xarray().to_dataset(name = &#39;tasmax&#39;) # convert to xarray</span>
+    <span class="c1"># convert to xarray</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;MaxTemp&#39;</span><span class="p">]])</span>
     <span class="n">lats</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">lons</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -729,7 +729,7 @@ day_ERA5-Land_NAM.ncml
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Section 3.4 - Climate Model Output</p>
+        <p class="prev-next-title">3.4 Climate Model Output</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

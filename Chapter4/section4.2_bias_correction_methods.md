@@ -80,11 +80,11 @@ A comparison between EQM and DQM is presented in the figure below. Note how the 
 
 **Quantile Delta Mapping**
 
-As noted in Cannon et. al. (2015), DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution *and* preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation $x_{GCM}^{proj}(t)$, the quantile $\tau(t)$ is calculated using the empirical CDF $F_{GCM}^{proj}$ for a time window around $t$:
+As noted in [Cannon et. al. (2015)](https://doi.org/10.1175/JCLI-D-14-00754.1), DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution *and* preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation $x_{GCM}^{proj}(t)$, the quantile $\tau(t)$ is calculated using the empirical CDF $F_{GCM}^{proj}$ for a time window around $t$:
 
 $$\tau(t) = F_{GCM}^{proj}[x_{GCM}^{proj}(t)]$$
 
-Next we calculate change in the value of $x$ at this quantile between the historical and future simulations, i.e. the "Delta" in QDM. For a ratio variable, $\Delta$ is a relative change, but for an interval variable $\Delta$ is a difference rather than a ratio. In the additive case, QDM is equivalent to another method of bias correction called "equidistant CDF matching" [(Li et al., 2010)](doi.org/10.1029/2009JD012882).
+Next we calculate change in the value of $x$ at this quantile between the historical and future simulations, i.e. the "Delta" in QDM. For a ratio variable, $\Delta$ is a relative change, but for an interval variable $\Delta$ is a difference rather than a ratio. In the additive case, QDM is equivalent to another method of bias correction called "equidistant CDF matching" [(Li et al., 2010)](https://doi.org/10.1029/2009JD012882).
 
 $$
 \begin{align*}
