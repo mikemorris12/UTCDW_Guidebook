@@ -23,3 +23,8 @@ chapters:
     - file: Chapter4/section4.3_downscaling_methods
     - file: Chapter4/section4.4_downscaling_validation
     - file: Chapter4/section4.5_assessing_downscaled_projections
+    - file: Chapter4/chapter4_summary
+  - file: Chapter5/chapter5
+    sections:
+    - file: Chapter5/section5.1_climate_indicators
+    - file: Chapter5/section5.2_data_selection
