@@ -174,6 +174,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.3_downscaling_methods.html">4.3 Downscaling Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.4_downscaling_validation.html">4.4 Downscaling Validation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.5_assessing_downscaled_projections.html">4.5 Assessing Downscaled Climate Projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/chapter4_summary.html">4.6 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter5/chapter5.html">Chapter 5: Downscaling Workflow</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.1_climate_indicators.html">5.1 Climate Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.2_data_selection.html">5.2 Data Selection</a></li>
 </ul>
 </li>
 </ul>
@@ -351,7 +357,7 @@ document.write(`
 <div class="section" id="searching-for-data">
 <h2>3.4.1 Searching For Data<a class="headerlink" href="#searching-for-data" title="Permalink to this headline">#</a></h2>
 <p>To search the ESGF archive we must first establish a connection to an ESGF node using the <code class="docutils literal notranslate"><span class="pre">pyesgf.search.SearchConnection</span></code> class. To do this, we pass the URL for the node to <code class="docutils literal notranslate"><span class="pre">SearchConnection</span></code>. Since each node may only host a subset of the complete CMIP archive, the argument <code class="docutils literal notranslate"><span class="pre">distrib</span> <span class="pre">=</span> <span class="pre">True</span></code> tells the API to search across all nodes, not just the one we connected to.</p>
-<p><em>Note: There are sometimes network/service issues with the ESGF nodes, meaning you may sometimes get unexpected errors when using esgf-pyclient. You can try connecting to a different node, or waiting and trying to run the code later.</em></p>
+<p>Note: There are sometimes network/service issues with the ESGF nodes, meaning you may sometimes get unexpected errors when using esgf-pyclient. You can try connecting to a different node, or waiting and trying to run the code later. The URLs for each of the nodes, and their operating status, can be found <a class="reference external" href="https://esgf-node.llnl.gov/status/">on this page</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the required packages</span>
@@ -377,6 +383,9 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># establish a connection to the LLNL node</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">SearchConnection</span><span class="p">(</span><span class="s1">&#39;https://esgf-node.llnl.gov/esg-search&#39;</span><span class="p">,</span> <span class="n">distrib</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># if that doesn&#39;t work, try the UK node</span>
+<span class="c1">#conn = SearchConnection(&#39;https://esgf.ceda.ac.uk/esg-search&#39;, distrib=True)</span>
 </pre></div>
 </div>
 </div>
@@ -442,7 +451,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Our search returned 6 results, meaning 6 different data files match our search criteria. The results still need a bit more processing until we can get the download URLs (or OPeNDAP URLs) for the data. Next we’ll do this processing, and make a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> mapping the file names to the URLs.</p>
+<p>Our search returned 12 results, meaning 12 different data files match our search criteria. The results still need a bit more processing until we can get the download URLs (or OPeNDAP URLs) for the data. Next we’ll do this processing, and make a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> mapping the file names to the URLs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sometimes running this cell raises an error, but running it a second time seems to work.</span>
@@ -463,7 +472,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We now have a list of <em>twelve</em> files that match our search criteria. This might be a result of the distributed search returning the same data files, hosted on different nodes. Let’s print out all of the file names to check for duplicates, before we do any downloading</p>
+<p>We now have a list of 24 files that match our search criteria. This might be a result of the distributed search returning the same data files, hosted on different nodes. Let’s print out all of the file names to check for duplicates, before we do any downloading</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">():</span> <span class="c1"># print in alphabetical order</span>
