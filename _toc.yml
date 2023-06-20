@@ -28,3 +28,4 @@ chapters:
     sections:
     - file: Chapter5/section5.1_climate_indicators
     - file: Chapter5/section5.2_data_selection
+    - file: Chapter5/section5.3_exploratory_data_analysis

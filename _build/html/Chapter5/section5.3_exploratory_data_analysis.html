@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 4 - Statistical Downscaling &#8212; UTCDW Guidebook</title>
+    <title>5.3 Exploratory Data Analysis &#8212; UTCDW Guidebook</title>
   
   
   
@@ -59,13 +59,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter4/chapter4';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter5/section5.3_exploratory_data_analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1 Downscaling Basics" href="section4.1_downscaling_basics.html" />
-    <link rel="prev" title="3.5 Chapter Summary" href="../Chapter3/chapter3_summary.html" />
+    <link rel="prev" title="5.2 Data Selection" href="section5.2_data_selection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -167,19 +164,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/chapter3_summary.html">3.5 Chapter Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Chapter 4 - Statistical Downscaling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="section4.1_downscaling_basics.html">4.1 Downscaling Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="section4.2_bias_correction_methods.html">4.2 Bias-Correction Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="section4.3_downscaling_methods.html">4.3 Downscaling Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="section4.4_downscaling_validation.html">4.4 Downscaling Validation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="section4.5_assessing_downscaled_projections.html">4.5 Assessing Downscaled Climate Projections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter4_summary.html">4.6 Chapter Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/chapter4.html">Chapter 4 - Statistical Downscaling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.1_downscaling_basics.html">4.1 Downscaling Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.2_bias_correction_methods.html">4.2 Bias-Correction Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.3_downscaling_methods.html">4.3 Downscaling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.4_downscaling_validation.html">4.4 Downscaling Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.5_assessing_downscaled_projections.html">4.5 Assessing Downscaled Climate Projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/chapter4_summary.html">4.6 Chapter Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter5/chapter5.html">Chapter 5: Downscaling Workflow</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.1_climate_indicators.html">5.1 Climate Indicators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.2_data_selection.html">5.2 Data Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.3_exploratory_data_analysis.html">5.3 Exploratory Data Analysis</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter5.html">Chapter 5: Downscaling Workflow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="section5.1_climate_indicators.html">5.1 Climate Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section5.2_data_selection.html">5.2 Data Selection</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3 Exploratory Data Analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -236,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Chapter4/chapter4.md" target="_blank"
+      <li><a href="../_sources/Chapter5/section5.3_exploratory_data_analysis.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +302,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -316,11 +315,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 4 - Statistical Downscaling</h1>
+    <h1>5.3 Exploratory Data Analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-model-obs-consistency">5.3.1 Check Model/Obs Consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-climate-change-signal">5.3.2 Evaluate Climate Change Signal</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -330,12 +338,39 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-4-statistical-downscaling">
-<h1>Chapter 4 - Statistical Downscaling<a class="headerlink" href="#chapter-4-statistical-downscaling" title="Permalink to this headline">#</a></h1>
-<p>In the early stages of climate modelling, then-called “General Circulation Models” (GCMs, which is now sometimes taken to stand for “Global Climate Model”) were used primarily for theoretical study of the large-scale dynamics of the atmosphere. As you learned in Chapter 2, these models have been developed into highly complex Earth System Models (ESMs) that include components for additional aspects of the climate system, and have extensive parameterizations to represent the effects of sub-gridscale processes. However, these models can still only be trusted at face-value when it comes to large-scale aspects of the climate. The coarse resolution of global models (<span class="math notranslate nohighlight">\(\sim\)</span> 1<span class="math notranslate nohighlight">\(^{\circ}\)</span>, or 110 km) and the reliance on empirical parameterizations means that fine-scale features, which can be extremely important for regional and local climate, may not be represented well or even at all.</p>
-<p>These systematic model errors result in <strong>biases</strong> in the output - discrepancies between the simulated and observed climate. Before climate model output can be used for regional climate impact studies, one must make an effort to correct for these biases. If your impact study requires information over a contigous region, then you may also need data on a finer spatial grid than that of the model. These two tasks are the goal of a broad category of methods referred to as <strong>downscaling</strong>.</p>
-<p>In Section 4.1, we will recap some of the basics of downscaling, though readers are encouraged to review <a class="reference external" href="https://edtech.engineering.utoronto.ca/subproject/regional-downscaling">Module 2</a> of the <a class="reference external" href="https://edtech.engineering.utoronto.ca/project/engineering-changing-climate">Engineering in a Changing Climate</a> e-Learning resource before continuing. Section 4.2 will introduce commonly used methods of correcting for model biases without altering the spatial resolution of the data, and Section 4.3 will lay out different methods of true spatial downscaling, many of which use one or more bias correction methods from 4.2. We will then start to work with some downscaled climate data by comparing it to observations in Section 4.4, and assessing downscaled future projections in Section 4.5.</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis">
+<h1>5.3 Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h1>
+<p>Once you have selected the observational and model datasets to use for your analysis, you can begin doing some exploratory data analysis, which will inform how you choose to downscale the model data.</p>
+<div class="section" id="check-model-obs-consistency">
+<h2>5.3.1 Check Model/Obs Consistency<a class="headerlink" href="#check-model-obs-consistency" title="Permalink to this headline">#</a></h2>
+<p>As demonstrated in Section 3.4, climate models are not perfect representation of the real physical climate system. Model output contains systematic errors that we call <em>biases</em> that downscaling and bias adjustment models aim to account for. In section 3.4 and, to some extent, section 4.4, we demonstrated how to quantify model biases. In partcular, 3.4 compared the probability density functions of Toronto monthly mean temperatures between one member of the CanESM5 historical ensemble, and observations from a weather station. Comparing the PDFs of a quantity at a particular location is useful for getting a sense of the severity and character of the model biases. This will be important for choosing an appropriate downscaling or bias-correction method (section 5.4.1).</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><img alt="" src="../_images/toronto_tmean_monthly_from3.4.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><em>PDFs of Toronto Monthly Mean Temperature, from Section 3.4</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>We also compared the monthly climatologies of monthly mean temperature in Toronto, as well as the month-by-month mean bias of the model. The overall mean bias is small, but the mean bias for individual months of the year are all much larger. Since the mean bias is typically positive in the summer months and negative in the winter months, the effct averages out over the whole year, but the biases at smaller time scales will have important effects on your analysis. Understanding the seasonality of biases is also important when selecting your bias correction and/or downscaling methods. When biases vary seasonally like they do in this example, you’ll want to apply adjustments that vary seasonally, to match the model to the observed climatology. When the biases do not show evidence of a systematic seasonal cycle, it’s better to use as much data as possible to characterize the whole distribution of values.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><img alt="" src="../_images/tmean_climatologies_from3.4.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><em>Monthly Climatologies of Toronto Monthly Mean Temperature, from Section 3.4</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>Assessing model biases goes beyond comparing PDFs and climatological means. Depending on your application, you may also wish to quantify biases in extreme values of your variables/quantities of interest, and also possibly temporal and spatial autocorrelations, as demonstrated in Section 4.4. The same methods used therein, for validating downscaled model output, can be applied for validating raw model ouput. It can also be informative to calculate your climate indicator(s) or run your impact model using the raw model data, and compare to results calculated with observations, since sometimes biases in your indicator or impact model cannot be easily deduced from the biases in the input variables, especially for complex impact models that take many inputs. This is not possible if your impact model only takes high-resoluton gridded input data, since of course the raw model output has coarse spatial resolution, but can be done easily if you are interested in a simple indicator like Cooling Degree Days.</p>
+</div>
+<div class="section" id="evaluate-climate-change-signal">
+<h2>5.3.2 Evaluate Climate Change Signal<a class="headerlink" href="#evaluate-climate-change-signal" title="Permalink to this headline">#</a></h2>
+<p>Sections 3.4.5 and 4.5 discussed investigation of projected changes of climate variables in raw and downscaled GCM data, respectively. As mentioned in 3.4.5, it’s important to have an idea of the sign, magnitude, and statistical significance of the projected changes to your variables of interest (and possibly your climate indicator), before doing downscaling and proceeding further into your study. The univariate downscaling and/or bias correction methods covered in Chapter 4 are designed to reduce model biases and enhance spatial resolution, but cannot substantially change the nature of the climate change signal produced in the unadjusted model output. If the raw model projects no significant change, the same will almost certainly be true in the downscaled projections. Additionally, combining information about the projected changes to the input variables with knowledge about the sensitivites of your climate indicator/impact model to its inputs allows you to interpret and explain your end results.</p>
+<p>Sections 2.3 and 5.2 discussed the different sources of uncertainty in climate change projections, and how to select your datasets to best characterize the effect of these sources of uncertainty on the range of projections. Having an idea of these uncertainty ranges in the raw model data will be helpful for interpreting your final results.</p>
 </div>
 </div>
 
@@ -352,7 +387,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./Chapter4"
+            path: "./Chapter5"
         },
         predefinedOutput: true
     }
@@ -371,22 +406,13 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Chapter3/chapter3_summary.html"
+       href="section5.2_data_selection.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3.5 Chapter Summary</p>
+        <p class="prev-next-title">5.2 Data Selection</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="section4.1_downscaling_basics.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">4.1 Downscaling Basics</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -397,6 +423,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-model-obs-consistency">5.3.1 Check Model/Obs Consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-climate-change-signal">5.3.2 Evaluate Climate Change Signal</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
