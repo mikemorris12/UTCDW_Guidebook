@@ -15,6 +15,7 @@ chapters:
     - file: Chapter3/section3.2_gridded_obs
     - file: Chapter3/section3.3_reanalysis
     - file: Chapter3/section3.4_climate_model_output
+    - file: Chapter3/section3.5_model_data_on_google_cloud
     - file: Chapter3/chapter3_summary
   - file: Chapter4/chapter4
     sections:
