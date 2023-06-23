@@ -337,6 +337,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends">3.4.5.2 Trends</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -615,12 +616,41 @@ tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
     <span class="n">url</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;download_url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">path_to_write</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path_to_write</span><span class="p">):</span> <span class="c1"># only download if the files doesn&#39;t already exist</span>
+    
+    <span class="c1"># only download if the files doesn&#39;t already exist. </span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path_to_write</span><span class="p">):</span> 
         <span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">path_to_write</span><span class="p">)</span>
+    
+    <span class="c1"># if there is an error downloading a file, you&#39;ll need to either delete the file,</span>
+    <span class="c1"># or change this block of code to call download(url, path_to_write) without </span>
+    <span class="c1"># first checking if path_to_write exists,</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Sometimes there are issues downloading files from the ESGF, due to technical errors on their end. One way to ensure that the file downloaded successfully is to check the file size. For monthly data, we expect each file to be a few tens of MB, so if the file size is much smaller, there was likely a problem. This will get flagged in the <code class="docutils literal notranslate"><span class="pre">download</span></code> function we used to download the data, but we can also check the file size using the <code class="docutils literal notranslate"><span class="pre">os.stat</span></code> function, as demonstrated below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop through each file, just like when we downloaded them</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)):</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">filestats</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="n">size_in_MB</span> <span class="o">=</span> <span class="n">filestats</span><span class="o">.</span><span class="n">st_size</span> <span class="o">/</span> <span class="mf">1e6</span> <span class="c1"># convert bytes to megabytes</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Size of </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">size_in_MB</span><span class="si">}</span><span class="s2"> MB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Size of tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc: 27.267498 MB
+Size of tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc: 25.23234 MB
+Size of tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc: 37.722355 MB
+Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>The size of each downloaded file is as expected, so we will proceed. If the rest of the notebook runs without error, then that’s another sign that the download was successful.</p>
 </div>
 <div class="section" id="opening-and-exploring-the-data">
 <h2>3.4.3 Opening and Exploring the Data<a class="headerlink" href="#opening-and-exploring-the-data" title="Permalink to this headline">#</a></h2>
@@ -973,8 +1003,11 @@ z = \left\{
 </div>
 </div>
 <p>Since the p-value is very small for this robust test, we can confidently reject the null hypothesis of no trend, and conclude that CanESM5 projects a significant increasing trend in Toronto monthly mean temperatures. When we move to looking at downscaled data from this model, we should expect to see results that are qualitatively similar, only with reduced biases relative to observations, and spatial information on a finer grid.</p>
-<p>This notebook has worked through the process of downloading CMIP6 climate model data from the ESGF, and doing some basic model validation using station observations. Any other data hosted on the ESGF, including CORDEX regional climate model data, can be accessed in the same way. Users are encouraged to navigate the ESGF web portal before using <code class="docutils literal notranslate"><span class="pre">pyesgf</span></code> to ensure you’re using the correct facet names for the project you’re searching, and that the search is returning the results you expect.</p>
 </div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<p>This notebook has worked through the process of downloading CMIP6 climate model data from the ESGF, and doing some basic model validation using station observations. Any other data hosted on the ESGF, including CORDEX regional climate model data, can be accessed in the same way. Users are encouraged to navigate the ESGF web portal before using <code class="docutils literal notranslate"><span class="pre">pyesgf</span></code> to ensure you’re using the correct facet names for the project you’re searching, and that the search is returning the results you expect.</p>
 </div>
 </div>
 
@@ -1054,6 +1087,7 @@ z = \left\{
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends">3.4.5.2 Trends</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
 
