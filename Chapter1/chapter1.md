@@ -30,7 +30,8 @@ Once you have Anaconda installed, you must create an environment in which you wi
 
 Now you are ready to set up your Conda environemnt. To ensure version compatability, we have provided the file `UTCDW_env.yml` which can be used to install all of the required Python packages with the versions used for development of the guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.
 
-`conda env create -f UTCDW_env.yml`
+* `conda env create -f UTCDW_env_Linux.yml` (Linux)
+* `conda env create -f UTCDW_env_MacOS.yml` (MacOS with Apple Silicon chip)
 
 Once set up, you can activate the environment using the command:
 

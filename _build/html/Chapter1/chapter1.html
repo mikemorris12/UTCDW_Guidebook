@@ -364,7 +364,10 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--prepend</span> <span class="pre">channels</span> <span class="pre">conda-forge</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--append</span> <span class="pre">channels</span> <span class="pre">claut</span></code></p>
 <p>Now you are ready to set up your Conda environemnt. To ensure version compatability, we have provided the file <code class="docutils literal notranslate"><span class="pre">UTCDW_env.yml</span></code> which can be used to install all of the required Python packages with the versions used for development of the guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.</p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">UTCDW_env.yml</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">UTCDW_env_Linux.yml</span></code> (Linux)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">UTCDW_env_MacOS.yml</span></code> (MacOS with Apple Silicon chip)</p></li>
+</ul>
 <p>Once set up, you can activate the environment using the command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">UTCDW</span></code></p>
 <p>Most, but not all, of the packages used for this guidebook are listed below. If you prefer to work in your pre-existing conda environment, you can install them using</p>
