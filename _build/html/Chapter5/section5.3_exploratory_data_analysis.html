@@ -62,6 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter5/section5.3_exploratory_data_analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.4 Producing Downscaled Data" href="section5.4_producing_downscaled_data.html" />
     <link rel="prev" title="5.2 Data Selection" href="section5.2_data_selection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -178,6 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="section5.1_climate_indicators.html">5.1 Climate Indicators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section5.2_data_selection.html">5.2 Data Selection</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3 Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section5.4_producing_downscaled_data.html">5.4 Producing Downscaled Data</a></li>
 </ul>
 </li>
 </ul>
@@ -341,7 +343,7 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis">
 <h1>5.3 Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h1>
-<p>Once you have selected the observational and model datasets to use for your analysis, you can begin doing some exploratory data analysis, which will inform how you choose to downscale the model data.</p>
+<p>Once you have selected the observational and model datasets to use for your analysis, you can begin doing some exploratory data analysis, which will inform how you choose to downscale the model data. This involves much of the analysis demonstrated in Chapter 3, but the most crucial steps for the workflow are explained in this section. If you’re new to analysing climate data and don’t have much intutition for the typical characteristics of different variables, it’s very important that you explore your data extensively by making plots of time series and probability distributions, and calculating important quantities, such as climatologies and extreme values.</p>
 <div class="section" id="check-model-obs-consistency">
 <h2>5.3.1 Check Model/Obs Consistency<a class="headerlink" href="#check-model-obs-consistency" title="Permalink to this headline">#</a></h2>
 <p>As demonstrated in Section 3.4, climate models are not perfect representation of the real physical climate system. Model output contains systematic errors that we call <em>biases</em> that downscaling and bias adjustment models aim to account for. In section 3.4 and, to some extent, section 4.4, we demonstrated how to quantify model biases. In partcular, 3.4 compared the probability density functions of Toronto monthly mean temperatures between one member of the CanESM5 historical ensemble, and observations from a weather station. Comparing the PDFs of a quantity at a particular location is useful for getting a sense of the severity and character of the model biases. This will be important for choosing an appropriate downscaling or bias-correction method (section 5.4.1).</p>
@@ -414,6 +416,15 @@ document.write(`
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">5.2 Data Selection</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="section5.4_producing_downscaled_data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5.4 Producing Downscaled Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   

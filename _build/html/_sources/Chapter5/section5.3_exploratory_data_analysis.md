@@ -1,6 +1,6 @@
 # 5.3 Exploratory Data Analysis
 
-Once you have selected the observational and model datasets to use for your analysis, you can begin doing some exploratory data analysis, which will inform how you choose to downscale the model data.
+Once you have selected the observational and model datasets to use for your analysis, you can begin doing some exploratory data analysis, which will inform how you choose to downscale the model data. This involves much of the analysis demonstrated in Chapter 3, but the most crucial steps for the workflow are explained in this section. If you're new to analysing climate data and don't have much intutition for the typical characteristics of different variables, it's very important that you explore your data extensively by making plots of time series and probability distributions, and calculating important quantities, such as climatologies and extreme values.
 
 ## 5.3.1 Check Model/Obs Consistency
 

@@ -59,9 +59,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter5/section5.4_producing_downscaled_data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="5.3 Exploratory Data Analysis" href="section5.3_exploratory_data_analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -146,7 +149,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Chapter1/chapter1.html">Chapter 1: Introduction</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Chapter 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 Climate Basics</a></li>
@@ -173,10 +176,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter4/chapter4_summary.html">4.6 Chapter Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="chapter5.html">Chapter 5: Downscaling Workflow</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter5.html">Chapter 5: Downscaling Workflow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="section5.1_climate_indicators.html">5.1 Climate Indicators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section5.2_data_selection.html">5.2 Data Selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section5.3_exploratory_data_analysis.html">5.3 Exploratory Data Analysis</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4 Producing Downscaled Data</a></li>
 </ul>
 </li>
 </ul>
@@ -326,7 +330,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-bias-correction-downscaling-method">5.4.1 Choosing a Bias Correction/Downscaling Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-bias-correction-and-downscaling">5.4.2 Applying Bias Correction and Downscaling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-bias-correction-and-downscaling">5.4.2 Applying Bias Correction and Downscaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-and-additional-tips">5.4.2.1 Data Cleaning and Additional Tips</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -349,6 +356,19 @@ document.write(`
 </div>
 <div class="section" id="applying-bias-correction-and-downscaling">
 <h2>5.4.2 Applying Bias Correction and Downscaling<a class="headerlink" href="#applying-bias-correction-and-downscaling" title="Permalink to this headline">#</a></h2>
+<p>Having chosen a downscaling or bias correction method, you’re almost ready to apply it using your selected datasets. The last decision to be made is the way in which you’ll apply the quantile-mapping (QM) based bias correction, be it alone or as a part of a spatial downscaling method like DBCCA. Recall that in the previous section of this chapter, we saw that the CanESM5 monthly mean temperatures in Toronto are biased high in the warm-season months and low in the cold-season months. Because the bias varies seasonally, it makes sense to separate (or “group”) the data by the month of the year, and apply a different bias correction to each group. Calculating one set of adjustment factors for the entire dataset would leave remaining bias in the seasonal cycle of temperature. Understading the properties of the model bias will help you decide if a grouped bias correction is appropriate or not. In the <code class="docutils literal notranslate"><span class="pre">xclim.sdba</span></code> module that implements the different QM-based bias adjustment methods, you can specify the time unit by which you’d like to group the data using the <code class="docutils literal notranslate"><span class="pre">group</span></code> keyword argument to the <code class="docutils literal notranslate"><span class="pre">train</span></code> method of the adjustment method object (i.e. <code class="docutils literal notranslate"><span class="pre">xlim.sdba.adjustment.QuantileDeltaMapping.train(obs_data,</span> <span class="pre">hist_model_data,</span> <span class="pre">group</span> <span class="pre">=</span> <span class="pre">'time.month')</span></code> for monthly groups). To avoid abrupt changes from one month to the next, you can specify an interpolation method that will be used to smooth the transitions using the <code class="docutils literal notranslate"><span class="pre">interp</span></code> keyword argument to the <code class="docutils literal notranslate"><span class="pre">adjust</span></code> method, i.e. <code class="docutils literal notranslate"><span class="pre">xlim.sdba.adjustment.QuantileDeltaMapping.adjust(future_model_data,</span> <span class="pre">interp</span> <span class="pre">=</span> <span class="pre">'linear')</span></code> (or alternatively <code class="docutils literal notranslate"><span class="pre">interp</span> <span class="pre">=</span> <span class="pre">'cubic'</span></code>). See documentation and examples of the <code class="docutils literal notranslate"><span class="pre">xclim.sdba</span></code> bias adjustment methods <a class="reference external" href="https://xclim.readthedocs.io/en/stable/notebooks/sdba.html">here</a>.</p>
+<p>The type of climate change “delta” must also be specified when using either Quantile Delta Mapping or Detrended Quantile Mapping. The appropriate choice depends on the variable being downscaled. For interval such as temperature, an additive delta is to be used, and for ratio variables such as precipitation, a multiplicative delta is most appropriate. An interval variable is one where differences are meaningful, and a ratio variable is an interval variable with a defined absolute zero (<a class="reference external" href="https://doi.org/10.1016/0263-2241(84)90020-4">Finkelstein and Leaning, 1984</a>, <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">Cannon et al., 2015</a>). Temperature is consdiered an interval variable because it is typically measured in Celsius, where the zero is not an absolute zero. The type of delta is specified using the <code class="docutils literal notranslate"><span class="pre">kind</span></code> keyword argument in the <code class="docutils literal notranslate"><span class="pre">train</span></code> method of <code class="docutils literal notranslate"><span class="pre">xclim</span></code> adjustment objects (i.e. <code class="docutils literal notranslate"><span class="pre">xlim.sdba.adjustment.QuantileDeltaMapping.train(...,</span> <span class="pre">kind</span> <span class="pre">=</span> <span class="pre">&quot;+&quot;)</span></code>).</p>
+<p>Another decision to be made when applying QM bias corrections is the number of quantiles to estimate from the data, and how to interpolate adjustment factors between the computed quantiles. <code class="docutils literal notranslate"><span class="pre">xclim</span></code>’s implementation of quantile mapping does not assume any form of the underyling probability distribution of the data, it estimates a specified number of quantiles empirically, and interpolates between them when applying the bias adjustment. This is done for several reasons. First, it’s difficult to specify a particular type of probability distribution that a climate variable should theoretically follow, so estimating quantiles empirically avoids this issue. Next, it’s not reasonable statistically to sort each dataset and do a one-to-one mapping of the N’th highest model value to the N’th highest observed value, which is the same as choosing the same number of quantiles to estimate as there are data points. Since the data points are not all independent (due to autocorrelations, as discussed in Section 3.4) the true number of degrees of freedom is less than the number of data points, and using more parameters than data points is considered overfitting. Finally, estimating a moderate number of quantiles and interpolating, instead of direct one-to-one mapping of data values, is much faster computationally. The <code class="docutils literal notranslate"><span class="pre">xclim</span></code> default number of quantiles (specified by the keyword argument <code class="docutils literal notranslate"><span class="pre">nquantiles</span></code> in the <code class="docutils literal notranslate"><span class="pre">train</span></code> methods) is 20, but usually a larger number is appropriate. For many cases, only very minor differences are apparent when using <code class="docutils literal notranslate"><span class="pre">nquantiles</span></code> above 50 or so.</p>
+<div class="section" id="data-cleaning-and-additional-tips">
+<h3>5.4.2.1 Data Cleaning and Additional Tips<a class="headerlink" href="#data-cleaning-and-additional-tips" title="Permalink to this headline">#</a></h3>
+<p>In addition to the decisions made about the details of the bias correction methods, it’s also important to remember that most climate data will not be ready to plug and play with the canned routines of <code class="docutils literal notranslate"><span class="pre">xclim</span></code> or other climate analysis packages, or there might be other minor things to consider to ensure a successful workflow. For the sake of brevity, these tips will be itemized below.</p>
+<ul class="simple">
+<li><p>Calendar consistency: Observational data is likely to include leap years, while most climate model data does not. You can exclude data on February 28th’s using <code class="docutils literal notranslate"><span class="pre">xclim.core.convert_calendar</span></code> (<a class="reference external" href="https://xclim.readthedocs.io/en/stable/xclim.core.html#xclim.core.calendar.convert_calendar">docs</a>)</p></li>
+<li><p>Data units: Observational data and model output often are recorded using different units. For example, most observed precipitation data is in units of mm/day, but the standard CMIP6 unit for precipitation is kg m<span class="math notranslate nohighlight">\(^{-2}\)</span> s<span class="math notranslate nohighlight">\(^{-1}\)</span>. To convert the model data to mm/day, you’ll need to divide by the density of water (1000 kg m<span class="math notranslate nohighlight">\(^{-3}\)</span>), multiply by 1000 to convert m to mm, and then multiply by 86400 (to convert mm/s to mm/day). Same goes for temperature - model output is usually in Kelvin but observations are usually in degrees Celsius.</p></li>
+<li><p>Unit Attributes: <code class="docutils literal notranslate"><span class="pre">xclim</span></code> requires all variables (in <code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code> format) to have a <code class="docutils literal notranslate"><span class="pre">units</span></code> attribute. Assign this using <code class="docutils literal notranslate"><span class="pre">da.attrs['units']</span> <span class="pre">=</span> <span class="pre">unit_name</span></code> where <code class="docutils literal notranslate"><span class="pre">unit_name</span></code> is the appropriate unit for the quantity in <code class="docutils literal notranslate"><span class="pre">da</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">'K'</span></code>, <code class="docutils literal notranslate"><span class="pre">'degC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mm/day'</span></code>, etc.).</p></li>
+<li><p>Precipitation frequency: Climate models often have a “drizzle” bias, where the frequency of very small amounts of precipitation is too high, and the frequency of exactly zero precipitation (“dry days”) is much too low. This can cause the low-quantile adjustment factors in quantile mapping to be poorly constrained. It’s helpful to adjust the frequency of dry days to match that of observations using <code class="docutils literal notranslate"><span class="pre">xclim.sdba.processing.adapt_freq</span></code>. This function takes a keyword argument <code class="docutils literal notranslate"><span class="pre">thresh</span></code> that specifies the threshold below which days are considered to be dry days, if you don’t wish to match the frequency of exact zeros. For example, you could call <code class="docutils literal notranslate"><span class="pre">adapt_freq(obs_pr,</span> <span class="pre">model_pr,</span> <span class="pre">thresh</span> <span class="pre">=</span> <span class="pre">0.05</span> <span class="pre">mm</span> <span class="pre">d-1)</span></code> if you wish to consider days with less than 0.05 mm of precipitation to be “dry days”.</p></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -383,6 +403,15 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="section5.3_exploratory_data_analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5.3 Exploratory Data Analysis</p>
+      </div>
+    </a>
 </div></div>
   
 </div>
@@ -402,7 +431,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-bias-correction-downscaling-method">5.4.1 Choosing a Bias Correction/Downscaling Method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-bias-correction-and-downscaling">5.4.2 Applying Bias Correction and Downscaling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-bias-correction-and-downscaling">5.4.2 Applying Bias Correction and Downscaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-and-additional-tips">5.4.2.1 Data Cleaning and Additional Tips</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
