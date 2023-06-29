@@ -451,7 +451,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
 </pre></div>
 </div>
 </div>
@@ -475,7 +475,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28
 </pre></div>
 </div>
 </div>
@@ -493,6 +493,14 @@ document.write(`
 tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
 tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
 tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
 tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
 tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
 tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
@@ -500,6 +508,12 @@ tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
 tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
 tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
 tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
 tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
 tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
 tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
@@ -726,7 +740,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
                             <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">calendar</span> <span class="o">=</span> <span class="s1">&#39;noleap&#39;</span><span class="p">)</span>
 <span class="c1"># plot the time series</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">tas_CanESM5</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CanESM5&#39;</span><span class="p">)</span>
+<span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CanESM5&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times_obs</span><span class="p">,</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Station Obs&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Monthly Mean Temperature in Toronto&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
@@ -736,7 +750,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/142999cf00702e0bff2017b32ab131429504e3f11c582c34c9ddd18d6753f348.png" src="../_images/142999cf00702e0bff2017b32ab131429504e3f11c582c34c9ddd18d6753f348.png" />
+<img alt="../_images/2bec85af8d2e2388fc4332ddc53c4841bac7b759b07863e060d25fd93d2dc40c.png" src="../_images/2bec85af8d2e2388fc4332ddc53c4841bac7b759b07863e060d25fd93d2dc40c.png" />
 </div>
 </div>
 <p>While we should not expect the individual months of the simulated data to match up with the station observations, the degree of overlap is encouraging that the model agrees decently well with observations.</p>
