@@ -1,4 +1,4 @@
-# Chapter 4 - Statistical Downscaling
+# Chapter 4: Statistical Downscaling
 
 In the early stages of climate modelling, then-called "General Circulation Models" (GCMs, which is now sometimes taken to stand for "Global Climate Model") were used primarily for theoretical study of the large-scale dynamics of the atmosphere. As you learned in Chapter 2, these models have been developed into highly complex Earth System Models (ESMs) that include components for additional aspects of the climate system, and have extensive parameterizations to represent the effects of sub-gridscale processes. However, these models can still only be trusted at face-value when it comes to large-scale aspects of the climate. The coarse resolution of global models ($\sim$ 1$^{\circ}$, or 110 km) and the reliance on empirical parameterizations means that fine-scale features, which can be extremely important for regional and local climate, may not be represented well or even at all. 
 

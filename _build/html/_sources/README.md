@@ -1,14 +1,15 @@
+# UTCDW Guidebook
 # Chapter 1: Introduction
 
 Welcome to the guidebook for the University of Toronto Climate Downscaling Workflow. If you're accessing these resources, it means you are interested in using data to study how climate change may affect a particular domain in the built or natural environment. The purpose of this guidebook is to help you develop the skills and knowledge needed to design and conduct a climate change impact analysis study. 
 
 Users from outside of the climate science community may not be familiar with how climate change projections are produced, what sort of data is available, and how climate data is typically structured. For this reason, we encourage users new to working with climate data to work through an online learning resource developed as a predecessor to the UTCDW: [Engineering in a Changing Climate: A Transdisciplinary Workshop Series for Engineering and Climate Science Students](https://edtech.engineering.utoronto.ca/project/engineering-changing-climate).
 
-Module 1 (Introduction to Climate Science and Modelling) will introduce basic concepts in climate science and climate modeling. This topic will be expanded upon in Section 2 of this book. Section 3 will demonstrate to the user how to acquire and explore climate data, both from observations and climate model simulations, using the Python programming language.
+Module 1 (Introduction to Climate Science and Modelling) will introduce basic concepts in climate science and climate modeling. This topic will be expanded upon in Chapter 2 of this book. Chapter 3 will demonstrate to the user how to acquire and explore climate data, both from observations and climate model simulations, using the Python programming language.
 
-Module 2 (Regional Downscaling) will discuss the basics of post-processing climate change projections to make them appropriate and useful for local-scale applications (i.e. for studying a particular region, city, or location). This processing step is called Downscaling (the "D" in UTCDW), and it is crucial for any climate change impact study. Section 4 of this book will expand upon the e-Learning module by discussing topics including methods for statistical downscaling in practice, and which methods are suitable for different applications.
+Module 2 (Regional Downscaling) will discuss the basics of post-processing climate change projections to make them appropriate and useful for local-scale applications (i.e. for studying a particular region, city, or location). This processing step is called Downscaling (the "D" in UTCDW), and it is crucial for any climate change impact study. Chapter 4 of this book will expand upon the e-Learning module by discussing topics including methods for statistical downscaling in practice, and which methods are suitable for different applications.
 
-The latter portion of this book will introduce the "W" in UTCDW. Section 5 will help make explicit the decisions and compromises that must be made during study design, and help the user develop a workflow for acquiring, processing, and analyzing climate change projection data tailored for their study application. Finally, Section 6 will lay out examples of implementing this workflow for several different downscaling methods.
+The latter portion of this book will introduce the "W" in UTCDW. Chapter 5 will help make explicit the decisions and compromises that must be made during study design, and help the user develop a workflow for acquiring, processing, and analyzing climate change projection data tailored for their study application. Finally, Chapter 6 will lay out examples of implementing this workflow for several different downscaling methods.
 
 ## A Note About Computational Resource Requirements
 
