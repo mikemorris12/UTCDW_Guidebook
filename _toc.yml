@@ -2,7 +2,6 @@
 format: jb-book
 root: README
 chapters:
-  - file: Chapter1/chapter1
   - file: Chapter2/chapter2
     sections:
       - file: Chapter2/section2.1_climate_basics

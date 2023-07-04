@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UTCDW_Guidebook &#8212; UTCDW Guidebook</title>
+    <title>Chapter 1: Introduction &#8212; UTCDW Guidebook</title>
   
   
   
@@ -62,7 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter 1: Introduction" href="Chapter1/chapter1.html" />
+    <link rel="next" title="Chapter 2: Intro to Climate Science and Modeling" href="Chapter2/chapter2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -143,12 +143,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    UTCDW_Guidebook
+                    Chapter 1: Introduction
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Chapter1/chapter1.html">Chapter 1: Introduction</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Chapter2/chapter2.html">Chapter 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Chapter2/section2.1_climate_basics.html">2.1 Climate Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Chapter2/section2.2_climate_modeling.html">2.2 Climate Modeling</a></li>
@@ -304,7 +303,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -315,11 +316,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>UTCDW_Guidebook</h1>
+    <h1>Chapter 1: Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-computational-resource-requirements">A Note About Computational Resource Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-statistics">A Note about Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-setting-up-your-python-environment">Appendix: Setting Up Your Python Environment</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -329,9 +340,63 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="utcdw-guidebook">
-<h1>UTCDW_Guidebook<a class="headerlink" href="#utcdw-guidebook" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-1-introduction">
+<h1>Chapter 1: Introduction<a class="headerlink" href="#chapter-1-introduction" title="Permalink to this headline">#</a></h1>
 <p>Welcome to the guidebook for the University of Toronto Climate Downscaling Workflow. If you’re accessing these resources, it means you are interested in using data to study how climate change may affect a particular domain in the built or natural environment. The purpose of this guidebook is to help you develop the skills and knowledge needed to design and conduct a climate change impact analysis study.</p>
+<p>Users from outside of the climate science community may not be familiar with how climate change projections are produced, what sort of data is available, and how climate data is typically structured. For this reason, we encourage users new to working with climate data to work through an online learning resource developed as a predecessor to the UTCDW: <a class="reference external" href="https://edtech.engineering.utoronto.ca/project/engineering-changing-climate">Engineering in a Changing Climate: A Transdisciplinary Workshop Series for Engineering and Climate Science Students</a>.</p>
+<p>Module 1 (Introduction to Climate Science and Modelling) will introduce basic concepts in climate science and climate modeling. This topic will be expanded upon in Section 2 of this book. Section 3 will demonstrate to the user how to acquire and explore climate data, both from observations and climate model simulations, using the Python programming language.</p>
+<p>Module 2 (Regional Downscaling) will discuss the basics of post-processing climate change projections to make them appropriate and useful for local-scale applications (i.e. for studying a particular region, city, or location). This processing step is called Downscaling (the “D” in UTCDW), and it is crucial for any climate change impact study. Section 4 of this book will expand upon the e-Learning module by discussing topics including methods for statistical downscaling in practice, and which methods are suitable for different applications.</p>
+<p>The latter portion of this book will introduce the “W” in UTCDW. Section 5 will help make explicit the decisions and compromises that must be made during study design, and help the user develop a workflow for acquiring, processing, and analyzing climate change projection data tailored for their study application. Finally, Section 6 will lay out examples of implementing this workflow for several different downscaling methods.</p>
+<div class="section" id="a-note-about-computational-resource-requirements">
+<h2>A Note About Computational Resource Requirements<a class="headerlink" href="#a-note-about-computational-resource-requirements" title="Permalink to this headline">#</a></h2>
+<p>The volume of data to be processed as a part of a climate impact study can be very large. Multiple decades of global climate model data for a single variable at daily time frequency (e.g., air temperature at 2 m height) can add up to tens or even hundreds of GB. Most data hosting services do not support spatial sub-setting before downloading the data, so for most use cases you will need significant data storage resources, if not significant computing (processor and memory) resources as well. This guide will assume you have access to such resources, either via your research group’s in-house cluster, a HPC cluster such as SciNet at the University of Toronto, or a cloud computing service such as Amazon Web Services. Certain free-to-use climate analytics platforms are available, such as <a class="reference external" href="https://pavics.ouranos.ca/index.html">PAVICS</a>, but this guide aims to be independent of the computing platform you intend to use and does not provide support or guidance regarding their use.</p>
+</div>
+<div class="section" id="a-note-about-statistics">
+<h2>A Note about Statistics<a class="headerlink" href="#a-note-about-statistics" title="Permalink to this headline">#</a></h2>
+<p>The downscaling methods described and implemented in this guidebook make use of fundamental concepts in probability and statistics. As such, understanding of these concepts is necessary for understanding the methods presented in Section 4. Readers with little or no background in statistics are encouraged to review the textbook “Statistical Methods in the Atmospheric Sciences” (Wilks, 2019) (<a class="reference external" href="https://librarysearch.library.utoronto.ca/permalink/01UTORONTO_INST/14bjeso/alma991106867754106196">UofT Libraries Permalink</a>), particularly Chapters 1-4.</p>
+</div>
+<div class="section" id="appendix-setting-up-your-python-environment">
+<h2>Appendix: Setting Up Your Python Environment<a class="headerlink" href="#appendix-setting-up-your-python-environment" title="Permalink to this headline">#</a></h2>
+<p>The programming language used in the UTCDW is the latest version of Python 3, with the Anaconda3 package/environment manager. This guide will assume basic familiarity with Python, but not necessarily the packages used for analysis. If you do not have Python/Anaconda installed on your machine, <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">you can follow the instructions here</a>.</p>
+<p>Once you have Anaconda installed, you must create an environment in which you will install all the necessary packages. Because one of the packages you need to install (ec3, used for downloading weather station observational data from Environment and Climate Change Canada) is a custom package from a personal channel, the following commands will need to be run for conda to be able to find the package:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--prepend</span> <span class="pre">channels</span> <span class="pre">conda-forge</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--append</span> <span class="pre">channels</span> <span class="pre">claut</span></code></p>
+<p>Now you are ready to set up your Conda environemnt. To ensure version compatability, we have provided files which can be used to install all of the required Python packages with the versions used for development of the guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">UTCDW_env_Linux.yml</span></code> (Linux)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">UTCDW_env_MacOS.yml</span></code> (MacOS with Apple Silicon chip)</p></li>
+</ul>
+<p>Once set up, you can activate the environment using the command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">UTCDW</span></code></p>
+<p>Most, but not all, of the packages used for this guidebook are listed below. If you prefer to work in your pre-existing conda environment, or if you are having issues setting up your environment using the provided <code class="docutils literal notranslate"><span class="pre">.yml</span></code> files, you can install them using</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">&lt;package</span> <span class="pre">names&gt;</span></code></p>
+<p>Where <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">names&gt;</span></code> is to be replaced by the following package names, each separated by a space. Installing all packages at once helps ensure version consistency for packages that depend on others (e.g. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">xarray</span></code> have dependencies on <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="docutils literal notranslate"><span class="pre">cartopy</span></code> has a dependency on <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, etc.). Anaconda attempts to ensure that there are no dependency issues with existing packages when installing a new one, but sometimes error can arise when installing packages one-by-one.</p>
+<p>List of environments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> (used for arrays and other mathematical operations)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy</span></code> (additional scientific and mathematical operations)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> (for making plots)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cartopy</span></code> (for plotting maps)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nc-time-axis</span></code> (for plotting time series)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> (tabular data analysis and other useful functions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jupyterlab</span></code> and/or <code class="docutils literal notranslate"><span class="pre">notebook</span></code> (for working in Jupyter notebooks)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xarray</span></code> (workhorse package for netCDF data and arrays with coordinates)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">netCDF4</span></code> (backend package for xarray’s netCDF file handling)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zarr</span></code> (backend package for handling zarr data store files)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ec3</span></code> (for downloading Canadian weather station observational data)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">esgf-pyclient</span></code> (for downloading climate model data)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gcsfs</span></code> (for accessing climate model data stores on Google Cloud Services)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">siphon</span></code> (for downloading data files)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requests</span></code> (another package for downloading data files)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tdqm</span></code> (progress bar for downloading data)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask</span></code> (for speeding up xarray operations via parallel computing)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask-ml</span></code> (regression functions for use with <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> data types)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xesmf</span></code> (for re-gridding climate data)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xclim</span></code> (workhorse package for statistical downscaling and other climate analysis)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">libpysal</span></code> (for calculating spatial autocorrelations)</p></li>
+</ul>
+<p>Once you’ve set up your Python environment, you will be able to run the examples in this book, and eventually, to get started on working with climate data in Python.</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -368,11 +433,11 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
-       href="Chapter1/chapter1.html"
+       href="Chapter2/chapter2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 1: Introduction</p>
+        <p class="prev-next-title">Chapter 2: Intro to Climate Science and Modeling</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -385,6 +450,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-computational-resource-requirements">A Note About Computational Resource Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-about-statistics">A Note about Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-setting-up-your-python-environment">Appendix: Setting Up Your Python Environment</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
