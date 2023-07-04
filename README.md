@@ -66,6 +66,6 @@ List of environments:
 * `dask-ml` (regression functions for use with `dask.array` data types)
 * `xesmf` (for re-gridding climate data)
 * `xclim` (workhorse package for statistical downscaling and other climate analysis)
-* `libpysal` (for calculating spatial autocorrelations)
+* `libpysal` and `esda` (for calculating spatial autocorrelations)
 
 Once you've set up your Python environment, you will be able to run the examples in this book, and eventually, to get started on working with climate data in Python.
