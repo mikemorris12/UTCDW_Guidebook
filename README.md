@@ -61,7 +61,7 @@ List of environments:
 * `gcsfs` (for accessing climate model data stores on Google Cloud Services)
 * `siphon` (for downloading data files)
 * `requests` (another package for downloading data files)
-* `tdqm` (progress bar for downloading data)
+* `tqdm` (progress bar for downloading data)
 * `dask` (for speeding up xarray operations via parallel computing)
 * `dask-ml` (regression functions for use with `dask.array` data types)
 * `xesmf` (for re-gridding climate data)

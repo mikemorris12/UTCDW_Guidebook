@@ -338,6 +338,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends">3.4.5.2 Trends</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-multiple-ensemble-members">3.4.6 Analyzing Multiple Ensemble Members</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
@@ -365,6 +366,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the required packages</span>
 <span class="kn">from</span> <span class="nn">pyesgf.search</span> <span class="kn">import</span> <span class="n">SearchConnection</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">import</span> <span class="nn">ec3</span>
@@ -374,9 +376,51 @@ document.write(`
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">xclim</span> <span class="kn">import</span> <span class="n">ensembles</span>
 
 <span class="c1"># use this to suppress a warning which we can ignore</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ESGF_PYCLIENT_NO_FACETS_STAR_WARNING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;percent&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;%&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;year&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;yr&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;C&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;d&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;h&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;degrees_north&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;degrees_east&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;[speed]&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.DerivedDimensionDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;[radiation]&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.DerivedDimensionDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:218: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
+  def _day_length(lat: int | float, mth: int):  # pragma: no cover
+/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:238: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
+  def _day_length_factor(lat: float, mth: int):  # pragma: no cover
 </pre></div>
 </div>
 </div>
@@ -434,7 +478,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>To include multiple values for a search parameter (e.g. if you want data for both historical and SSP5-8.5 forcing scenarios), you can separate the search keywords with a comma (e.g. <code class="docutils literal notranslate"><span class="pre">experiment_id</span> <span class="pre">=</span> <span class="pre">'historical,ssp585'</span></code>. Let’s do exactly this, searching for <code class="docutils literal notranslate"><span class="pre">tas</span></code> (surface air temperature) data at monthly frequency from the model <code class="docutils literal notranslate"><span class="pre">CanESM5</span></code>, the Canadian model contributing to CMIP6. To limit the amount of data involved, we’ll also select only a single ensemble member, instead of the whole ensemble. Dropping the search parameter <code class="docutils literal notranslate"><span class="pre">member_id</span></code> would make the search return results for all ensemble members (if there are multiple members for the model(s)/experiment(s) of interest).</p>
+<p>To include multiple values for a search parameter (e.g. if you want data for both historical and SSP5-8.5 forcing scenarios), you can separate the search keywords with a comma (e.g. <code class="docutils literal notranslate"><span class="pre">experiment_id</span> <span class="pre">=</span> <span class="pre">'historical,ssp585'</span></code>. Let’s do exactly this, searching for <code class="docutils literal notranslate"><span class="pre">tas</span></code> (surface air temperature) data at monthly frequency from the model <code class="docutils literal notranslate"><span class="pre">CanESM5</span></code>, the Canadian model contributing to CMIP6. To limit the amount of data involved, we’ll also select only one ensemble member (<code class="docutils literal notranslate"><span class="pre">r1i1p1f1</span></code>), instead of the whole ensemble. Dropping the search parameter <code class="docutils literal notranslate"><span class="pre">member_id</span></code> would make the search return results for all ensemble members (if there are multiple members for the model(s)/experiment(s) of interest).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">new_context</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;CMIP6&quot;</span><span class="p">,</span>
@@ -455,7 +499,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Our search returned 12 results, meaning 12 different data files match our search criteria. The results still need a bit more processing until we can get the download URLs (or OPeNDAP URLs) for the data. Next we’ll do this processing, and make a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> mapping the file names to the URLs.</p>
+<p>Our search returned multiple results, meaning several different data files match our search criteria. The results still need a bit more processing until we can get the download URLs (or OPeNDAP URLs) for the data. Next we’ll do this processing, and make a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> mapping the file names to the URLs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sometimes running this cell raises an error about shards, but running it a second time seems to work.</span>
@@ -479,7 +523,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We now have a list of 24 files that match our search criteria. This might be a result of the distributed search returning the same data files, hosted on different nodes. Let’s print out all of the file names to check for duplicates, before we do any downloading</p>
+<p>We now have a longer list of files that match our search criteria. This might be a result of the distributed search returning the same data files, hosted on different nodes. Let’s print out all of the file names to check for duplicates, before we do any downloading</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">():</span> <span class="c1"># print in alphabetical order</span>
@@ -664,11 +708,12 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 </div>
 <div class="section" id="opening-and-exploring-the-data">
 <h2>3.4.3 Opening and Exploring the Data<a class="headerlink" href="#opening-and-exploring-the-data" title="Permalink to this headline">#</a></h2>
-<p>Now that the files are downloaded and saved, we can open them directly with <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and do some analysis. Let’s plot a time series of temperature near Toronto for the whole record, and compare the historical data to the Toronto City station observations (from Section 3.1).</p>
+<p>Now that the files are downloaded and saved, we can open them directly with <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and do some analysis. Let’s plot a time series of temperature near Toronto for the whole record, and compare the historical data to the Toronto City station observations (from Section 3.1). Since we’re opening multiple files, each of which has data for a different period of time, we’ll use the function <code class="docutils literal notranslate"><span class="pre">xr.open_mfdataset</span></code> (<a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.open_mfdataset.html">documentation</a>) to open all of them at once, and automatically concatenate them along the time dimension.</p>
+<p>The wildcard character <code class="docutils literal notranslate"><span class="pre">*</span></code> fills any possible value for the position where it occurs. In the example below, it takes the place of both <code class="docutils literal notranslate"><span class="pre">historical</span></code> and <code class="docutils literal notranslate"><span class="pre">ssp585</span></code> in its first occurrance, and in the second occurrance, it takes the place of the year range, e.g. <code class="docutils literal notranslate"><span class="pre">185001-201412</span></code> for the historical period, <code class="docutils literal notranslate"><span class="pre">201501-210012</span></code> for the first chunk of the SSP5-8.5 period, etc. The wildcard character is an example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a>, which are symbols used to represent patterns in text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first open the CanESM5 data, all files at once - open_mfdataset will automatically concatenate them in time</span>
-<span class="n">ds_CanESM5</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">data_directory</span> <span class="o">+</span> <span class="s2">&quot;/*.nc&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first open the CanESM5 data for ensemble member r1i1p1f1</span>
+<span class="n">ds_CanESM5</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">data_directory</span> <span class="o">+</span> <span class="s2">&quot;/tas_Amon_CanESM5_*_r1i1p1f1_gn_*.nc&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -676,7 +721,6 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now get obs data - this function is copied and modified from Section 3.1</span>
-
 <span class="n">stn_ids_toronto_city</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5051</span><span class="p">,</span> <span class="mi">31688</span><span class="p">,</span> <span class="mi">41863</span><span class="p">]</span>
 <span class="n">df_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">stn_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stn_ids_toronto_city</span><span class="p">):</span>
@@ -1015,6 +1059,938 @@ z = \left\{
 <p>Since the p-value is very small for this robust test, we can confidently reject the null hypothesis of no trend, and conclude that CanESM5 projects a significant increasing trend in Toronto monthly mean temperatures. When we move to looking at downscaled data from this model, we should expect to see results that are qualitatively similar, only with reduced biases relative to observations, and spatial information on a finer grid.</p>
 </div>
 </div>
+<div class="section" id="analyzing-multiple-ensemble-members">
+<h2>3.4.6 Analyzing Multiple Ensemble Members<a class="headerlink" href="#analyzing-multiple-ensemble-members" title="Permalink to this headline">#</a></h2>
+<p>The above examples used data only from a single ensemble member of CanESM5. In order to quantify uncertainty related to internal variability (Section 2.3), your final analysis should include multiple ensemble members, possibly from multiple models. Here we will use the Python module <code class="docutils literal notranslate"><span class="pre">xclim</span></code> and it’s <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code> functionality to analyze data from multiple ensemble members at once. The documentation for these utilities is <a class="reference external" href="https://xclim.readthedocs.io/en/latest/notebooks/ensembles.html">here</a>.</p>
+<p><strong>Aside about xr.open_mfdataset</strong>
+You can also use <code class="docutils literal notranslate"><span class="pre">xr.open_mfdataset</span></code> to open multiple files which represent different ensemble members. To do this, you’ll need to use the keyword arguments it takes to intelligently structure the resulting Dataset. For example, you can use the argument <code class="docutils literal notranslate"><span class="pre">concat_dim</span></code> to create a new dimension called <code class="docutils literal notranslate"><span class="pre">'ensemble_member'</span></code>, so the data is shaped like <code class="docutils literal notranslate"><span class="pre">('ensemble_member',</span> <span class="pre">'time',</span> <span class="pre">'lat',</span> <span class="pre">'lon')</span></code>. Unfortunately, this only works if all of the data files use the same calendar. If you have a multi-model ensemble with models that use different calendars, it’s much better to use <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code>.</p>
+<p>If you do it this way, you won’t be able to concatenate along time as well (you can only concatenate along one dimension at a time). If you have different files for different time periods (like we did in 3.4.3), you’ll need to open the files for each time period separately, and then concatenate them using <code class="docutils literal notranslate"><span class="pre">xr.concat</span></code> (<a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.concat.html">documentation</a>) and the keyword argument <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">&quot;time&quot;</span></code></p>
+<p>Since file I/O is usually slow compared to other steps of analysis, it’s best to do the smallest number of file opening calls as possible. The best way to open your data will depend on the way your files are structured. Let’s say that you have separate data files for each year for a 100 year period, and 10 ensemble members. In this situation, it would be better to iterate over the ensemble member (10 iterations) and concatenate over time with <code class="docutils literal notranslate"><span class="pre">open_mfdataset</span></code>, instead iterating of over the time period (100 iterations) and concatenating ensemble members with <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code>. You can combine the 10 datasets, each representing a different ensemble member, into a single Dataset using <code class="docutils literal notranslate"><span class="pre">xr.concat</span></code> and the keyword argument <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">&quot;ensemble_member&quot;</span></code>, or create an <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code> by passing the list of datasets to <code class="docutils literal notranslate"><span class="pre">xclim.ensembles.create_ensemble</span></code>.</p>
+<p><strong>Now back working with xclim.ensembles</strong></p>
+<p>Below we’ll download data for a few more ensemble members from CanESM5, plot the data for the different ensemble members, and calculate some ensemble statistics. To keep things simple, we’ll do this only for the historical period.</p>
+<p><strong>Warning</strong>: It’s commonly stated that ensemble or multi-model means give “better results” than data from individual ensemble members. This is true for certain cases - averaging model output for long-term mean quantities can reduce model biases, but you should <em>never</em> take an ensemble average as the first step in your workflow. Because different ensemble members have realizations of internal variability and weather, averaging will attenuate variability and extremes. It’s okay to calculate ensemble means and other statistics in your exploratory analysis, but downscaling should be done to individual ensemble members separately, and the range of final results be assessed as the range over the ensemble.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query2</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">new_context</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;CMIP6&quot;</span><span class="p">,</span>
+                         <span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span>
+                         <span class="n">source_id</span> <span class="o">=</span> <span class="s2">&quot;CanESM5&quot;</span><span class="p">,</span>
+                         <span class="n">frequency</span> <span class="o">=</span> <span class="s1">&#39;mon&#39;</span><span class="p">,</span>
+                         <span class="n">member_id</span><span class="o">=</span><span class="s2">&quot;r2i1p1f1,r3i1p1f1,r4i1p1f1&quot;</span><span class="p">,</span>
+                         <span class="n">variable_id</span> <span class="o">=</span> <span class="s2">&quot;tas&quot;</span><span class="p">)</span>
+<span class="n">results2</span> <span class="o">=</span> <span class="n">query2</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+<span class="n">files2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results2</span><span class="p">)):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">hit</span> <span class="o">=</span> <span class="n">results2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">file_context</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">hit</span> <span class="o">=</span> <span class="n">results2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">file_context</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+    <span class="n">files2</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> 
+                                 <span class="s1">&#39;download_url&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">download_url</span><span class="p">,</span> 
+                                 <span class="s1">&#39;opendap_url&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">opendap_url</span><span class="p">},</span> <span class="n">hit</span><span class="p">))</span>
+<span class="n">files2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">files2</span><span class="p">)</span>
+<span class="n">files2</span> <span class="o">=</span> <span class="n">files2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span>
+
+<span class="n">files2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>filename</th>
+      <th>download_url</th>
+      <th>opendap_url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>tas_Amon_CanESM5_historical_r4i1p1f1_gn_185001...</td>
+      <td>http://aims3.llnl.gov/thredds/fileServer/css03...</td>
+      <td>http://aims3.llnl.gov/thredds/dodsC/css03_data...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tas_Amon_CanESM5_historical_r3i1p1f1_gn_185001...</td>
+      <td>http://aims3.llnl.gov/thredds/fileServer/css03...</td>
+      <td>http://aims3.llnl.gov/thredds/dodsC/css03_data...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tas_Amon_CanESM5_historical_r2i1p1f1_gn_185001...</td>
+      <td>http://aims3.llnl.gov/thredds/fileServer/css03...</td>
+      <td>http://aims3.llnl.gov/thredds/dodsC/css03_data...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download the file</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">files2</span><span class="p">)):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">files2</span><span class="p">[</span><span class="s1">&#39;download_url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">files2</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">path_to_write</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    
+    <span class="c1"># only download if the files doesn&#39;t already exist. </span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path_to_write</span><span class="p">):</span> 
+        <span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">path_to_write</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a list of the files to create the ensemble, using the wildcard character</span>
+<span class="n">historical_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">data_directory</span> <span class="o">+</span> <span class="s2">&quot;/tas_Amon_CanESM5_historical_*_gn_185001-201412.nc&quot;</span><span class="p">)</span>
+
+<span class="c1"># open up the two historical files using xclim.ensembles</span>
+<span class="n">ds_ensemble</span> <span class="o">=</span> <span class="n">ensembles</span><span class="o">.</span><span class="n">create_ensemble</span><span class="p">(</span><span class="n">historical_files</span><span class="p">)</span>
+
+<span class="c1"># print a summary of the dataset - the dimension &#39;realization&#39; represents the ensemble member</span>
+<span class="n">ds_ensemble</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:      (time: 1980, realization: 4, bnds: 2, lat: 64, lon: 128)
+Coordinates:
+  * time         (time) object 1850-01-16 12:00:00 ... 2014-12-16 12:00:00
+  * lat          (lat) float64 -87.86 -85.1 -82.31 -79.53 ... 82.31 85.1 87.86
+  * lon          (lon) float64 0.0 2.812 5.625 8.438 ... 348.8 351.6 354.4 357.2
+    height       float64 2.0
+  * realization  (realization) int64 0 1 2 3
+Dimensions without coordinates: bnds
+Data variables:
+    time_bnds    (realization, time, bnds) float64 dask.array&lt;chunksize=(1, 1980, 2), meta=np.ndarray&gt;
+    lat_bnds     (realization, lat, bnds) float64 dask.array&lt;chunksize=(1, 64, 2), meta=np.ndarray&gt;
+    lon_bnds     (realization, lon, bnds) float64 dask.array&lt;chunksize=(1, 128, 2), meta=np.ndarray&gt;
+    tas          (realization, time, lat, lon) float32 dask.array&lt;chunksize=(1, 1980, 64, 128), meta=np.ndarray&gt;
+Attributes: (12/53)
+    CCCma_model_hash:            3dedf95315d603326fde4f5340dc0519d80d10c0
+    CCCma_parent_runid:          rc3-pictrl
+    CCCma_pycmor_hash:           33c30511acc319a98240633965a04ca99c26427e
+    CCCma_runid:                 rc3.1-his01
+    Conventions:                 CF-1.7 CMIP-6.2
+    YMDH_branch_time_in_child:   1850:01:01:00
+    ...                          ...
+    tracking_id:                 hdl:21.14100/872062df-acae-499b-aa0f-9eaca76...
+    variable_id:                 tas
+    variant_label:               r1i1p1f1
+    version:                     v20190429
+    license:                     CMIP6 model data produced by The Government ...
+    cmor_version:                3.4.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-76fc4c0d-2e57-43ce-a367-94e2c2f4f172' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-76fc4c0d-2e57-43ce-a367-94e2c2f4f172' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1980</li><li><span class='xr-has-index'>realization</span>: 4</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lat</span>: 64</li><li><span class='xr-has-index'>lon</span>: 128</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a428fdb6-1773-4319-a619-3a6bb4a24d69' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a428fdb6-1773-4319-a619-3a6bb4a24d69' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-16 12:00:00 ... 2014-12-...</div><input id='attrs-bfd77b12-b972-452e-8819-94a3553f03ba' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bfd77b12-b972-452e-8819-94a3553f03ba' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c9574609-ad4f-4434-8657-85e351bdc455' class='xr-var-data-in' type='checkbox'><label for='data-c9574609-ad4f-4434-8657-85e351bdc455' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 16, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1850, 2, 15, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1850, 3, 16, 12, 0, 0, 0, has_year_zero=True),
+       ...,
+       cftime.DatetimeNoLeap(2014, 10, 16, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 11, 16, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 12, 16, 12, 0, 0, 0, has_year_zero=True)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.86 -85.1 -82.31 ... 85.1 87.86</div><input id='attrs-9bee9daf-3cdb-4727-8024-be52567953b6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9bee9daf-3cdb-4727-8024-be52567953b6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cb4de93e-1eb2-476c-a6a8-250d430ff2ec' class='xr-var-data-in' type='checkbox'><label for='data-cb4de93e-1eb2-476c-a6a8-250d430ff2ec' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([-87.863799, -85.096527, -82.312913, -79.525607, -76.7369  , -73.947515,
+       -71.157752, -68.367756, -65.577607, -62.787352, -59.99702 , -57.206632,
+       -54.4162  , -51.625734, -48.835241, -46.044727, -43.254195, -40.463648,
+       -37.67309 , -34.882521, -32.091944, -29.30136 , -26.510769, -23.720174,
+       -20.929574, -18.138971, -15.348365, -12.557756,  -9.767146,  -6.976534,
+        -4.185921,  -1.395307,   1.395307,   4.185921,   6.976534,   9.767146,
+        12.557756,  15.348365,  18.138971,  20.929574,  23.720174,  26.510769,
+        29.30136 ,  32.091944,  34.882521,  37.67309 ,  40.463648,  43.254195,
+        46.044727,  48.835241,  51.625734,  54.4162  ,  57.206632,  59.99702 ,
+        62.787352,  65.577607,  68.367756,  71.157752,  73.947515,  76.7369  ,
+        79.525607,  82.312913,  85.096527,  87.863799])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 2.812 5.625 ... 354.4 357.2</div><input id='attrs-eae339c3-2bd4-440b-9068-a2734f91a63e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-eae339c3-2bd4-440b-9068-a2734f91a63e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1c98fd29-7d5d-4cd0-bf29-0bc446d85d8f' class='xr-var-data-in' type='checkbox'><label for='data-1c98fd29-7d5d-4cd0-bf29-0bc446d85d8f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.    ,   2.8125,   5.625 ,   8.4375,  11.25  ,  14.0625,  16.875 ,
+        19.6875,  22.5   ,  25.3125,  28.125 ,  30.9375,  33.75  ,  36.5625,
+        39.375 ,  42.1875,  45.    ,  47.8125,  50.625 ,  53.4375,  56.25  ,
+        59.0625,  61.875 ,  64.6875,  67.5   ,  70.3125,  73.125 ,  75.9375,
+        78.75  ,  81.5625,  84.375 ,  87.1875,  90.    ,  92.8125,  95.625 ,
+        98.4375, 101.25  , 104.0625, 106.875 , 109.6875, 112.5   , 115.3125,
+       118.125 , 120.9375, 123.75  , 126.5625, 129.375 , 132.1875, 135.    ,
+       137.8125, 140.625 , 143.4375, 146.25  , 149.0625, 151.875 , 154.6875,
+       157.5   , 160.3125, 163.125 , 165.9375, 168.75  , 171.5625, 174.375 ,
+       177.1875, 180.    , 182.8125, 185.625 , 188.4375, 191.25  , 194.0625,
+       196.875 , 199.6875, 202.5   , 205.3125, 208.125 , 210.9375, 213.75  ,
+       216.5625, 219.375 , 222.1875, 225.    , 227.8125, 230.625 , 233.4375,
+       236.25  , 239.0625, 241.875 , 244.6875, 247.5   , 250.3125, 253.125 ,
+       255.9375, 258.75  , 261.5625, 264.375 , 267.1875, 270.    , 272.8125,
+       275.625 , 278.4375, 281.25  , 284.0625, 286.875 , 289.6875, 292.5   ,
+       295.3125, 298.125 , 300.9375, 303.75  , 306.5625, 309.375 , 312.1875,
+       315.    , 317.8125, 320.625 , 323.4375, 326.25  , 329.0625, 331.875 ,
+       334.6875, 337.5   , 340.3125, 343.125 , 345.9375, 348.75  , 351.5625,
+       354.375 , 357.1875])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>height</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>2.0</div><input id='attrs-7527128f-6400-4964-a6e5-6027914c2682' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7527128f-6400-4964-a6e5-6027914c2682' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dccaca58-099e-43c2-a83d-b441b6904491' class='xr-var-data-in' type='checkbox'><label for='data-dccaca58-099e-43c2-a83d-b441b6904491' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>long_name :</span></dt><dd>height</dd><dt><span>standard_name :</span></dt><dd>height</dd></dl></div><div class='xr-var-data'><pre>array(2.)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>realization</span></div><div class='xr-var-dims'>(realization)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3</div><input id='attrs-2a04dee6-67ef-436b-bf6d-513c34e9b13d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2a04dee6-67ef-436b-bf6d-513c34e9b13d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4cf0e48f-28e5-468a-a9a6-aa66d43ab5a3' class='xr-var-data-in' type='checkbox'><label for='data-4cf0e48f-28e5-468a-a9a6-aa66d43ab5a3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>E</dd></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2838628b-b5eb-42b7-8ceb-e46730978532' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2838628b-b5eb-42b7-8ceb-e46730978532' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(realization, time, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1980, 2), meta=np.ndarray&gt;</div><input id='attrs-d2d93997-be5c-4c8c-a641-4996f599cc7c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d2d93997-be5c-4c8c-a641-4996f599cc7c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cc3dc97e-78d8-439c-b7d2-7c572fd3416a' class='xr-var-data-in' type='checkbox'><label for='data-cc3dc97e-78d8-439c-b7d2-7c572fd3416a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>calendar :</span></dt><dd>365_day</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 123.75 kiB </td>
+                        <td> 30.94 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (4, 1980, 2) </td>
+                        <td> (1, 1980, 2) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 4 chunks in 13 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="100" height="184" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="24" y2="134" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="24" y1="14" x2="24" y2="134" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 24.9485979497544,14.948597949754403 24.9485979497544,134.9485979497544 10.0,120.0" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="35" y2="0" style="stroke-width:2" />
+  <line x1="13" y1="3" x2="39" y2="3" />
+  <line x1="17" y1="7" x2="42" y2="7" />
+  <line x1="21" y1="11" x2="46" y2="11" />
+  <line x1="24" y1="14" x2="50" y2="14" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="35" y1="0" x2="50" y2="14" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 35.41261651458248,0.0 50.36121446433688,14.948597949754403 24.9485979497544,14.948597949754403" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="24" y1="14" x2="50" y2="14" style="stroke-width:2" />
+  <line x1="24" y1="134" x2="50" y2="134" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="24" y1="14" x2="24" y2="134" style="stroke-width:2" />
+  <line x1="50" y1="14" x2="50" y2="134" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="24.9485979497544,14.948597949754403 50.36121446433688,14.948597949754403 50.36121446433688,134.9485979497544 24.9485979497544,134.9485979497544" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="37.654906" y="154.948598" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
+  <text x="70.361214" y="74.948598" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,70.361214,74.948598)">1980</text>
+  <text x="7.474299" y="147.474299" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,7.474299,147.474299)">4</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(realization, lat, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 64, 2), meta=np.ndarray&gt;</div><input id='attrs-244bb7c3-b522-4306-aa31-10c82635dcbe' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-244bb7c3-b522-4306-aa31-10c82635dcbe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8407b592-d59f-4f18-9b8c-c5a045941dc2' class='xr-var-data-in' type='checkbox'><label for='data-8407b592-d59f-4f18-9b8c-c5a045941dc2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 4.00 kiB </td>
+                        <td> 1.00 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (4, 64, 2) </td>
+                        <td> (1, 64, 2) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 4 chunks in 13 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="112" height="191" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="31" y2="21" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="31" y2="141" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="31" y1="21" x2="31" y2="141" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 31.093851381887504,21.093851381887504 31.093851381887504,141.0938513818875 10.0,120.0" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="41" y2="0" style="stroke-width:2" />
+  <line x1="15" y1="5" x2="46" y2="5" />
+  <line x1="20" y1="10" x2="52" y2="10" />
+  <line x1="25" y1="15" x2="57" y2="15" />
+  <line x1="31" y1="21" x2="62" y2="21" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="31" y2="21" style="stroke-width:2" />
+  <line x1="41" y1="0" x2="62" y2="21" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 41.635229193102674,0.0 62.72908057499018,21.093851381887504 31.093851381887504,21.093851381887504" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="31" y1="21" x2="62" y2="21" style="stroke-width:2" />
+  <line x1="31" y1="141" x2="62" y2="141" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="31" y1="21" x2="31" y2="141" style="stroke-width:2" />
+  <line x1="62" y1="21" x2="62" y2="141" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="31.093851381887504,21.093851381887504 62.72908057499018,21.093851381887504 62.72908057499018,141.0938513818875 31.093851381887504,141.0938513818875" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="46.911466" y="161.093851" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
+  <text x="82.729081" y="81.093851" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,82.729081,81.093851)">64</text>
+  <text x="10.546926" y="150.546926" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,10.546926,150.546926)">4</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(realization, lon, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 128, 2), meta=np.ndarray&gt;</div><input id='attrs-40905438-6a2c-4b2b-89a1-a16edbc10701' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-40905438-6a2c-4b2b-89a1-a16edbc10701' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bd4ad0ca-b0a2-42ba-a81a-d536c8bfa810' class='xr-var-data-in' type='checkbox'><label for='data-bd4ad0ca-b0a2-42ba-a81a-d536c8bfa810' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8.00 kiB </td>
+                        <td> 2.00 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (4, 128, 2) </td>
+                        <td> (1, 128, 2) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 4 chunks in 13 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="106" height="188" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="28" y2="18" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="28" y2="138" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="14" y1="4" x2="14" y2="124" />
+  <line x1="19" y1="9" x2="19" y2="129" />
+  <line x1="23" y1="13" x2="23" y2="133" />
+  <line x1="28" y1="18" x2="28" y2="138" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 28.608958348883927,18.608958348883927 28.608958348883927,138.60895834888393 10.0,120.0" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="37" y2="0" style="stroke-width:2" />
+  <line x1="14" y1="4" x2="42" y2="4" />
+  <line x1="19" y1="9" x2="46" y2="9" />
+  <line x1="23" y1="13" x2="51" y2="13" />
+  <line x1="28" y1="18" x2="56" y2="18" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="28" y2="18" style="stroke-width:2" />
+  <line x1="37" y1="0" x2="56" y2="18" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 37.67538719790747,0.0 56.2843455467914,18.608958348883927 28.608958348883927,18.608958348883927" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="28" y1="18" x2="56" y2="18" style="stroke-width:2" />
+  <line x1="28" y1="138" x2="56" y2="138" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="28" y1="18" x2="28" y2="138" style="stroke-width:2" />
+  <line x1="56" y1="18" x2="56" y2="138" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="28.608958348883927,18.608958348883927 56.28434554679139,18.608958348883927 56.28434554679139,138.60895834888393 28.608958348883927,138.60895834888393" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="42.446652" y="158.608958" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
+  <text x="76.284346" y="78.608958" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,76.284346,78.608958)">128</text>
+  <text x="9.304479" y="149.304479" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,9.304479,149.304479)">4</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(realization, time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1980, 64, 128), meta=np.ndarray&gt;</div><input id='attrs-e111fa2a-2139-46ee-8f76-297d7b5302c5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e111fa2a-2139-46ee-8f76-297d7b5302c5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b699e11a-d565-4256-8e7b-146eeab3e8b7' class='xr-var-data-in' type='checkbox'><label for='data-b699e11a-d565-4256-8e7b-146eeab3e8b7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Air Temperature</dd><dt><span>comment :</span></dt><dd>ST+273.16, CMIP_table_comment: near-surface (usually, 2 meter) air temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>original_name :</span></dt><dd>ST</dd><dt><span>history :</span></dt><dd>degctok 2019-04-30T17:32:17Z altered by CMOR: Treated scalar dimension: &#x27;height&#x27;. 2019-04-30T17:32:17Z altered by CMOR: Reordered dimensions, original order: lat lon time. 2019-04-30T17:32:17Z altered by CMOR: replaced missing value flag (1e+38) with standard missing value (1e+20).</dd><dt><span>cell_methods :</span></dt><dd>area: time: mean</dd><dt><span>cell_measures :</span></dt><dd>area: areacella</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 247.50 MiB </td>
+                        <td> 61.88 MiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (4, 1980, 64, 128) </td>
+                        <td> (1, 1980, 64, 128) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 4 chunks in 13 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="346" height="152" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="25" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="19" y1="0" x2="19" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 25.412616514582485,0.0 25.412616514582485,25.412616514582485 0.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="12.706308" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >4</text>
+  <text x="45.412617" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,45.412617,12.706308)">1</text>
+
+
+  <!-- Horizontal lines -->
+  <line x1="95" y1="0" x2="165" y2="70" style="stroke-width:2" />
+  <line x1="95" y1="31" x2="165" y2="102" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="95" y1="0" x2="95" y2="31" style="stroke-width:2" />
+  <line x1="165" y1="70" x2="165" y2="102" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="95.0,0.0 165.58823529411765,70.58823529411765 165.58823529411765,102.42676461338931 95.0,31.838529319271665" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="95" y1="0" x2="131" y2="0" style="stroke-width:2" />
+  <line x1="165" y1="70" x2="201" y2="70" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="95" y1="0" x2="165" y2="70" style="stroke-width:2" />
+  <line x1="131" y1="0" x2="201" y2="70" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="95.0,0.0 131.0630455309464,0.0 201.65128082506405,70.58823529411765 165.58823529411765,70.58823529411765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="165" y1="70" x2="201" y2="70" style="stroke-width:2" />
+  <line x1="165" y1="102" x2="201" y2="102" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="165" y1="70" x2="165" y2="102" style="stroke-width:2" />
+  <line x1="201" y1="70" x2="201" y2="102" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="165.58823529411765,70.58823529411765 201.65128082506405,70.58823529411765 201.65128082506405,102.42676461338931 165.58823529411765,102.42676461338931" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="183.619758" y="122.426765" font-size="1.0rem" font-weight="100" text-anchor="middle" >128</text>
+  <text x="221.651281" y="86.507500" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,221.651281,86.507500)">64</text>
+  <text x="120.294118" y="87.132647" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,120.294118,87.132647)">1980</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-e124c5b7-7ae9-47b6-90b1-14ce89334f50' class='xr-section-summary-in' type='checkbox'  ><label for='section-e124c5b7-7ae9-47b6-90b1-14ce89334f50' class='xr-section-summary' >Attributes: <span>(53)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CCCma_model_hash :</span></dt><dd>3dedf95315d603326fde4f5340dc0519d80d10c0</dd><dt><span>CCCma_parent_runid :</span></dt><dd>rc3-pictrl</dd><dt><span>CCCma_pycmor_hash :</span></dt><dd>33c30511acc319a98240633965a04ca99c26427e</dd><dt><span>CCCma_runid :</span></dt><dd>rc3.1-his01</dd><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>YMDH_branch_time_in_child :</span></dt><dd>1850:01:01:00</dd><dt><span>YMDH_branch_time_in_parent :</span></dt><dd>5201:01:01:00</dd><dt><span>activity_id :</span></dt><dd>CMIP</dd><dt><span>branch_method :</span></dt><dd>Spin-up documentation</dd><dt><span>branch_time_in_child :</span></dt><dd>0.0</dd><dt><span>branch_time_in_parent :</span></dt><dd>1223115.0</dd><dt><span>contact :</span></dt><dd>ec.cccma.info-info.ccmac.ec@canada.ca</dd><dt><span>creation_date :</span></dt><dd>2019-04-30T17:32:17Z</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>all-forcing simulation of the recent past</dd><dt><span>experiment_id :</span></dt><dd>historical</dd><dt><span>external_variables :</span></dt><dd>areacella</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>further_info_url :</span></dt><dd>https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.historical.none.r1i1p1f1</dd><dt><span>grid :</span></dt><dd>T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa</dd><dt><span>grid_label :</span></dt><dd>gn</dd><dt><span>history :</span></dt><dd>2019-04-30T17:32:17Z ;rewrote data to be consistent with CMIP for variable tas found in table Amon.;
+Output from $runid</dd><dt><span>initialization_index :</span></dt><dd>1</dd><dt><span>institution :</span></dt><dd>Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada, Victoria, BC V8P 5C2, Canada</dd><dt><span>institution_id :</span></dt><dd>CCCma</dd><dt><span>mip_era :</span></dt><dd>CMIP6</dd><dt><span>nominal_resolution :</span></dt><dd>500 km</dd><dt><span>parent_activity_id :</span></dt><dd>CMIP</dd><dt><span>parent_experiment_id :</span></dt><dd>piControl</dd><dt><span>parent_mip_era :</span></dt><dd>CMIP6</dd><dt><span>parent_source_id :</span></dt><dd>CanESM5</dd><dt><span>parent_time_units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>parent_variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>physics_index :</span></dt><dd>1</dd><dt><span>product :</span></dt><dd>model-output</dd><dt><span>realization_index :</span></dt><dd>1</dd><dt><span>realm :</span></dt><dd>atmos</dd><dt><span>references :</span></dt><dd>Geophysical Model Development Special issue on CanESM5 (https://www.geosci-model-dev.net/special_issues.html)</dd><dt><span>source :</span></dt><dd>CanESM5 (2019): 
+aerosol: interactive
+atmos: CanAM5 (T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa)
+atmosChem: specified oxidants for aerosols
+land: CLASS3.6/CTEM1.2
+landIce: specified ice sheets
+ocean: NEMO3.4.1 (ORCA1 tripolar grid, 1 deg with refinement to 1/3 deg within 20 degrees of the equator; 361 x 290 longitude/latitude; 45 vertical levels; top grid cell 0-6.19 m)
+ocnBgchem: Canadian Model of Ocean Carbon (CMOC); NPZD ecosystem with OMIP prescribed carbonate chemistry
+seaIce: LIM2</dd><dt><span>source_id :</span></dt><dd>CanESM5</dd><dt><span>source_type :</span></dt><dd>AOGCM</dd><dt><span>sub_experiment :</span></dt><dd>none</dd><dt><span>sub_experiment_id :</span></dt><dd>none</dd><dt><span>table_id :</span></dt><dd>Amon</dd><dt><span>table_info :</span></dt><dd>Creation Date:(20 February 2019) MD5:374fbe5a2bcca535c40f7f23da271e49</dd><dt><span>title :</span></dt><dd>CanESM5 output prepared for CMIP6</dd><dt><span>tracking_id :</span></dt><dd>hdl:21.14100/872062df-acae-499b-aa0f-9eaca7681abc</dd><dt><span>variable_id :</span></dt><dd>tas</dd><dt><span>variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>version :</span></dt><dd>v20190429</dd><dt><span>license :</span></dt><dd>CMIP6 model data produced by The Government of Canada (Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada) is licensed under a Creative Commons Attribution ShareAlike 4.0 International License (https://creativecommons.org/licenses). Consult https://pcmdi.llnl.gov/CMIP6/TermsOfUse for terms of use governing CMIP6 output, including citation requirements and proper acknowledgment. Further information about this data, including some limitations, can be found via the further_info_url (recorded as a global attribute in this file) and at https:///pcmdi.llnl.gov/. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.</dd><dt><span>cmor_version :</span></dt><dd>3.4.0</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># interpolate the data to the Toronto station location</span>
+<span class="n">tas_CanESM5_ensemble</span> <span class="o">=</span> <span class="n">ds_ensemble</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="n">station_lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">station_lon</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span>
+
+<span class="c1"># calculate annual means - plotting monthly means is too nosiy to see the example clearly</span>
+<span class="n">tas_CanESM5_ensemble_annual</span> <span class="o">=</span> <span class="n">tas_CanESM5_ensemble</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">tas_obs_annual</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># obs data is missing for a few years, and incomplete for 2003</span>
+<span class="n">tas_obs_annual</span> <span class="o">=</span> <span class="n">tas_obs_annual</span><span class="p">[</span><span class="n">tas_obs_annual</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2003</span><span class="p">]</span>
+
+<span class="c1"># obs data year values to pass to plotting function</span>
+<span class="n">yrmax_obs</span> <span class="o">=</span> <span class="n">tas_obs_annual</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">yrs_obs</span> <span class="o">=</span> <span class="n">tas_CanESM5_ensemble_annual</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_CanESM5_ensemble_annual</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;=</span> <span class="n">yrmax_obs</span><span class="p">)</span>
+
+<span class="c1"># calculate ensemble mean to include in the plot</span>
+<span class="n">tas_CanESM5_annual_ensmean</span> <span class="o">=</span> <span class="n">tas_CanESM5_ensemble_annual</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;realization&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot a time series of the annual mean temperatures for Toronto, using a different colour for each ensemble member</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># ensemble mean</span>
+<span class="n">tas_CanESM5_annual_ensmean</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> 
+                                     <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Ensemble Mean&#39;</span><span class="p">,</span> 
+                                     <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yrs_obs</span><span class="p">,</span> <span class="n">tas_obs_annual</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> 
+        <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Station Obs&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">tas_CanESM5_ensemble_annual</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;realization&#39;</span><span class="p">,</span> 
+                                      <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span>
+                                      <span class="n">add_legend</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> 
+                                      <span class="n">zorder</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CamESM5 Annual Mean Temperature in Toronto&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1a280f5d04643e735ed87e4baed43267a2f4b11cafd59ff65d832d0eed924062.png" src="../_images/1a280f5d04643e735ed87e4baed43267a2f4b11cafd59ff65d832d0eed924062.png" />
+</div>
+</div>
+<p>In the above plot, you can see how even the annual mean temperatures vary significantly across the ensemble, and show larger fluctuations than the ensemble mean (thick blue curve). The ensemble mean does not agree perfectly with the observations, because of bias in the model, but the model’s mean bias is better characterized by using the ensemble mean instead of individual ensemble members (and it might be lower, due to reduced influence of internal variability).</p>
+</div>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>This notebook has worked through the process of downloading CMIP6 climate model data from the ESGF, and doing some basic model validation using station observations. Any other data hosted on the ESGF, including CORDEX regional climate model data, can be accessed in the same way. Users are encouraged to navigate the ESGF web portal before using <code class="docutils literal notranslate"><span class="pre">pyesgf</span></code> to ensure you’re using the correct facet names for the project you’re searching, and that the search is returning the results you expect.</p>
@@ -1097,6 +2073,7 @@ z = \left\{
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends">3.4.5.2 Trends</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-multiple-ensemble-members">3.4.6 Analyzing Multiple Ensemble Members</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
