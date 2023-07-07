@@ -26,17 +26,12 @@ Traceback (most recent call last):
     error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
   File "/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/nbclient/client.py", line 852, in _async_handle_timeout
     raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 180 seconds.
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 300 seconds.
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-files = []
-for i in range(len(results)):
-    hit = results[i].file_context().search()
-    files += list(map(lambda f: {'filename': f.filename, 
-                                 'opendap_url': f.opendap_url}, hit))
-files = pd.DataFrame.from_dict(files)
-files = files.drop_duplicates('filename').reindex()
-files
+# select tasmin data from dataarrays
+data_raw_hist = ds_hist_raw.tasmin - 273.15
+data_raw_future = ds_future_raw.tasmin - 273.15
 -------------------
 

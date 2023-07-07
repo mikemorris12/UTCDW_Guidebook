@@ -345,7 +345,7 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="assessing-downscaled-climate-projections">
 <h1>4.5 Assessing Downscaled Climate Projections<a class="headerlink" href="#assessing-downscaled-climate-projections" title="Permalink to this headline">#</a></h1>
 <p>Once satisfied with the quality of the historical downscaled data, one can proceed with analyzing the downscaled future projections from the model. Since of course there are no observations of the future, we cannot do <em>validation</em> of the projected changes per se, but we can check that the changes/trends make physical sense, and are statistically significant in the context of natural climate variability. We did similar work in Chapter 3.4, but this time we will apply those methods to the downscaled data. In principle, the projected changes from the downscaled data should be similar to those from the raw, unadjusted model output, just with more spatial detail and with, at minimum, the effects of mean model biases diminished. Multivariate downscaling methods may introduce qualitative changes to the downscaled projections relative to the raw model projections because of differing changes to the different input variables, so this may not always be true. However, it is a good rule of thumb as a first pass check.</p>
-<p>Continuing with our example from Chapter 4.3, and the focus on extreme climate indices, let’s calculate the projected change in the number of Tropical Nights between 1971-2000 and 2071-2100, using the both the uncorrected and downscaled GCM data. This way we can see the effects of the downscaling, and compare the climate change signals between the two sets of data. Since BCCAQv2, the downscaling method used by PCIC, is a univariate method, the climate change signal should not be substantially different from that of the raw data.</p>
+<p>Continuing with our example from Chapter 4.4, and the focus on extreme climate indices, let’s calculate the projected change in the number of Tropical Nights between 1971-2000 and 2071-2100, using the both the uncorrected and downscaled GCM data. This way we can see the effects of the downscaling, and compare the climate change signals between the two sets of data. Since BCCAQv2, the downscaling method used by PCIC, is a univariate method, the climate change signal should not be substantially different from that of the raw data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary packages</span>
@@ -363,10 +363,12 @@ document.write(`
 <span class="kn">from</span> <span class="nn">xclim.core.calendar</span> <span class="kn">import</span> <span class="n">convert_calendar</span><span class="p">,</span> <span class="n">percentile_doy</span>
 <span class="kn">import</span> <span class="nn">xclim.indices</span> <span class="k">as</span> <span class="nn">xci</span>
 
-<span class="c1"># for getting data from the ESGF</span>
-<span class="kn">from</span> <span class="nn">pyesgf.search</span> <span class="kn">import</span> <span class="n">SearchConnection</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ESGF_PYCLIENT_NO_FACETS_STAR_WARNING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+<span class="c1"># for getting data from Google Cloud </span>
+<span class="kn">import</span> <span class="nn">gcsfs</span>
+<span class="kn">import</span> <span class="nn">zarr</span>
+
+<span class="c1"># url for the CSV file that contains the data catalog</span>
+<span class="n">url_catalog</span> <span class="o">=</span> <span class="s1">&#39;https://storage.googleapis.com/cmip6/cmip6-zarr-consolidated-stores.csv&#39;</span>
 
 <span class="c1"># centre of domain to analyze - same as for section 4.3 but slightly larger so we can fit multiple grid cells</span>
 <span class="n">lat_mtl</span> <span class="o">=</span> <span class="mf">45.5019</span>
@@ -389,7 +391,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aquire downscaled data from PAVICS - same as section 4.3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># acquire downscaled data from PAVICS - same as section 4.4</span>
 <span class="n">url_pavics</span> <span class="o">=</span> <span class="s2">&quot;https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/datasets/&quot;</span>
 <span class="n">url_downscaled</span> <span class="o">=</span> <span class="n">url_pavics</span> <span class="o">+</span> <span class="s2">&quot;simulations/bias_adjusted/cmip6/pcic/CanDCS-U6/catalog.xml&quot;</span>
 <span class="n">cat_sds</span> <span class="o">=</span> <span class="n">TDSCatalog</span><span class="p">(</span><span class="n">url_downscaled</span><span class="p">)</span>
@@ -417,45 +419,21 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the data for the raw simulation from ESGF for this same ensemble member.</span>
-<span class="c1"># this time we&#39;ll use the OPeNDAP URL for the ESGF node, so we don&#39;t need to download and save the files.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the data for the raw simulation from Google Cloud for this same ensemble member.</span>
+<span class="c1"># Since we&#39;re accessing the Zarr stores remotely, we don&#39;t need to download and save the</span>
+<span class="c1"># whole data files, but you can if you like, and you should save the data if you plan</span>
+<span class="c1"># to use it for a real study</span>
 
-<span class="c1"># connect to LNLL node</span>
-<span class="c1">#conn = SearchConnection(&#39;https://esgf-node.llnl.gov/esg-search&#39;, distrib=True)</span>
+<span class="c1"># open the Google Cloud model data catalog using pandas</span>
+<span class="n">df_catalog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_catalog</span><span class="p">)</span>
 
-<span class="c1"># try UK node if LNLL node doesn&#39;t work</span>
-<span class="c1">#conn = SearchConnection(&#39;https://esgf.ceda.ac.uk/esg-search&#39;, distrib= True)</span>
-
-<span class="c1"># next try German node</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">SearchConnection</span><span class="p">(</span><span class="s1">&#39;http://esgf-data.dkrz.de/esg-search&#39;</span><span class="p">,</span> <span class="n">distrib</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># French</span>
-<span class="c1">#conn = SearchConnection(&#39;https://esgf-node.ipsl.upmc.fr/esg-search&#39;, distrib = True)</span>
-
-
-<span class="c1"># search for the datasets we want - CanESM5, historical and SSP5-8.5, ensemble member r9i1p2f1</span>
-<span class="n">query</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">new_context</span><span class="p">(</span><span class="c1">#latest = True, # search for most recent versions of the file</span>
-                         <span class="n">project</span><span class="o">=</span><span class="s2">&quot;CMIP6&quot;</span><span class="p">,</span>
-                         <span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;historical,ssp585&#39;</span><span class="p">,</span>
-                         <span class="n">source_id</span> <span class="o">=</span> <span class="s2">&quot;CanESM5&quot;</span><span class="p">,</span>
-                         <span class="n">frequency</span> <span class="o">=</span> <span class="s1">&#39;day&#39;</span><span class="p">,</span>
-                         <span class="n">member_id</span><span class="o">=</span><span class="s2">&quot;r9i1p2f1&quot;</span><span class="p">,</span>
-                         <span class="n">variable_id</span> <span class="o">=</span> <span class="s2">&quot;tasmin&quot;</span><span class="p">)</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)):</span>
-    <span class="n">hit</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">file_context</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
-    <span class="n">files</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> 
-                                 <span class="s1">&#39;opendap_url&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">opendap_url</span><span class="p">},</span> <span class="n">hit</span><span class="p">))</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">()</span>
-<span class="n">files</span>
+<span class="c1"># search the Google Cloud archive for the raw model data corresponding to the same</span>
+<span class="c1"># ensemble member as the downscaled data</span>
+<span class="n">search_string</span> <span class="o">=</span> <span class="s2">&quot;table_id == &#39;day&#39; &amp; source_id == &#39;CanESM5&#39; &amp; variable_id == &#39;tasmin&#39; &amp; member_id==&#39;r9i1p2f1&#39;&quot;</span> 
+<span class="c1"># continue on the next line</span>
+<span class="n">search_string</span> <span class="o">+=</span> <span class="s2">&quot; &amp; experiment_id == [&#39;historical&#39;, &#39;ssp585&#39;]&quot;</span>
+<span class="n">df_search</span> <span class="o">=</span> <span class="n">df_catalog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">search_string</span><span class="p">)</span>
+<span class="n">df_search</span>
 </pre></div>
 </div>
 </div>
@@ -478,20 +456,47 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>filename</th>
-      <th>opendap_url</th>
+      <th>activity_id</th>
+      <th>institution_id</th>
+      <th>source_id</th>
+      <th>experiment_id</th>
+      <th>member_id</th>
+      <th>table_id</th>
+      <th>variable_id</th>
+      <th>grid_label</th>
+      <th>zstore</th>
+      <th>dcpp_init_year</th>
+      <th>version</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>tasmin_day_CanESM5_ssp585_r9i1p2f1_gn_20150101...</td>
-      <td>http://esgf3.dkrz.de/thredds/dodsC/cmip6/Scena...</td>
+      <th>90092</th>
+      <td>CMIP</td>
+      <td>CCCma</td>
+      <td>CanESM5</td>
+      <td>historical</td>
+      <td>r9i1p2f1</td>
+      <td>day</td>
+      <td>tasmin</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/historical...</td>
+      <td>NaN</td>
+      <td>20190429</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>tasmin_day_CanESM5_historical_r9i1p2f1_gn_1850...</td>
-      <td>http://esgf.nci.org.au/thredds/dodsC/replica/C...</td>
+      <th>93167</th>
+      <td>ScenarioMIP</td>
+      <td>CCCma</td>
+      <td>CanESM5</td>
+      <td>ssp585</td>
+      <td>r9i1p2f1</td>
+      <td>day</td>
+      <td>tasmin</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/CCCma/CanESM5/ssp...</td>
+      <td>NaN</td>
+      <td>20190429</td>
     </tr>
   </tbody>
 </table>
@@ -499,27 +504,28 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get opendap urls for historical and SSP5-8.5 files</span>
-<span class="n">url_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;opendap_url&#39;</span><span class="p">])</span>
-<span class="n">url_hist_raw</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;historical&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">,</span> <span class="n">url_list</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">url_future_raw</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;ssp5&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">,</span> <span class="n">url_list</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">url_hist_raw</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">url_future_raw</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://esgf.nci.org.au/thredds/dodsC/replica/CMIP6/CMIP/CCCma/CanESM5/historical/r9i1p2f1/day/tasmin/gn/v20190429/tasmin_day_CanESM5_historical_r9i1p2f1_gn_18500101-20141231.nc
-http://esgf3.dkrz.de/thredds/dodsC/cmip6/ScenarioMIP/CCCma/CanESM5/ssp585/r9i1p2f1/day/tasmin/gn/v20190429/tasmin_day_CanESM5_ssp585_r9i1p2f1_gn_20150101-21001231.nc
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the URLs for the historical and SSP5-8.5 scenarios</span>
+<span class="n">url_hist_raw</span> <span class="o">=</span> <span class="n">df_search</span><span class="p">[</span><span class="n">df_search</span><span class="o">.</span><span class="n">experiment_id</span> <span class="o">==</span> <span class="s1">&#39;historical&#39;</span><span class="p">][</span><span class="s1">&#39;zstore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">url_future_raw</span> <span class="o">=</span> <span class="n">df_search</span><span class="p">[</span><span class="n">df_search</span><span class="o">.</span><span class="n">experiment_id</span> <span class="o">==</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">][</span><span class="s1">&#39;zstore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_hist_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url_hist_raw</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># authenticate access to Google Cloud</span>
+<span class="n">gcs</span> <span class="o">=</span> <span class="n">gcsfs</span><span class="o">.</span><span class="n">GCSFileSystem</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;anon&#39;</span><span class="p">)</span>
+
+<span class="c1"># use the gcfs package to turn the URLs into interfaces to the data sets</span>
+<span class="n">mapper_hist_raw</span> <span class="o">=</span> <span class="n">gcs</span><span class="o">.</span><span class="n">get_mapper</span><span class="p">(</span><span class="n">url_hist_raw</span><span class="p">)</span>
+<span class="n">mapper_future_raw</span> <span class="o">=</span> <span class="n">gcs</span><span class="o">.</span><span class="n">get_mapper</span><span class="p">(</span><span class="n">url_future_raw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_hist_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">mapper_hist_raw</span><span class="p">,</span> <span class="n">consolidated</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># get lons bounds on [0, 360] scal</span>
 <span class="n">lons360</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="mi">360</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lons</span><span class="p">]</span>
@@ -534,10 +540,13 @@ http://esgf3.dkrz.de/thredds/dodsC/cmip6/ScenarioMIP/CCCma/CanESM5/ssp585/r9i1p2
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># future raw data</span>
-<span class="n">ds_future_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url_future_raw</span><span class="p">)</span>
+<span class="n">ds_future_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">mapper_future_raw</span><span class="p">,</span> <span class="n">consolidated</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># select study domain</span>
 <span class="n">ds_future_raw</span> <span class="o">=</span> <span class="n">ds_future_raw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lats</span><span class="p">),</span> <span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">*</span><span class="n">lons360</span><span class="p">),</span> 
                               <span class="n">time</span> <span class="o">=</span> <span class="n">ds_future_raw</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2071</span><span class="p">,</span> <span class="mi">2101</span><span class="p">)))</span>
-<span class="c1"># convert back to [-180, 180] to match sds data</span>
+
+<span class="c1"># convert longitudes back to [-180, 180] to match sds data</span>
 <span class="n">ds_future_raw</span> <span class="o">=</span> <span class="n">ds_future_raw</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">lon</span> <span class="o">=</span> <span class="n">ds_future_raw</span><span class="o">.</span><span class="n">lon</span> <span class="o">-</span> <span class="mi">360</span><span class="p">)</span>
 </pre></div>
 </div>
