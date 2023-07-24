@@ -31,3 +31,7 @@ chapters:
     - file: Chapter5/section5.3_exploratory_data_analysis
     - file: Chapter5/section5.4_producing_downscaled_data
     - file: Chapter5/chapter5_summary
+  - file: Chapter6/chapter6
+    sections:
+    - file: Chapter6/section6.1_station_1D_example
+

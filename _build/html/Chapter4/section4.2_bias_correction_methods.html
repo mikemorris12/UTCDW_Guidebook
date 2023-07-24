@@ -184,6 +184,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter5/chapter5_summary.html">5.5 Chapter Summary</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter6/chapter6.html">Chapter 6: Workflow Examples</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.1_station_1D_example.html">Edmonton Station Cooling Degree Days</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -332,7 +336,12 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-delta-method">4.2.1 The “Delta” Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-variance-correction">4.2.2 Bias-Variance Correction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantile-mapping-methods">4.2.3 Quantile Mapping Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantile-mapping-methods">4.2.3 Quantile Mapping Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.2.3.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detrended-quantile-mapping">4.2.3.2 Detrended Quantile Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantile-delta-mapping">4.2.3.3 Quantile Delta Mapping</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -378,7 +387,8 @@ document.write(`
 </div>
 <div class="section" id="quantile-mapping-methods">
 <h2>4.2.3 Quantile Mapping Methods<a class="headerlink" href="#quantile-mapping-methods" title="Permalink to this headline">#</a></h2>
-<p><strong>Empirical Quantile Mapping</strong></p>
+<div class="section" id="id1">
+<h3>4.2.3.1<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>As discussed, empirical quantile mapping (EQM) can be used to map data sampled from one probability distribution to another. Empirical quantile mapping takes the <span class="math notranslate nohighlight">\(k\)</span>’th quantile of the input (climate model) distribution and maps it to the <span class="math notranslate nohighlight">\(k\)</span>’th quantile of the target (observed) distribution. For a random variable <span class="math notranslate nohighlight">\(X\)</span>, the <span class="math notranslate nohighlight">\(k\)</span>’th quantile is given by the inverse CDF evaluated at <span class="math notranslate nohighlight">\(k\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
 \[x_{k} = F_{X}^{-1}(k)\]</div>
@@ -391,8 +401,10 @@ document.write(`
 <p>The process is illustrated in the figure below. By design, the distribution of the adjusted model historical data matches the observed distribution exactly.</p>
 <p><img alt="" src="../_images/pdfs_and_cdfs_eqm.png" /></p>
 <p>On its own, empirical quantile mapping is not so useful for adjusting climate change projections, because the projected changes will be washed out by mapping the data back to the observed historical distribution. This can be seen in the massively deflated variance of the adjusted end-of-century projections, relative to the unadjusted raw model projections. Clever individuals have developed two variants of quantile mapping, which preserve projected changes while also correcting for biases in all quantiles of the target variable’s distribution.</p>
-<p><strong>Detrended Quantile Mapping</strong>
-Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping introduced by <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">Cannon et al. (2015)</a> designed to preserve the model climate change signal, while also bias-correcting the distribution of the target variable. EQM cannot handle projected future values that fall outside of the range of historical values - the maximum (or minimum) future projected value will be mapped to the maximum (minimum) historical value, even though it may be physically realistic that new record-setting extreme values will occur under increased radiative forcing. Alternatively, some extrapolaion algorithm must be invoked, but there is no agreed upon method for doing so. DQM avoids the need for extrapolation by removing the long-term mean change from the model projections before quantile mapping, so the input values lie in the range of the historical simulation values. The trend is then reimposed after. For a ratio variable such as precipitation, the mean change is removed by multaplicative scaling, i.e.</p>
+</div>
+<div class="section" id="detrended-quantile-mapping">
+<h3>4.2.3.2 Detrended Quantile Mapping<a class="headerlink" href="#detrended-quantile-mapping" title="Permalink to this headline">#</a></h3>
+<p>Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping introduced by <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">Cannon et al. (2015)</a> designed to preserve the model climate change signal, while also bias-correcting the distribution of the target variable. EQM cannot handle projected future values that fall outside of the range of historical values - the maximum (or minimum) future projected value will be mapped to the maximum (minimum) historical value, even though it may be physically realistic that new record-setting extreme values will occur under increased radiative forcing. Alternatively, some extrapolaion algorithm must be invoked, but there is no agreed upon method for doing so. DQM avoids the need for extrapolation by removing the long-term mean change from the model projections before quantile mapping, so the input values lie in the range of the historical simulation values. The trend is then reimposed after. For a ratio variable such as precipitation, the mean change is removed by multaplicative scaling, i.e.</p>
 <div class="math notranslate nohighlight">
 \[x_{SDS}^{proj}(t) = F_{OBS}^{-1}\left[F_{GCM}\left(x_{GCM}^{proj}(t) \times \frac{\overline{x_{GCM}^{hist}}} {\overline{x_{GCM}^{proj}}} \right)\right] \times \frac{\overline{x_{GCM}^{proj}}} {\overline{x_{GCM}^{hist}}}\]</div>
 <p>Where overlines indicate the long-term mean for the given time period. For an interval variable (like temperature), the de-trending and re-trending would be done addititvely, instead of multaplicatively, i.e.</p>
@@ -400,8 +412,10 @@ Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping intr
 \[x_{SDS}^{proj}(t) = F_{OBS}^{-1}\left[F_{GCM}\left(x_{GCM}^{proj}(t) - \overline{x_{GCM}^{proj}} + \overline{x_{GCM}^{hist}}  \right)\right] - \overline{x_{GCM}^{hist}} + \overline{x_{GCM}^{proj}}\]</div>
 <p>A comparison between EQM and DQM is presented in the figure below. Note how the model-projected negative skewness of the distribution is somewhat preserved in the DQM-adjusted projections, but is completely attenuated in the EQM-adjusted data.</p>
 <p><img alt="" src="../_images/pdfs_and_cdfs_dqm_temp.png" /></p>
-<p><strong>Quantile Delta Mapping</strong></p>
-<p>As noted in <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">Cannon et. al. (2015)</a>, DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution <em>and</em> preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation <span class="math notranslate nohighlight">\(x_{GCM}^{proj}(t)\)</span>, the quantile <span class="math notranslate nohighlight">\(\tau(t)\)</span> is calculated using the empirical CDF <span class="math notranslate nohighlight">\(F_{GCM}^{proj}\)</span> for a time window around <span class="math notranslate nohighlight">\(t\)</span>:</p>
+</div>
+<div class="section" id="quantile-delta-mapping">
+<h3>4.2.3.3 Quantile Delta Mapping<a class="headerlink" href="#quantile-delta-mapping" title="Permalink to this headline">#</a></h3>
+<p>As noted in <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">Cannon et al. (2015)</a>, DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution <em>and</em> preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation <span class="math notranslate nohighlight">\(x_{GCM}^{proj}(t)\)</span>, the quantile <span class="math notranslate nohighlight">\(\tau(t)\)</span> is calculated using the empirical CDF <span class="math notranslate nohighlight">\(F_{GCM}^{proj}\)</span> for a time window around <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\tau(t) = F_{GCM}^{proj}[x_{GCM}^{proj}(t)]\]</div>
 <p>Next we calculate change in the value of <span class="math notranslate nohighlight">\(x\)</span> at this quantile between the historical and future simulations, i.e. the “Delta” in QDM. For a ratio variable, <span class="math notranslate nohighlight">\(\Delta\)</span> is a relative change, but for an interval variable <span class="math notranslate nohighlight">\(\Delta\)</span> is a difference rather than a ratio. In the additive case, QDM is equivalent to another method of bias correction called “equidistant CDF matching” <a class="reference external" href="https://doi.org/10.1029/2009JD012882">(Li et al., 2010)</a>.</p>
@@ -422,6 +436,7 @@ Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping intr
 \]</div>
 <p>A comparison between each of the three quantile mapping-based methods is shown in the following figure. While the difference between QDM and DQM is only marginal for this case, <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">Cannon et al. (2015)</a> demonstrates that QDM suffers from fewer artefacts relating to changes in extreme values than DQM, and especially fewer than EQM. For this reason, QDM is the preferred bias-correction method to be employed as a part of the UTCDW.</p>
 <p><img alt="" src="../_images/pdfs_and_cdfs_qdm_temp.png" /></p>
+</div>
 </div>
 </div>
 
@@ -494,7 +509,12 @@ Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping intr
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-delta-method">4.2.1 The “Delta” Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-variance-correction">4.2.2 Bias-Variance Correction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantile-mapping-methods">4.2.3 Quantile Mapping Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantile-mapping-methods">4.2.3 Quantile Mapping Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.2.3.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detrended-quantile-mapping">4.2.3.2 Detrended Quantile Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantile-delta-mapping">4.2.3.3 Quantile Delta Mapping</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
