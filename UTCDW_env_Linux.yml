@@ -318,6 +318,8 @@ dependencies:
   - s2n=1.3.46=h06160fa_0
   - scikit-learn=1.3.0=py39hc236052_0
   - scipy=1.11.1=py39h6183b62_0
+  - seaborn=0.12.2=hd8ed1ab_0
+  - seaborn-base=0.12.2=pyhd8ed1ab_0
   - send2trash=1.8.2=pyh41d4057_0
   - setuptools=68.0.0=pyhd8ed1ab_0
   - shapely=2.0.1=py39hf1c3bca_1
