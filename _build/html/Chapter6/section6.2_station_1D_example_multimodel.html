@@ -335,10 +335,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-model-analysis">6.2.1 Multi-Model Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-multi-model-analysis">6.2.2 Exploratory Multi-Model Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-model-bias-correction">6.2.3 Multi-Model Bias-Correction</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-multi-model-analysis">6.2.2 Exploratory Multi-Model Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-model-bias-correction">6.2.3 Multi-Model Bias-Correction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validating-the-multi-model-bc-d-data">6.2.4 Validating the Multi-Model BC’d Data</a></li>
 </ul>
             </nav>
@@ -1581,8 +1579,9 @@ document.write(`
 </div>
 </div>
 <p>Indeed CESM2 is the model that projects the largest increase to CDDs in its raw output, though it is not alone as an outlier. Interestingly the MPI model, which has the fewest historical CDDs, also projects the smallest increase. It’s possible that this model’s cold bias means that even after a similar amount of warming to other models, the baseline is so low that not many days exceed the temperature threshold by a large amount. We’ll keep this model in mind when looking at the bias-corrected projections.</p>
+</div>
 <div class="section" id="multi-model-bias-correction">
-<h3>6.2.3 Multi-Model Bias-Correction<a class="headerlink" href="#multi-model-bias-correction" title="Permalink to this headline">#</a></h3>
+<h2>6.2.3 Multi-Model Bias-Correction<a class="headerlink" href="#multi-model-bias-correction" title="Permalink to this headline">#</a></h2>
 <p>Applying the bias correction is the next step in the multi-model workflow. Doing so is no more complicated than it was for the single model case, because the <code class="docutils literal notranslate"><span class="pre">xclim</span></code> routines automatically apply the correction separately over each dimension in the input dataset. Using multiple models is no different from using data with mutiple spatial dimensions, the <code class="docutils literal notranslate"><span class="pre">realization</span></code> is just another dimension to the data which has no effect on the calculations.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -1616,7 +1615,6 @@ document.write(`
 <span class="n">tas_ens_ssp3_qdm</span> <span class="o">=</span> <span class="n">QDM_trained_mm</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="n">tas_ens_ssp3_raw</span><span class="p">,</span>                                 
                                          <span class="n">interp</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -1889,10 +1887,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-model-analysis">6.2.1 Multi-Model Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-multi-model-analysis">6.2.2 Exploratory Multi-Model Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-model-bias-correction">6.2.3 Multi-Model Bias-Correction</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-multi-model-analysis">6.2.2 Exploratory Multi-Model Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-model-bias-correction">6.2.3 Multi-Model Bias-Correction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validating-the-multi-model-bc-d-data">6.2.4 Validating the Multi-Model BC’d Data</a></li>
 </ul>
   </nav></div>

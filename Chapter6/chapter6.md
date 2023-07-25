@@ -1,3 +1,3 @@
 # Chapter 6: Workflow Examples
 
-Work in progress
+Up until now this guidebook has demonstrated and discussed nearly all of the information you need to get started with climate change impact analysis. However, you'd need to piece together code and knowledge from different sections, and this might not be easy to figure out on your own. To help you begin, we're providing some simple examples that start from the study design procedure of specifying the study parameters (e.g. spatial and time sampling, observational data product, etc.), download, analyze, and downscale the data, and then calculate calibrated projections of a climate indicator. We include examples of both bias-correction for a single location and spatial downscaling for an extended region, and include multiple models, ensemble members, and scenarios in the analyses.
