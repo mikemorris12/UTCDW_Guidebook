@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.2 Edmonton Station Cooling Degree Days: Multi-Model Analysis &#8212; UTCDW Guidebook</title>
+    <title>6.2 Edmonton AC Loads: Multi-Model Analysis &#8212; UTCDW Guidebook</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter6/section6.2_station_1D_example_multimodel';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="6.1 Edmonton Station Cooling Degree Days: Single Simulation Analysis" href="section6.1_station_1D_example_onesim.html" />
+    <link rel="prev" title="6.1 Edmonton AC Loads: Single Simulation Analysis" href="section6.1_station_1D_example_onesim.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -135,8 +135,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">UTCDW Guidebook</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -184,8 +190,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter6.html">Chapter 6: Workflow Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="section6.1_station_1D_example_onesim.html">6.1 Edmonton Station Cooling Degree Days: Single Simulation Analysis</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2 Edmonton Station Cooling Degree Days: Multi-Model Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section6.1_station_1D_example_onesim.html">6.1 Edmonton AC Loads: Single Simulation Analysis</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2 Edmonton AC Loads: Multi-Model Analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -324,7 +330,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>6.2 Edmonton Station Cooling Degree Days: Multi-Model Analysis</h1>
+    <h1>6.2 Edmonton AC Loads: Multi-Model Analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -349,9 +355,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="edmonton-station-cooling-degree-days-multi-model-analysis">
-<h1>6.2 Edmonton Station Cooling Degree Days: Multi-Model Analysis<a class="headerlink" href="#edmonton-station-cooling-degree-days-multi-model-analysis" title="Permalink to this headline">#</a></h1>
-<p>To characterize the uncertainty in our future projections due to uncertainty in modeling choices, we must use a multi-model ensemble to generate our future projections. Here we’ll use one ensemble member each from the models listed below, chosen because they have data available on Google Cloud for the ensemble member <code class="docutils literal notranslate"><span class="pre">r4i1p1f1</span></code> (chosen because this <code class="docutils literal notranslate"><span class="pre">member_id</span></code> was used for many <code class="docutils literal notranslate"><span class="pre">ssp370</span></code> runs) and both the <code class="docutils literal notranslate"><span class="pre">historical</span></code> and <code class="docutils literal notranslate"><span class="pre">ssp370</span></code> scenarios. From each modeling centre, only one model is chosen (e.g. we don’t include both <code class="docutils literal notranslate"><span class="pre">EC-Earth3</span></code> and <code class="docutils literal notranslate"><span class="pre">EC-Earth3-AerChem</span></code> from the <code class="docutils literal notranslate"><span class="pre">EC-Earth-Consortium</span></code> institution).</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="edmonton-ac-loads-multi-model-analysis">
+<h1>6.2 Edmonton AC Loads: Multi-Model Analysis<a class="headerlink" href="#edmonton-ac-loads-multi-model-analysis" title="Permalink to this headline">#</a></h1>
+<p>This notebook continues the workflow example about AC loads in the city of Edmonton, using a single ECCC station site as the spatial domain. Here we expand that example by including multiple CMIP6 models in the analysis. This allows us to characterize the uncertainty in our future projections due to uncertainty in modeling choices. We’ll use one ensemble member each from the models listed below, chosen because they have data available on Google Cloud for the ensemble member <code class="docutils literal notranslate"><span class="pre">r4i1p1f1</span></code> (chosen because this <code class="docutils literal notranslate"><span class="pre">member_id</span></code> was used for many <code class="docutils literal notranslate"><span class="pre">ssp370</span></code> runs) and both the <code class="docutils literal notranslate"><span class="pre">historical</span></code> and <code class="docutils literal notranslate"><span class="pre">ssp370</span></code> scenarios. From each modeling centre, only one model is chosen (e.g. we don’t include both <code class="docutils literal notranslate"><span class="pre">EC-Earth3</span></code> and <code class="docutils literal notranslate"><span class="pre">EC-Earth3-AerChem</span></code> from the <code class="docutils literal notranslate"><span class="pre">EC-Earth-Consortium</span></code> institution).</p>
 <p>Models:</p>
 <ul class="simple">
 <li><p>AWI-CM-1-1-MR</p></li>
@@ -364,6 +370,8 @@ document.write(`
 <li><p>MPI-ESM1-2-LR</p></li>
 <li><p>MRI-ESM2-0</p></li>
 </ul>
+<p>The <a class="reference external" href="https://utcdw.physics.utoronto.ca/survey/">guided survey</a> on the main UTCDW website allows users to clone a survey, in order to change your response to one or more questions. To generate the flowchart below, I cloned the survey that generated the flowchart shown in 6.1, and changed the answer to the model data question from “CESM2” to “CMIP6 Multi-Model Ensemble”, along with the title.</p>
+<a class="reference internal image-reference" href="../_images/survey_station_multimodel.png"><img alt="../_images/survey_station_multimodel.png" class="align-center" src="../_images/survey_station_multimodel.png" style="width: 600px;" /></a>
 <div class="section" id="multi-model-analysis">
 <h2>6.2.1 Multi-Model Analysis<a class="headerlink" href="#multi-model-analysis" title="Permalink to this headline">#</a></h2>
 <p>In the hidden code cells below, we’ll re-access the same station data as we did in the previous section. Then we’ll search the data catalog to get the download URLs for these model simulations, access the data, sub-select the data to our desired location and time periods, and then combine it all together using the <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code> framework.</p>
@@ -1865,7 +1873,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">6.1 Edmonton Station Cooling Degree Days: Single Simulation Analysis</p>
+        <p class="prev-next-title">6.1 Edmonton AC Loads: Single Simulation Analysis</p>
       </div>
     </a>
 </div></div>

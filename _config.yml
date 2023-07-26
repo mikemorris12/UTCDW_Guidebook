@@ -1,6 +1,7 @@
 # _config.yml
 title: UTCDW Guidebook
 author: Mike Morris, Karen Smith, and Paul Kushner
+logo: logo.png
 exclude_patterns: [.DS_Store, "**.ipynb_checkpoints"]
 execute:
     execute_notebooks: cache
