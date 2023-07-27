@@ -1,0 +1,2224 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.3 Edmonton AC Loads: Multi-Scenario Analysis &#8212; UTCDW Guidebook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter6/section6.3_station_1D_example_multiscen';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="6.2 Edmonton AC Loads: Multi-Model Analysis" href="section6.2_station_1D_example_multimodel.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    UTCDW Guidebook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Chapter 2: Intro to Climate Science and Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 Climate Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.2_climate_modeling.html">2.2 Climate Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.3_climate_model_uncertainty.html">2.3 Climate Model Uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/chapter2_summary.html">2.4 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/chapter3.html">Chapter 3: Exploring Climate Data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.1_station_data.html">3.1 Station Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.2_gridded_obs.html">3.2 Gridded Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.3_reanalysis.html">3.3 Reanalysis Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.4_climate_model_output.html">3.4 Climate Model Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.5_model_data_on_google_cloud.html">3.5 Climate Model Data on Google Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/chapter3_summary.html">3.6 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/chapter4.html">Chapter 4: Statistical Downscaling</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.1_downscaling_basics.html">4.1 Downscaling Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.2_bias_correction_methods.html">4.2 Bias-Correction Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.3_downscaling_methods.html">4.3 Downscaling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.4_downscaling_validation.html">4.4 Downscaling Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.5_assessing_downscaled_projections.html">4.5 Assessing Downscaled Climate Projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/chapter4_summary.html">4.6 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter5/chapter5.html">Chapter 5: Downscaling Workflow</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.1_climate_indicators.html">5.1 Climate Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.2_data_selection.html">5.2 Data Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.3_exploratory_data_analysis.html">5.3 Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.4_producing_downscaled_data.html">5.4 Producing Downscaled Projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/chapter5_summary.html">5.5 Chapter Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter6.html">Chapter 6: Workflow Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="section6.1_station_1D_example_onesim.html">6.1 Edmonton AC Loads: Single Simulation Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section6.2_station_1D_example_multimodel.html">6.2 Edmonton AC Loads: Multi-Model Analysis</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3 Edmonton AC Loads: Multi-Scenario Analysis</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter6/section6.3_station_1D_example_multiscen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6.3 Edmonton AC Loads: Multi-Scenario Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-multi-model-multi-scenario-ensemble">6.3.1 Creating a Multi-Model, Multi-Scenario Ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">6.3.2 Exploratory Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-bias-correction">6.3.3 Applying Bias-Correction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validating-multi-scenario-downscaled-data">6.3.4 Validating Multi-Scenario Downscaled Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="edmonton-ac-loads-multi-scenario-analysis">
+<h1>6.3 Edmonton AC Loads: Multi-Scenario Analysis<a class="headerlink" href="#edmonton-ac-loads-multi-scenario-analysis" title="Permalink to this headline">#</a></h1>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">xclim</span> <span class="kn">import</span> <span class="n">sdba</span>
+<span class="kn">from</span> <span class="nn">xclim.core.calendar</span> <span class="kn">import</span> <span class="n">convert_calendar</span>
+<span class="kn">import</span> <span class="nn">xclim.indices</span> <span class="k">as</span> <span class="nn">xci</span>
+<span class="kn">import</span> <span class="nn">xclim.ensembles</span> <span class="k">as</span> <span class="nn">xce</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">ec3</span>
+<span class="kn">import</span> <span class="nn">gcsfs</span>
+<span class="kn">import</span> <span class="nn">zarr</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># lat and lon coordinates for Edmonton</span>
+<span class="n">lat_edm</span> <span class="o">=</span> <span class="mf">53.5</span>
+<span class="n">lon_edm</span> <span class="o">=</span> <span class="o">-</span><span class="mf">113.5</span>
+
+<span class="c1"># time periods for historical and future periods</span>
+<span class="n">years_hist</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2011</span><span class="p">)</span> <span class="c1"># remember that range(start, end) is not inclusive of `end`</span>
+<span class="n">years_future</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2070</span><span class="p">,</span> <span class="mi">2101</span><span class="p">)</span>
+
+<span class="c1"># url for the CSV file that contains the data catalog</span>
+<span class="n">url_gcsfs_catalog</span> <span class="o">=</span> <span class="s1">&#39;https://storage.googleapis.com/cmip6/cmip6-zarr-consolidated-stores.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:218: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
+  def _day_length(lat: int | float, mth: int):  # pragma: no cover
+/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:238: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
+  def _day_length_factor(lat: float, mth: int):  # pragma: no cover
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the same station data as from 6.1 and 6.2</span>
+
+<span class="k">def</span> <span class="nf">download_station_data</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">2022</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download ECCC observational data at the weather station identified with stn_id,</span>
+<span class="sd">    re-name the columns to more useful names. Optional: select specific years of data,</span>
+<span class="sd">    but by default, download all data from 1990--2020.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># download the data</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">ec3</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="n">years</span><span class="p">,</span> <span class="n">progress</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1"># dictionary mapping original column names to new ones</span>
+    <span class="n">column_name_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Date/Time&#39;</span><span class="p">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;Mean Temp (°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;tas&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Latitude (y)&#39;</span><span class="p">:</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Longitude (x)&#39;</span><span class="p">:</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Station Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">}</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_name_dict</span><span class="p">)</span>
+    
+    <span class="c1"># select only the variables we re-named - you can comment this out if you want to keep all variables</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">column_name_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>
+    
+    <span class="c1"># set the &quot;time&quot; column as an index column and convert it from strings to Datetime objects to make</span>
+    <span class="c1"># selecting times easier</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">])</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># sort the data in proper chronological order</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download the station data</span>
+<span class="n">stn_id_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1867</span><span class="p">,</span> <span class="mi">31427</span><span class="p">]</span>
+<span class="n">df_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">stn_id</span> <span class="ow">in</span> <span class="n">stn_id_list</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">download_station_data</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="n">years_hist</span><span class="p">)</span>
+    <span class="n">df_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    
+<span class="n">stn_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">df_list</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># now convert it to xarray format for easier use with the model data and xclim</span>
+
+<span class="c1"># drop lat and lon variables, since we want these to be coordinates in the xr.Dataset</span>
+<span class="n">stn_lon</span> <span class="o">=</span> <span class="n">stn_df</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">360</span> <span class="c1"># convert lon to same convention as model data</span>
+<span class="n">stn_lat</span> <span class="o">=</span> <span class="n">stn_df</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+
+<span class="n">stn_df</span> <span class="o">=</span> <span class="n">stn_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">stn_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">stn_df</span><span class="p">)</span>
+<span class="n">stn_ds</span> <span class="o">=</span> <span class="n">stn_ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="n">stn_lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">stn_lon</span><span class="p">)</span>
+
+<span class="n">stn_ds_noleap</span> <span class="o">=</span> <span class="n">convert_calendar</span><span class="p">(</span><span class="n">stn_ds</span><span class="p">,</span> <span class="s1">&#39;noleap&#39;</span><span class="p">)</span>
+<span class="n">tas_obs_noleap</span> <span class="o">=</span> <span class="n">stn_ds_noleap</span><span class="o">.</span><span class="n">tas</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="section" id="creating-a-multi-model-multi-scenario-ensemble">
+<h2>6.3.1 Creating a Multi-Model, Multi-Scenario Ensemble<a class="headerlink" href="#creating-a-multi-model-multi-scenario-ensemble" title="Permalink to this headline">#</a></h2>
+<p>Now we’ll search the catalog for data from the same models as in 6.2, but for multiple SSP scenarios. We’ll use the 4 most common SSPs, listed in increasing order of end-of-century radiative forcing:</p>
+<ul class="simple">
+<li><p>SSP1-2.6 (Sustainability)</p></li>
+<li><p>SSP2-4.5 (Middle of the Road)</p></li>
+<li><p>SSP3-7.0 (Regionaly Rivalry)</p></li>
+<li><p>SSP5-8.5 (Fossil-Fueled Development)</p></li>
+</ul>
+<p>For each model, we’ll again use only a single ensemble member. The code below will search the Google Cloud CMIP6 data catalog for ensemble members that include the historical simulation, plus branches for each of the 4 SSPs listed above. For consistency between the historical data and future projections, they must all come from the same ensemble member.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open the Google Cloud model data catalog with pandas</span>
+<span class="n">df_catalog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_gcsfs_catalog</span><span class="p">)</span>
+
+<span class="c1"># search for entries which have daily tas data from the selected scenarios and models</span>
+<span class="n">scenarios</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp126&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp245&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp370&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">]</span>
+
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AWI-CM-1-1-MR&#39;</span><span class="p">,</span> <span class="s1">&#39;CESM2&#39;</span><span class="p">,</span> <span class="s1">&#39;CanESM5&#39;</span><span class="p">,</span> <span class="s1">&#39;EC-Earth3&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;FGOALS-g3&#39;</span><span class="p">,</span><span class="s1">&#39;INM-CM5-0&#39;</span><span class="p">,</span> <span class="s1">&#39;IPSL-CM6A-LR&#39;</span><span class="p">,</span> <span class="s1">&#39;MPI-ESM1-2-LR&#39;</span><span class="p">,</span> <span class="s1">&#39;MRI-ESM2-0&#39;</span><span class="p">]</span>
+
+<span class="n">search_string_mm</span> <span class="o">=</span> <span class="s2">&quot;table_id == &#39;day&#39; &amp; variable_id == &#39;tas&#39;&quot;</span>
+<span class="n">search_string_mm</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; &amp; experiment_id == </span><span class="si">{</span><span class="n">scenarios</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">search_string_mm</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&amp; source_id == </span><span class="si">{</span><span class="n">models</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">df_search_mm</span> <span class="o">=</span> <span class="n">df_catalog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">search_string_mm</span><span class="p">)</span>
+
+<span class="c1"># for each model, select only one ensemble member</span>
+<span class="n">df_search_mm</span> <span class="o">=</span> <span class="n">df_search_mm</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span>
+<span class="n">df_search_mm_onemember</span> <span class="o">=</span> <span class="n">df_search_mm</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span> <span class="s1">&#39;experiment_id&#39;</span><span class="p">],</span> <span class="n">keep</span> <span class="o">=</span> <span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="n">df_search_mm_onemember</span> <span class="o">=</span> <span class="n">df_search_mm_onemember</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;source_id&#39;</span><span class="p">)</span>
+<span class="n">df_search_mm_onemember</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>activity_id</th>
+      <th>institution_id</th>
+      <th>source_id</th>
+      <th>experiment_id</th>
+      <th>member_id</th>
+      <th>table_id</th>
+      <th>variable_id</th>
+      <th>grid_label</th>
+      <th>zstore</th>
+      <th>dcpp_init_year</th>
+      <th>version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>203819</th>
+      <td>ScenarioMIP</td>
+      <td>AWI</td>
+      <td>AWI-CM-1-1-MR</td>
+      <td>ssp126</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/AWI/AWI-CM-1-1-MR...</td>
+      <td>NaN</td>
+      <td>20190529</td>
+    </tr>
+    <tr>
+      <th>203678</th>
+      <td>ScenarioMIP</td>
+      <td>AWI</td>
+      <td>AWI-CM-1-1-MR</td>
+      <td>ssp245</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/AWI/AWI-CM-1-1-MR...</td>
+      <td>NaN</td>
+      <td>20190529</td>
+    </tr>
+    <tr>
+      <th>204072</th>
+      <td>ScenarioMIP</td>
+      <td>AWI</td>
+      <td>AWI-CM-1-1-MR</td>
+      <td>ssp585</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/AWI/AWI-CM-1-1-MR...</td>
+      <td>NaN</td>
+      <td>20190529</td>
+    </tr>
+    <tr>
+      <th>203852</th>
+      <td>ScenarioMIP</td>
+      <td>AWI</td>
+      <td>AWI-CM-1-1-MR</td>
+      <td>ssp370</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/AWI/AWI-CM-1-1-MR...</td>
+      <td>NaN</td>
+      <td>20190529</td>
+    </tr>
+    <tr>
+      <th>45210</th>
+      <td>CMIP</td>
+      <td>AWI</td>
+      <td>AWI-CM-1-1-MR</td>
+      <td>historical</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/CMIP/AWI/AWI-CM-1-1-MR/histor...</td>
+      <td>NaN</td>
+      <td>20181218</td>
+    </tr>
+    <tr>
+      <th>444869</th>
+      <td>ScenarioMIP</td>
+      <td>NCAR</td>
+      <td>CESM2</td>
+      <td>ssp585</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/NCAR/CESM2/ssp585...</td>
+      <td>NaN</td>
+      <td>20200528</td>
+    </tr>
+    <tr>
+      <th>445750</th>
+      <td>ScenarioMIP</td>
+      <td>NCAR</td>
+      <td>CESM2</td>
+      <td>ssp245</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/NCAR/CESM2/ssp245...</td>
+      <td>NaN</td>
+      <td>20200528</td>
+    </tr>
+    <tr>
+      <th>66385</th>
+      <td>CMIP</td>
+      <td>NCAR</td>
+      <td>CESM2</td>
+      <td>historical</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/CMIP/NCAR/CESM2/historical/r1...</td>
+      <td>NaN</td>
+      <td>20190313</td>
+    </tr>
+    <tr>
+      <th>445868</th>
+      <td>ScenarioMIP</td>
+      <td>NCAR</td>
+      <td>CESM2</td>
+      <td>ssp370</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/NCAR/CESM2/ssp370...</td>
+      <td>NaN</td>
+      <td>20200528</td>
+    </tr>
+    <tr>
+      <th>444314</th>
+      <td>ScenarioMIP</td>
+      <td>NCAR</td>
+      <td>CESM2</td>
+      <td>ssp126</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/NCAR/CESM2/ssp126...</td>
+      <td>NaN</td>
+      <td>20200528</td>
+    </tr>
+    <tr>
+      <th>89489</th>
+      <td>ScenarioMIP</td>
+      <td>CCCma</td>
+      <td>CanESM5</td>
+      <td>ssp585</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/CCCma/CanESM5/ssp...</td>
+      <td>NaN</td>
+      <td>20190429</td>
+    </tr>
+    <tr>
+      <th>80387</th>
+      <td>CMIP</td>
+      <td>CCCma</td>
+      <td>CanESM5</td>
+      <td>historical</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/historical...</td>
+      <td>NaN</td>
+      <td>20190429</td>
+    </tr>
+    <tr>
+      <th>136423</th>
+      <td>ScenarioMIP</td>
+      <td>CCCma</td>
+      <td>CanESM5</td>
+      <td>ssp126</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/CCCma/CanESM5/ssp...</td>
+      <td>NaN</td>
+      <td>20190429</td>
+    </tr>
+    <tr>
+      <th>114404</th>
+      <td>ScenarioMIP</td>
+      <td>CCCma</td>
+      <td>CanESM5</td>
+      <td>ssp370</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/CCCma/CanESM5/ssp...</td>
+      <td>NaN</td>
+      <td>20190429</td>
+    </tr>
+    <tr>
+      <th>148115</th>
+      <td>ScenarioMIP</td>
+      <td>CCCma</td>
+      <td>CanESM5</td>
+      <td>ssp245</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/CCCma/CanESM5/ssp...</td>
+      <td>NaN</td>
+      <td>20190429</td>
+    </tr>
+    <tr>
+      <th>431873</th>
+      <td>ScenarioMIP</td>
+      <td>EC-Earth-Consortium</td>
+      <td>EC-Earth3</td>
+      <td>ssp585</td>
+      <td>r101i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/EC-Earth-Consorti...</td>
+      <td>NaN</td>
+      <td>20200412</td>
+    </tr>
+    <tr>
+      <th>509746</th>
+      <td>ScenarioMIP</td>
+      <td>EC-Earth-Consortium</td>
+      <td>EC-Earth3</td>
+      <td>ssp370</td>
+      <td>r101i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/EC-Earth-Consorti...</td>
+      <td>NaN</td>
+      <td>20210101</td>
+    </tr>
+    <tr>
+      <th>519373</th>
+      <td>ScenarioMIP</td>
+      <td>EC-Earth-Consortium</td>
+      <td>EC-Earth3</td>
+      <td>ssp245</td>
+      <td>r101i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/EC-Earth-Consorti...</td>
+      <td>NaN</td>
+      <td>20210401</td>
+    </tr>
+    <tr>
+      <th>435629</th>
+      <td>CMIP</td>
+      <td>EC-Earth-Consortium</td>
+      <td>EC-Earth3</td>
+      <td>historical</td>
+      <td>r101i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-E...</td>
+      <td>NaN</td>
+      <td>20200412</td>
+    </tr>
+    <tr>
+      <th>411543</th>
+      <td>ScenarioMIP</td>
+      <td>EC-Earth-Consortium</td>
+      <td>EC-Earth3</td>
+      <td>ssp126</td>
+      <td>r11i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/EC-Earth-Consorti...</td>
+      <td>NaN</td>
+      <td>20200201</td>
+    </tr>
+    <tr>
+      <th>255024</th>
+      <td>ScenarioMIP</td>
+      <td>CAS</td>
+      <td>FGOALS-g3</td>
+      <td>ssp126</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/CAS/FGOALS-g3/ssp...</td>
+      <td>NaN</td>
+      <td>20190818</td>
+    </tr>
+    <tr>
+      <th>255096</th>
+      <td>ScenarioMIP</td>
+      <td>CAS</td>
+      <td>FGOALS-g3</td>
+      <td>ssp585</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/CAS/FGOALS-g3/ssp...</td>
+      <td>NaN</td>
+      <td>20190819</td>
+    </tr>
+    <tr>
+      <th>277852</th>
+      <td>CMIP</td>
+      <td>CAS</td>
+      <td>FGOALS-g3</td>
+      <td>historical</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/CMIP/CAS/FGOALS-g3/historical...</td>
+      <td>NaN</td>
+      <td>20190826</td>
+    </tr>
+    <tr>
+      <th>255054</th>
+      <td>ScenarioMIP</td>
+      <td>CAS</td>
+      <td>FGOALS-g3</td>
+      <td>ssp245</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/CAS/FGOALS-g3/ssp...</td>
+      <td>NaN</td>
+      <td>20190818</td>
+    </tr>
+    <tr>
+      <th>255189</th>
+      <td>ScenarioMIP</td>
+      <td>CAS</td>
+      <td>FGOALS-g3</td>
+      <td>ssp370</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/CAS/FGOALS-g3/ssp...</td>
+      <td>NaN</td>
+      <td>20190820</td>
+    </tr>
+    <tr>
+      <th>209182</th>
+      <td>ScenarioMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>ssp245</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/INM/INM-CM5-0/ssp...</td>
+      <td>NaN</td>
+      <td>20190619</td>
+    </tr>
+    <tr>
+      <th>209140</th>
+      <td>ScenarioMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>ssp126</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/INM/INM-CM5-0/ssp...</td>
+      <td>NaN</td>
+      <td>20190619</td>
+    </tr>
+    <tr>
+      <th>208890</th>
+      <td>ScenarioMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>ssp370</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/INM/INM-CM5-0/ssp...</td>
+      <td>NaN</td>
+      <td>20190618</td>
+    </tr>
+    <tr>
+      <th>244566</th>
+      <td>ScenarioMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>ssp585</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/INM/INM-CM5-0/ssp...</td>
+      <td>NaN</td>
+      <td>20190724</td>
+    </tr>
+    <tr>
+      <th>242542</th>
+      <td>CMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>historical</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/CMIP/INM/INM-CM5-0/historical...</td>
+      <td>NaN</td>
+      <td>20190712</td>
+    </tr>
+    <tr>
+      <th>388475</th>
+      <td>ScenarioMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>ssp585</td>
+      <td>r14i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR...</td>
+      <td>NaN</td>
+      <td>20191121</td>
+    </tr>
+    <tr>
+      <th>386693</th>
+      <td>ScenarioMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>ssp126</td>
+      <td>r14i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR...</td>
+      <td>NaN</td>
+      <td>20191121</td>
+    </tr>
+    <tr>
+      <th>208121</th>
+      <td>ScenarioMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>ssp370</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR...</td>
+      <td>NaN</td>
+      <td>20190614</td>
+    </tr>
+    <tr>
+      <th>297624</th>
+      <td>ScenarioMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>ssp245</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR...</td>
+      <td>NaN</td>
+      <td>20191003</td>
+    </tr>
+    <tr>
+      <th>207219</th>
+      <td>CMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>historical</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/histor...</td>
+      <td>NaN</td>
+      <td>20190614</td>
+    </tr>
+    <tr>
+      <th>225785</th>
+      <td>ScenarioMIP</td>
+      <td>MPI-M</td>
+      <td>MPI-ESM1-2-LR</td>
+      <td>ssp370</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/MPI-M/MPI-ESM1-2-...</td>
+      <td>NaN</td>
+      <td>20190710</td>
+    </tr>
+    <tr>
+      <th>218400</th>
+      <td>ScenarioMIP</td>
+      <td>MPI-M</td>
+      <td>MPI-ESM1-2-LR</td>
+      <td>ssp245</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/MPI-M/MPI-ESM1-2-...</td>
+      <td>NaN</td>
+      <td>20190710</td>
+    </tr>
+    <tr>
+      <th>233938</th>
+      <td>ScenarioMIP</td>
+      <td>MPI-M</td>
+      <td>MPI-ESM1-2-LR</td>
+      <td>ssp126</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/MPI-M/MPI-ESM1-2-...</td>
+      <td>NaN</td>
+      <td>20190710</td>
+    </tr>
+    <tr>
+      <th>227807</th>
+      <td>ScenarioMIP</td>
+      <td>MPI-M</td>
+      <td>MPI-ESM1-2-LR</td>
+      <td>ssp585</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/MPI-M/MPI-ESM1-2-...</td>
+      <td>NaN</td>
+      <td>20190710</td>
+    </tr>
+    <tr>
+      <th>222401</th>
+      <td>CMIP</td>
+      <td>MPI-M</td>
+      <td>MPI-ESM1-2-LR</td>
+      <td>historical</td>
+      <td>r10i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/hist...</td>
+      <td>NaN</td>
+      <td>20190710</td>
+    </tr>
+    <tr>
+      <th>378362</th>
+      <td>ScenarioMIP</td>
+      <td>MRI</td>
+      <td>MRI-ESM2-0</td>
+      <td>ssp126</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0/ss...</td>
+      <td>NaN</td>
+      <td>20191108</td>
+    </tr>
+    <tr>
+      <th>378378</th>
+      <td>ScenarioMIP</td>
+      <td>MRI</td>
+      <td>MRI-ESM2-0</td>
+      <td>ssp585</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0/ss...</td>
+      <td>NaN</td>
+      <td>20191108</td>
+    </tr>
+    <tr>
+      <th>205820</th>
+      <td>ScenarioMIP</td>
+      <td>MRI</td>
+      <td>MRI-ESM2-0</td>
+      <td>ssp370</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0/ss...</td>
+      <td>NaN</td>
+      <td>20190603</td>
+    </tr>
+    <tr>
+      <th>204549</th>
+      <td>ScenarioMIP</td>
+      <td>MRI</td>
+      <td>MRI-ESM2-0</td>
+      <td>ssp245</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0/ss...</td>
+      <td>NaN</td>
+      <td>20190603</td>
+    </tr>
+    <tr>
+      <th>205494</th>
+      <td>CMIP</td>
+      <td>MRI</td>
+      <td>MRI-ESM2-0</td>
+      <td>historical</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gn</td>
+      <td>gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/historica...</td>
+      <td>NaN</td>
+      <td>20190603</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ideally we&#39;d use only one historical ensemble member for each model, and have all the SSP scenarios</span>
+<span class="c1"># for that model branch from the same historical simulation. This has worked out for most of the models,</span>
+<span class="c1"># but not IPSL or INM. Let&#39;s see if we can find a single member which works for those models</span>
+
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;IPSL-CM6A-LR&#39;</span><span class="p">,</span> <span class="s1">&#39;INM-CM5-0&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="c1"># drop the original results for this model from the search results</span>
+    <span class="n">where_current_model</span> <span class="o">=</span> <span class="n">df_search_mm_onemember</span><span class="p">[</span><span class="n">df_search_mm_onemember</span><span class="o">.</span><span class="n">source_id</span> <span class="o">==</span> <span class="n">model</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">df_search_mm_onemember</span> <span class="o">=</span> <span class="n">df_search_mm_onemember</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">where_current_model</span><span class="p">)</span>
+    
+    <span class="n">search_model</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;source_id == &#39;</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">&#39; &amp; table_id == &#39;day&#39; &amp; variable_id == &#39;tas&#39; &amp; experiment_id == </span><span class="si">{</span><span class="n">scenarios</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">df_search_model</span> <span class="o">=</span> <span class="n">df_catalog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">search_model</span><span class="p">)</span>
+    <span class="n">df_search_model</span> <span class="o">=</span> <span class="n">df_search_model</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span>
+    <span class="n">exps_per_member</span> <span class="o">=</span> <span class="n">df_search_model</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    
+    <span class="c1"># search for ensemble members that have the same number of entries as there are scenarios in our list</span>
+    <span class="n">candidate_members</span> <span class="o">=</span> <span class="n">exps_per_member</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">exps_per_member</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">scenarios</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+
+    <span class="c1"># take the first one, if there are any results, and append its entries to the search results</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidate_members</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">member</span> <span class="o">=</span> <span class="n">candidate_members</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">results_for_this_model</span> <span class="o">=</span> <span class="n">df_search_model</span><span class="p">[</span><span class="n">df_search_model</span><span class="o">.</span><span class="n">member_id</span> <span class="o">==</span> <span class="n">member</span><span class="p">]</span>
+        <span class="n">df_search_mm_onemember</span> <span class="o">=</span> <span class="n">df_search_mm_onemember</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">results_for_this_model</span><span class="p">)</span>
+        
+<span class="n">df_search_mm_onemember</span><span class="p">[</span><span class="n">df_search_mm_onemember</span><span class="o">.</span><span class="n">source_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;IPSL-CM6A-LR&#39;</span><span class="p">,</span> <span class="s1">&#39;INM-CM5-0&#39;</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IPSL-CM6A-LR
+INM-CM5-0
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>activity_id</th>
+      <th>institution_id</th>
+      <th>source_id</th>
+      <th>experiment_id</th>
+      <th>member_id</th>
+      <th>table_id</th>
+      <th>variable_id</th>
+      <th>grid_label</th>
+      <th>zstore</th>
+      <th>dcpp_init_year</th>
+      <th>version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>389939</th>
+      <td>ScenarioMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>ssp370</td>
+      <td>r14i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR...</td>
+      <td>NaN</td>
+      <td>20191122</td>
+    </tr>
+    <tr>
+      <th>388751</th>
+      <td>ScenarioMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>ssp245</td>
+      <td>r14i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR...</td>
+      <td>NaN</td>
+      <td>20191121</td>
+    </tr>
+    <tr>
+      <th>388475</th>
+      <td>ScenarioMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>ssp585</td>
+      <td>r14i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR...</td>
+      <td>NaN</td>
+      <td>20191121</td>
+    </tr>
+    <tr>
+      <th>206789</th>
+      <td>CMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>historical</td>
+      <td>r14i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/histor...</td>
+      <td>NaN</td>
+      <td>20190614</td>
+    </tr>
+    <tr>
+      <th>386693</th>
+      <td>ScenarioMIP</td>
+      <td>IPSL</td>
+      <td>IPSL-CM6A-LR</td>
+      <td>ssp126</td>
+      <td>r14i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR...</td>
+      <td>NaN</td>
+      <td>20191121</td>
+    </tr>
+    <tr>
+      <th>206447</th>
+      <td>CMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>historical</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/CMIP/INM/INM-CM5-0/historical...</td>
+      <td>NaN</td>
+      <td>20190610</td>
+    </tr>
+    <tr>
+      <th>209182</th>
+      <td>ScenarioMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>ssp245</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/INM/INM-CM5-0/ssp...</td>
+      <td>NaN</td>
+      <td>20190619</td>
+    </tr>
+    <tr>
+      <th>244566</th>
+      <td>ScenarioMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>ssp585</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/INM/INM-CM5-0/ssp...</td>
+      <td>NaN</td>
+      <td>20190724</td>
+    </tr>
+    <tr>
+      <th>208890</th>
+      <td>ScenarioMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>ssp370</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/INM/INM-CM5-0/ssp...</td>
+      <td>NaN</td>
+      <td>20190618</td>
+    </tr>
+    <tr>
+      <th>209140</th>
+      <td>ScenarioMIP</td>
+      <td>INM</td>
+      <td>INM-CM5-0</td>
+      <td>ssp126</td>
+      <td>r1i1p1f1</td>
+      <td>day</td>
+      <td>tas</td>
+      <td>gr1</td>
+      <td>gs://cmip6/CMIP6/ScenarioMIP/INM/INM-CM5-0/ssp...</td>
+      <td>NaN</td>
+      <td>20190619</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>Having found entries that suit our needs, let’s download the data and format it using <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code>.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function for pre-processing data</span>
+<span class="k">def</span> <span class="nf">get_and_process_data</span><span class="p">(</span><span class="n">catalog_df</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">gcs</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">years</span><span class="p">):</span>
+    <span class="c1"># get the ztore url for this model and scenario</span>
+    <span class="n">df_scen</span> <span class="o">=</span> <span class="n">catalog_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;source_id == &#39;</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">&#39; &amp; experiment_id == &#39;</span><span class="si">{</span><span class="n">scenario</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+    <span class="n">zstore_url</span> <span class="o">=</span> <span class="n">df_scen</span><span class="o">.</span><span class="n">zstore</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># get the GCS mapper from the url</span>
+    <span class="n">mapper</span> <span class="o">=</span> <span class="n">gcs</span><span class="o">.</span><span class="n">get_mapper</span><span class="p">(</span><span class="n">zstore_url</span><span class="p">)</span>
+    
+    <span class="c1"># open the file with xarray</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="n">consolidated</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># get the tas data, select the time period, and interp to the desired location</span>
+    <span class="n">tas_loc</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">years</span><span class="p">))</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span><span class="p">)</span>
+    
+    <span class="c1"># drop &#39;height&#39; coordinate, which is always 2m but isn&#39;t present on all datasets</span>
+    <span class="k">if</span> <span class="s1">&#39;height&#39;</span> <span class="ow">in</span> <span class="n">tas_loc</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">tas_loc</span> <span class="o">=</span> <span class="n">tas_loc</span><span class="o">.</span><span class="n">reset_coords</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+        
+    <span class="c1"># some datasets put the date at 12:00 whereas some put it at 00:00. To make all</span>
+    <span class="c1"># of them consistent, simply change the time coordinate to the date only</span>
+    <span class="n">tas_loc</span> <span class="o">=</span> <span class="n">tas_loc</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_loc</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">))</span>
+    <span class="c1"># convert from Kelvin to Celsius and return</span>
+    
+    <span class="n">tas_loc</span> <span class="o">=</span> <span class="n">tas_loc</span> <span class="o">-</span> <span class="mf">273.15</span>
+    <span class="k">return</span> <span class="n">tas_loc</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_data_multimodel_multiscen</span><span class="p">(</span><span class="n">catalog_df</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">scenarios</span><span class="p">,</span>
+                                       <span class="n">stn_lat</span><span class="p">,</span> <span class="n">stn_lon</span><span class="p">,</span>
+                                       <span class="n">years_hist</span><span class="p">,</span> <span class="n">years_future</span><span class="p">):</span>
+
+    <span class="n">ds_list_hist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ds_list_future</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;========================</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">=============================&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;historical&#39;</span><span class="p">)</span>
+        <span class="n">tas_model_hist</span> <span class="o">=</span> <span class="n">get_and_process_data</span><span class="p">(</span><span class="n">catalog_df</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="s1">&#39;historical&#39;</span><span class="p">,</span> 
+                                              <span class="n">gcs</span><span class="p">,</span> <span class="n">stn_lat</span><span class="p">,</span> <span class="n">stn_lon</span><span class="p">,</span> <span class="n">years_hist</span><span class="p">)</span>
+        <span class="n">ds_list_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tas_model_hist</span><span class="p">)</span>
+    
+        <span class="c1"># get the future simulation data for this model, for each scenario</span>
+        <span class="n">ds_list_scen</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span> <span class="c1"># exclude &#39;historical&#39; from this iteration</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">scenario</span><span class="p">)</span>
+            <span class="n">tas_model_future</span> <span class="o">=</span> <span class="n">get_and_process_data</span><span class="p">(</span><span class="n">catalog_df</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> 
+                                                    <span class="n">gcs</span><span class="p">,</span> <span class="n">stn_lat</span><span class="p">,</span> <span class="n">stn_lon</span><span class="p">,</span> <span class="n">years_future</span><span class="p">)</span>
+            <span class="n">ds_list_scen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tas_model_future</span><span class="p">)</span>
+    
+        <span class="c1"># create ensemble for this one model, where the &#39;realization&#39; dim represents the different scenarios</span>
+        <span class="n">ds_future</span> <span class="o">=</span> <span class="n">xce</span><span class="o">.</span><span class="n">create_ensemble</span><span class="p">(</span><span class="n">ds_list_scen</span><span class="p">,</span> <span class="n">realizations</span> <span class="o">=</span> <span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    
+        <span class="c1"># rename the &#39;realization&#39; dim</span>
+        <span class="n">ds_future</span> <span class="o">=</span> <span class="n">ds_future</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;realization&#39;</span><span class="p">:</span> <span class="s1">&#39;scenario&#39;</span><span class="p">})</span>
+        <span class="n">ds_list_future</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ds_future</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;finished acquiring model data&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># concatenate the ds_lists together</span>
+    <span class="n">ds_ens_hist_raw</span> <span class="o">=</span> <span class="n">xce</span><span class="o">.</span><span class="n">create_ensemble</span><span class="p">(</span><span class="n">ds_list_hist</span><span class="p">,</span>                             
+                                          <span class="n">realizations</span> <span class="o">=</span> <span class="n">models</span><span class="p">,</span>
+                                          <span class="n">calendar</span> <span class="o">=</span> <span class="s1">&#39;noleap&#39;</span><span class="p">)</span>
+
+    <span class="n">ds_ens_future_raw</span> <span class="o">=</span> <span class="n">xce</span><span class="o">.</span><span class="n">create_ensemble</span><span class="p">(</span><span class="n">ds_list_future</span><span class="p">,</span> 
+                                          <span class="n">realizations</span> <span class="o">=</span> <span class="n">models</span><span class="p">,</span>
+                                          <span class="n">calendar</span> <span class="o">=</span> <span class="s1">&#39;noleap&#39;</span><span class="p">)</span>
+
+    <span class="c1"># rename &#39;realization&#39; dimension to &#39;model&#39;</span>
+    <span class="n">ds_ens_hist_raw</span> <span class="o">=</span> <span class="n">ds_ens_hist_raw</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;realization&#39;</span><span class="p">:</span> <span class="s1">&#39;model&#39;</span><span class="p">})</span>
+    <span class="n">ds_ens_future_raw</span> <span class="o">=</span> <span class="n">ds_ens_future_raw</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;realization&#39;</span><span class="p">:</span> <span class="s1">&#39;model&#39;</span><span class="p">})</span>
+    
+    <span class="c1"># return</span>
+    <span class="k">return</span> <span class="n">ds_ens_hist_raw</span><span class="p">,</span> <span class="n">ds_ens_future_raw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># authenticate access to Google Cloud</span>
+<span class="n">gcs</span> <span class="o">=</span> <span class="n">gcsfs</span><span class="o">.</span><span class="n">GCSFileSystem</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;anon&#39;</span><span class="p">)</span>
+
+<span class="c1"># file names to save the downloaded data, to save time later when re-running this notebook</span>
+<span class="n">fout_hist</span> <span class="o">=</span> <span class="s1">&#39;data_files/tas.cmip6.daily.historical.1980-2010.edmonton.nc&#39;</span>
+<span class="n">fout_future</span> <span class="o">=</span> <span class="s1">&#39;data_files/tas.cmip6.daily.ssp1235.2070-2100.edmonton.nc&#39;</span>
+
+<span class="c1"># use the function to download the data, this may take a few minutes to run</span>
+<span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fout_hist</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fout_future</span><span class="p">)):</span>
+    <span class="n">download_data_multimodel_multiscen</span><span class="p">(</span><span class="n">df_search_mm_onemember</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">scenarios</span><span class="p">,</span>
+                                      <span class="n">stn_lat</span><span class="p">,</span> <span class="n">stn_lon</span><span class="p">,</span> <span class="n">years_hist</span><span class="p">,</span> <span class="n">years_future</span><span class="p">)</span>
+
+    <span class="c1"># write the data to output files </span>
+    <span class="n">ds_ens_hist_raw</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">fout_hist</span><span class="p">)</span>
+    <span class="n">ds_ens_future_raw</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">fout_future</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># open the files that already exist</span>
+    <span class="n">ds_ens_hist_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fout_hist</span><span class="p">)</span>
+    <span class="n">ds_ens_future_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fout_future</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="section" id="exploratory-analysis">
+<h2>6.3.2 Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this headline">#</a></h2>
+<p>With this multi-model, multi-scenario ensemble, we can do much of the same analysis as before, and also quantify the effects of scenario uncertainty on the future projections. Since the historical validation for this case would be exactly the same as Section 6.2 (since there’s only one historical scenario), we can get right into looking at the raw model future projections. Since we already explored model uncertainty in 6.2, let’s look at the raw projections of the multi-model ensemble. Remember though that when we get to the bias-correction, it should be applied to each model individually, <strong>not to the multi-model mean</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the daily climatology, averaged across models, for the historical and future data</span>
+<span class="n">tas_ens_hist_raw</span> <span class="o">=</span> <span class="n">ds_ens_hist_raw</span><span class="o">.</span><span class="n">tas</span>
+<span class="n">tas_ens_future_raw</span> <span class="o">=</span> <span class="n">ds_ens_future_raw</span><span class="o">.</span><span class="n">tas</span>
+
+<span class="n">tas_ensmean_hist_raw_clim</span> <span class="o">=</span> <span class="n">tas_ens_hist_raw</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">tas_ensmean_future_raw_clim</span> <span class="o">=</span> <span class="n">tas_ens_future_raw</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="c1"># daily climatology for obs</span>
+<span class="n">tas_dailyclim_obs</span> <span class="o">=</span> <span class="n">tas_obs_noleap</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">tas_dailyclim_std_obs</span> <span class="o">=</span> <span class="n">tas_obs_noleap</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the daily climatologies</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># daily climatologies as 1D curves</span>
+<span class="c1"># future multi-model means</span>
+<span class="n">tas_ensmean_future_raw_clim</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
+
+<span class="c1"># obs</span>
+<span class="n">tas_dailyclim_obs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Station Obs&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># models</span>
+<span class="c1"># historical multi-model mean</span>
+<span class="n">tas_ensmean_hist_raw_clim</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Historical Multi-Model Mean&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># 1 sigma shading</span>
+<span class="c1"># obs</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">tas_dailyclim_obs</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">,</span>
+                <span class="n">tas_dailyclim_obs</span> <span class="o">-</span> <span class="n">tas_dailyclim_std_obs</span><span class="p">,</span> 
+                <span class="n">tas_dailyclim_obs</span> <span class="o">+</span> <span class="n">tas_dailyclim_std_obs</span><span class="p">,</span>
+                <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Edmonton Daily Mean Temperature Daily Climatology - Raw Multi-Model Mean&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/3da5046df9d608127aa3d64448139bd34d77bf1c19dd9861d2e0cb6d0e756e07.png" src="../_images/3da5046df9d608127aa3d64448139bd34d77bf1c19dd9861d2e0cb6d0e756e07.png" />
+</div>
+</div>
+<p>This plot shows how the multi-model average daily mean temperature climatology varies with the future scenario. The historical climatology (purple) shows a slight cold bias relative to the observations (black), which will hopefully be eliminated after bias-correcting the models. The future scenarios all show warming realtive to the historical period, though only the two highest-emission scenarios (SSP3-7.0 and SSP5-8.5) have peaks that exceed the observed range of variability.</p>
+<p>We should expect that CDDs will increase under each scenario, and the increases will probably be largest for the higher forcing scenarios. However, we already saw that the inter-model spread for projections was quite large for the single-scenario analysis. Will the spread across scenarios be larger? Let’s calculate the CDDs before and after bias-adjustment and investigate.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assign unit to temperature data</span>
+<span class="n">tas_ens_hist_raw</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
+<span class="n">tas_ens_future_raw</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
+<span class="n">tas_obs_noleap</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
+
+<span class="c1"># calculate CDDs</span>
+<span class="n">cdd_obs</span> <span class="o">=</span>  <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_obs_noleap</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">cdds_mm_hist_raw</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_ens_hist_raw</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">cdds_mm_future_raw</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_ens_future_raw</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="c1"># long-term means </span>
+<span class="n">cdd_obs_ltm</span> <span class="o">=</span> <span class="n">cdd_obs</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">cdds_mm_hist_raw_ltm</span> <span class="o">=</span> <span class="n">cdds_mm_hist_raw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">cdds_mm_future_raw_ltm</span> <span class="o">=</span> <span class="n">cdds_mm_future_raw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="c1"># climate change delta</span>
+<span class="n">cdds_mm_delta_raw</span> <span class="o">=</span> <span class="n">cdds_mm_future_raw_ltm</span> <span class="o">-</span> <span class="n">cdds_mm_hist_raw_ltm</span> 
+
+<span class="c1"># multi-model mean change</span>
+<span class="n">cdds_mm_delta_raw_ensmean</span> <span class="o">=</span> <span class="n">cdds_mm_delta_raw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+
+<span class="c1"># represent model spread for each scenario by taking stdev across models for the change in long-term means</span>
+<span class="n">cdds_mm_delta_raw_model_spread</span> <span class="o">=</span> <span class="n">cdds_mm_delta_raw</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot changes to CDDs from the raw model output</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Edmonton Cooling Degree Days</span><span class="se">\n</span><span class="s2">Change in Long Term Mean (Raw Model Output)&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot long-term means</span>
+<span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">cdds_mm_delta_raw_ensmean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+             <span class="n">yerr</span> <span class="o">=</span> <span class="n">cdds_mm_delta_raw_model_spread</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+             <span class="n">capsize</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">error_kw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;elinewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;CDD&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/b1b5fe94cd21ebe6e56f62762b05a33d693b733788d05709a99143c2aa97ba03.png" src="../_images/b1b5fe94cd21ebe6e56f62762b05a33d693b733788d05709a99143c2aa97ba03.png" />
+</div>
+</div>
+<p>In this plot the blue bars show the multi-model mean change in the average annual CDDs, while the black errorbars represent the standard deviation across models for the given scenario. Clearly scenario uncertainty plays a large role in the overall range of projections, with the low end of the SSP5-8.5 projections not overlapping at all with the high end of the SSP2-1.6 projections. The errorbar doesn’t overlap with zero for any scenario, so all scenarios project a statistically significant increase to CDDs.</p>
+<p>Interestingly, the model spread is larger for the higher forcing scenarios - in other words the model uncertainty grows with the strength of the forcing. Is that also true for the <em>percent uncertainty</em>? Let’s check:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdds_mm_delta_raw_model_spread_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">cdds_mm_delta_raw_model_spread</span> <span class="o">/</span> <span class="n">cdds_mm_delta_raw_ensmean</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">cdds_mm_delta_raw_model_spread_pct</span> <span class="o">=</span> <span class="n">cdds_mm_delta_raw_model_spread_pct</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;pct_model_spread_raw&#39;</span><span class="p">)</span>
+
+<span class="c1"># this will print out the results in a nice table</span>
+<span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">cdds_mm_delta_raw_model_spread_pct</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pct_model_spread_raw</th>
+    </tr>
+    <tr>
+      <th>scenario</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ssp126</th>
+      <td>65.78</td>
+    </tr>
+    <tr>
+      <th>ssp245</th>
+      <td>48.67</td>
+    </tr>
+    <tr>
+      <th>ssp370</th>
+      <td>45.04</td>
+    </tr>
+    <tr>
+      <th>ssp585</th>
+      <td>47.64</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The above table shows that the percent uncertainty isn’t really larger for the higher forcing scenarios. In fact, the scenario with the largest relative model spread is the lowest forcing scenario. Proportionally, model uncertainty is just under 50% for the three non-net-zero scenarios.</p>
+<p>We can also quantify the relative contribution of scenario uncertainty, by comparing the spread across the different SSPs to the change averaged across scenarios:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdds_raw_delta_scen_spread</span> <span class="o">=</span> <span class="n">cdds_mm_delta_raw_ensmean</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
+<span class="n">cdds_delta_raw_scen_spread_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">cdds_raw_delta_scen_spread</span> <span class="o">/</span> <span class="n">cdds_mm_delta_raw_ensmean</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scenario Uncercainty for Raw Model Output: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">cdds_delta_raw_scen_spread_pct</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scenario Uncercainty for Raw Model Output: 53.58%
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the raw model output, it appears that the relative contribution of scenario uncertainty is slightly larger than the typical magnitude of model uncertainty. This isn’t so surprising, because the bar chart shows a very large disparity between the high and low forcing scenarios.</p>
+<p>We’ll re-do these calculations for the bias-adjusted CDD projections to get a final assessment of the magnitude of model uncertainty and scenario uncerainty on the projections.</p>
+</div>
+<div class="section" id="applying-bias-correction">
+<h2>6.3.3 Applying Bias-Correction<a class="headerlink" href="#applying-bias-correction" title="Permalink to this headline">#</a></h2>
+<p>Now it’s time to apply the QDM bias correction to the model <code class="docutils literal notranslate"><span class="pre">tas</span></code> data. Like for the multi-model example, the <code class="docutils literal notranslate"><span class="pre">xclim</span></code> bias-adjustment routines apply separate adjustments over each dimension, so the function call is exactly the same as before.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fix the time axis chunking so xclim won&#39;t complain</span>
+<span class="n">tas_ens_hist_raw</span> <span class="o">=</span> <span class="n">tas_ens_hist_raw</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})</span>
+<span class="n">tas_ens_future_raw</span> <span class="o">=</span> <span class="n">tas_ens_future_raw</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train and then apply the QDM bias correction</span>
+<span class="n">QDM_trained_mscen</span> <span class="o">=</span> <span class="n">sdba</span><span class="o">.</span><span class="n">adjustment</span><span class="o">.</span><span class="n">QuantileDeltaMapping</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">tas_obs_noleap</span><span class="p">,</span>     
+                                                               <span class="n">tas_ens_hist_raw</span><span class="p">,</span> 
+                                                               <span class="n">nquantiles</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> 
+                                                               <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;+&quot;</span><span class="p">,</span>
+                                                               <span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;time.month&#39;</span> 
+                                                              <span class="p">)</span>
+
+
+<span class="n">tas_ens_hist_qdm</span> <span class="o">=</span> <span class="n">QDM_trained_mscen</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="n">tas_ens_hist_raw</span><span class="p">,</span>                              
+                                            <span class="n">interp</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+
+<span class="n">tas_ens_future_qdm</span> <span class="o">=</span> <span class="n">QDM_trained_mscen</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="n">tas_ens_future_raw</span><span class="p">,</span>                                 
+                                              <span class="n">interp</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="validating-multi-scenario-downscaled-data">
+<h2>6.3.4 Validating Multi-Scenario Downscaled Data<a class="headerlink" href="#validating-multi-scenario-downscaled-data" title="Permalink to this headline">#</a></h2>
+<p>Like the previous examples, we’ll start with plotting the daily climatologies. We’ll again plot the multi-model mean for each scenario.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate daily climatologies for the multi-model ensemble</span>
+<span class="n">tas_clim_hist_qdm</span> <span class="o">=</span> <span class="n">tas_ens_hist_qdm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">tas_clim_future_qdm</span> <span class="o">=</span> <span class="n">tas_ens_future_qdm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="c1"># multi-model mean</span>
+<span class="n">tas_clim_hist_qdm_ensmean</span> <span class="o">=</span> <span class="n">tas_clim_hist_qdm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+<span class="n">tas_clim_future_qdm_ensmean</span> <span class="o">=</span> <span class="n">tas_clim_future_qdm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the daily climatologies for all scenarios, QDM</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># daily climatologies as 1D curves</span>
+<span class="c1"># obs</span>
+<span class="n">tas_dailyclim_obs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Station Obs&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># models</span>
+<span class="c1"># historical</span>
+<span class="n">tas_clim_hist_qdm_ensmean</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Historical Multi-Model Mean&quot;</span><span class="p">)</span>
+
+<span class="c1"># future</span>
+<span class="n">tas_clim_future_qdm_ensmean</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
+
+<span class="c1"># 1 sigma shading</span>
+<span class="c1"># obs</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">tas_dailyclim_obs</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">,</span>
+                <span class="n">tas_dailyclim_obs</span> <span class="o">-</span> <span class="n">tas_dailyclim_std_obs</span><span class="p">,</span> 
+                <span class="n">tas_dailyclim_obs</span> <span class="o">+</span> <span class="n">tas_dailyclim_std_obs</span><span class="p">,</span>
+                <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Edmonton Daily Mean Temperature Daily Climatology</span><span class="se">\n</span><span class="s2">QDM Multi-Model Mean&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/c2cbd5b2b48d044b791f955922c454c00c07a7faf670448d87d0266c5eaef65d.png" src="../_images/c2cbd5b2b48d044b791f955922c454c00c07a7faf670448d87d0266c5eaef65d.png" />
+</div>
+</div>
+<p>The character of the changes to the daily climatology of <code class="docutils literal notranslate"><span class="pre">tas</span></code> isn’t really changed by the bias correction, but the historical multi-model mean (purple) now matches the observed climatology (black) more closely. Next let’s test the statistical significance of mean change to <code class="docutils literal notranslate"><span class="pre">tas</span></code> for each scenario.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate effective sample size for historical and future periods</span>
+<span class="k">def</span> <span class="nf">effective_sample_size</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">ntime</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="c1"># times not including the final timestep</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ntime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># data not including the first timestep</span>
+    <span class="n">data_lag</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ntime</span><span class="p">))</span>
+    <span class="c1"># match up time values, otherwise the xr.corr function won&#39;t return the correct output</span>
+    <span class="n">data_lag</span> <span class="o">=</span> <span class="n">data_lag</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">times</span><span class="p">)</span>
+    
+    <span class="c1"># calculate correlation</span>
+    <span class="n">autocor</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">times</span><span class="p">),</span>
+                      <span class="n">data_lag</span><span class="p">,</span>
+                      <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span>
+    
+    <span class="n">neff</span> <span class="o">=</span> <span class="n">ntime</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">autocor</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">autocor</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">neff</span>
+
+<span class="n">neff_hist_qdm</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">tas_ens_hist_qdm</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+<span class="n">neff_future_qdm</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">tas_ens_future_qdm</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate mean and stdev for downscaled historical and future tas</span>
+<span class="n">tas_ens_hist_qdm_mean</span> <span class="o">=</span> <span class="n">tas_ens_hist_qdm</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">))</span>
+<span class="n">tas_ens_hist_qdm_stdev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tas_ens_hist_qdm</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">))</span>
+
+<span class="n">tas_ens_future_qdm_mean</span> <span class="o">=</span> <span class="n">tas_ens_future_qdm</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">))</span>
+<span class="n">tas_ens_future_qdm_stdev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tas_ens_future_qdm</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">))</span>
+
+<span class="c1"># perform two_sample t-test to see if future temperatures are higher than past</span>
+<span class="n">pvals</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">tas_ens_future_qdm_mean</span><span class="o">.</span><span class="n">scenario</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+    <span class="n">tstat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind_from_stats</span><span class="p">(</span><span class="n">tas_ens_future_qdm_mean</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">scenario</span> <span class="o">=</span> <span class="n">scenario</span><span class="p">),</span> 
+                                            <span class="n">tas_ens_future_qdm_stdev</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">scenario</span> <span class="o">=</span> <span class="n">scenario</span><span class="p">),</span> 
+                                            <span class="n">neff_future_qdm</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">scenario</span> <span class="o">=</span> <span class="n">scenario</span><span class="p">),</span> 
+                                            <span class="n">tas_ens_hist_qdm_mean</span><span class="p">,</span>
+                                            <span class="n">tas_ens_hist_qdm_stdev</span><span class="p">,</span>
+                                            <span class="n">neff_hist_qdm</span><span class="p">,</span> 
+                                            <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                                            <span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;greater&#39;</span><span class="p">)</span> 
+    <span class="n">pvals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pval</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s1">&#39;scenario&#39;</span><span class="p">:</span> <span class="n">tas_ens_future_qdm_mean</span><span class="o">.</span><span class="n">scenario</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;p-value&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="mi">4</span><span class="p">)})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>scenario</th>
+      <th>p-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ssp126</td>
+      <td>0.0198</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ssp245</td>
+      <td>0.0005</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ssp370</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ssp585</td>
+      <td>0.0000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The increase in mean <code class="docutils literal notranslate"><span class="pre">tas</span></code> is significant for all scenarios. Next let’s examine the changes to CDDs.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tas_ens_hist_qdm</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
+<span class="n">tas_ens_future_qdm</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
+
+<span class="n">cdds_hist_qdm</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_ens_hist_qdm</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">cdds_future_qdm</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_ens_future_qdm</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="c1"># long-term means</span>
+<span class="n">cdds_hist_qdm_ltm</span> <span class="o">=</span> <span class="n">cdds_hist_qdm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">cdds_future_qdm_ltm</span> <span class="o">=</span> <span class="n">cdds_future_qdm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="c1"># climate change deltas</span>
+<span class="n">cdds_qdm_delta</span> <span class="o">=</span> <span class="n">cdds_future_qdm_ltm</span> <span class="o">-</span> <span class="n">cdds_hist_qdm_ltm</span>
+
+<span class="c1"># multi-model mean delta</span>
+<span class="n">cdds_qdm_delta_ensmean</span> <span class="o">=</span> <span class="n">cdds_qdm_delta</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+
+<span class="c1"># stdev across models for delta</span>
+<span class="n">cdds_qdm_delta_stdev</span> <span class="o">=</span> <span class="n">cdds_qdm_delta</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot changes to CDDs from QDM data AND raw model data, next to each other</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Edmonton Cooling Degree Days - Change in Long Term Mean&quot;</span><span class="p">)</span>
+
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.4</span>
+
+<span class="c1"># raw model changes</span>
+<span class="n">bars_raw</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">cdds_mm_delta_raw_ensmean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> 
+                  <span class="n">yerr</span> <span class="o">=</span> <span class="n">cdds_mm_delta_raw_model_spread</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+                  <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Raw Model Output&quot;</span><span class="p">,</span>
+                  <span class="n">capsize</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">error_kw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;elinewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+
+<span class="c1"># QDM changes</span>
+<span class="n">bars_qdm</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xx</span> <span class="o">+</span> <span class="n">width</span><span class="p">,</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> 
+                  <span class="n">yerr</span> <span class="o">=</span> <span class="n">cdds_qdm_delta_stdev</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+                  <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;QDM&quot;</span><span class="p">,</span>
+                  <span class="n">capsize</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">error_kw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;elinewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xx</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;CDD&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Scenario&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/45516273f10144f0447d9e7f8724aa646f97d611f3ab9baefe0d9463e4546895.png" src="../_images/45516273f10144f0447d9e7f8724aa646f97d611f3ab9baefe0d9463e4546895.png" />
+</div>
+</div>
+<p>The effect of the bias correction was to increase the magnitude of the CDD projections for each scenario, though the size of the model spread and scenario spread appears mostly unchanged. Like we did for the raw model projections, we can quantify the relative contributions of model uncertainty and scenario uncertainty by comparing the spread across models/scenarios to the mean change across models/scenarios.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdds_delta_qdm_model_spread_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">cdds_qdm_delta_stdev</span> <span class="o">/</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">cdds_delta_qdm_model_spread_pct</span> <span class="o">=</span> <span class="n">cdds_delta_qdm_model_spread_pct</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;pct_model_spread_qdm&#39;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">cdds_delta_qdm_model_spread_pct</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pct_model_spread_qdm</th>
+    </tr>
+    <tr>
+      <th>scenario</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ssp126</th>
+      <td>44.52</td>
+    </tr>
+    <tr>
+      <th>ssp245</th>
+      <td>36.27</td>
+    </tr>
+    <tr>
+      <th>ssp370</th>
+      <td>36.62</td>
+    </tr>
+    <tr>
+      <th>ssp585</th>
+      <td>41.25</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdds_qdm_delta_scen_spread</span> <span class="o">=</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
+<span class="n">cdds_delta_qdm_scen_spread_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">cdds_qdm_delta_scen_spread</span> <span class="o">/</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">cdds_delta_qdm_scen_spread_pct</span> <span class="o">=</span> <span class="n">cdds_delta_qdm_scen_spread_pct</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;pct_scen_spread_qdm&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scenario Uncercainty After Bias-Adjustment: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">cdds_delta_qdm_scen_spread_pct</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scenario Uncercainty After Bias-Adjustment: 51.01%
+</pre></div>
+</div>
+</div>
+</div>
+<p>After applying the bias correction, the spread in projections across both models and scenarios is reduced, but scenario uncertainty still dominates model structural uncertainty. Therefore we’ll use the spread across scenarios to generate our final range of changes to CDDs in Edmonton, from the historucal baseline period to the end of the 21st century. Again we’ll use the 10th-90th percentile range to produce the overall uncerainty range, just this time across scenarios.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdd_change_10p</span> <span class="o">=</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
+<span class="n">cdd_change_90p</span> <span class="o">=</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
+
+<span class="n">results_str</span> <span class="o">=</span> <span class="s2">&quot;Likely Range of Mean CDD Change from 1980-2010 to 2070-2100: &quot;</span>
+<span class="n">results_str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cdd_change_10p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdd_obs_ltm</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="si">}</span><span class="s2">% to &quot;</span>
+<span class="n">results_str</span> <span class="o">+=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cdd_change_90p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdd_obs_ltm</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="si">}</span><span class="s2">%&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">results_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Likely Range of Mean CDD Change from 1980-2010 to 2070-2100: 170% to 564%
+</pre></div>
+</div>
+</div>
+</div>
+<p>This size of this projection range is similar to the range across models in Section 6.2, but because we’re considering some weaker forcing scenarios, the magnitude of the changes is smaller than for the SSP3-7.0 scenario alone.</p>
+<p>Including multiple models and scenarios into this analysis has allowed us to characterize uncertainty in the future projections - something we couldn’t do in the previous examples where either only one model or one scenario were investigated.</p>
+<p>So far none of the examples have assessed the contribution of internal climate variability to the uncertainty in future projections. For an end-of-century projection period and a variable like daily mean temperature which has a robust climate change signal, it’s unlikely that internal variability would be comparable to model or scenario uncertainty. However, internal variability can be very important for near-term projections, when the magnitude of the climate change signal may not yet exceed the range of historical variability. In the next section, we’ll attempt to prove this by using multiple realizations for a single model.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="section6.2_station_1D_example_multimodel.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">6.2 Edmonton AC Loads: Multi-Model Analysis</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-multi-model-multi-scenario-ensemble">6.3.1 Creating a Multi-Model, Multi-Scenario Ensemble</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">6.3.2 Exploratory Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-bias-correction">6.3.3 Applying Bias-Correction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validating-multi-scenario-downscaled-data">6.3.4 Validating Multi-Scenario Downscaled Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Morris, Karen Smith, and Paul Kushner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

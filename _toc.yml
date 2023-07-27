@@ -35,4 +35,5 @@ chapters:
     sections:
     - file: Chapter6/section6.1_station_1D_example_onesim
     - file: Chapter6/section6.2_station_1D_example_multimodel
+    - file: Chapter6/section6.3_station_1D_example_multiscen
 
