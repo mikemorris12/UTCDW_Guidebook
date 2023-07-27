@@ -26,7 +26,7 @@ Traceback (most recent call last):
     error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
   File "/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/nbclient/client.py", line 852, in _async_handle_timeout
     raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 300 seconds.
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 1200 seconds.
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------

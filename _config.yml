@@ -6,7 +6,7 @@ exclude_patterns: [.DS_Store, "**.ipynb_checkpoints"]
 execute:
     execute_notebooks: cache
     exclude_patterns: []
-    timeout: 300
+    timeout: 1200
 
 latex:
     latex_engine: pdflatex
