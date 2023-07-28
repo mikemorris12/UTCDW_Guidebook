@@ -194,6 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="section6.1_station_1D_example_onesim.html">6.1 Edmonton AC Loads: Single Simulation Analysis</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2 Edmonton AC Loads: Multi-Model Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section6.3_station_1D_example_multiscen.html">6.3 Edmonton AC Loads: Multi-Scenario Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section6.4_station_1D_example_nearterm.html">6.4 Edmonton AC Loads: Near-Term Projections</a></li>
 </ul>
 </li>
 </ul>
@@ -346,6 +347,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-multi-model-analysis">6.2.2 Exploratory Multi-Model Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-model-bias-correction">6.2.3 Multi-Model Bias-Correction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validating-the-multi-model-bc-d-data">6.2.4 Validating the Multi-Model BC’d Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downscaled-climate-indicator">6.2.5 Downscaled Climate Indicator</a></li>
 </ul>
             </nav>
         </div>
@@ -1368,6 +1370,11 @@ document.write(`
 </div>
 <div class="section" id="exploratory-multi-model-analysis">
 <h2>6.2.2 Exploratory Multi-Model Analysis<a class="headerlink" href="#exploratory-multi-model-analysis" title="Permalink to this headline">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Whether it’s calculating a climate indicator from model output, or doing downscaling/bias correction, calculating ensemble statistics (across different models or different realizations of the same model) like a mean or standard deviation should be done as the <strong>last step</strong> before plotting or interpreting the results.</p>
+<p>Calculating an ensemble mean too early in an analysis attenuates variability, and can artificially alter the model projections. Since different realizations of the same date across different ensemble members are unrelated, a given date (e.g., June 4th 2037, as an example) might exceed the CDD temperature threshold in some ensemble members, but not the others. The ensemble mean for that date (which isn’t a meaningful quantity) might fall below the threshold, so that day would contribute zero to the total CDDs for that year. If one did the CDD calculation first and <em>then</em> calculated the ensemble mean, you’d get a larger number, which more faithfully reflects what the model is projecting.</p>
+</div>
 <p>With this multi-model ensemble, we can re-do all of the same steps as before with the single model. First, let’s plot the daily climatologies of <code class="docutils literal notranslate"><span class="pre">tas</span></code> for each model, and compare to the observations. To make the plot more legible, we’ll plot shading for only the observed one-<span class="math notranslate nohighlight">\(\sigma\)</span> range. We can calculate the daily climatology for all models with a single line of code:</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -1673,13 +1680,14 @@ document.write(`
                 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Edmonton Daily Mean Temperature Daily Climatology - QDM&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;tas&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/f3eb6e3934e8b63f1bbe9f0f61fe4c15c665086fe0a6d043a404268f86b4c944.png" src="../_images/f3eb6e3934e8b63f1bbe9f0f61fe4c15c665086fe0a6d043a404268f86b4c944.png" />
+<img alt="../_images/41efa85cf9f19a3967116b975a1e09638b41c28084ef63cc9c8b89923bf85cd6.png" src="../_images/41efa85cf9f19a3967116b975a1e09638b41c28084ef63cc9c8b89923bf85cd6.png" />
 </div>
 </div>
 <p>As expected, the bias-adjusted historical data matches the observed seasonal cycle very well, with much less spread than the raw model simulations. Next we’ll plot the historical CDDs.</p>
@@ -1746,7 +1754,11 @@ document.write(`
 <img alt="../_images/491dcb1755c4ce1783c079789a141967711aa2b223d67072acfa9a7849d7d5cb.png" src="../_images/491dcb1755c4ce1783c079789a141967711aa2b223d67072acfa9a7849d7d5cb.png" />
 </div>
 </div>
-<p>Also as expected, the long-term means of the bias-corrected historical CDDs are also basically indistinguishable from the observations, though the ranges of variability differ slightly. What impact has the bias correction had on the future projections? Let’s take a look.</p>
+<p>Also as expected, the long-term means of the bias-corrected historical CDDs are also basically indistinguishable from the observations, though the ranges of variability differ slightly.</p>
+</div>
+<div class="section" id="downscaled-climate-indicator">
+<h2>6.2.5 Downscaled Climate Indicator<a class="headerlink" href="#downscaled-climate-indicator" title="Permalink to this headline">#</a></h2>
+<p>What impact has the bias correction had on the future projections? Let’s take a look.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1822,16 +1834,19 @@ document.write(`
 <p>Or, in terms of percent changes, which may be easier to interpret:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_str</span> <span class="o">=</span> <span class="s2">&quot;Likely Range of Mean CDD Change from 1980-2010 to 2070-2100 under SSP3-7.0: &quot;</span>
-<span class="n">result_str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cdd_change_10p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdd_obs_ltm</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="si">}</span><span class="s2">% to &quot;</span>
-<span class="n">result_str</span> <span class="o">+=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cdd_change_90p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdd_obs_ltm</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="si">}</span><span class="s2">%&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># multi-model mean historical CDDs</span>
+<span class="n">cdds_hist_qdm_ltm_mm_mean</span> <span class="o">=</span> <span class="n">cdds_mm_hist_qdm_ltm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;realization&#39;</span><span class="p">)</span>
+
+<span class="n">result_str</span> <span class="o">=</span> <span class="s2">&quot;Likely Range of Mean CDD Change from 1980-2010 to 2070-2100 under SSP3-7.0: &quot;</span>
+<span class="n">result_str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cdd_change_10p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdds_hist_qdm_ltm_mm_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="si">}</span><span class="s2">% to &quot;</span>
+<span class="n">result_str</span> <span class="o">+=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cdd_change_90p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdds_hist_qdm_ltm_mm_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="si">}</span><span class="s2">%&quot;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">result_str</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Likely Range of Mean CDD Change from 1980-2010 to 2070-2100 under SSP3-7.0: 243% to 657%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Likely Range of Mean CDD Change from 1980-2010 to 2070-2100 under SSP3-7.0: 243% to 658%
 </pre></div>
 </div>
 </div>
@@ -1911,6 +1926,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-multi-model-analysis">6.2.2 Exploratory Multi-Model Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-model-bias-correction">6.2.3 Multi-Model Bias-Correction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validating-the-multi-model-bc-d-data">6.2.4 Validating the Multi-Model BC’d Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downscaled-climate-indicator">6.2.5 Downscaled Climate Indicator</a></li>
 </ul>
   </nav></div>
 
