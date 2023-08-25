@@ -1,0 +1,81 @@
+Traceback (most recent call last):
+  File "/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# define a function which returns only the p-value, not the test statistic
+get_ks_pval = lambda x,y: stats.ks_2samp(x, y).pvalue
+
+# perform the test at each grid cell
+ks_pvals = xr.apply_ufunc(get_ks_pval, 
+                          tas_hist_dbcca,
+                          tas_obs,
+                          input_core_dims = [['time'], ['time']], 
+                          vectorize = True)
+
+print(bool(np.all(ks_pvals > 0.05)))
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[16], line 5[0m
+[1;32m      2[0m get_ks_pval [38;5;241m=[39m [38;5;28;01mlambda[39;00m x,y: stats[38;5;241m.[39mks_2samp(x, y)[38;5;241m.[39mpvalue
+[1;32m      4[0m [38;5;66;03m# perform the test at each grid cell[39;00m
+[0;32m----> 5[0m ks_pvals [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mapply_ufunc[49m[43m([49m[43mget_ks_pval[49m[43m,[49m[43m [49m
+[1;32m      6[0m [43m                          [49m[43mtas_hist_dbcca[49m[43m,[49m
+[1;32m      7[0m [43m                          [49m[43mtas_obs[49m[43m,[49m
+[1;32m      8[0m [43m                          [49m[43minput_core_dims[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43m[[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mtime[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m[43m [49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mtime[39;49m[38;5;124;43m'[39;49m[43m][49m[43m][49m[43m,[49m[43m [49m
+[1;32m      9[0m [43m                          [49m[43mvectorize[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+[1;32m     11[0m [38;5;28mprint[39m([38;5;28mbool[39m(np[38;5;241m.[39mall(ks_pvals [38;5;241m>[39m [38;5;241m0.05[39m)))
+
+File [0;32m~/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xarray/core/computation.py:1197[0m, in [0;36mapply_ufunc[0;34m(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)[0m
+[1;32m   1195[0m [38;5;66;03m# feed DataArray apply_variable_ufunc through apply_dataarray_vfunc[39;00m
+[1;32m   1196[0m [38;5;28;01melif[39;00m [38;5;28many[39m([38;5;28misinstance[39m(a, DataArray) [38;5;28;01mfor[39;00m a [38;5;129;01min[39;00m args):
+[0;32m-> 1197[0m     [38;5;28;01mreturn[39;00m [43mapply_dataarray_vfunc[49m[43m([49m
+[1;32m   1198[0m [43m        [49m[43mvariables_vfunc[49m[43m,[49m
+[1;32m   1199[0m [43m        [49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m
+[1;32m   1200[0m [43m        [49m[43msignature[49m[38;5;241;43m=[39;49m[43msignature[49m[43m,[49m
+[1;32m   1201[0m [43m        [49m[43mjoin[49m[38;5;241;43m=[39;49m[43mjoin[49m[43m,[49m
+[1;32m   1202[0m [43m        [49m[43mexclude_dims[49m[38;5;241;43m=[39;49m[43mexclude_dims[49m[43m,[49m
+[1;32m   1203[0m [43m        [49m[43mkeep_attrs[49m[38;5;241;43m=[39;49m[43mkeep_attrs[49m[43m,[49m
+[1;32m   1204[0m [43m    [49m[43m)[49m
+[1;32m   1205[0m [38;5;66;03m# feed Variables directly through apply_variable_ufunc[39;00m
+[1;32m   1206[0m [38;5;28;01melif[39;00m [38;5;28many[39m([38;5;28misinstance[39m(a, Variable) [38;5;28;01mfor[39;00m a [38;5;129;01min[39;00m args):
+
+File [0;32m~/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xarray/core/computation.py:304[0m, in [0;36mapply_dataarray_vfunc[0;34m(func, signature, join, exclude_dims, keep_attrs, *args)[0m
+[1;32m    299[0m result_coords, result_indexes [38;5;241m=[39m build_output_coords_and_indexes(
+[1;32m    300[0m     args, signature, exclude_dims, combine_attrs[38;5;241m=[39mkeep_attrs
+[1;32m    301[0m )
+[1;32m    303[0m data_vars [38;5;241m=[39m [[38;5;28mgetattr[39m(a, [38;5;124m"[39m[38;5;124mvariable[39m[38;5;124m"[39m, a) [38;5;28;01mfor[39;00m a [38;5;129;01min[39;00m args]
+[0;32m--> 304[0m result_var [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43mdata_vars[49m[43m)[49m
+[1;32m    306[0m out: [38;5;28mtuple[39m[DataArray, [38;5;241m.[39m[38;5;241m.[39m[38;5;241m.[39m] [38;5;241m|[39m DataArray
+[1;32m    307[0m [38;5;28;01mif[39;00m signature[38;5;241m.[39mnum_outputs [38;5;241m>[39m [38;5;241m1[39m:
+
+File [0;32m~/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xarray/core/computation.py:681[0m, in [0;36mapply_variable_ufunc[0;34m(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)[0m
+[1;32m    679[0m [38;5;28;01mif[39;00m [38;5;28many[39m(is_chunked_array(array) [38;5;28;01mfor[39;00m array [38;5;129;01min[39;00m input_data):
+[1;32m    680[0m     [38;5;28;01mif[39;00m dask [38;5;241m==[39m [38;5;124m"[39m[38;5;124mforbidden[39m[38;5;124m"[39m:
+[0;32m--> 681[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m    682[0m             [38;5;124m"[39m[38;5;124mapply_ufunc encountered a chunked array on an [39m[38;5;124m"[39m
+[1;32m    683[0m             [38;5;124m"[39m[38;5;124margument, but handling for chunked arrays has not [39m[38;5;124m"[39m
+[1;32m    684[0m             [38;5;124m"[39m[38;5;124mbeen enabled. Either set the ``dask`` argument [39m[38;5;124m"[39m
+[1;32m    685[0m             [38;5;124m"[39m[38;5;124mor load your data into memory first with [39m[38;5;124m"[39m
+[1;32m    686[0m             [38;5;124m"[39m[38;5;124m``.load()`` or ``.compute()``[39m[38;5;124m"[39m
+[1;32m    687[0m         )
+[1;32m    688[0m     [38;5;28;01melif[39;00m dask [38;5;241m==[39m [38;5;124m"[39m[38;5;124mparallelized[39m[38;5;124m"[39m:
+[1;32m    689[0m         chunkmanager [38;5;241m=[39m get_chunked_array_type([38;5;241m*[39minput_data)
+
+[0;31mValueError[0m: apply_ufunc encountered a chunked array on an argument, but handling for chunked arrays has not been enabled. Either set the ``dask`` argument or load your data into memory first with ``.load()`` or ``.compute()``
+

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -43,6 +43,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -67,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="4.6 Chapter Summary" href="chapter4_summary.html" />
     <link rel="prev" title="4.4 Downscaling Validation" href="section4.4_downscaling_validation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -357,7 +358,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="assessing-downscaled-climate-projections">
-<h1>4.5 Assessing Downscaled Climate Projections<a class="headerlink" href="#assessing-downscaled-climate-projections" title="Permalink to this headline">#</a></h1>
+<h1>4.5 Assessing Downscaled Climate Projections<a class="headerlink" href="#assessing-downscaled-climate-projections" title="Permalink to this heading">#</a></h1>
 <p>Once satisfied with the quality of the historical downscaled data, one can proceed with analyzing the downscaled future projections from the model. Since of course there are no observations of the future, we cannot do <em>validation</em> of the projected changes per se, but we can check that the changes/trends make physical sense, and are statistically significant in the context of natural climate variability. We did similar work in Chapter 3.4, but this time we will apply those methods to the downscaled data. In principle, the projected changes from the downscaled data should be similar to those from the raw, unadjusted model output, just with more spatial detail and with, at minimum, the effects of mean model biases diminished. Multivariate downscaling methods may introduce qualitative changes to the downscaled projections relative to the raw model projections because of differing changes to the different input variables, so this may not always be true. However, it is a good rule of thumb as a first pass check.</p>
 <p>Continuing with our example from Chapter 4.4, and the focus on extreme climate indices, let’s calculate the projected change in the number of Tropical Nights between 1971-2000 and 2071-2100, using the both the uncorrected and downscaled GCM data. This way we can see the effects of the downscaling, and compare the climate change signals between the two sets of data. Since BCCAQv2, the downscaling method used by PCIC, is a univariate method, the climate change signal should not be substantially different from that of the raw data.</p>
 <p>Click to reveal the cells below, which import the necessary packages and acquire the appropriate datasets.</p>
@@ -625,7 +626,7 @@ document.write(`
 </details>
 </div>
 <div class="section" id="calculating-tropical-nights-again">
-<h2>4.5.1 Calculating Tropical Nights (Again)<a class="headerlink" href="#calculating-tropical-nights-again" title="Permalink to this headline">#</a></h2>
+<h2>4.5.1 Calculating Tropical Nights (Again)<a class="headerlink" href="#calculating-tropical-nights-again" title="Permalink to this heading">#</a></h2>
 <p>Now that we’ve acquired both the downscaled and raw model output for our chosen model, study region, and time periods, we can calculate our indicator (Tropical Nights).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -715,7 +716,7 @@ document.write(`
 <p>The downscaling is clearly adding a lot of value to the GCM simulations! The selected domain is covered by only 4 grid cells in the raw model, so basically none of the spatial variability seen in the downscaled data are represented. The raw model data also appears to have a significant high bias in Tropical Nights, which is consistent with the positive summertime tempertaure bias in CanESM5 seen in Section 3.4.</p>
 </div>
 <div class="section" id="testing-significance-of-uncorrected-and-downscaled-projected-changes">
-<h2>4.5.2 Testing Significance of Uncorrected and Downscaled Projected Changes<a class="headerlink" href="#testing-significance-of-uncorrected-and-downscaled-projected-changes" title="Permalink to this headline">#</a></h2>
+<h2>4.5.2 Testing Significance of Uncorrected and Downscaled Projected Changes<a class="headerlink" href="#testing-significance-of-uncorrected-and-downscaled-projected-changes" title="Permalink to this heading">#</a></h2>
 <p>Now let’s look at the projected changes and assess the statistical significance using the two-sample <span class="math notranslate nohighlight">\(t\)</span>-test and the effective sample size correction.</p>
 <p>Becuase we are now working with spatial data instead of a 1D time series, we will be doing many hypothesis tests simultaneously (one for each grid cell). Each hypothesis test comes with a chance of a false positive (Type I error) determined by the <span class="math notranslate nohighlight">\(p\)</span>-value threshold <span class="math notranslate nohighlight">\(\alpha\)</span>. A test where <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> is the threshold for rejecting the null hypothesis has a 5% chance of Type I error. For a large spatial domain, with hundreds of grid cells (and thus hundreds of hypothesis tests), this means a substantial number of locations will be affected by Type I error.</p>
 <p>We can correct for the effects of this issue using the <em>False Discovery Rate</em> correction (<a class="reference external" href="https://librarysearch.library.utoronto.ca/permalink/01UTORONTO_INST/14bjeso/alma991106907255706196">Wilks, 2011</a>). For this procedure, the <span class="math notranslate nohighlight">\(N\)</span> <span class="math notranslate nohighlight">\(p\)</span>-values (where <span class="math notranslate nohighlight">\(N\)</span> is the number of hypothesis tests being conducted) are sorted lowest to highest, and a new significance threshold <span class="math notranslate nohighlight">\(\alpha_{FDR}\)</span> is calculated:</p>

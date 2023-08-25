@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -43,6 +43,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -65,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="3.6 Chapter Summary" href="chapter3_summary.html" />
     <link rel="prev" title="3.4 Climate Model Output" href="section3.4_climate_model_output.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -356,11 +357,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="climate-model-data-on-google-cloud">
-<h1>3.5 Climate Model Data on Google Cloud<a class="headerlink" href="#climate-model-data-on-google-cloud" title="Permalink to this headline">#</a></h1>
+<h1>3.5 Climate Model Data on Google Cloud<a class="headerlink" href="#climate-model-data-on-google-cloud" title="Permalink to this heading">#</a></h1>
 <p>The ESGF offers the complete archive of CMIP5, CMIP6, and CORDEX climate model ouput data, but unfortunately it can be prone to errors that can make downloading the data a bit cumbersome. If you’re running into difficulties accessing the data using the methods described in Section 3.4, it’s worth a try to see if the data you want is available on the Google Cloud Services (GCS) archive of CMIP data, <a class="reference external" href="https://console.cloud.google.com/marketplace/product/noaa-public/cmip6">which you can navigate by following this link</a>. Accessing the data on GCS is similar to using OPeNDAP, in that you can do subsetting on their end, and transfer only the data you want to your own computer for analysis.</p>
 <p>The downside of the GCS archive is that it isn’t as complete as the ESGF archive. For many models, there is only data at monthly temporal frequency, which isn’t so useful for downscaling. Another minor downside is that you’ll need to learn a new file format. While netCDF is the standard for climate model output data, GCS uses a cloud-optimized data format called <a class="reference external" href="https://zarr.dev/">zarr</a>. As the focus of scientific computing shifts more and more towards the cloud, zarr has become increasingly popular as the format for climate data hosted on remote servers. Fortunately, <code class="docutils literal notranslate"><span class="pre">xarray</span></code> supports the zarr format, and once you’ve opened a file with <code class="docutils literal notranslate"><span class="pre">xr.open_zarr</span></code>, you can work with it like you would any other <code class="docutils literal notranslate"><span class="pre">xr.Dataset</span></code> or <code class="docutils literal notranslate"><span class="pre">xr.DataArray</span></code>.</p>
 <div class="section" id="searching-for-data">
-<h2>3.5.1 Searching For Data<a class="headerlink" href="#searching-for-data" title="Permalink to this headline">#</a></h2>
+<h2>3.5.1 Searching For Data<a class="headerlink" href="#searching-for-data" title="Permalink to this heading">#</a></h2>
 <p>Similar to the ESGF, we can search the GCS climate data catalog in Python to find the files we want. We’ll do this using Pandas to access the csv file that contains the data catalog, and then do filtering isolate the access URLs for the desired files.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -842,7 +843,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="accessing-the-data">
-<h2>3.5.2 Accessing the Data<a class="headerlink" href="#accessing-the-data" title="Permalink to this headline">#</a></h2>
+<h2>3.5.2 Accessing the Data<a class="headerlink" href="#accessing-the-data" title="Permalink to this heading">#</a></h2>
 <p>Excellent, we now have a DataFrame that has the descriptions and access URLs for the datasets we want. In order to access the data, we first need to authenticate ourselves using the <code class="docutils literal notranslate"><span class="pre">gcsfs</span></code> package. Since we’re only accessing data available to the public, we can access as an anonymous user.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2294,7 +2295,7 @@ hdl:21.14100/366003ef-722c-4bdf-8f4c-e46999ce9e95</dd><dt><span>version_id :</sp
 </div>
 </div>
 <div class="section" id="saving-the-data">
-<h2>3.5.3 Saving the Data<a class="headerlink" href="#saving-the-data" title="Permalink to this headline">#</a></h2>
+<h2>3.5.3 Saving the Data<a class="headerlink" href="#saving-the-data" title="Permalink to this heading">#</a></h2>
 <p>To save data from Google Cloud to your local machine, you can use either the xarray <code class="docutils literal notranslate"><span class="pre">to_netcdf</span></code> method discussed in the previous section, or save the data in zarr format, just like it is on the cloud. Just like <code class="docutils literal notranslate"><span class="pre">to_netcdf</span></code>, there is a <code class="docutils literal notranslate"><span class="pre">to_zarr</span></code> method for xarray <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> or <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> objects (<a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.to_zarr.html">documentation here</a>). The Zarr format doesn’t save the data to a single file like netCDF, instead it creates a directory that contains multiple files, each corresponding to different data variables, coordinates, metadata, etc. For most users, there isn’t really a benefit of using Zarr versus using netCDF, so it’s probably worth keeping it simple and sticking with netCDF as the format of your data files.</p>
 </div>
 </div>

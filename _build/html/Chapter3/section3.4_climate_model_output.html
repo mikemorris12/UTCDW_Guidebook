@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -43,6 +43,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -67,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="3.5 Climate Model Data on Google Cloud" href="section3.5_model_data_on_google_cloud.html" />
     <link rel="prev" title="3.3 Reanalysis Data" href="section3.3_reanalysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -366,13 +367,13 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="climate-model-output">
-<h1>3.4 Climate Model Output<a class="headerlink" href="#climate-model-output" title="Permalink to this headline">#</a></h1>
+<h1>3.4 Climate Model Output<a class="headerlink" href="#climate-model-output" title="Permalink to this heading">#</a></h1>
 <p>Up until now, this chapter has focused on acquiring and analyzing climate data from observations, or reanalysis data which assimilates observational data into a weather forecast model. These sources of data are only half of the story. Since this guide is about climate change projections, we must also learn how to download and process output from climate model simulations.</p>
 <p>Output from climate models that was submitted to the CMIP projects has been made publicly available for download from the <a class="reference external" href="https://esgf.llnl.gov/">Earth System Grid Federation (ESGF)</a>. The ESGF is a peer-to-peer network with nodes hosted by several research centres around the world. The archive of data hosted on a given node can be searched and naviagted in a browser. The website for the node hosted at Lawrence Livermore National Laboratory in the USA can be found <a class="reference external" href="https://esgf-node.llnl.gov/projects/esgf-llnl/">at this link</a>, and links for all of the nodes can be found <a class="reference external" href="https://esgf.llnl.gov/nodes.html">here</a>. Via the browser interface, one can populate their data cart like an online store and generate a <code class="docutils literal notranslate"><span class="pre">wget</span></code> script that when executed, will download the selected data. However, this process can be somewhat cumbersome if you are interested in large amounts of data, or if you wish to create an automated workflow. For advanced users, the ESGF offers a RESTful API, which is outside the scope of this guide. In this guide we will use the Python package (<a class="reference external" href="https://esgf-pyclient.readthedocs.io/en/latest/index.html">esgf-pyclient</a>) (also called <code class="docutils literal notranslate"><span class="pre">pyesgf</span></code>) as an interface to the API. With <code class="docutils literal notranslate"><span class="pre">pyesgf</span></code>, one can either get an OPeNDAP URL to access the data directly, or get a URL from which the data can be downloaded using the Python <code class="docutils literal notranslate"><span class="pre">requests</span></code> library.</p>
 <p><a class="reference external" href="https://esgf.github.io/esgf-user-support/index.html">Complete documentation for the ESGF, and all options for accessing the data, can be found here</a>.</p>
 <p>As with the reanalysis and gridded observations, climate model output is typically very large in volume. For this reason, we will show examples in this notebook using monthly means instead of daily means or 6-hourly instananeous output, which is typically required for climate impact analysis.</p>
 <div class="section" id="searching-for-data">
-<h2>3.4.1 Searching For Data<a class="headerlink" href="#searching-for-data" title="Permalink to this headline">#</a></h2>
+<h2>3.4.1 Searching For Data<a class="headerlink" href="#searching-for-data" title="Permalink to this heading">#</a></h2>
 <p>To search the ESGF archive we must first establish a connection to an ESGF node using the <code class="docutils literal notranslate"><span class="pre">pyesgf.search.SearchConnection</span></code> class. To do this, we pass the URL for the node to <code class="docutils literal notranslate"><span class="pre">SearchConnection</span></code>. Since each node may only host a subset of the complete CMIP archive, the argument <code class="docutils literal notranslate"><span class="pre">distrib</span> <span class="pre">=</span> <span class="pre">True</span></code> tells the API to search across all nodes, not just the one we connected to.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -645,7 +646,7 @@ tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
 </div>
 </div>
 <div class="section" id="downloading-data">
-<h2>3.4.2 Downloading Data<a class="headerlink" href="#downloading-data" title="Permalink to this headline">#</a></h2>
+<h2>3.4.2 Downloading Data<a class="headerlink" href="#downloading-data" title="Permalink to this heading">#</a></h2>
 <p>We are now ready to access the data, either directly with <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and the OPenDAP URL, or by downloading and saving the file locally. Since we already know how to do the former, we will do the latter. If you don’t want to save the data in the current working directory, append filename to the path to the directory you’d like to write the data to using <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -724,7 +725,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <p>The size of each downloaded file is as expected, so we will proceed. If the rest of the notebook runs without error, then that’s another sign that the download was successful.</p>
 </div>
 <div class="section" id="opening-and-exploring-the-data">
-<h2>3.4.3 Opening and Exploring the Data<a class="headerlink" href="#opening-and-exploring-the-data" title="Permalink to this headline">#</a></h2>
+<h2>3.4.3 Opening and Exploring the Data<a class="headerlink" href="#opening-and-exploring-the-data" title="Permalink to this heading">#</a></h2>
 <p>Now that the files are downloaded and saved, we can open them directly with <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and do some analysis. Let’s plot a time series of temperature near Toronto for the whole record, and compare the historical data to the Toronto City station observations (from Section 3.1). Since we’re opening multiple files, each of which has data for a different period of time, we’ll use the function <code class="docutils literal notranslate"><span class="pre">xr.open_mfdataset</span></code> (<a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.open_mfdataset.html">documentation</a>) to open all of them at once, and automatically concatenate them along the time dimension.</p>
 <p>The wildcard character <code class="docutils literal notranslate"><span class="pre">*</span></code> fills any possible value for the position where it occurs. In the example below, it takes the place of both <code class="docutils literal notranslate"><span class="pre">historical</span></code> and <code class="docutils literal notranslate"><span class="pre">ssp585</span></code> in its first occurrance, and in the second occurrance, it takes the place of the year range, e.g. <code class="docutils literal notranslate"><span class="pre">185001-201412</span></code> for the historical period, <code class="docutils literal notranslate"><span class="pre">201501-210012</span></code> for the first chunk of the SSP5-8.5 period, etc. The wildcard character is an example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a>, which are symbols used to represent patterns in text.</p>
 <div class="cell docutils container">
@@ -816,7 +817,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <p>While we should not expect the individual months of the simulated data to match up with the station observations, the degree of overlap is encouraging that the model agrees decently well with observations.</p>
 </div>
 <div class="section" id="basic-exploration-of-model-bias">
-<h2>3.4.4 Basic Exploration of Model Bias<a class="headerlink" href="#basic-exploration-of-model-bias" title="Permalink to this headline">#</a></h2>
+<h2>3.4.4 Basic Exploration of Model Bias<a class="headerlink" href="#basic-exploration-of-model-bias" title="Permalink to this heading">#</a></h2>
 <p>To better quantify this, we can plot the probability distribution of each dataset during their common period, and calculate metrics such as the mean bias. Because the model has lower minima than the observations, we might expect it to be biased cold (i.e. negative mean bias). It also has slightly more maxima that exceed the observations, so perhaps it also has a higher standard deviation. Let’s calculate these metrics and add them to the distribution plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -901,10 +902,10 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <p>This plot is much more informative! The overall negative mean bias is due to overly cold winter months, but the summer months are also slightly too hot. This is why the model data higher standard deviation than the observations. For a variable with a strong seasonal cycle like temperature, bias correction should be done with data grouped by the day or month of the year, to account for seasonally-varying biases.</p>
 </div>
 <div class="section" id="significance-testing-for-trends-and-changes">
-<h2>3.4.5 Significance Testing for Trends and Changes<a class="headerlink" href="#significance-testing-for-trends-and-changes" title="Permalink to this headline">#</a></h2>
+<h2>3.4.5 Significance Testing for Trends and Changes<a class="headerlink" href="#significance-testing-for-trends-and-changes" title="Permalink to this heading">#</a></h2>
 <p>When analyzing future climate projections, an important question to ask early in your study is whether your climate variables of interest show significant trends or changes over the time horizon you plan to study. If, for example, you are interested in using precipitation data to drive a hydrology model and investigate how flooding might change for a certain catchment under climate change, but the changes to precipitation in your study area are not statistically significant, then your impact study will likely also have a null result.</p>
 <div class="section" id="discrete-changes-deltas">
-<h3>3.4.5.1 Discrete Changes (Deltas)<a class="headerlink" href="#discrete-changes-deltas" title="Permalink to this headline">#</a></h3>
+<h3>3.4.5.1 Discrete Changes (Deltas)<a class="headerlink" href="#discrete-changes-deltas" title="Permalink to this heading">#</a></h3>
 <p>There are a number of methods that climate scientists use to assess if climate change signals are significant. These methods range in complexity and statistical robustness. The simplest method would be to calculate the climatological standard deviation for the historical period, and check if the projected mean change falls outside the one-sigma range. This method does not account for possible changes to the variance in the future period, the form of the distributions of the data (i.e. non-Gaussian variables like precipitation or wind speed), and is not very statistically robust. This extraordinarily simple method should only be used as a first rough assessment, and should not give much confidence that the changes are truly statistically significant.</p>
 <p>The next best way to test if a mean change is statistically significant is the two sample Student’s <a class="reference external" href="https://en.wikipedia.org/wiki/Student%27s_t-test"><span class="math notranslate nohighlight">\(t\)</span>-test</a>. This is a very common statistical test, used to assess if two different sets of data have different mean values. For large datasets, the <a class="reference external" href="https://en.wikipedia.org/wiki/Central_limit_theorem">central limit theorem</a> tells us that the distribution of the sample mean tends towards a Gaussian distribution even for non-Gaussian variables, so we don’t usually need to be concerned about the assumption of Gaussian distributions inherent to the <span class="math notranslate nohighlight">\(t\)</span>-test. However, we <em>do</em> need to be concerned about the assumption that each sample is <em>independent</em>. With time series data, especially climate time series data, there are nearly always significant serial dependence in the data. In other words, today’s weather is strongly related to yesterday’s weather, which means that data points close in time are not statistically independent of each other. For serially correlated data, the number of independent samples is not equal to the actual total number of samples. We instead calculate an <em>effective sample size</em> using the following formula (<a class="reference external" href="https://librarysearch.library.utoronto.ca/permalink/01UTORONTO_INST/14bjeso/alma991106907255706196">Wilks, 2011</a>):</p>
 <div class="math notranslate nohighlight">
@@ -995,7 +996,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <p>Comparing the p-values calculating using the total sample size and the effective sample size confirms that failing to account for serial dependence in the data leads to overconfidence in the significance of results. For this case, the mean change is still significant after accounting for serial dependence, but this may not always be the true. If the lag-1 autocorrelation is big enough, or if the magnitude of the change is small enough, then failing to correct for the influence of serial dependence might lead you to mistake a null result for a significant one.</p>
 </div>
 <div class="section" id="trends">
-<h3>3.4.5.2 Trends<a class="headerlink" href="#trends" title="Permalink to this headline">#</a></h3>
+<h3>3.4.5.2 Trends<a class="headerlink" href="#trends" title="Permalink to this heading">#</a></h3>
 <p>Sometimes a climate study might not focus on differences between a future and historical time period, but instead focus on rates of change of a certain variable, i.e. a trend. Your first thought might be to use ordinary least squares to do a linear regression and test for significance of the slope parameter, but this will result in a similar issue to the one we just worked through. Ordinary linear regression assumes that all of the data samples are independent, so the presence of serial correlations will inflate the p-value. Additionally, many climate trends are nonlinear. Even global mean surface air temperature, possibly the most studied and well-understood climate variable, has been shown to have an accelerating trend over the past several decades (<a class="reference external" href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-2/">Gulev et al., 2021</a>). For these reasons, more robust statistical tests have been developed for testing the significance of trends of serially correlated climate data.</p>
 <p>Here we will use the Mann-Kendall trend test (<a class="reference external" href="https://librarysearch.library.utoronto.ca/permalink/01UTORONTO_INST/14bjeso/alma991106907255706196">Wilks, 2011</a>) to test signficance of the trend in monthly mean temperatures in Toronto, as simulated by CanESM5. Unfortunately, this test is not implemented in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, but it is simple enough to code ourselves.</p>
 <p>The Mann-Kendall test is a nonparametric test for the presence of a trend in a time series. The test statistic for this test is (from <a class="reference external" href="https://doi.org/10.1023/B:WARM.0000043140.61082.60">Yue and Wang (2004)</a>):</p>
@@ -1077,7 +1078,7 @@ z = \left\{
 </div>
 </div>
 <div class="section" id="analyzing-multiple-ensemble-members">
-<h2>3.4.6 Analyzing Multiple Ensemble Members<a class="headerlink" href="#analyzing-multiple-ensemble-members" title="Permalink to this headline">#</a></h2>
+<h2>3.4.6 Analyzing Multiple Ensemble Members<a class="headerlink" href="#analyzing-multiple-ensemble-members" title="Permalink to this heading">#</a></h2>
 <p>The above examples used data only from a single ensemble member of CanESM5. In order to quantify uncertainty related to internal variability (Section 2.3), your final analysis should include multiple ensemble members, possibly from multiple models. Here we will use the Python module <code class="docutils literal notranslate"><span class="pre">xclim</span></code> and it’s <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code> functionality to analyze data from multiple ensemble members at once. The documentation for these utilities is <a class="reference external" href="https://xclim.readthedocs.io/en/latest/notebooks/ensembles.html">here</a>.</p>
 <div class="admonition-aside-about-xr-open-mfdataset admonition">
 <p class="admonition-title">Aside about xr.open_mfdataset</p>
@@ -2014,7 +2015,7 @@ seaIce: LIM2</dd><dt><span>source_id :</span></dt><dd>CanESM5</dd><dt><span>sour
 <p>In the above plot, you can see how even the annual mean temperatures vary significantly across the ensemble, and show larger fluctuations than the ensemble mean (thick blue curve). The ensemble mean does not agree perfectly with the observations, because of model bias. Also note that the year-to-year fluctuations in the ensemble mean are smaller than those for the observations. This is because observations reflect only one possible realization of the climate, so internal variability is still present. For observations, we can only disentangle forced trends (like the effects of increasing greenhouse gases) from internal variability using long-term trends. Over a short record, what might appear as a trend might actually be due to internal variability at decadal or interannual timescales. For model simulations, aggregating over multiple realizations smooths out the effects of internal variability and can give us a better estimate of the forced trend by itself. To get a plausible range of values, accounting for internal variability, you can use a measure of ensemble spread, like the standard deviation or range between a low and high quantile (e.g. 10th-90th percentile range).</p>
 </div>
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>This notebook has worked through the process of downloading CMIP6 climate model data from the ESGF, and doing some basic model validation using station observations. Any other data hosted on the ESGF, including CORDEX regional climate model data, can be accessed in the same way. Users are encouraged to navigate the ESGF web portal before using <code class="docutils literal notranslate"><span class="pre">pyesgf</span></code> to ensure you’re using the correct facet names for the project you’re searching, and that the search is returning the results you expect.</p>
 </div>
 </div>

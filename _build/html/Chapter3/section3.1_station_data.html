@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -43,6 +43,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -67,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="3.2 Gridded Observations" href="section3.2_gridded_obs.html" />
     <link rel="prev" title="Chapter 3: Exploring Climate Data" href="chapter3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -360,9 +361,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="station-observations">
-<h1>3.1 Station Observations<a class="headerlink" href="#station-observations" title="Permalink to this headline">#</a></h1>
+<h1>3.1 Station Observations<a class="headerlink" href="#station-observations" title="Permalink to this heading">#</a></h1>
 <div class="section" id="downloading-and-data-cleaning">
-<h2>3.1.1 Downloading and Data Cleaning<a class="headerlink" href="#downloading-and-data-cleaning" title="Permalink to this headline">#</a></h2>
+<h2>3.1.1 Downloading and Data Cleaning<a class="headerlink" href="#downloading-and-data-cleaning" title="Permalink to this heading">#</a></h2>
 <p>For many practical applications, expecially in fields like engineering design, it is common practice to use observations at a nearby weather station to calculate the relevant climate indicators for a piece of infrastructure. Environment and Climate Change Canada (ECCC) has historical station observations available for hundreds of weather stations in Canada. The comprehensive list of stations, including their names, locations, and unique Station ID codes, can be found in the <code class="docutils literal notranslate"><span class="pre">Station</span> <span class="pre">Inventory</span> <span class="pre">EN.csv</span></code> file in <a class="reference external" href="https://drive.google.com/drive/folders/1WJCDEU34c60IfOnG4rv5EPZ4IhhW9vZH">this Google Drive</a></p>
 <p>This notebook will show you how to download ECCC weather station observational data, plot some time series of climate variables, and calculate climatologies and extreme values. The above Google Drive includes instructions on how to download the data files using shell scripting, but here we will use the Python package <code class="docutils literal notranslate"><span class="pre">ec3</span></code> to download the data in an easier way. <a class="reference external" href="https://gitlab.com/claut/ec3.py">The source code and limited documentation for this module can be found on GitLab</a>.</p>
 <p>First we’ll import the necessary Python packages</p>
@@ -624,7 +625,7 @@ None
 <p>Now we can really see the day-to-day variations in temperature, as well as the seasonal cycle. There was evidently a a few warm days early in the year, and a short cold spell in early May, but otherwise, we see the temperature rising into the summer, peaking in July and August, and then falling again in the winter.</p>
 </div>
 <div class="section" id="seasonal-cycles-and-climatologies">
-<h2>3.1.2 Seasonal Cycles and Climatologies<a class="headerlink" href="#seasonal-cycles-and-climatologies" title="Permalink to this headline">#</a></h2>
+<h2>3.1.2 Seasonal Cycles and Climatologies<a class="headerlink" href="#seasonal-cycles-and-climatologies" title="Permalink to this heading">#</a></h2>
 <p>To get an idea of the typical seaosonal cycle of temperaure, we can calculate the <em>daily climatology</em> of the daily maximum temperature. What this means is we calculate a long-term average for each day of the year.  We can do this using the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> functionality of Pandas, taking advantage of the <code class="docutils literal notranslate"><span class="pre">dayofyear</span></code> attribute of the pd.Datetime datatype we converted the date values to in the function <code class="docutils literal notranslate"><span class="pre">download_station_data</span></code>.</p>
 <p>Because we’re taking a long-term average, the plot will be much smoother, since we’re averaging out much of the noise that makes up the day-to-day variability, like we see in the plot of one specific year. To get an idea of what typical variations look like, we can also calculate the standard deviation of temperature for each day, across all years, and add it to our plot as shading.</p>
 <div class="cell docutils container">
@@ -753,7 +754,7 @@ None
 <p>Finally, it looks like the method of estimating the typical range of values using <span class="math notranslate nohighlight">\(\pm\)</span> one standard deviation produces negative values at the lower end of the range, which is unphysical. This last issue can be resolved by choosing a different method for characterizing the range of typical values. One such method is to use a range of <em>percentiles</em> (also called <em>quantiles</em>) as the upper and lower bounds for the typical range (i.e. 10th-90th percentile). This is how <a class="reference external" href="https://climatedata.ca/">climatedata.ca</a> (a source of observational data and post-processed climate model output for Canada) reports the typical ranges of variability for climate data.</p>
 </div>
 <div class="section" id="extreme-values">
-<h2>3.1.3 Extreme Values<a class="headerlink" href="#extreme-values" title="Permalink to this headline">#</a></h2>
+<h2>3.1.3 Extreme Values<a class="headerlink" href="#extreme-values" title="Permalink to this heading">#</a></h2>
 <p>Weather outside of the typical range of variability, termed “extreme weather” is often of interest for climate-sensitive domain applications. Extreme temperatures can elevate building energy use due to air conditioning and heating. Extreme precipitation can cause flooding and damage to infrastructure near water basins or rivers, and extreme wind speeds can damage bridges, power lines, and other infrastructure.</p>
 <p>There are two broad-strokes categories of methods by which extreme values of climate variables are quantified. The first is a <strong>peaks over threshold</strong> (POT) approach, by which values above (or below) some pre-determined threshold are considered to be extreme events. For example, when calculating the climate index “Tropical Nights”, we consider extreme warm days to be those with daily minimum temperature above 20<span class="math notranslate nohighlight">\(^{\circ}\)</span>C. The threshold need not be a single fixed value - for many applications it is common to use a certain percentile value (i.e. the 95th percentile) as a threshold for defining extreme values, based on the distribution of the climate variable for a particular location. This allows one to tailor the threshold to the local climate, which is often how infrastructure is designed in practice.</p>
 <p>The second approach to quantifying extreme values is the <strong>block maxima</strong> method. Under this paradigm, we subdivide the data record into non-overlapping “blocks” of time (usually one year), and take the maximum (or minimum) value for each block. Practitioners often characterize the intensity of extreme weather using the <span class="math notranslate nohighlight">\(N\)</span>-year <strong>return period value</strong> of a climate variable, which is calculated using the block maxima method. The <span class="math notranslate nohighlight">\(N\)</span>-year return period value is the value which, in each year, has an exceedance probability of <span class="math notranslate nohighlight">\(1/N\)</span>. The return period <span class="math notranslate nohighlight">\(N\)</span> is usually 50, 100, or even 1000 years, and the longer the return period, the greater the return period value. Return period values are commonly used when planning the expected lifetime of infrastructure. If we want a bridge to last 100 years, then it should be designed to withstand wind speeds of up to the 100 year return value.</p>
@@ -812,11 +813,11 @@ None
 <p>This analysis assumes that the distribution of precipitation in Toronto is <em>stationary</em> for the entire period used for calculation. In other words, there is no trend in the frequency or intensity of extreme events in the study period. When considering how climate change affects return period values of a climate variable, one would need to allow for  time-dependence of the GEV parameters (or dependance on the level of global warming, to avoid dependance on the future forcing scenario). This more advanced method is outside the scope of this guidebook. A simple alternative is to focus the future analysis on a time period distinct from the historical period used to establish the baseline climate.</p>
 </div>
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>This section of the guidebook has introduced you to working with climate data from weather station observations. While useful for many impact studies, some applications require data with coverage over some larger spatial domain. The following section will introduce you to gridded observational data products, and how to download and analyze them.</p>
 </div>
 <div class="section" id="appendix-other-sources-of-station-data">
-<h2>Appendix: Other Sources of Station Data<a class="headerlink" href="#appendix-other-sources-of-station-data" title="Permalink to this headline">#</a></h2>
+<h2>Appendix: Other Sources of Station Data<a class="headerlink" href="#appendix-other-sources-of-station-data" title="Permalink to this heading">#</a></h2>
 <p>This notebook focused only on ECCC Weather Station data for Canada. For studies outside of Canada that require station observations, you’ll of course need alternate sources of data. One such dataset is the <a class="reference external" href="https://doi.org/10.7289/V5D21VHZ">Global Historical Climatology Network - Daily</a>, which is a database of station observations across the world. Python packages for downloading this data exist, but have not yet been tested or implemented by the UTCDW developers. Sub-daily station observations can be found by searching the <a class="reference external" href="https://www.ncdc.noaa.gov/cdo-web/search">NOAA Climate Data Online database</a>. Other sources of station data certainly exist, but intstructions for accessing them are outside the current scope of this guide.</p>
 </div>
 </div>

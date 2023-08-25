@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -43,6 +43,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -67,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="4.2 Bias-Correction Methods" href="section4.2_bias_correction_methods.html" />
     <link rel="prev" title="Chapter 4: Statistical Downscaling" href="chapter4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -357,9 +358,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="downscaling-basics">
-<h1>4.1 Downscaling Basics<a class="headerlink" href="#downscaling-basics" title="Permalink to this headline">#</a></h1>
+<h1>4.1 Downscaling Basics<a class="headerlink" href="#downscaling-basics" title="Permalink to this heading">#</a></h1>
 <div class="section" id="statistical-downscaling">
-<h2>4.1.1 Statistical Downscaling<a class="headerlink" href="#statistical-downscaling" title="Permalink to this headline">#</a></h2>
+<h2>4.1.1 Statistical Downscaling<a class="headerlink" href="#statistical-downscaling" title="Permalink to this heading">#</a></h2>
 <p>Downscaling methods can be broken down into two categories: statistical and dynamical. In this guide, we will focus primarily on <em>statistical downscaling</em>. Statistical downscaling leverages robust empirical relationships between observational and climate model data to adjust model biases and refine the spatial resolution. The general statistical downscaling method can be expressed through the equation:</p>
 <div class="math notranslate nohighlight">
 \[Y_{SDS} = f(X_{GCM} ; \theta(X_{GCM}^{hist}, Y_{OBS}))\]</div>
@@ -367,7 +368,7 @@ document.write(`
 <p>The transfer function will generally have free parameters <span class="math notranslate nohighlight">\(\theta\)</span> that we must estimate using observational data and model output. Since we cannot have observations of the future, we use only model data from a historical/control simulation (<span class="math notranslate nohighlight">\(X_{GCM}^{hist}\)</span>) for this “training” (or “fitting”) step of statistical downscaling. After the training step, output from simulations of historical <em>or</em> future climate can be used as inputs to produce statistically downscaled estimates of <span class="math notranslate nohighlight">\(Y\)</span>. When producing downscaled estimates for projections of future climate, we must assume that the same statistical relationships from the historical period still apply. In other words, we assume that the statistical relationships between the simulated and observed climate are <strong>stationary</strong> - unchanging with time or different radiative forcing. This assumption is inherent to all methods of statistical downscaling. Again, since there are no observations of the future, we have no choice (under the framework of statistical downscaling) but to use historical relationships to adjust future projections. The assumption of stationarity is an important caveat to consider when interpreting the results of a study that uses statistical downscalled climate change projections.</p>
 </div>
 <div class="section" id="dynamical-downscaling">
-<h2>4.1.2 Dynamical Downscaling<a class="headerlink" href="#dynamical-downscaling" title="Permalink to this headline">#</a></h2>
+<h2>4.1.2 Dynamical Downscaling<a class="headerlink" href="#dynamical-downscaling" title="Permalink to this heading">#</a></h2>
 <p>Dynamical Downscaling involves using the output of a coarse resolution global model as boundary conditions for a limited-area, higher-resolution <strong>Regional Climate Model</strong> (RCM). Dynamical downscaling uses physical relationships to simulate the climate at a higher resolution, and because physics does not change over time, there is no reliance on the assumption of stationarity. RCMs will use higher-resolution lower boundary conditions (LBCs), and thus can directly simulate the effects of topography, land surface types, and bodies of water too small to be represented in the LBCs of GCMs. Because they don’t use observations for bias-correction, they can also provide high-resolution climate information in regions where observations are sparse or unavailable, such as the Arctic or much of the Southern Hemisphere.</p>
 <p>However, there are several drawbacks to dynamical downscaling as well. Because RCMs are numerical models run at high resolution, the computational cost is prohibitively high for those who don’t have access to significant High-Performance Computing resources. The core-hours required are often higher than running a global model at standard resolution (though of course less than global high-resolution simulation). Next, unless you are able to run an RCM at extremely high (3 km or less) resolution, it’s very likely that some amount of model bias will remain in the output, especially for variables like wind speed. This is the case for many of the RCMs used in the <a class="reference external" href="https://cordex.org/">CORDEX</a> project, available for download from the ESGF (see Chapter 3.4). Thus it is common practice to do statistical downscaling on the output of RCMs, and it is a good idea to use CORDEX model output as a part of a multi-model statistical downscaling study. Because we don’t expect users to have the computational resources or the expertise to run their own RCM simulations, we will not include further discussion on dynamical downscaling.</p>
 </div>
