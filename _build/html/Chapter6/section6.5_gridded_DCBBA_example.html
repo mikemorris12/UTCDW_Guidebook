@@ -840,6 +840,7 @@ document.write(`
                           <span class="n">tas_hist_dbcca</span><span class="p">,</span>
                           <span class="n">tas_obs</span><span class="p">,</span>
                           <span class="n">input_core_dims</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]],</span> 
+                          <span class="n">dask</span> <span class="o">=</span> <span class="s1">&#39;parallelized&#39;</span><span class="p">,</span>
                           <span class="n">vectorize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">ks_pvals</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">)))</span>
@@ -847,55 +848,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">get_ks_pval</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">stats</span><span class="o">.</span><span class="n">ks_2samp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">pvalue</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># perform the test at each grid cell</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">ks_pvals</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span><span class="n">get_ks_pval</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span>                           <span class="n">tas_hist_dbcca</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>                           <span class="n">tas_obs</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>                           <span class="n">input_core_dims</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]],</span> 
-<span class="g g-Whitespace">      </span><span class="mi">9</span>                           <span class="n">vectorize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">ks_pvals</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">)))</span>
-
-<span class="nn">File ~/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xarray/core/computation.py:1197,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1195</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1196</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1197</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1198</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1199</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1200</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1201</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1202</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1203</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1204</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1205</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1206</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
-
-<span class="nn">File ~/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xarray/core/computation.py:304,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span> <span class="n">result_coords</span><span class="p">,</span> <span class="n">result_indexes</span> <span class="o">=</span> <span class="n">build_output_coords_and_indexes</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">304</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span> <span class="n">out</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">DataArray</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="n">DataArray</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-
-<span class="nn">File ~/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xarray/core/computation.py:681,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">679</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">is_chunked_array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">input_data</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="k">if</span> <span class="n">dask</span> <span class="o">==</span> <span class="s2">&quot;forbidden&quot;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">681</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">682</span>             <span class="s2">&quot;apply_ufunc encountered a chunked array on an &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">683</span>             <span class="s2">&quot;argument, but handling for chunked arrays has not &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">684</span>             <span class="s2">&quot;been enabled. Either set the ``dask`` argument &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">685</span>             <span class="s2">&quot;or load your data into memory first with &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">686</span>             <span class="s2">&quot;``.load()`` or ``.compute()``&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">687</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="k">elif</span> <span class="n">dask</span> <span class="o">==</span> <span class="s2">&quot;parallelized&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">689</span>         <span class="n">chunkmanager</span> <span class="o">=</span> <span class="n">get_chunked_array_type</span><span class="p">(</span><span class="o">*</span><span class="n">input_data</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: apply_ufunc encountered a chunked array on an argument, but handling for chunked arrays has not been enabled. Either set the ``dask`` argument or load your data into memory first with ``.load()`` or ``.compute()``
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
