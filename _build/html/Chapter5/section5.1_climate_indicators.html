@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -43,7 +43,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -66,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="5.2 Data Selection" href="section5.2_data_selection.html" />
     <link rel="prev" title="Chapter 5: Downscaling Workflow" href="chapter5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -356,11 +355,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="climate-indicators">
-<h1>5.1 Climate Indicators<a class="headerlink" href="#climate-indicators" title="Permalink to this heading">#</a></h1>
+<h1>5.1 Climate Indicators<a class="headerlink" href="#climate-indicators" title="Permalink to this headline">#</a></h1>
 <p>If you’re reading this guidebook, it’s unlikely you’re interested in doing downscaling for its own sake. Most users will be interested in using downscaled projections to study how a certain system which is sensitive to the climate (sometimes called an “exposure unit”) might be affected by climate change. To do this, you’ll fist need to define one or more quantities, which depend on climate variables as inputs, that measures the degree to which your exposure unit is vulnerable to the climate. These quantities are called <strong>climate indiactors</strong> or climate indices (singular: climate index), and are ultimately what you’ll use for the application side of your study.</p>
 <p>Defining your climate indicator(s) is the first step in any climate impact analysis study. If you’re a user coming from outside of climate science, your climate indicator(s) should be what you’re already an expert in. It can be the output of an inpact model that takes climate data as inputs, such as the Variable Infiltration Capacity (VIC) Model in hydrology (<a class="reference external" href="https://doi.org/10.1029/94JD00483">Liang et al., 1994</a>). It can also be much simpler, such as one of the many <a class="reference external" href="https://www.climdex.org/learn/indices/">ClimDEX standard climate indices</a>, each of which are calculated using elementary operations on a single climate variable (and have methods implemented to calculate them in the Python package <a class="reference external" href="https://xclim.readthedocs.io/en/stable/indices.html">xclim</a>). For example, you may be interested in changes to air conditioning usage, and use cooling degree days (CDD) as your climate indicator. Your indicator(s) can also be metrics highly specific to your domain application, such as <a class="reference external" href="https://doi.org/10.1021/acs.est.2c01699">Zhang et al, 2022</a> which used downscaled climate data to investigate changes to potential biofuel usage. Different blends of biofuels operate optimally only when the temperature exceeds certain thresholds, depending on their chemical properties. The number of days when the temperature exceeds each of these thresholds were the climate indicators used for this study.</p>
 <div class="section" id="inputs-for-calculating-your-indicator-s">
-<h2>5.1.1 Inputs for Calculating Your Indicator(s)<a class="headerlink" href="#inputs-for-calculating-your-indicator-s" title="Permalink to this heading">#</a></h2>
+<h2>5.1.1 Inputs for Calculating Your Indicator(s)<a class="headerlink" href="#inputs-for-calculating-your-indicator-s" title="Permalink to this headline">#</a></h2>
 <p>The data used to calculate the historical and future projected values of your climate indicator(s) will be the downscaled climate model output. Before you can do any downscaling or analysis, you must first figure out which climate variables you need to calculate your indicator(s). It could be a single variable, like temperature or precipitation, or if you’re running an impact model like VIC or a building energy use model, you might need multiple variables, possibly those which are not available from pre-produced downscaled data like that from <a class="reference external" href="https://pacificclimate.org/data/statistically-downscaled-climate-scenarios">PCIC</a>. Choosing the variables alone is not sufficient however - you will also need to specify the <strong>temporal frequency</strong> and <strong>spatial sampling</strong> required for your study. These two factors are critical for determining the data you will be able to use for your study. The following section of this chapter will explain these and other factors that contribute to your choice of both observational and climate model datasets to use in your study.</p>
 </div>
 </div>

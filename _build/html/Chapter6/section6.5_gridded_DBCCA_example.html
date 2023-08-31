@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -43,7 +43,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -67,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="6.4 Edmonton AC Loads: Near-Term Projections" href="section6.4_station_1D_example_nearterm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -366,10 +365,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="edmonton-ac-loads-gridded-example">
-<h1>6.5 Edmonton AC Loads: Gridded Example<a class="headerlink" href="#edmonton-ac-loads-gridded-example" title="Permalink to this heading">#</a></h1>
+<h1>6.5 Edmonton AC Loads: Gridded Example<a class="headerlink" href="#edmonton-ac-loads-gridded-example" title="Permalink to this headline">#</a></h1>
 <p>This worked example will show you how to implement a true “downscaling” method to produce calibrated high-resolution climate projections. Using gridded data for climate impact analysis, instead of one or more point locations, allows you to study the spatial variaiblity in your indicator and its future projections. Some variables may be fairly spatially uniform over the scale of a particular urban region, but others may show significant spatial structure in both the historical climate and the projected changes, due to a number of factors. These small-scale spatial variations can lead to different impacts on different communities. Accounting for spatial variability is important for being able to quantify the unequal effects of climate change on historically marginalized groups of people, since populations of ethnic minorities, the elderly, and the disabled are also typically spatially heterogeneous. These groups of people already suffer greater exposure to climate risks, and this inequality could be amplified by unfavourable spatial patterns of climatic changes. Social justice is only one reason why gridded climate projections are useful, but we choose to highlight it here since it is often overlooked in favour of other less human-centred scientific focuses.</p>
 <div class="section" id="study-design">
-<h2>6.5.1 Study Design<a class="headerlink" href="#study-design" title="Permalink to this heading">#</a></h2>
+<h2>6.5.1 Study Design<a class="headerlink" href="#study-design" title="Permalink to this headline">#</a></h2>
 <p>This notebook will expand on the examples of Sections 6.1-6.4 and make projections of Cooling Degree Days in a region around the city of Edmonton. To clearly illustrate the value of higher spatial resolution, we’ll use a <span class="math notranslate nohighlight">\(5^{\circ} \times 10^{\circ}\)</span> latitude <span class="math notranslate nohighlight">\(\times\)</span> longitude region centred on the city. This encompasses most of Northern Alberta, but since it extends westward into a region of high elevation and complex topography, it really shows the improvements that can be offered by high spatial resolution.</p>
 <p>Like 6.1-6.3, we will use 1980-2010 as the historical baseline period and 2070-2100 as the future projection period. Because of the much larger volume of data that comes with using high-resolution gridded climate data, we’ll return to the scope of Section 6.1 and use only a single model (CESM2) and future scenario (SSP3-7.0).</p>
 <p>The gridded observational product we will use in this notebook is the ERA5-Land reanalysis. This is not really observations, but is instead output from the ECMWF weather forecast model, which assimilates observations. We use this data since the true gridded observational product we used previously in Sections 3.2 and 4.4, the NRCanMet product, does not offer daily mean temperature, which we need to calculate CDDs. ERA5-Land has a spatial resolution of about 9 km <span class="math notranslate nohighlight">\(\times\)</span> 9 km, slightly higher than NRCanMet. More information about ERA5-Land can be found <a class="reference external" href="https://confluence.ecmwf.int/display/CKB/ERA5-Land%3A+data+documentation">here</a>.</p>
@@ -436,7 +435,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="downloading-the-data">
-<h2>6.5.2 Downloading the Data<a class="headerlink" href="#downloading-the-data" title="Permalink to this heading">#</a></h2>
+<h2>6.5.2 Downloading the Data<a class="headerlink" href="#downloading-the-data" title="Permalink to this headline">#</a></h2>
 <p>Conveniently, the ERA5-Land data for North America is available from the PAVICS OPeNDAP server, and it can be accessed just the same as the ERA5 data in <a class="reference external" href="https://utcdw.physics.utoronto.ca/UTCDW_Guidebook/Chapter3/section3.3_reanalysis.html">Section 3.3</a>. The hidden code cells below will download the ERA5-Land data, plus the CESM2 historical and SSP3-7.0 data for ensemble member <code class="docutils literal notranslate"><span class="pre">r10i1p1f1</span></code>, and subset to select the desired spatial domain and time periods.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -511,9 +510,9 @@ document.write(`
 </div>
 </div>
 <div class="section" id="exploratory-analysis">
-<h2>6.5.3 Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this heading">#</a></h2>
+<h2>6.5.3 Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this headline">#</a></h2>
 <div class="section" id="model-obs-consistency">
-<h3>6.5.3.1 Model/Obs Consistency<a class="headerlink" href="#model-obs-consistency" title="Permalink to this heading">#</a></h3>
+<h3>6.5.3.1 Model/Obs Consistency<a class="headerlink" href="#model-obs-consistency" title="Permalink to this headline">#</a></h3>
 <p>To get a sense of the difference in spatial scale between the raw model data and the high-res ERA5-Land data, we can plot maps using the matplotlib <code class="docutils literal notranslate"><span class="pre">pcolormesh</span></code> routine. Like before, let’s compare the raw model historical climatology of daily mean temperature to the “observations”. To limit the number of maps, we’ll plot the monthly climatologies instead of the daily climatologies, which we did in the 1D examples. Each panel represents the long-term mean for a different month of the year. The subplot titles indicate the order of the months (i.e. 1 is January, 2 is February, etc.).</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -648,7 +647,7 @@ document.write(`
 <p>Just like the temperature climatology, the pseudo-observations show much more spatial detail, including topographic effects in the southwest corner of the domain. The coarse resolution of the climate model output does not allow for representation of fine-scale features, only capturing large-scale gradients on the order of hundreds of kilometers.</p>
 </div>
 <div class="section" id="raw-model-climate-change-signal">
-<h3>6.5.3.2 Raw Model Climate Change Signal<a class="headerlink" href="#raw-model-climate-change-signal" title="Permalink to this heading">#</a></h3>
+<h3>6.5.3.2 Raw Model Climate Change Signal<a class="headerlink" href="#raw-model-climate-change-signal" title="Permalink to this headline">#</a></h3>
 <p>Next we will plot the raw model climate change projections of annual mean CDDs. Later, we can compare this plot to the downscaled projections, to examine the effect of downscaling on the results.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -688,7 +687,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="applying-dbcca-downscaling">
-<h2>6.5.4 Applying DBCCA Downscaling<a class="headerlink" href="#applying-dbcca-downscaling" title="Permalink to this heading">#</a></h2>
+<h2>6.5.4 Applying DBCCA Downscaling<a class="headerlink" href="#applying-dbcca-downscaling" title="Permalink to this headline">#</a></h2>
 <p>Now it is time to produce our downscaled daily mean temperature data using the DBCCA method. As mentioned, code that implements this method is provided in the <a class="reference external" href="https://github.com/mikemorris12/UTCDW_Guidebook">UTCDW GitHub repository</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -745,7 +744,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="validating-the-downscaled-data">
-<h2>6.5.5 Validating the Downscaled Data<a class="headerlink" href="#validating-the-downscaled-data" title="Permalink to this heading">#</a></h2>
+<h2>6.5.5 Validating the Downscaled Data<a class="headerlink" href="#validating-the-downscaled-data" title="Permalink to this headline">#</a></h2>
 <p>To validate the downscaled data we’ll compare the monthly climatologies to ERA5-Land. First we’ll plot the downscaled monthly climatology, and then the difference between it and the ERA5-Land climatology.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -932,7 +931,7 @@ document.write(`
 <p>The downscaling leaves a small bias in the CDDs, but the magnitude is small compared to the typical number of annual CDDs, except maybe in the southwest corner of the region where there is complex topography. Clearly the downscaling improves the spatial variability of temperature in this region, based on the maps of historical CDDs and the monthly temperature climatology, but a minor bias remains, minor enough to not have a substantial effect on the results.</p>
 </div>
 <div class="section" id="downscaled-cdd-projections">
-<h2>6.5.6 Downscaled CDD Projections<a class="headerlink" href="#downscaled-cdd-projections" title="Permalink to this heading">#</a></h2>
+<h2>6.5.6 Downscaled CDD Projections<a class="headerlink" href="#downscaled-cdd-projections" title="Permalink to this headline">#</a></h2>
 <p>Now satisfied with the job done by the downscaling, we can calculate projections of CDDs using the downscaled SSP3-7.0 scenario. We’ll compare this to the raw model projections to illustrate the impact of the downscaling.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">

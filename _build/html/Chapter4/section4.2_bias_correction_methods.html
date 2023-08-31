@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -43,7 +43,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -68,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="4.3 Downscaling Methods" href="section4.3_downscaling_methods.html" />
     <link rel="prev" title="4.1 Downscaling Basics" href="section4.1_downscaling_basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -365,10 +364,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="bias-correction-methods">
-<h1>4.2 Bias-Correction Methods<a class="headerlink" href="#bias-correction-methods" title="Permalink to this heading">#</a></h1>
+<h1>4.2 Bias-Correction Methods<a class="headerlink" href="#bias-correction-methods" title="Permalink to this headline">#</a></h1>
 <p>A plethora of methods exist for statistical downscaling and bias correction - too many to document in this guide. Here we will cover several methods of varying degrees of complexity, most of which are implemented in the Python package <code class="docutils literal notranslate"><span class="pre">xclim</span></code>. The first few methods will be purely methods of univariate <em>bias correction</em>, and can be applied either to model ouput at a single location, using station observations as the training data, or as the bias-correction step in a true “downscaling” method, which produces gridded data with enhanced spatial resolution (using gridded observations as the training data).</p>
 <div class="section" id="the-delta-method">
-<h2>4.2.1 The “Delta” Method<a class="headerlink" href="#the-delta-method" title="Permalink to this heading">#</a></h2>
+<h2>4.2.1 The “Delta” Method<a class="headerlink" href="#the-delta-method" title="Permalink to this headline">#</a></h2>
 <p>The simplest possible method of bias correction is called the “Delta” method. In this method, the climate model ouput is used only to calculate the mean change in the quantity of interest <span class="math notranslate nohighlight">\(X\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\Delta = X_{GCM}^{proj} - X_{GCM}^{hist}\]</div>
@@ -388,7 +387,7 @@ document.write(`
 <p>This is essentially equivalent to the Delta method, since the mean difference between <span class="math notranslate nohighlight">\(X_{SDS}\)</span> and <span class="math notranslate nohighlight">\(X_{obs}\)</span> will still be equal to <span class="math notranslate nohighlight">\(\Delta\)</span>. However, now the distribution of <span class="math notranslate nohighlight">\(X_{SDS}\)</span> will have the same shape as <span class="math notranslate nohighlight">\(X_{GCM}^{proj}\)</span> - which may be biased. The next method accounts for bias in the variance of the simulated data.</p>
 </div>
 <div class="section" id="bias-variance-correction">
-<h2>4.2.2 Bias-Variance Correction<a class="headerlink" href="#bias-variance-correction" title="Permalink to this heading">#</a></h2>
+<h2>4.2.2 Bias-Variance Correction<a class="headerlink" href="#bias-variance-correction" title="Permalink to this headline">#</a></h2>
 <p>The second simplest method of bias correction involves correction of both the mean bias and the variance of the climate model output. The deviations from the modelled historical mean are scaled to have a variance equal to the sample variance of the observations, and then these scaled anomalies are added to the observed sample mean. The transfer function for this method is:</p>
 <div class="math notranslate nohighlight">
 \[X_{SDS} = \left(X_{GCM}^{proj} - \overline{X_{GCM}^{hist}} \right) \times \frac{\sigma_{OBS}}{\sigma_{GCM}^{hist}} + \overline{X_{OBS}}\]</div>
@@ -397,9 +396,9 @@ document.write(`
 <p>If mean temperatures are the most relevant metric for your study, this method of bias correction is likely sufficient. If extremes are important for your application, this method is not appropriate because the tails of an approximately-Gaussian distribution are where it may be most likely to have non-Gaussian behavior. For this reason, non-parametric quantile mapping methods are preferred, as they can handle data generated from any probability distribution.</p>
 </div>
 <div class="section" id="quantile-mapping-methods">
-<h2>4.2.3 Quantile Mapping Methods<a class="headerlink" href="#quantile-mapping-methods" title="Permalink to this heading">#</a></h2>
+<h2>4.2.3 Quantile Mapping Methods<a class="headerlink" href="#quantile-mapping-methods" title="Permalink to this headline">#</a></h2>
 <div class="section" id="id1">
-<h3>4.2.3.1<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>4.2.3.1<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>As discussed, empirical quantile mapping (EQM) can be used to map data sampled from one probability distribution to another. Empirical quantile mapping takes the <span class="math notranslate nohighlight">\(k\)</span>’th quantile of the input (climate model) distribution and maps it to the <span class="math notranslate nohighlight">\(k\)</span>’th quantile of the target (observed) distribution. For a random variable <span class="math notranslate nohighlight">\(X\)</span>, the <span class="math notranslate nohighlight">\(k\)</span>’th quantile is given by the inverse CDF evaluated at <span class="math notranslate nohighlight">\(k\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
 \[x_{k} = F_{X}^{-1}(k)\]</div>
@@ -414,7 +413,7 @@ document.write(`
 <p>On its own, empirical quantile mapping is not so useful for adjusting climate change projections, because the projected changes will be washed out by mapping the data back to the observed historical distribution. This can be seen in the massively deflated variance of the adjusted end-of-century projections, relative to the unadjusted raw model projections. Clever individuals have developed two variants of quantile mapping, which preserve projected changes while also correcting for biases in all quantiles of the target variable’s distribution.</p>
 </div>
 <div class="section" id="detrended-quantile-mapping">
-<h3>4.2.3.2 Detrended Quantile Mapping<a class="headerlink" href="#detrended-quantile-mapping" title="Permalink to this heading">#</a></h3>
+<h3>4.2.3.2 Detrended Quantile Mapping<a class="headerlink" href="#detrended-quantile-mapping" title="Permalink to this headline">#</a></h3>
 <p>Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping introduced by <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">Cannon et al. (2015)</a> designed to preserve the model climate change signal, while also bias-correcting the distribution of the target variable. EQM cannot handle projected future values that fall outside of the range of historical values - the maximum (or minimum) future projected value will be mapped to the maximum (minimum) historical value, even though it may be physically realistic that new record-setting extreme values will occur under increased radiative forcing. Alternatively, some extrapolaion algorithm must be invoked, but there is no agreed upon method for doing so. DQM avoids the need for extrapolation by removing the long-term mean change from the model projections before quantile mapping, so the input values lie in the range of the historical simulation values. The trend is then reimposed after. For a ratio variable such as precipitation, the mean change is removed by multaplicative scaling, i.e.</p>
 <div class="math notranslate nohighlight">
 \[x_{SDS}^{proj}(t) = F_{OBS}^{-1}\left[F_{GCM}\left(x_{GCM}^{proj}(t) \times \frac{\overline{x_{GCM}^{hist}}} {\overline{x_{GCM}^{proj}}} \right)\right] \times \frac{\overline{x_{GCM}^{proj}}} {\overline{x_{GCM}^{hist}}}\]</div>
@@ -425,7 +424,7 @@ document.write(`
 <p><img alt="" src="../_images/pdfs_and_cdfs_dqm_temp.png" /></p>
 </div>
 <div class="section" id="quantile-delta-mapping">
-<h3>4.2.3.3 Quantile Delta Mapping<a class="headerlink" href="#quantile-delta-mapping" title="Permalink to this heading">#</a></h3>
+<h3>4.2.3.3 Quantile Delta Mapping<a class="headerlink" href="#quantile-delta-mapping" title="Permalink to this headline">#</a></h3>
 <p>As noted in <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">Cannon et al. (2015)</a>, DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution <em>and</em> preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation <span class="math notranslate nohighlight">\(x_{GCM}^{proj}(t)\)</span>, the quantile <span class="math notranslate nohighlight">\(\tau(t)\)</span> is calculated using the empirical CDF <span class="math notranslate nohighlight">\(F_{GCM}^{proj}\)</span> for a time window around <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\tau(t) = F_{GCM}^{proj}[x_{GCM}^{proj}(t)]\]</div>

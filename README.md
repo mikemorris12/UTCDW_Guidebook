@@ -1,7 +1,7 @@
 # UTCDW Guidebook
 # Chapter 1: Introduction
 
-*Last updated August 25 2023*
+*Last updated August 31 2023*
 
 Welcome to the guidebook for the University of Toronto Climate Downscaling Workflow. If you're accessing these resources, it means you are interested in using data to study how climate change may affect a particular domain in the built or natural environment. The purpose of this guidebook is to help you develop the skills and knowledge needed to design and conduct a climate change impact analysis study. 
 
@@ -81,3 +81,5 @@ List of environments:
 * `libpysal` and `esda` (for calculating spatial autocorrelations)
 
 Once you've set up your Python environment, you will be able to run the examples in this book, and eventually, to get started on working with climate data in Python.
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

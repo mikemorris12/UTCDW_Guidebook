@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -43,7 +43,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -68,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="3.3 Reanalysis Data" href="section3.3_reanalysis.html" />
     <link rel="prev" title="3.1 Station Observations" href="section3.1_station_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -367,16 +366,16 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="gridded-observations">
-<h1>3.2 Gridded Observations<a class="headerlink" href="#gridded-observations" title="Permalink to this heading">#</a></h1>
+<h1>3.2 Gridded Observations<a class="headerlink" href="#gridded-observations" title="Permalink to this headline">#</a></h1>
 <p>When climate information is needed for an expanded spatial region, instead of a collection of individual points, it is necessary that we use gridded observations in our analysis. To be useful for downscaling, the spatial resolution of the gridded observations must be finer than that of the climate model data being downscaled. With gridded obs, we can do all of the same exploratory data analysis as we did with station data, but results will typically be plotted as maps instead of 1D curves.</p>
 <div class="section" id="the-netcdf-data-file-format">
-<h2>3.2.1 The netCDF Data File Format<a class="headerlink" href="#the-netcdf-data-file-format" title="Permalink to this heading">#</a></h2>
+<h2>3.2.1 The netCDF Data File Format<a class="headerlink" href="#the-netcdf-data-file-format" title="Permalink to this headline">#</a></h2>
 <p>In the previous section, we worked with 1D time series data from weather station observations. This sort of data is easy to handle with the tabular format of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames, but gridded climate data can have two or three spatial dimensions (typically latitude, longitude, and a vertical dimension such as pressure or height). The time dimension makes 4 dimensions in total, which means we need to use multi-dimensional arrays to manipulate the data. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is not designed for working with multidimensional arrays in an easy way, so we need a new sort of data type to handle gridded data. Additionally, gridded climate data is often too “big” (in terms of file size) to store in the ASCII text formats (such as .csv) that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> handles. So in addition to a new data type, we also need a new file format that saves the data in the more efficient binary format (instead of plain text, which is less efficient storage-wise).</p>
 <p>The standard file type for spatio-temporal climate data is called netCDF, or “Network Common Data Form”. netCDF is a “self-describing” data format, in the sense that the files contain metadata about the physical dimensions and coordinates of the data, and other attributes such as units and possibly, history of how the data was generated.</p>
 <p>You can open and read netCDF files with Python using the package <a class="reference external" href="https://unidata.github.io/netcdf4-python/">netcdf4-python</a>, and extract the data in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays. This package is a basic, low-level interface that is expanded upon in the higher-level package  <a class="reference external" href="https://docs.xarray.dev/en/stable/">xarray</a>. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> is built for working with arrays with named dimensions (such as “time” or “latitude”) and is the workhorse for doing climate analysis in Python. It shares much of the same functionality as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> for doing calculations, and supports <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/dask.html">parallelizing operations</a> with <a class="reference external" href="https://docs.dask.org/en/stable/">dask</a>, which can significantly speed up calculations involving large datasets. From here on, nearly all of our code will rely on <code class="docutils literal notranslate"><span class="pre">xarray</span></code> for working with netCDF data and doing analyis.</p>
 </div>
 <div class="section" id="accessing-data-with-opendap">
-<h2>3.2.2 Accessing Data with OPeNDAP<a class="headerlink" href="#accessing-data-with-opendap" title="Permalink to this heading">#</a></h2>
+<h2>3.2.2 Accessing Data with OPeNDAP<a class="headerlink" href="#accessing-data-with-opendap" title="Permalink to this headline">#</a></h2>
 <p>In this guidebook, we’ll focus on the gridded observational products hosted on the <a class="reference external" href="https://pavics.ouranos.ca/datasets.html#a">PAVICS THREDDS server</a>, which can be accessed directly using the OPeNDAP capability of <code class="docutils literal notranslate"><span class="pre">xarray</span></code>.</p>
 <p>The dataset we’ll explore here is the NRCan gridded observations, derived from station oberservations using the ANUSPLIN interpolation algorithm. The spatial resolution is 10 km<span class="math notranslate nohighlight">\(\times\)</span>10 km, and data is available from 1950-2017. More information on this dataset can be found in <a class="reference external" href="https://journals.ametsoc.org/doi/pdf/10.1175/2011BAMS3132.1">this publication</a>. The entire dataset is large (about 50 GB per variable), so we will work with subsets of the data which are easy to load into memory. Thankfully, the OPeNDAP protocol allows for the subsetting to happen at the host end, before the data is loaded onto your local machine.</p>
 <p>There is a limit to how much data can be transferred from the PAVICS server to your local machine via OPeNDAP, so for production uses you’ll need to download the data and store it locally. See the end of this section for a brief tutorial on how to download and save the NRCAN gridded oservational data. If you only need data for a small region then OPeNDAP is sufficient, but it is still a good idea to save your data to your own machine for easy re-use. This too will be covered in this notebook.</p>
@@ -857,7 +856,7 @@ Attributes: (12/15)
 </div>
 </div>
 <div class="section" id="analyzing-the-data">
-<h2>3.2.3 Analyzing the Data<a class="headerlink" href="#analyzing-the-data" title="Permalink to this heading">#</a></h2>
+<h2>3.2.3 Analyzing the Data<a class="headerlink" href="#analyzing-the-data" title="Permalink to this headline">#</a></h2>
 <p>The above map shows that on the day in question, there was fairly heavy precipitation in Alberta, near Calgary. Let’s subset the data in this region so we can analyze it further.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -964,7 +963,7 @@ Attributes: (12/15)
 <p>This map tells us that the 50-year return value of precipitation near Calgary is about 65 mm/day, so the event on the day we selected was certainly a lot of rain, but not particularly close to a 50-year event.</p>
 </div>
 <div class="section" id="other-calculations">
-<h2>3.2.4 Other Calculations<a class="headerlink" href="#other-calculations" title="Permalink to this heading">#</a></h2>
+<h2>3.2.4 Other Calculations<a class="headerlink" href="#other-calculations" title="Permalink to this headline">#</a></h2>
 <p>Doing the calculation of 50-year return values for gridded data with xarray was a particularly cumbersome task. For most typical calculations, we can do everything with just xarray and numpy, there is usually no need to use <code class="docutils literal notranslate"><span class="pre">dask</span></code> directly. Next let’s use the pandas-like functionality of xarray to calculate a monthly climatlogy of daily maximum temperature for the Toronto region, to compare to our previous station-based estimates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1029,10 +1028,10 @@ Attributes: (12/15)
 <p>A major limitation many observational data products, including gridded data products like the NRCAN ANUSPLIN dataset, is a lack of complete spatial coverage. This this product only includes data for Canada, it is cut off at the border with the United states, which is why the above maps are blank in the southern part of the domain. One solution to this issue regarding spatial coverage is to use <strong>reanalysis</strong> data as a proxy for observations. Reanalysis data will be the subject of the following section.</p>
 </div>
 <div class="section" id="saving-the-data-locally">
-<h2>3.2.5 Saving the Data Locally<a class="headerlink" href="#saving-the-data-locally" title="Permalink to this heading">#</a></h2>
+<h2>3.2.5 Saving the Data Locally<a class="headerlink" href="#saving-the-data-locally" title="Permalink to this headline">#</a></h2>
 <p>This notebook has demonstrated some exploratory analysis of the observational data. In your workflow, you’re going to want to use this data again later, for model validation, downscaling, and possibly for other types of analysis. Instead of re-loading it from the remote server every time, you can save the data to a netCDF file on your own machine. There are two options for doing this, both will be demonstrated in this subsection.</p>
 <div class="section" id="saving-with-to-netcdf">
-<h3>3.2.5.1 Saving with to_netcdf<a class="headerlink" href="#saving-with-to-netcdf" title="Permalink to this heading">#</a></h3>
+<h3>3.2.5.1 Saving with to_netcdf<a class="headerlink" href="#saving-with-to-netcdf" title="Permalink to this headline">#</a></h3>
 <p>If your whole project focuses on a small spatial domain like the one selected for this notebook, then all of the data can be transferred over the OPeNDAP protocol. However, for reasons discussed above, it’s a good idea to save the data locally. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Datasets and DataArrays have a build-in method <code class="docutils literal notranslate"><span class="pre">to_netcdf()</span></code> that will create a netCDF file with a name you specify, and write the data to that file. This is an easy way of saving your data, and it can be applied to any data in <code class="docutils literal notranslate"><span class="pre">xarray</span></code> format. It’s especially useful to save the results of time-consuming calculations, so you don’t need to re-do the same data processing over and over again. Here we’ll save both the raw data and monthly climatology for the daily maximum temperature in the Toronto region, each to their own separate file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1052,7 +1051,7 @@ Attributes: (12/15)
 </div>
 </div>
 <div class="section" id="downloading-complete-datasets">
-<h3>3.2.5.1 Downloading Complete Datasets<a class="headerlink" href="#downloading-complete-datasets" title="Permalink to this heading">#</a></h3>
+<h3>3.2.5.1 Downloading Complete Datasets<a class="headerlink" href="#downloading-complete-datasets" title="Permalink to this headline">#</a></h3>
 <p>As mentioned in the preamble to this notebook, only small subsets of the NRCAN observational data can be accessed remotely through OPeNDAP. For most practical uses, you’ll need to download and save the data to your own machine. This cannot be done from the PAVICS server due to technical limitations, but you can access this dataset from the <a class="reference external" href="https://pacificclimate.org/data">PCIC data portal</a> as well (albeit only for the period 1950-2010). More documentation about the PCIC data portal can be found <a class="reference external" href="https://data.pacificclimate.org/portal/docs/index.html">here</a>.</p>
 <p>Below is code for a function that can be used to download the data (it is the same function we’ll use in section 3.4 for downloading climate model output from the ESGF archive).</p>
 <div class="cell docutils container">
@@ -1141,7 +1140,7 @@ Attributes: (12/15)
 </div>
 </div>
 <div class="section" id="appendix-other-gridded-observational-datasets">
-<h2>Appendix: Other gridded observational datasets<a class="headerlink" href="#appendix-other-gridded-observational-datasets" title="Permalink to this heading">#</a></h2>
+<h2>Appendix: Other gridded observational datasets<a class="headerlink" href="#appendix-other-gridded-observational-datasets" title="Permalink to this headline">#</a></h2>
 <p>The NRCan gridded observations are at daily frequency and include spatial coverage for Canada only - if you require coverage for other regions or sub-daily data, you may be able to find what you’re looking for by searching the <a class="reference external" href="https://climatedataguide.ucar.edu/">NCAR Climate Data Guide</a>, or you may need to rely on reanalysis data (described in the next section).</p>
 <p>Another commonly used gridded observational dataset, with coverage over southern Canada, the contiguous United States, and Mexico, is the <a class="reference external" href="https://doi.org/10.7289/v5x34vf6">Livneh dataset</a>. Further information about this dataset, how it was created, and how to access it, can be found on its <a class="reference external" href="https://climatedataguide.ucar.edu/climate-data/livneh-gridded-precipitation-and-other-meteorological-variables-continental-us-mexico">NCAR Climate Data Guide page</a>.</p>
 </div>
