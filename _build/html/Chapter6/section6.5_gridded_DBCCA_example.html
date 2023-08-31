@@ -693,7 +693,7 @@ document.write(`
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Because of the greater volumes of data involved in gridded downscaling, and the greater complexity of constructed analogue downscaling methods compared to 1D bias correction methods, expect the following code cell to take much longer to run compared to those applying bias correction in sections 6.1-6.4. The provided CA code is not well optimized, it processes each time step individually using a for-loop. Eventually this code may be improved, or you may wish to take it upon yourself to optimize the code to process different time steps in parallel.</p>
-<p>In order to save tim, you may wish to run the DBCCA downscaling code in a separate script, wait for it to finish running, and then come back and continue working through this notebook when the downscaling is finished. Depending on your computing resources, this could take anywhere from 30 minutes to several hours.</p>
+<p>In order to save time, you may wish to run the DBCCA downscaling code in a separate script, wait for it to finish running, and then come back and continue working through this notebook when the downscaling is finished. Depending on your computing resources, this could take anywhere from 30 minutes to several hours.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -734,10 +734,10 @@ document.write(`
                                            <span class="n">tas_obs</span><span class="p">,</span>
                                            <span class="s2">&quot;tas&quot;</span><span class="p">,</span> 
                                            <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;degC&quot;</span><span class="p">,</span>
-                                           <span class="n">fout_hist_bcca</span> <span class="o">=</span> <span class="n">fout_hist_bcca</span><span class="p">,</span>
-                                           <span class="n">fout_future_bcca</span> <span class="o">=</span> <span class="n">fout_future_bcca</span><span class="p">,</span>
-                                           <span class="n">fout_hist_dbcca</span> <span class="o">=</span> <span class="n">fout_hist_dbcca</span><span class="p">,</span>
-                                           <span class="n">fout_future_dbcca</span> <span class="o">=</span> <span class="n">fout_future_dbcca</span><span class="p">,</span>
+                                           <span class="n">fout_hist_bcca</span> <span class="o">=</span> <span class="n">file_hist_bcca</span><span class="p">,</span>
+                                           <span class="n">fout_future_bcca</span> <span class="o">=</span> <span class="n">file_ssp3_bcca</span><span class="p">,</span>
+                                           <span class="n">fout_hist_dbcca</span> <span class="o">=</span> <span class="n">file_hist_dbcca</span><span class="p">,</span>
+                                           <span class="n">fout_future_dbcca</span> <span class="o">=</span> <span class="n">file_ssp3_dbcca</span><span class="p">,</span>
                                            <span class="n">write_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
