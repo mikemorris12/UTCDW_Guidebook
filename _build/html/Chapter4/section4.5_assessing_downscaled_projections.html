@@ -202,6 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.5_gridded_DBCCA_example.html">6.5 Edmonton AC Loads: Gridded Example</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../guidebook_references.html">References</a></li>
 </ul>
 
     </div>
@@ -723,7 +724,7 @@ document.write(`
 <h2>4.5.2 Testing Significance of Uncorrected and Downscaled Projected Changes<a class="headerlink" href="#testing-significance-of-uncorrected-and-downscaled-projected-changes" title="Permalink to this headline">#</a></h2>
 <p>Now let’s look at the projected changes and assess the statistical significance using the two-sample <span class="math notranslate nohighlight">\(t\)</span>-test and the effective sample size correction.</p>
 <p>Becuase we are now working with spatial data instead of a 1D time series, we will be doing many hypothesis tests simultaneously (one for each grid cell). Each hypothesis test comes with a chance of a false positive (Type I error) determined by the <span class="math notranslate nohighlight">\(p\)</span>-value threshold <span class="math notranslate nohighlight">\(\alpha\)</span>. A test where <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> is the threshold for rejecting the null hypothesis has a 5% chance of Type I error. For a large spatial domain, with hundreds of grid cells (and thus hundreds of hypothesis tests), this means a substantial number of locations will be affected by Type I error.</p>
-<p>We can correct for the effects of this issue using the <em>False Discovery Rate</em> correction (<a class="reference external" href="https://librarysearch.library.utoronto.ca/permalink/01UTORONTO_INST/14bjeso/alma991106907255706196">Wilks, 2011</a>). For this procedure, the <span class="math notranslate nohighlight">\(N\)</span> <span class="math notranslate nohighlight">\(p\)</span>-values (where <span class="math notranslate nohighlight">\(N\)</span> is the number of hypothesis tests being conducted) are sorted lowest to highest, and a new significance threshold <span class="math notranslate nohighlight">\(\alpha_{FDR}\)</span> is calculated:</p>
+<p>We can correct for the effects of this issue using the <em>False Discovery Rate</em> correction <span id="id1">[<a class="reference internal" href="../guidebook_references.html#id21" title="Daniel S. Wilks. Statistical methods in the atmospheric sciences. International geophysics series ; v. 100. Elsevier, Amsterdam, The Netherlands ;, 3rd ed. edition, 2011. ISBN 978-1-283-10129-5.">Wilks, 2011</a>]</span>. For this procedure, the <span class="math notranslate nohighlight">\(N\)</span> <span class="math notranslate nohighlight">\(p\)</span>-values (where <span class="math notranslate nohighlight">\(N\)</span> is the number of hypothesis tests being conducted) are sorted lowest to highest, and a new significance threshold <span class="math notranslate nohighlight">\(\alpha_{FDR}\)</span> is calculated:</p>
 <div class="math notranslate nohighlight">
 \[
 \alpha_{FDR} = max_{j=1,...,N} \left(p_{(j)}: p_{(j)} &lt; \frac{j}{N} \alpha_{global} \right)

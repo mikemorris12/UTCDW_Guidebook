@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UTCDW Guidebook &#8212; UTCDW Guidebook</title>
+    <title>References &#8212; UTCDW Guidebook</title>
   
   
   
@@ -59,10 +59,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'guidebook_references';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter 1: Introduction" href="Chapter1/chapter1.html" />
+    <link rel="prev" title="6.5 Edmonton AC Loads: Gridded Example" href="Chapter6/section6.5_gridded_DBCCA_example.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -128,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="README.html">
   
   
   
@@ -147,13 +147,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
                     UTCDW Guidebook
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="Chapter1/chapter1.html">Chapter 1: Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Chapter1/section1.1_python_env.html">1.1 Setting Up Your Python Environment</a></li>
 </ul>
@@ -199,7 +199,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Chapter6/section6.5_gridded_DBCCA_example.html">6.5 Edmonton AC Loads: Gridded Example</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guidebook_references.html">References</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">References</a></li>
 </ul>
 
     </div>
@@ -254,7 +254,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/README.md" target="_blank"
+      <li><a href="_sources/guidebook_references.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,9 +323,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -336,20 +334,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>UTCDW Guidebook</h1>
+    <h1>References</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-this-guide-is-for">Who This Guide is For</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-the-utcdw-guidebook">Limitations of the UTCDW Guidebook</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -359,23 +348,83 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="utcdw-guidebook">
-<h1>UTCDW Guidebook<a class="headerlink" href="#utcdw-guidebook" title="Permalink to this headline">#</a></h1>
-<p><em>Last updated September 7 2023</em></p>
-<p>Welcome to the guidebook for the University of Toronto Climate Downscaling Workflow. If you’re accessing these resources, it means you are interested in using data to study how climate change may affect a particular domain in the built or natural environment. The purpose of this guidebook is to help you develop the skills and knowledge needed to design and conduct a climate change impact analysis study and perform your own statistical downscaling of climate model data.</p>
-<div class="section" id="who-this-guide-is-for">
-<h2>Who This Guide is For<a class="headerlink" href="#who-this-guide-is-for" title="Permalink to this headline">#</a></h2>
-<p>The target audience for this guidebook is a researcher with little or no foundation in climate science, who studies a system that is sensitive to weather and climate. For example, an engineer who studies building energy use, which depends on climatic variables such as temperature and humidity. In order to quantitatively study how climate change might affect the system you study and properly interpret the results, you need some basic knowledge of the climate system and climate modeling.</p>
-<p>Users from outside of the climate science community may not be familiar with how climate change projections are produced, what sort of data is available, and how climate data is typically structured. Importantly, you also need to understand the limitations of climate change projections. Rarely are out-of-the-box climate model projections suitable for regional climate impact assessment, so post-processing must be applied to account for systematic biases and coarse spatial sampling, and make the data useful for practitioners or impact modelers. One must also appreciate the irreducible uncertainty inherent to future climate projections, due to factors like uncertain greenhouse gas emission pathways and natural climate variability. This guidebook will introduce you to all of these concepts while also showing code examples of how to access and analyze climate data.</p>
-</div>
-<div class="section" id="limitations-of-the-utcdw-guidebook">
-<h2>Limitations of the UTCDW Guidebook<a class="headerlink" href="#limitations-of-the-utcdw-guidebook" title="Permalink to this headline">#</a></h2>
-<p>The UTCDW provides educational material to help you design and conduct your own analyses, but we cannot give detailed guidance on any specific research problem. The guidebook provides general guidance and a few examples, but there are too many possible applications of climate downscaling to be exhaustive. Notably, we cannot tell you <em>how</em> your domain application is sensitive to climatic factors. As the expert on the system you study, it’s up to you to have a sense of the important climate variables for your application, and how you might quantify the way weather and climate affect your study system. If you require climate data as inputs to a model (for example, a model that calculates building energy use as a function of outside temperature and humidity), then you should be familiar with which input variables are required, and at what spatial and temporal sampling. We call the quantity which depends on climate variables, and is relevant for your domain application, a “climate indicator”, whether it’s calculated using an analytic expression or a complex numerical model. Climate indicators will be discussed further in Chapter 5, but it’s important to know from the start that this guide assumes you have a way to quantify how your study system depends on climatic factors.</p>
-<p><strong>License</strong></p>
-<p>This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. You are free to copy, redistribute, and share this book, in any medium, or format. You may also adapt the book, improve it, and re-use it in your own materials. However, keep in mind that you must give credit where credit is due, and any works that you produce based on this work are subject to the same license. For more details, click the badge below.</p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
-</div>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h1>
+<div class="docutils container" id="id1">
+<dl class="citation">
+<dt class="label" id="id17"><span class="brackets">noa23</span></dt>
+<dd><p>Shared Socioeconomic Pathways. June 2023. Page Version ID: 1159874271. URL: <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=Shared_Socioeconomic_Pathways&amp;oldid=1159874271">https://en.wikipedia.org/w/index.php?title=Shared_Socioeconomic_Pathways&amp;oldid=1159874271</a> (visited on 2023-09-06).</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets">AB12</span></dt>
+<dd><p>John T. Abatzoglou and Timothy J. Brown. A comparison of statistical downscaling methods suited for wildfire applications: STATISTICAL DOWNSCALING FOR WILDFIRE APPLICATIONS. <em>Int. J. Climatol.</em>, 32(5):772–780, April 2012. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/joc.2312">https://onlinelibrary.wiley.com/doi/10.1002/joc.2312</a> (visited on 2023-05-03), <a class="reference external" href="https://doi.org/10.1002/joc.2312">doi:10.1002/joc.2312</a>.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">CSM15</span></dt>
+<dd><p>Alex J. Cannon, Stephen R. Sobie, and Trevor Q. Murdock. Bias Correction of GCM Precipitation by Quantile Mapping: How Well Do Methods Preserve Changes in Quantiles and Extremes? <em>Journal of Climate</em>, 28(17):6938–6959, September 2015. URL: <a class="reference external" href="http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1">http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1</a> (visited on 2022-12-06), <a class="reference external" href="https://doi.org/10.1175/JCLI-D-14-00754.1">doi:10.1175/JCLI-D-14-00754.1</a>.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets">CGH+04</span></dt>
+<dd><p>Martyn Clark, Subhrendu Gangopadhyay, Lauren Hay, Balaji Rajagopalan, and Robert Wilby. The Schaake Shuffle: A Method for Reconstructing Space–Time Variability in Forecasted Precipitation and Temperature Fields. <em>J. Hydrometeor</em>, 5(1):243–262, February 2004. URL: <a class="reference external" href="http://journals.ametsoc.org/doi/10.1175/1525-7541(2004)005&lt;0243:TSSAMF&gt;2.0.CO;2">http://journals.ametsoc.org/doi/10.1175/1525-7541(2004)005&lt;0243:TSSAMF&gt;2.0.CO;2</a> (visited on 2023-05-04), <a class="reference external" href="https://doi.org/10.1175/1525-7541(2004)005&lt;0243:TSSAMF&gt;2.0.CO;2">doi:10.1175/1525-7541(2004)005&lt;0243:TSSAMF&gt;2.0.CO;2</a>.</p>
+</dd>
+<dt class="label" id="id27"><span class="brackets">FL84</span></dt>
+<dd><p>L. Finkelstein and M. S. Leaning. A review of the fundamental concepts of measurement. <em>Measurement</em>, 2(1):25–34, January 1984. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/0263224184900204">https://www.sciencedirect.com/science/article/pii/0263224184900204</a> (visited on 2023-09-06), <a class="reference external" href="https://doi.org/10.1016/0263-2241(84)90020-4">doi:10.1016/0263-2241(84)90020-4</a>.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets">FSK21</span></dt>
+<dd><p>E. M. Fischer, S. Sippel, and R. Knutti. Increasing probability of record-shattering climate extremes. <em>Nat. Clim. Chang.</em>, 11(8):689–695, August 2021. URL: <a class="reference external" href="https://www.nature.com/articles/s41558-021-01092-9">https://www.nature.com/articles/s41558-021-01092-9</a> (visited on 2023-09-06), <a class="reference external" href="https://doi.org/10.1038/s41558-021-01092-9">doi:10.1038/s41558-021-01092-9</a>.</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">HBB+20</span></dt>
+<dd><p>Hans Hersbach, Bill Bell, Paul Berrisford, Shoji Hirahara, András Horányi, Joaquín Muñoz‐Sabater, Julien Nicolas, Carole Peubey, Raluca Radu, Dinand Schepers, Adrian Simmons, Cornel Soci, Saleh Abdalla, Xavier Abellan, Gianpaolo Balsamo, Peter Bechtold, Gionata Biavati, Jean Bidlot, Massimo Bonavita, Giovanna Chiara, Per Dahlgren, Dick Dee, Michail Diamantakis, Rossana Dragani, Johannes Flemming, Richard Forbes, Manuel Fuentes, Alan Geer, Leo Haimberger, Sean Healy, Robin J. Hogan, Elías Hólm, Marta Janisková, Sarah Keeley, Patrick Laloyaux, Philippe Lopez, Cristina Lupu, Gabor Radnoti, Patricia Rosnay, Iryna Rozum, Freja Vamborg, Sebastien Villaume, and Jean‐Noël Thépaut. The ERA5 global reanalysis. <em>Q.J.R. Meteorol. Soc.</em>, 146(730):1999–2049, July 2020. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/qj.3803">https://onlinelibrary.wiley.com/doi/10.1002/qj.3803</a> (visited on 2022-03-16), <a class="reference external" href="https://doi.org/10.1002/qj.3803">doi:10.1002/qj.3803</a>.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">HDC08</span></dt>
+<dd><p>H G Hidalgo, M D Dettinger, and D R Cayan. Downscaling with Constructed Analogues: Daily Precipitation and Temperature Fields Over the United States. Technical Report CEC-500-2007-123, California Energy Commission, 2008.</p>
+</dd>
+<dt class="label" id="id23"><span class="brackets">HCM+18</span></dt>
+<dd><p>James Hiebert, Alex J. Cannon, Trevor Murdock, Stephen Sobie, and Arelia Werner. ClimDown: Climate Downscaling in R. <em>Journal of Open Source Software</em>, 3(22):360, February 2018. URL: <a class="reference external" href="https://joss.theoj.org/papers/10.21105/joss.00360">https://joss.theoj.org/papers/10.21105/joss.00360</a> (visited on 2023-09-06), <a class="reference external" href="https://doi.org/10.21105/joss.00360">doi:10.21105/joss.00360</a>.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">HHP17</span></dt>
+<dd><p>Jan Hnilica, Martin Hanel, and Vladimír Puš. Multisite bias correction of precipitation data from regional climate models: MULTISITE BIAS CORRECTION. <em>Int. J. Climatol.</em>, 37(6):2934–2946, May 2017. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/joc.4890">https://onlinelibrary.wiley.com/doi/10.1002/joc.4890</a> (visited on 2023-02-28), <a class="reference external" href="https://doi.org/10.1002/joc.4890">doi:10.1002/joc.4890</a>.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">KDP+15</span></dt>
+<dd><p>J. E. Kay, C. Deser, A. Phillips, A. Mai, C. Hannay, G. Strand, J. M. Arblaster, S. C. Bates, G. Danabasoglu, J. Edwards, M. Holland, P. Kushner, J.-F. Lamarque, D. Lawrence, K. Lindsay, A. Middleton, E. Munoz, R. Neale, K. Oleson, L. Polvani, and M. Vertenstein. The Community Earth System Model (CESM) Large Ensemble Project: A Community Resource for Studying Climate Change in the Presence of Internal Climate Variability. <em>Bulletin of the American Meteorological Society</em>, 96(8):1333–1349, August 2015. Publisher: American Meteorological Society Section: Bulletin of the American Meteorological Society. URL: <a class="reference external" href="https://journals.ametsoc.org/view/journals/bams/96/8/bams-d-13-00255.1.xml">https://journals.ametsoc.org/view/journals/bams/96/8/bams-d-13-00255.1.xml</a> (visited on 2022-03-23), <a class="reference external" href="https://doi.org/10.1175/BAMS-D-13-00255.1">doi:10.1175/BAMS-D-13-00255.1</a>.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets">KHM+21</span></dt>
+<dd><p>Rao Kotamarthi, Katharine Hayhoe, Linda O. Mearns, Donald Wuebbles, Jennifer Jacobs, and Jennifer Jurado. <em>Downscaling Techniques for High-Resolution Climate Projections: From Global Change to Local Impacts</em>. Cambridge University Press, Cambridge, 2021. ISBN 978-1-108-47375-0. URL: <a class="reference external" href="https://www.cambridge.org/core/books/downscaling-techniques-for-highresolution-climate-projections/C261452F6DECC0372077B7533414CD95">https://www.cambridge.org/core/books/downscaling-techniques-for-highresolution-climate-projections/C261452F6DECC0372077B7533414CD95</a> (visited on 2023-09-06), <a class="reference external" href="https://doi.org/10.1017/9781108601269">doi:10.1017/9781108601269</a>.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">LSW10</span></dt>
+<dd><p>Haibin Li, Justin Sheffield, and Eric F. Wood. Bias correction of monthly precipitation and temperature fields from Intergovernmental Panel on Climate Change AR4 models using equidistant quantile matching. <em>J. Geophys. Res.</em>, 115(D10):D10101, May 2010. URL: <a class="reference external" href="http://doi.wiley.com/10.1029/2009JD012882">http://doi.wiley.com/10.1029/2009JD012882</a> (visited on 2023-04-28), <a class="reference external" href="https://doi.org/10.1029/2009JD012882">doi:10.1029/2009JD012882</a>.</p>
+</dd>
+<dt class="label" id="id26"><span class="brackets">LLWB94</span></dt>
+<dd><p>Xu Liang, Dennis P. Lettenmaier, Eric F. Wood, and Stephen J. Burges. A simple hydrologically based model of land surface water and energy fluxes for general circulation models. <em>Journal of Geophysical Research: Atmospheres</em>, 99(D7):14415–14428, 1994. _eprint: https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/94JD00483. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1029/94JD00483">https://onlinelibrary.wiley.com/doi/abs/10.1029/94JD00483</a> (visited on 2023-09-06), <a class="reference external" href="https://doi.org/10.1029/94JD00483">doi:10.1029/94JD00483</a>.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">Mar13</span></dt>
+<dd><p>Douglas Maraun. Bias Correction, Quantile Mapping, and Downscaling: Revisiting the Inflation Issue. <em>Journal of Climate</em>, 26(6):2137–2143, March 2013. URL: <a class="reference external" href="http://journals.ametsoc.org/doi/10.1175/JCLI-D-12-00821.1">http://journals.ametsoc.org/doi/10.1175/JCLI-D-12-00821.1</a> (visited on 2023-05-03), <a class="reference external" href="https://doi.org/10.1175/JCLI-D-12-00821.1">doi:10.1175/JCLI-D-12-00821.1</a>.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">MHD+10</span></dt>
+<dd><p>E. P. Maurer, H. G. Hidalgo, T. Das, M. D. Dettinger, and D. R. Cayan. The utility of daily large-scale climate data in the assessment of climate change impacts on daily streamflow in California. <em>Hydrol. Earth Syst. Sci.</em>, 14(6):1125–1138, June 2010. URL: <a class="reference external" href="https://hess.copernicus.org/articles/14/1125/2010/">https://hess.copernicus.org/articles/14/1125/2010/</a> (visited on 2022-12-07), <a class="reference external" href="https://doi.org/10.5194/hess-14-1125-2010">doi:10.5194/hess-14-1125-2010</a>.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets">MHP+11</span></dt>
+<dd><p>Daniel W. McKenney, Michael F. Hutchinson, Pia Papadopol, Kevin Lawrence, John Pedlar, Kathy Campbell, Ewa Milewska, Ron F. Hopkinson, David Price, and Tim Owen. Customized Spatial Climate Models for North America. <em>Bull. Amer. Meteor. Soc.</em>, 92(12):1611–1622, December 2011. URL: <a class="reference external" href="http://journals.ametsoc.org/doi/10.1175/2011BAMS3132.1">http://journals.ametsoc.org/doi/10.1175/2011BAMS3132.1</a> (visited on 2023-09-06), <a class="reference external" href="https://doi.org/10.1175/2011BAMS3132.1">doi:10.1175/2011BAMS3132.1</a>.</p>
+</dd>
+<dt class="label" id="id24"><span class="brackets">MSH14</span></dt>
+<dd><p>Trevor Q. Murdock, Stephen R. Sobie, and James Hiebert. Statistical downscaling of future climate projections for North America. Technical Report KM040-131148/A, Pacific Climate Impacts Consortium, July 2014. URL: <a class="reference external" href="https://www.pacificclimate.org/sites/default/files/publications/PCIC_EC_downscaling_report_2014.pdf">https://www.pacificclimate.org/sites/default/files/publications/PCIC_EC_downscaling_report_2014.pdf</a>.</p>
+</dd>
+<dt class="label" id="id25"><span class="brackets">SCK+19</span></dt>
+<dd><p>Neil C. Swart, Jason N. S. Cole, Viatcheslav V. Kharin, Mike Lazare, John F. Scinocca, Nathan P. Gillett, James Anstey, Vivek Arora, James R. Christian, Sarah Hanna, Yanjun Jiao, Warren G. Lee, Fouad Majaess, Oleg A. Saenko, Christian Seiler, Clint Seinen, Andrew Shao, Michael Sigmond, Larry Solheim, Knut von Salzen, Duo Yang, and Barbara Winter. The Canadian Earth System Model version 5 (CanESM5.0.3). <em>Geoscientific Model Development</em>, 12(11):4823–4873, November 2019. Publisher: Copernicus GmbH. URL: <a class="reference external" href="https://gmd.copernicus.org/articles/12/4823/2019/">https://gmd.copernicus.org/articles/12/4823/2019/</a> (visited on 2023-09-06), <a class="reference external" href="https://doi.org/10.5194/gmd-12-4823-2019">doi:10.5194/gmd-12-4823-2019</a>.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">TB18</span></dt>
+<dd><p>Brian H. Tang and Nick P. Bassill. Point Downscaling of Surface Wind Speed for Forecast Applications. <em>Journal of Applied Meteorology and Climatology</em>, 57(3):659–674, March 2018. URL: <a class="reference external" href="https://journals.ametsoc.org/view/journals/apme/57/3/jamc-d-17-0144.1.xml">https://journals.ametsoc.org/view/journals/apme/57/3/jamc-d-17-0144.1.xml</a> (visited on 2022-03-11), <a class="reference external" href="https://doi.org/10.1175/JAMC-D-17-0144.1">doi:10.1175/JAMC-D-17-0144.1</a>.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets">WC16</span></dt>
+<dd><p>Arelia T. Werner and Alex J. Cannon. Hydrologic extremes – an intercomparison of multiple gridded statistical downscaling methods. <em>Hydrol. Earth Syst. Sci.</em>, 20(4):1483–1508, April 2016. URL: <a class="reference external" href="https://hess.copernicus.org/articles/20/1483/2016/">https://hess.copernicus.org/articles/20/1483/2016/</a> (visited on 2022-12-07), <a class="reference external" href="https://doi.org/10.5194/hess-20-1483-2016">doi:10.5194/hess-20-1483-2016</a>.</p>
+</dd>
+<dt class="label" id="id21"><span class="brackets">Wil11</span></dt>
+<dd><p>Daniel S. Wilks. <em>Statistical methods in the atmospheric sciences</em>. International geophysics series ; v. 100. Elsevier, Amsterdam, The Netherlands ;, 3rd ed. edition, 2011. ISBN 978-1-283-10129-5.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">WLSL04</span></dt>
+<dd><p>A. W. Wood, L. R. Leung, V. Sridhar, and D. P. Lettenmaier. Hydrologic Implications of Dynamical and Statistical Approaches to Downscaling Climate Model Outputs. <em>Climatic Change</em>, 62(1-3):189–216, January 2004. URL: <a class="reference external" href="http://link.springer.com/10.1023/B:CLIM.0000013685.99609.9e">http://link.springer.com/10.1023/B:CLIM.0000013685.99609.9e</a> (visited on 2023-05-03), <a class="reference external" href="https://doi.org/10.1023/B:CLIM.0000013685.99609.9e">doi:10.1023/B:CLIM.0000013685.99609.9e</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">ZKSP22</span></dt>
+<dd><p>Xuesong Zhang, Paul J. Kushner, Bradley A. Saville, and I. Daniel Posen. Cold Temperature Limits to Biodiesel Use under Present and Future Climates in North America. <em>Environ. Sci. Technol.</em>, 56(12):8640–8649, June 2022. Publisher: American Chemical Society. URL: <a class="reference external" href="https://doi.org/10.1021/acs.est.2c01699">https://doi.org/10.1021/acs.est.2c01699</a> (visited on 2022-07-06), <a class="reference external" href="https://doi.org/10.1021/acs.est.2c01699">doi:10.1021/acs.est.2c01699</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -410,14 +459,14 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="right-next"
-       href="Chapter1/chapter1.html"
-       title="next page">
+    <a class="left-prev"
+       href="Chapter6/section6.5_gridded_DBCCA_example.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 1: Introduction</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">6.5 Edmonton AC Loads: Gridded Example</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -428,21 +477,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-this-guide-is-for">Who This Guide is For</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-the-utcdw-guidebook">Limitations of the UTCDW Guidebook</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

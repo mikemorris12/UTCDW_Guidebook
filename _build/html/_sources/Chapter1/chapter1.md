@@ -16,4 +16,4 @@ The volume of data to be processed as a part of a climate impact study can be ve
 
 ## A Note about Statistics
 
-The downscaling and analysis methods described and implemented in this guidebook make use of fundamental concepts in probability and statistics. As such, understanding of these concepts is necessary for understanding the methods presented in Chapter 4. Readers with little or no background in statistics are encouraged to review the textbook "Statistical Methods in the Atmospheric Sciences" (Wilks, 2019) ([UofT Libraries Permalink](https://librarysearch.library.utoronto.ca/permalink/01UTORONTO_INST/14bjeso/alma991106867754106196)), particularly Chapters 1-4. 
+The downscaling and analysis methods described and implemented in this guidebook make use of fundamental concepts in probability and statistics. As such, understanding of these concepts is necessary for understanding the methods presented in Chapter 4. Readers with little or no background in statistics are encouraged to review the textbook "Statistical Methods in the Atmospheric Sciences" {cite}`wilks_statistical_2011`, particularly Chapters 1-4. 

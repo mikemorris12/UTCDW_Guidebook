@@ -202,6 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.5_gridded_DBCCA_example.html">6.5 Edmonton AC Loads: Gridded Example</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../guidebook_references.html">References</a></li>
 </ul>
 
     </div>
@@ -374,7 +375,7 @@ document.write(`
 <div class="section" id="temporal-sampling">
 <h2>5.2.1 Temporal Sampling<a class="headerlink" href="#temporal-sampling" title="Permalink to this headline">#</a></h2>
 <p>Climate model output is typically only archived at certain standard time frequencies. These inlcude monthly and daily means, maxima and minima, and 6-hourly means or instantaneous values. For most models and variables, it’s unlikely you will be able to find data at sub-6-hourly frequency, though some models may have hourly data (either means or instantaneous values) available on the ESGF. The most appropriate frequency and sampling type (means, max/min, instantaneous, etc.) of climate data for your study depends on the nature of your climate indicator. For example, indicators based on numbers of days per year require daily means, maxima, or minima. Since you’re likely already intimately familiar with your climate indicator or your impact model, it should be fairly easy to specify the required temporal sampling.</p>
-<p>Almost no sub-hourly data is ever archived from climate model simulations. Since the usual timestep for 1-degree resolution models is about 30 minutes, temporal variability at sub-hourly timescales is not really represented. If your application or impact model requires sub-hourly input data, you’ll need to somehow impose higher frequency temporal variability on top of the downscaled model output. Methods for doing this for certain climate variables, such as wind speed (<a class="reference external" href="https://doi.org/10.1175/JAMC-D-17-0144.1">Tang and Bassill, 2018</a>) have been developed, but will not be covered further in this guidebook.</p>
+<p>Almost no sub-hourly data is ever archived from climate model simulations. Since the usual timestep for 1-degree resolution models is about 30 minutes, temporal variability at sub-hourly timescales is not really represented. If your application or impact model requires sub-hourly input data, you’ll need to somehow impose higher frequency temporal variability on top of the downscaled model output. Methods for doing this for certain climate variables, such as wind speed <span id="id1">[<a class="reference internal" href="../guidebook_references.html#id2" title="Brian H. Tang and Nick P. Bassill. Point Downscaling of Surface Wind Speed for Forecast Applications. Journal of Applied Meteorology and Climatology, 57(3):659–674, March 2018. URL: https://journals.ametsoc.org/view/journals/apme/57/3/jamc-d-17-0144.1.xml (visited on 2022-03-11), doi:10.1175/JAMC-D-17-0144.1.">Tang and Bassill, 2018</a>]</span> have been developed, but will not be covered further in this guidebook.</p>
 </div>
 <div class="section" id="spatial-sampling">
 <h2>5.2.2 Spatial Sampling<a class="headerlink" href="#spatial-sampling" title="Permalink to this headline">#</a></h2>

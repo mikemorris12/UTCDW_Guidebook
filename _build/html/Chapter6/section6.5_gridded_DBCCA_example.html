@@ -64,6 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter6/section6.5_gridded_DBCCA_example';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="References" href="../guidebook_references.html" />
     <link rel="prev" title="6.4 Edmonton AC Loads: Near-Term Projections" href="section6.4_station_1D_example_nearterm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -201,6 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">6.5 Edmonton AC Loads: Gridded Example</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../guidebook_references.html">References</a></li>
 </ul>
 
     </div>
@@ -376,7 +378,7 @@ document.write(`
 <p>This notebook will expand on the examples of Sections 6.1-6.4 and make projections of Cooling Degree Days in a region around the city of Edmonton. To clearly illustrate the value of higher spatial resolution, we’ll use a <span class="math notranslate nohighlight">\(5^{\circ} \times 10^{\circ}\)</span> latitude <span class="math notranslate nohighlight">\(\times\)</span> longitude region centred on the city. This encompasses most of Northern Alberta, but since it extends westward into a region of high elevation and complex topography, it really shows the improvements that can be offered by high spatial resolution.</p>
 <p>Like 6.1-6.3, we will use 1980-2010 as the historical baseline period and 2070-2100 as the future projection period. Because of the much larger volume of data that comes with using high-resolution gridded climate data, we’ll return to the scope of Section 6.1 and use only a single model (CESM2) and future scenario (SSP3-7.0).</p>
 <p>The gridded observational product we will use in this notebook is the ERA5-Land reanalysis. This is not really observations, but is instead output from the ECMWF weather forecast model, which assimilates observations. We use this data since the true gridded observational product we used previously in Sections 3.2 and 4.4, the NRCanMet product, does not offer daily mean temperature, which we need to calculate CDDs. ERA5-Land has a spatial resolution of about 9 km <span class="math notranslate nohighlight">\(\times\)</span> 9 km, slightly higher than NRCanMet. More information about ERA5-Land can be found <a class="reference external" href="https://confluence.ecmwf.int/display/CKB/ERA5-Land%3A+data+documentation">here</a>.</p>
-<p>The downscaling method we will employ in this example is “Double Bias Corrected Constructed Analogues”, or DBCCA. This method is explained in detail in <a class="reference external" href="https://utcdw.physics.utoronto.ca/UTCDW_Guidebook/Chapter4/section4.3_downscaling_methods.html#bias-corrected-constructed-analogues">Section 4.3.3.2</a> and <a class="reference external" href="https://doi.org/10.5194/hess-20-1483-2016">Werner and Cannon (2016)</a>. In short, it produces downscaled model output using an optimal linear combination of high-resolution observations (BCCA) with a quantile mapping bias correction step after the fact (DBCCA). Code for both the BCCA and DBCCA methods can be found in the <a class="reference external" href="https://github.com/mikemorris12/UTCDW_Guidebook">UTCDW GitHub repository</a> in downscaling_code/BCCA.py and downscaling_code/DBCCA.py respectively. Before continuing, please review the aforementioned links and the docstrings for each function in the aforementioned Python scripts, so you can get an idea of how the methods work and how they are implemented.</p>
+<p>The downscaling method we will employ in this example is “Double Bias Corrected Constructed Analogues”, or DBCCA. This method is explained in detail in <a class="reference external" href="https://utcdw.physics.utoronto.ca/UTCDW_Guidebook/Chapter4/section4.3_downscaling_methods.html#bias-corrected-constructed-analogues">Section 4.3.3.2</a> and <span id="id1">[<a class="reference internal" href="../guidebook_references.html#id7" title="Arelia T. Werner and Alex J. Cannon. Hydrologic extremes – an intercomparison of multiple gridded statistical downscaling methods. Hydrol. Earth Syst. Sci., 20(4):1483–1508, April 2016. URL: https://hess.copernicus.org/articles/20/1483/2016/ (visited on 2022-12-07), doi:10.5194/hess-20-1483-2016.">Werner and Cannon, 2016</a>]</span>. In short, it produces downscaled model output using an optimal linear combination of high-resolution observations (BCCA) with a quantile mapping bias correction step after the fact (DBCCA). Code for both the BCCA and DBCCA methods can be found in the <a class="reference external" href="https://github.com/mikemorris12/UTCDW_Guidebook">UTCDW GitHub repository</a> in downscaling_code/BCCA.py and downscaling_code/DBCCA.py respectively. Before continuing, please review the aforementioned links and the docstrings for each function in the aforementioned Python scripts, so you can get an idea of how the methods work and how they are implemented.</p>
 <p>As with the previous examples, here is the workflow diagram, generated using the UTCDW website:</p>
 <a class="reference internal image-reference" href="../_images/survey_gridded.png"><img alt="../_images/survey_gridded.png" class="align-center" src="../_images/survey_gridded.png" style="width: 600px;" /></a>
 <div class="cell tag_hide-cell docutils container">
@@ -1044,6 +1046,15 @@ document.write(`
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">6.4 Edmonton AC Loads: Near-Term Projections</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../guidebook_references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
