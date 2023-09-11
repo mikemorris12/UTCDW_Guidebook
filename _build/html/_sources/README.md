@@ -2,7 +2,7 @@
 
 *Michael Morris, Paul J. Kushner, and Karen L. Smith*
 
-*Version 0.9 -- Last updated September 7 2023*
+*Version 0.9 -- Last updated September 11 2023*
 
 Welcome to the guidebook for the University of Toronto Climate Downscaling Workflow. If you're accessing these resources, it means you are interested in using data to study how climate change may affect a particular domain in the built or natural environment. The purpose of this guidebook is to help you develop the skills and knowledge needed to design and conduct a climate change impact analysis study and perform your own statistical downscaling of climate model data. This guidebook takes advantage of the [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) format to intermix text explaining concepts and methods with code that demonstrates application.
 

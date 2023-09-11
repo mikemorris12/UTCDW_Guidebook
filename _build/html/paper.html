@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UTCDW Guidebook &#8212; UTCDW Guidebook</title>
+    <title>Summary &#8212; UTCDW Guidebook</title>
   
   
   
@@ -59,10 +59,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'paper';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter 1: Introduction" href="Chapter1/chapter1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -128,7 +127,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="README.html">
   
   
   
@@ -147,8 +146,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
                     UTCDW Guidebook
                 </a>
             </li>
@@ -254,7 +253,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/README.md" target="_blank"
+      <li><a href="_sources/paper.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,7 +335,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>UTCDW Guidebook</h1>
+    <h1>Summary</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -346,13 +345,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-this-guide-is-for">Who This Guide is For</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-the-utcdw-guidebook">Limitations of the UTCDW Guidebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issues-feedback-and-support">Issues, Feedback, and Support</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributors">Contributors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funding-acknowledgement">Funding Acknowledgement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statement-of-need">Statement of Need</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#guidebook-content">Guidebook Content</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -363,39 +360,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="utcdw-guidebook">
-<h1>UTCDW Guidebook<a class="headerlink" href="#utcdw-guidebook" title="Permalink to this headline">#</a></h1>
-<p><em>Michael Morris, Paul J. Kushner, and Karen L. Smith</em></p>
-<p><em>Version 0.9 – Last updated September 11 2023</em></p>
-<p>Welcome to the guidebook for the University of Toronto Climate Downscaling Workflow. If you’re accessing these resources, it means you are interested in using data to study how climate change may affect a particular domain in the built or natural environment. The purpose of this guidebook is to help you develop the skills and knowledge needed to design and conduct a climate change impact analysis study and perform your own statistical downscaling of climate model data. This guidebook takes advantage of the <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter Book</a> format to intermix text explaining concepts and methods with code that demonstrates application.</p>
-<div class="section" id="who-this-guide-is-for">
-<h2>Who This Guide is For<a class="headerlink" href="#who-this-guide-is-for" title="Permalink to this headline">#</a></h2>
-<p>The target audience for this guidebook is a researcher with little or no foundation in climate science, who studies a system that is sensitive to weather and climate. For example, an engineer who studies building energy use, which depends on climatic variables such as temperature and humidity. In order to quantitatively study how climate change might affect the system you study and properly interpret the results, you need some basic knowledge of the climate system and climate modeling.</p>
-<p>Users from outside of the climate science community may not be familiar with how climate change projections are produced, what sort of data is available, and how climate data is typically structured. Importantly, you also need to understand the limitations of climate change projections. Rarely are out-of-the-box climate model projections suitable for regional climate impact assessment, so post-processing must be applied to account for systematic biases and coarse spatial sampling, and make the data useful for practitioners or impact modelers. One must also appreciate the irreducible uncertainty inherent to future climate projections, due to factors like uncertain greenhouse gas emission pathways and natural climate variability. This guidebook will introduce you to all of these concepts while also showing code examples of how to access and analyze climate data.</p>
+  <p>–
+title: The University of Toronto Climate Downscaling Workflow: Tools and Resources for Climate Change Impact Analysis</p>
+<p>authors:</p>
+<ul class="simple">
+<li><p>name: Michael Morris
+affiliation: 1</p></li>
+<li><p>name: Paul J. Kushner
+orcid: 0000-0002-6404-4518
+affiliation: 1</p></li>
+<li><p>name: Karen L. Smith
+orcid: 0000-0002-4652-6310
+affiliation: 2
+affiliations:</p></li>
+<li><p>name: Department of Physics, University of Toronto
+index: 1</p></li>
+<li><p>name: Department of Physical and Environmental Sciences, University of Toronto Scarborough
+index: 2
+date: 2023
+bibliography: paper.bib
+–</p></li>
+</ul>
+<div class="tex2jax_ignore mathjax_ignore section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h1>
+<p>The University of Toronto Climate Downscaling Workflow (UTCDW) is a resource designed to teach users how to produce their own statistically downscaled climate projections for the purpose of climate change impact analysis. The target audience is graduate students or practitioners who may work outside the field of climate science, but are interested in how their subject of study is sensitive to climate change. The main component of the UTCDW is a <a class="reference external" href="https://utcdw.physics.utoronto.ca/UTCDW_Guidebook/README.html">Jupyter Book</a> we call the “UTCDW Guidebook”. The guidebook book introduces users to fundamental topics of climate science and downscaling, and unpacks the decisions that must be made when designing a climate change impact study. It demonstrates how to download climate data, do exploratory analysis and model validation, and provides examples of end-to-end workflows for small climate downscaling projects. All of the guidebook source materials (Jupyter Notebooks, markdown files, and Python scripts) are accessible in the <a class="reference external" href="https://github.com/mikemorris12/UTCDW_Guidebook">UTCDW_Guidebook GitHub repository</a>. The UTCDW also includes a <a class="reference external" href="https://utcdw.physics.utoronto.ca/">website</a> that contains a guided survey that helps a user design their climate impact study and generated a flowchart image that lays out the steps for the workflow. While this website is separate from the JOSE submission, the flowcharts are featured in the worked examples (Chapter 6) to explain the process of study design and analysis before acquiring, analyzing, and interpreting the data.</p>
 </div>
-<div class="section" id="limitations-of-the-utcdw-guidebook">
-<h2>Limitations of the UTCDW Guidebook<a class="headerlink" href="#limitations-of-the-utcdw-guidebook" title="Permalink to this headline">#</a></h2>
-<p>The UTCDW provides educational material to help you design and conduct your own analyses, but we cannot give detailed guidance on any specific research problem. The guidebook provides general guidance and a few examples, but there are too many possible applications of climate downscaling to be exhaustive. Notably, we cannot tell you <em>how</em> your domain application is sensitive to climatic factors. As the expert on the system you study, it’s up to you to have a sense of the important climate variables for your application, and how you might quantify the way weather and climate affect your study system. If you require climate data as inputs to a model (for example, a model that calculates building energy use as a function of outside temperature and humidity), then you should be familiar with which input variables are required, and at what spatial and temporal sampling. We call the quantity which depends on climate variables, and is relevant for your domain application, a “climate indicator”, whether it’s calculated using an analytic expression or a complex numerical model. Climate indicators will be discussed further in Chapter 5, but it’s important to know from the start that this guide assumes you have a way to quantify how your study system depends on climatic factors.</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="statement-of-need">
+<h1>Statement of Need<a class="headerlink" href="#statement-of-need" title="Permalink to this headline">#</a></h1>
+<p>Important natural and human-designed systems in disciplines such as ecology, engineering, and public health are sensitive to weather and climate conditions. This means these systems are also sensitive to the impacts of anthropogenic global warming and climate change. As climate change intensifies, climate-sensitive entities are set to become more vulnerable to climate risk. Therefore we need to answer important questions about design, risk assessment, and practical solutions to mitigate damaging climate change. However, available climate data from weather-station observations, satellites, gridded observational products, and climate models, usually don’t directly meet the requirements of end users. Models are imperfect and observations contain errors, so model output is typically not consistent with the observed climate. In addition, available climate information doesn’t directly correspond to useful metrics for calculating loads and hazards, for example, not being available on the required spatial scales and time scales. Generally, climate data is not specific to a given site or set of sites such as a residential area, an electric power grid, or a watershed. Downscaling refers to a set of procedures that adjust and map climate data to variables, times, and locations, relevant for applications. It involves a calibration, using statistics, physical reasoning, and modelling, of climate model output using observations and analysis requirements for specific study domains. Downscaling is enriched with expertise on understanding of the climate system and subject matter expertise. Engineering firms, government departments, and non-profit organizations carry out downscaling routinely to help various clients and stakeholders adapt to a changing climate and seek effective solutions to the dangerous effects of climate change.</p>
+<p>Unfortunately, there is no single accepted standard for downscaling, only a range of methods that are centred on the practice of different climate-service providers. This makes it hard for new researchers to get started and perform their own analysis, especially when existing downscaled data products do not suit their needs. The UTCDW documents state-of-the-art methods for statistical bias correction and downscaling that are easy for technically competent users to implement, and helps users build this technical competence in the early guidebook chapters. Other educational materials on climate change impact assessment are available, but they are either limited regarding the complexity of the methods covered [&#64;anderson_narrative_2021], lack code examples to help new users actually work with the data they need [&#64;kotamarthi_downscaling_2021], or are too advanced for a first introduction to downscaling [&#64;maraun_statistical_2018]. The UTCDW Guidebook fills this gap by providing a basic introduction to concepts in climate science and including worked examples and code for downscaling methods appropriate for research applications. This makes the UTCDW ideal for users who are new to these concepts and wish to be able to start doing data analysis for their impact study as quickly as possible.</p>
 </div>
-<div class="section" id="issues-feedback-and-support">
-<h2>Issues, Feedback, and Support<a class="headerlink" href="#issues-feedback-and-support" title="Permalink to this headline">#</a></h2>
-<p>If you encounter a problem with the guidebook, would like to make suggestions on how to improve it, or otherwise would like to contact the authors, please use the <a class="reference external" href="https://utcdw.physics.utoronto.ca/feedback/">Feedback page</a> of the main UTCDW website. We invite you to contribute to the book by making a Pull Request through the <a class="reference external" href="https://github.com/mikemorris12/UTCDW_Guidebook">Github Repository</a> that hosts the files that comprise the guidebook. If you’re not familiar with Git, then you’re welcome to use the Feedback page instead.</p>
-</div>
-<div class="section" id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h2>
-<p>The contents of this guidebook were written predominantly by Michael Morris. This work was performed under he supervision of Professor Paul J. Kushner, who conceived of the project and provided feedback, and Professor Karen L. Smith, who provided content suggestions and feedback for most chapters. Special thanks to Aleksandra Elias Chereque, Cassandra Chanen and Lilian Chan who tested early iterations of the guidebook materials. Extra special thanks to Julian Comanean, who coded the <a class="reference external" href="https://utcdw.physics.utoronto.ca/">UTCDW website</a> and the guided survey/flowchart generator, and designed the UTCDW logo.</p>
-</div>
-<div class="section" id="funding-acknowledgement">
-<h2>Funding Acknowledgement<a class="headerlink" href="#funding-acknowledgement" title="Permalink to this headline">#</a></h2>
-<p>Funding for this project was provided by the <a class="reference external" href="https://uoftcse.ca/">Centre for Climate Science and Engineering</a>, <a class="reference external" href="https://cpe.utoronto.ca/">Climate Positive Energy</a>, and the University of Toronto <a class="reference external" href="https://datasciences.utoronto.ca/">Data Sciences Institute</a>.</p>
-</div>
-<div class="section" id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">#</a></h2>
-<p>This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. You are free to copy, redistribute, and share this book, in any medium, or format. You may also adapt the book, improve it, and re-use it in your own materials. However, keep in mind that you must give credit where credit is due, and any works that you produce based on this work are subject to the same license. For more details, click the badge below.</p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
-</div>
-<div class="toctree-wrapper compound">
-</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="guidebook-content">
+<h1>Guidebook Content<a class="headerlink" href="#guidebook-content" title="Permalink to this headline">#</a></h1>
+<p>The UTCDW guidebook consistents of six chapters. The first four chapters teach the reader the background knowledge required to do downscaling. Chapter 1 discusses the purpose of the book, points to some prerequisite material, and explains how to set up the Python computing environment. Chapter 2 is an introduction to climate science and climate modeling, so readers build an understanding of how climate change projections are made and what their limitations are. Chapter 3 is where the book begins to work with real climate data, and shows how one can access observational, reanalysis, and climate model data to use for an impact study. Chapter 4 contains explanations of various methods of bias-correction and downscaling methods, and examples of how to validate historical downscaled model output and assess future projections. The next two chapters puts together</p>
+<p>Chapter 6 contains worked examples of the UTCDW, building on the material and methods covered in the earlier chapters. The examples implement both bias-adjustment of one-dimensional time series representing data for a single location, and gridded downscaling methods to enhance the spatial resolution of model projections over an extended region. For users who do not wish to use pre-processed downscaled data, the guidebook also shows users how to access ready-to-use downscaled model output for Canada from the Pacific Climate Impacts Consortium [&#64;pacific_climate_impacts_consortium_statistically_2021] and links to other publicly available downscaled data products for additional regions or the globe. In either case, the examples demonstrate the end-to-end process of stating a problem, acquiring the necessary data, producing calibrated projections of the relevant metrics, and quantifying uncertainty.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -429,15 +427,6 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="right-next"
-       href="Chapter1/chapter1.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 1: Introduction</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -456,13 +445,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-this-guide-is-for">Who This Guide is For</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-the-utcdw-guidebook">Limitations of the UTCDW Guidebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issues-feedback-and-support">Issues, Feedback, and Support</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributors">Contributors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funding-acknowledgement">Funding Acknowledgement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statement-of-need">Statement of Need</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#guidebook-content">Guidebook Content</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>
