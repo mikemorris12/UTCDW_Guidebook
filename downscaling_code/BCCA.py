@@ -265,8 +265,8 @@ def apply_analogue_weights(obs_fine, weights, transform = None):
         obs_fine = np.sqrt(obs_fine)
 
     # linearly combine the high-res obs analogues
-    out = obs_fine.sel(time = weights.time).weighted(weights).sum('time')
-    #out = obs_fine.weighted(weights).sum('time')
+    #out = obs_fine.sel(time = weights.time).weighted(weights).sum('time')
+    out = obs_fine.weighted(weights).sum('time')
 
     # undo the transform, if it was applied
     if transform == 'sqrt':
@@ -278,7 +278,7 @@ def apply_analogue_weights(obs_fine, weights, transform = None):
     # return the downscaled output
     return out
 
-@dask.delayed
+#@dask.delayed
 def construct_analogue_onetime(field_gcm, obs_coarse, obs_fine, time_mapper,
                                n_analogues = 30, window_unit = 'days', metric = 'RMSE', 
                                penalty = 'l2', jitter = False, jitter_thresh = '0.1 mm/d', transform = None):
