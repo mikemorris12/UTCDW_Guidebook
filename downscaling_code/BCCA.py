@@ -4,7 +4,7 @@ BCCA.py
 code for implementing the Bias-Corrected Constructed Analogues
 statistical downscaling method (Werner & Cannon, 2016)
 """
-
+import dask
 import numpy as np 
 import xarray as xr
 import xclim.sdba as sdba
@@ -102,30 +102,48 @@ def get_metric_func(metric = "RMSE"):
     return func
 
 
-def get_obs_candidates(obs, gcm_time, window_size, window_unit):
+
+def get_time_mapper(window_size, window_unit = "days"):
+    """
+    * window_size (int) - The maximum number of timesteps away from the time of year of field_gcm
+    that candidate analogues can be selected. 
+    * window_unit ({'day'}) - the unit of time associated with window_size. 
+    Currently only 'day' is supported, i.e. all obs candidates must be within +/- window_size number of days.
+    """
+    # initially only implement a window with units of days
+    out = {}
+    if window_unit == 'days':
+        dayofyear = range(1, 366)
+        for day in dayofyear:
+            daymin = (day - window_size - 365) % 365
+            daymax = (day + window_size + 365) % 365
+             
+            if daymin > daymax: # if the window size crosses over two years, the start day will be greater than the end day
+                dayrange = np.append(np.arange(daymin, 366), np.arange(1, daymax + 1))
+            else:
+                dayrange = np.arange(daymin, daymax + 1)   
+            out[day] = dayrange
+    else:
+        print('non-daily windows not supported')
+        out = None
+
+    return out                    
+
+
+def get_obs_candidates(obs, gcm_time, time_mapper, window_unit):
     """
     select observed times within window_size number of window_units of gcm_time
 
     * obs (xr.DataArray): The data from which the observed analogues will be selected
     * gcm_time (datetime): The timestamp of the GCM pattern to be downscaled
-    * window_size (int): The max number of timesteps away from gcm_time for a candidate analogue.
-      The year does not matter, only the time of year.
+    * time_mapper (dict) - Dictionary mapping the day of the year to the range of days from which analogues can be selected.
     * window_unit ({'day'}) - the unit of time associated with window_size. 
     Currently only 'day' is supported, i.e. all obs candidates must be within +/- window_size number of days.
     """
-    # initially only implement a window with units of days
+
     if window_unit == 'days':
-        gcm_dayofyear = gcm_time.dt.dayofyear
-        daymin = (gcm_dayofyear - window_size - 365) % 365
-        daymax = (gcm_dayofyear + window_size + 365) % 365
-
-        if daymin > daymax: # if the window size crosses over two years, the start day will be greater than the end day
-            dayrange = np.append(np.arange(daymin, 366), np.arange(1, daymax + 1))
-        else:
-            dayrange = np.arange(daymin, daymax + 1)                           
-
-        out = obs.sel(time = obs.time.dt.dayofyear.isin(dayrange))
-
+        timerange = time_mapper[int(gcm_time.dt.dayofyear)]
+        out = obs.sel(time = obs.time.dt.dayofyear.isin(timerange))
     else:
         print('non-daily windows not supported')
         out = None
@@ -133,7 +151,7 @@ def get_obs_candidates(obs, gcm_time, window_size, window_unit):
     return out
 
 
-def find_analogues_onetime(field_gcm, obs_coarse, n_analogues = 30, window_size = 45, 
+def find_analogues_onetime(field_gcm, obs_coarse, time_mapper, n_analogues = 30, 
                            window_unit = 'days', metric = 'RMSE', transform = None):
     """
     return the n_analogues observed days which best match field_gcm 
@@ -142,9 +160,8 @@ def find_analogues_onetime(field_gcm, obs_coarse, n_analogues = 30, window_size 
     * field_gcm (xr.DataArray) - The GCM data you're looking to find obs analogues for.
     * obs_coarse (xr.DataArray) - The library of all observational data from which analogues
       could be selected. Must have the same dimensions and size as field_gcm.
-    * n_analogues (int) - The number of analogues to be selected. Defaults to 30.
-    * window_size (int) - The maximum number of timesteps away from the time of year of field_gcm
-      that candidate analogues can be selected. 
+    * time_mapper (dict) - Dictionary mapping the day of the year to the range of days from which analogues can be selected.
+    * n_analogues (int) - The number of analogues to be selected. Defaults to 30. 
     * window_unit ({'day'}) - the unit of time associated with window_size. 
       Currently only 'day' is supported, i.e. all obs candidates must be within +/- window_size number of days.
     * metric ({'RMSE'}) - The metric used to measure similarity between field_gcm and the candidate analogues.
@@ -156,7 +173,7 @@ def find_analogues_onetime(field_gcm, obs_coarse, n_analogues = 30, window_size 
     
     # select observations within a similar part of the year to the simulated time
     gcm_time = field_gcm.time
-    obs_candidates = get_obs_candidates(obs_coarse, gcm_time, window_size, window_unit)
+    obs_candidates = get_obs_candidates(obs_coarse, gcm_time, time_mapper, window_unit)
 
     # transform the fields if necessary
     if transform == 'sqrt':
@@ -247,6 +264,7 @@ def apply_analogue_weights(obs_fine, weights, transform = None):
 
     # linearly combine the high-res obs analogues
     out = obs_fine.sel(time = weights.time).weighted(weights).sum('time')
+    #out = obs_fine.weighted(weights).sum('time')
 
     # undo the transform, if it was applied
     if transform == 'sqrt':
@@ -258,9 +276,9 @@ def apply_analogue_weights(obs_fine, weights, transform = None):
     # return the downscaled output
     return out
 
-
-def construct_analogue_onetime(field_gcm, obs_coarse, obs_fine, 
-                               n_analogues = 30, window_size = 45, window_unit = 'days', metric = 'RMSE', 
+#@dask.delayed
+def construct_analogue_onetime(field_gcm, obs_coarse, obs_fine, time_mapper,
+                               n_analogues = 30, window_unit = 'days', metric = 'RMSE', 
                                penalty = 'l2', jitter = False, jitter_thresh = '0.1 mm/d', transform = None):
     """
     Apply the constructed analogues algorithm for a single model time step. This is basically a wrapper for the whole 
@@ -271,9 +289,8 @@ def construct_analogue_onetime(field_gcm, obs_coarse, obs_fine,
       on the same coarse grid as field_gcm
     * obs_fine (xr.DataArray) - The original high-resolution observations, to be used to
       produce the high-res downscaled data.
+    * time_mapper (dict) - Dictionary mapping the day of the year to the range of days from which analogues can be selected.
     * n_analogues (int) - The number of analogues that will contribute to the downscaled pattern. Defaults to 30.
-    * window_size (int) - The maximum number of timesteps away from the time of year of field_gcm
-      that candidate analogues can be selected. 
     * window_unit ({'day'}) - the unit of time associated with window_size. 
       Currently only 'day' is supported, i.e. all obs candidates must be within +/- window_size number of days.
     * metric ({'RMSE'}) - The metric used to measure similarity between field_gcm and the candidate analogues.
@@ -286,8 +303,8 @@ def construct_analogue_onetime(field_gcm, obs_coarse, obs_fine,
       such as precipitation do not yield negative values in the downscaled data (Optional).
     """
 
-    analogue_times = find_analogues_onetime(field_gcm, obs_coarse, n_analogues = n_analogues, 
-                                            window_size = window_size, window_unit = window_unit,
+    analogue_times = find_analogues_onetime(field_gcm, obs_coarse, time_mapper,
+                                            n_analogues = n_analogues, window_unit = window_unit,
                                             metric = metric, transform = transform)
 
     weights = get_analogue_weights(field_gcm, obs_coarse, analogue_times, penalty = penalty, 
@@ -331,12 +348,15 @@ def construct_analogues(data_gcm, obs_coarse, obs_fine,
     * write_output (bool) - If True, write output to fout and return None. Otherwise, return the downscaled data.
 
     """
+    # create dict mapping dayofyear to the time window from which candidate obs can be selected
+    time_mapper =  get_time_mapper(window_size, window_unit = "days")
     # time-step by time-step, make the constructed analogues (this could probably be optimized better than a for loop)
     da_list = []
     for t in data_gcm.time:
          CA_sample = construct_analogue_onetime(data_gcm.sel(time = t),
                                                 obs_coarse,
                                                 obs_fine,
+                                                time_mapper,
                                                 metric = metric,
                                                 n_analogues = n_analogues,
                                                 window_size = window_size,
