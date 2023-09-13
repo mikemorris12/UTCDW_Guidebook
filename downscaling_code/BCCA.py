@@ -186,19 +186,21 @@ def find_analogues_onetime(field_gcm, obs_coarse, time_mapper, n_analogues = 30,
 
     # sort the metrics and select the times with the n_analogues best scores
     measures_sorted = measures.sortby(measures, ascending = True)
-    analogue_times = measures_sorted.isel(time = slice(0, n_analogues)).time.to_dataset(name = 'atime')
+    analogue_times = measures_sorted.isel(time = slice(0, n_analogues)).time#.to_dataset(name = 'atime')
+    obs_analogues = obs_candidates.sel(time = analogue_times)
 
     # format the times into a way that they can be concattenated by the model time
     # and then return
-    analogue_times = analogue_times.rename({'time': 'analogue_index'})
-    analogue_times = analogue_times.reset_index('analogue_index')
-    analogue_times = analogue_times.assign_coords(time = gcm_time)
+    #analogue_times = analogue_times.rename({'time': 'analogue_index'})
+    #analogue_times = analogue_times.reset_index('analogue_index')
+    #analogue_times = analogue_times.assign_coords(time = gcm_time)
 
-    return analogue_times
+    #return analogue_times
+    return obs_analogues
 
 
-def get_analogue_weights(field_gcm, obs_coarse, analogue_times, penalty = 'l2',
-                         jitter = False, jitter_thresh = '0.1 mm/d', transform = None):
+def get_analogue_weights(field_gcm, obs_analogues, #obs_coarse, analogue_times, 
+                         penalty = 'l2', jitter = False, jitter_thresh = '0.1 mm/d', transform = None):
     """
     get the  weights to use in the linear combination of the obs patterns to construct the downscaled field, 
     using least squares regression (possibly with an L2 penalty, i.e. ridge regression).
@@ -217,7 +219,7 @@ def get_analogue_weights(field_gcm, obs_coarse, analogue_times, penalty = 'l2',
     """
 
     # select observations for the analogue times
-    obs_analogues = obs_coarse.sel(time = analogue_times.atime)
+    #obs_analogues = obs_coarse.sel(time = analogue_times.atime)
 
     # flatten data to 1D spatially for use with LinearRegression routine
     gcm_flat = field_gcm.stack(space = ('lat', 'lon'))
@@ -240,7 +242,7 @@ def get_analogue_weights(field_gcm, obs_coarse, analogue_times, penalty = 'l2',
 
     # store weights in an xr.DataArray, with coords matching the times of the 
     # obs patterns to be combined
-    weights = xr.DataArray(lr.coef_, dims = ['time'], coords = [analogue_times.atime])
+    weights = xr.DataArray(lr.coef_, dims = ['time'], coords = [obs_analogues.time])#coords = [analogue_times.atime])
 
     return weights
 
@@ -276,7 +278,7 @@ def apply_analogue_weights(obs_fine, weights, transform = None):
     # return the downscaled output
     return out
 
-#@dask.delayed
+@dask.delayed
 def construct_analogue_onetime(field_gcm, obs_coarse, obs_fine, time_mapper,
                                n_analogues = 30, window_unit = 'days', metric = 'RMSE', 
                                penalty = 'l2', jitter = False, jitter_thresh = '0.1 mm/d', transform = None):
@@ -303,11 +305,19 @@ def construct_analogue_onetime(field_gcm, obs_coarse, obs_fine, time_mapper,
       such as precipitation do not yield negative values in the downscaled data (Optional).
     """
 
-    analogue_times = find_analogues_onetime(field_gcm, obs_coarse, time_mapper,
+    #analogue_times = find_analogues_onetime(field_gcm, obs_coarse, time_mapper,
+    #                                        n_analogues = n_analogues, window_unit = window_unit,
+    #                                        metric = metric, transform = transform)
+
+    #weights = get_analogue_weights(field_gcm, obs_coarse, analogue_times, penalty = penalty, 
+    #                               jitter = jitter, jitter_thresh = jitter_thresh, transform = transform)
+
+    # new: return the actual coarse obs analogues instead of the timestamps
+    obs_analogues = find_analogues_onetime(field_gcm, obs_coarse, time_mapper,
                                             n_analogues = n_analogues, window_unit = window_unit,
                                             metric = metric, transform = transform)
 
-    weights = get_analogue_weights(field_gcm, obs_coarse, analogue_times, penalty = penalty, 
+    weights = get_analogue_weights(field_gcm, obs_analogues, penalty = penalty, 
                                    jitter = jitter, jitter_thresh = jitter_thresh, transform = transform)
 
     constructed_analogue = apply_analogue_weights(obs_fine, weights, transform = transform)
