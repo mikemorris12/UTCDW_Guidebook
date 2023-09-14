@@ -12,7 +12,8 @@ from xclim.core.calendar import convert_calendar
 import xskillscore as xs
 import pandas as pd
 import xesmf as xe
-from dask_ml.linear_model import LinearRegression
+#from dask_ml.linear_model import LinearRegression
+from sklearn.linear_model import Ridge, LinearRegression
 
 
 
@@ -150,7 +151,7 @@ def get_obs_candidates(obs, gcm_time, time_mapper, window_unit):
 
     return out
 
-
+@dask.delayed
 def find_analogues_onetime(field_gcm, obs_coarse, time_mapper, n_analogues = 30, 
                            window_unit = 'days', metric = 'RMSE', transform = None):
     """
@@ -198,7 +199,7 @@ def find_analogues_onetime(field_gcm, obs_coarse, time_mapper, n_analogues = 30,
     #return analogue_times
     return obs_analogues
 
-
+@dask.delayed
 def get_analogue_weights(field_gcm, obs_analogues, #obs_coarse, analogue_times, 
                          penalty = 'l2', jitter = False, jitter_thresh = '0.1 mm/d', transform = None):
     """
@@ -238,7 +239,14 @@ def get_analogue_weights(field_gcm, obs_analogues, #obs_coarse, analogue_times,
         obs_flat = np.sqrt(obs_flat)
 
     # fit linear regression with the appropriate regularization, without any constant intercept offset.
-    lr = LinearRegression(fit_intercept = False, penalty = penalty).fit(obs_flat.data.T, gcm_flat.data)
+    #lr = LinearRegression(fit_intercept = False, penalty = penalty).fit(obs_flat.data.T, gcm_flat.data)
+    
+    # using sklearn method instead of dask-ml since dask.delayed doesn't like internal dask calls
+    if penalty == "l2":
+        lr = Ridge(fit_intercept = False).fit(obs_flat.values.T, gcm_flat.values)
+    else:
+        lr = LinearRegression(fit_intercept = False).fit(obs_flat.values.T, gcm_flat.values)
+  
 
     # store weights in an xr.DataArray, with coords matching the times of the 
     # obs patterns to be combined
@@ -246,7 +254,7 @@ def get_analogue_weights(field_gcm, obs_analogues, #obs_coarse, analogue_times,
 
     return weights
 
-
+@dask.delayed
 def apply_analogue_weights(obs_fine, weights, transform = None):
     """
     Calculate the linear combination of high-res observed patterns
@@ -278,7 +286,6 @@ def apply_analogue_weights(obs_fine, weights, transform = None):
     # return the downscaled output
     return out
 
-#@dask.delayed
 def construct_analogue_onetime(field_gcm, obs_coarse, obs_fine, time_mapper,
                                n_analogues = 30, window_unit = 'days', metric = 'RMSE', 
                                penalty = 'l2', jitter = False, jitter_thresh = '0.1 mm/d', transform = None):
@@ -321,7 +328,7 @@ def construct_analogue_onetime(field_gcm, obs_coarse, obs_fine, time_mapper,
                                    jitter = jitter, jitter_thresh = jitter_thresh, transform = transform)
 
     constructed_analogue = apply_analogue_weights(obs_fine, weights, transform = transform)
-    constructed_analogue['time'] = field_gcm.time
+    #constructed_analogue = constructed_analogue.assign_coords(time = field_gcm.time) # doesn't work nice with delayed data
 
     return constructed_analogue
 
@@ -360,16 +367,23 @@ def construct_analogues(data_gcm, obs_coarse, obs_fine,
     """
     # create dict mapping dayofyear to the time window from which candidate obs can be selected
     time_mapper =  get_time_mapper(window_size, window_unit = "days")
-    # time-step by time-step, make the constructed analogues (this could probably be optimized better than a for loop)
+    
+    # turn the input data into dask.delayed objects so the memory usage doesn't explode
+    data_gcm_dd = dask.delayed(data_gcm)
+    obs_coarse_dd = dask.delayed(obs_coarse)
+    obs_fine_dd = dask.delayed(obs_fine)
+    time_mapper_dd = dask.delayed(time_mapper)
+
+    # make the constructed analogues using dask.delayed
+    ntime = len(data_gcm.time)
     da_list = []
-    for t in data_gcm.time:
-         CA_sample = construct_analogue_onetime(data_gcm.sel(time = t),
-                                                obs_coarse,
-                                                obs_fine,
-                                                time_mapper,
+    for i in range(ntime):
+         CA_sample = construct_analogue_onetime(data_gcm_dd.isel(time = i),
+                                                obs_coarse_dd,
+                                                obs_fine_dd,
+                                                time_mapper_dd,
                                                 metric = metric,
                                                 n_analogues = n_analogues,
-                                                window_size = window_size,
                                                 window_unit = window_unit,
                                                 jitter = jitter,
                                                 jitter_thresh = jitter_thresh, 
@@ -377,8 +391,13 @@ def construct_analogues(data_gcm, obs_coarse, obs_fine,
                                                 penalty = penalty)
          da_list.append(CA_sample)
 
-   # concatenate all the downscaled data together over the time dimension
-    data_CA = xr.concat(da_list, dim = 'time')
+    # call compute to process the data
+    da_list_comp = dask.compute(da_list)[0]
+    # concatenate all the downscaled data together over the time dimension
+    data_CA = xr.concat(da_list_comp, dim = 'time')
+
+    # assign time cooord
+    data_CA = data_CA.assign_coords(time = data_gcm.time)
 
     if write_output:
         data_CA.to_netcdf(fout)
