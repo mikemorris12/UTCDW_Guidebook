@@ -2,10 +2,11 @@
 title: UTCDW Guidebook
 author: Mike Morris, Karen Smith, and Paul Kushner
 logo: logo.png
-exclude_patterns: [.DS_Store, "**.ipynb_checkpoints"]
+exclude_patterns: [.DS_Store, "**.ipynb_checkpoints", "JOSE/*"]
+only_build_toc_files: true
 execute:
     execute_notebooks: cache
-    exclude_patterns: []
+
     timeout: 1200
 
 latex:
