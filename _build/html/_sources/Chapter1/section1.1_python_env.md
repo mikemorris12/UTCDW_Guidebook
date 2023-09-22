@@ -8,7 +8,7 @@ Once you have Anaconda installed, you must create an environment in which you wi
 
 `conda config --append channels claut`
 
-Now you are ready to set up your Conda environemnt. To ensure version compatability, we have provided files which can be used to install all of the required Python packages with the versions used for development of the guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.
+Now you are ready to set up your Conda environemnt. To ensure version compatability, we have provided files in the [UTCDW GitHub repository](https://github.com/mikemorris12/UTCDW_Guidebook) which can be used to install all of the required Python packages with the versions used for development of the guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.
 
 * `conda env create -f UTCDW_env_Linux.yml` (Linux)
 * `conda env create -f UTCDW_env_MacOS.yml` (MacOS with Apple Silicon chip)
