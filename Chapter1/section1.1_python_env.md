@@ -1,6 +1,6 @@
 # 1.1 Setting Up Your Python Environment
 
-The programming language used in the UTCDW is the latest version of Python 3, with the Anaconda3 package/environment manager. This guide will assume basic familiarity with Python, but not necessarily the packages used for analysis. If you do not have Python/Anaconda installed on your machine, [you can follow the instructions here](https://docs.anaconda.com/anaconda/install/).
+The programming language used in the UTCDW is the latest version of Python 3, with the Anaconda3 package/environment manager. The Guidebook assumes basic familiarity with Python, but not necessarily all of the packages used for analysis. If you do not have Python/Anaconda installed on your machine, [you can follow the instructions here](https://docs.anaconda.com/anaconda/install/).
 
 Once you have Anaconda installed, you must create an environment in which you will install all the necessary packages. Because one of the packages you need to install (ec3, used for downloading weather station observational data from Environment and Climate Change Canada) is a custom package from a personal channel, the following commands will need to be run for conda to be able to find the package:
 
@@ -8,7 +8,7 @@ Once you have Anaconda installed, you must create an environment in which you wi
 
 `conda config --append channels claut`
 
-Now you are ready to set up your Conda environemnt. To ensure version compatability, we have provided files in the [UTCDW GitHub repository](https://github.com/mikemorris12/UTCDW_Guidebook) which can be used to install all of the required Python packages with the versions used for development of the guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.
+Now you are ready to set up your Conda environemnt. To ensure version compatability, we have provided files in the [UTCDW GitHub repository](https://github.com/mikemorris12/UTCDW_Guidebook) which can be used to install all of the required Python packages with the versions used for development of the Guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.
 
 * `conda env create -f UTCDW_env_Linux.yml` (Linux)
 * `conda env create -f UTCDW_env_MacOS.yml` (MacOS with Apple Silicon chip)
@@ -17,7 +17,7 @@ Once set up, you can activate the environment using the command:
 
 `conda activate UTCDW`
 
-Most, but not all, of the packages used for this guidebook are listed below. If you prefer to work in your pre-existing conda environment, or if you are having issues setting up your environment using the provided `.yml` files, you can install them using
+Most, but not all, of the packages used for the UTCDW Guidebook are listed below. If you prefer to work in your pre-existing conda environment, or if you are having issues setting up your environment using the provided `.yml` files, you can install them using
 
 `conda install <package names>`
 
@@ -43,8 +43,9 @@ List of environments:
 * `tqdm` (progress bar for downloading data)
 * `dask` (for speeding up xarray operations via parallel computing)
 * `dask-ml` (regression functions for use with `dask.array` data types)
+* `scikit-learn` (regression functions with `numpy.array` data types)
 * `xesmf` (for re-gridding climate data)
 * `xclim` (workhorse package for statistical downscaling and other climate analysis)
 * `libpysal` and `esda` (for calculating spatial autocorrelations)
 
-Once you've set up your Python environment, you will be able to run the examples in this book, and eventually, to get started on working with climate data in Python.
+Once you've set up your Python environment, you will be able to run the examples in this Guidebook, and eventually, to get started on working with climate data in Python.
