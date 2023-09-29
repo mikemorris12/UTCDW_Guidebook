@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>6.2 Edmonton AC Loads: Multi-Model Analysis &#8212; UTCDW Guidebook</title>
   
   
@@ -376,7 +377,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="edmonton-ac-loads-multi-model-analysis">
+  <section class="tex2jax_ignore mathjax_ignore" id="edmonton-ac-loads-multi-model-analysis">
 <h1>6.2 Edmonton AC Loads: Multi-Model Analysis<a class="headerlink" href="#edmonton-ac-loads-multi-model-analysis" title="Permalink to this heading">#</a></h1>
 <p>This notebook continues the workflow example about AC loads in the city of Edmonton, using a single ECCC station site as the spatial domain. Here we expand that example by including multiple CMIP6 models in the analysis. This allows us to characterize the uncertainty in our future projections due to uncertainty in modeling choices. We’ll use one ensemble member each from the models listed below, chosen because they have data available on Google Cloud for the ensemble member <code class="docutils literal notranslate"><span class="pre">r4i1p1f1</span></code> (chosen because this <code class="docutils literal notranslate"><span class="pre">member_id</span></code> was used for many <code class="docutils literal notranslate"><span class="pre">ssp370</span></code> runs) and both the <code class="docutils literal notranslate"><span class="pre">historical</span></code> and <code class="docutils literal notranslate"><span class="pre">ssp370</span></code> scenarios. From each modeling centre, only one model is chosen (e.g. we don’t include both <code class="docutils literal notranslate"><span class="pre">EC-Earth3</span></code> and <code class="docutils literal notranslate"><span class="pre">EC-Earth3-AerChem</span></code> from the <code class="docutils literal notranslate"><span class="pre">EC-Earth-Consortium</span></code> institution).</p>
 <p>Models:</p>
@@ -393,7 +394,7 @@ document.write(`
 </ul>
 <p>The <a class="reference external" href="https://utcdw.physics.utoronto.ca/survey/">guided survey</a> on the main UTCDW website allows users to clone a survey, in order to change your response to one or more questions. To generate the flowchart below, I cloned the survey that generated the flowchart shown in 6.1, and changed the answer to the model data question from “CESM2” to “CMIP6 Multi-Model Ensemble”, along with the title.</p>
 <a class="reference internal image-reference" href="../_images/survey_station_multimodel.png"><img alt="../_images/survey_station_multimodel.png" class="align-center" src="../_images/survey_station_multimodel.png" style="width: 600px;" /></a>
-<div class="section" id="multi-model-analysis">
+<section id="multi-model-analysis">
 <h2>6.2.1 Multi-Model Analysis<a class="headerlink" href="#multi-model-analysis" title="Permalink to this heading">#</a></h2>
 <p>In the hidden code cells below, we’ll re-access the same station data as we did in the previous section. Then we’ll search the data catalog to get the download URLs for these model simulations, access the data, sub-select the data to our desired location and time periods, and then combine it all together using the <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code> framework.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -1384,8 +1385,8 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exploratory-multi-model-analysis">
+</section>
+<section id="exploratory-multi-model-analysis">
 <h2>6.2.2 Exploratory Multi-Model Analysis<a class="headerlink" href="#exploratory-multi-model-analysis" title="Permalink to this heading">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1652,8 +1653,8 @@ Mean Annual Days over Threshold (MPI-ESM1-2-LR): 4.064516129032258
 </div>
 </div>
 <p>Even in the end-of-century period, the MPI model has only about 10 more days per year above 18<span class="math notranslate nohighlight">\(^{\circ}\)</span>C than the 1980-2010 observations. The bias adjustment has the potential to have a large effect on this number, which in turn could have a large effect on the changes to CDDs.</p>
-</div>
-<div class="section" id="multi-model-bias-correction">
+</section>
+<section id="multi-model-bias-correction">
 <h2>6.2.3 Multi-Model Bias-Correction<a class="headerlink" href="#multi-model-bias-correction" title="Permalink to this heading">#</a></h2>
 <p>Applying the bias correction is the next step in the multi-model workflow. Doing so is no more complicated than it was for the single model case, because the <code class="docutils literal notranslate"><span class="pre">xclim</span></code> routines automatically apply the correction separately over each dimension in the input dataset. Using multiple models is no different from using data with mutiple spatial dimensions, the <code class="docutils literal notranslate"><span class="pre">realization</span></code> is just another dimension to the data which has no effect on the calculations.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -1691,8 +1692,8 @@ Mean Annual Days over Threshold (MPI-ESM1-2-LR): 4.064516129032258
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="validating-the-multi-model-bc-d-data">
+</section>
+<section id="validating-the-multi-model-bc-d-data">
 <h2>6.2.4 Validating the Multi-Model BC’d Data<a class="headerlink" href="#validating-the-multi-model-bc-d-data" title="Permalink to this heading">#</a></h2>
 <p>Like before, we’ll plot the historical cliamtologies using the downscaled data.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -1809,8 +1810,8 @@ Mean Annual Days over Threshold (MPI-ESM1-2-LR): 4.064516129032258
 </div>
 </div>
 <p>Also as expected, the long-term means of the bias-corrected historical CDDs are also basically indistinguishable from the observations, though the ranges of variability differ slightly.</p>
-</div>
-<div class="section" id="downscaled-climate-indicator">
+</section>
+<section id="downscaled-climate-indicator">
 <h2>6.2.5 Downscaled Climate Indicator<a class="headerlink" href="#downscaled-climate-indicator" title="Permalink to this heading">#</a></h2>
 <p>What impact has the bias correction had on the future projections? Let’s take a look.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -1907,8 +1908,8 @@ Mean Annual Days over Threshold (MPI-ESM1-2-LR): 4.064516129032258
 </div>
 </div>
 <p>This likely range of increases under this scenario is quite large, indicating that model structural uncertainty is very important to consider when studying changes to CDDs under climate change. Of course, there is also uncertainty relating to the future emissions scenario and internal climate variability. In the next section, we’ll quantify the effect of scenario uncertainty on the future projections by considering multiple SSP scenarios.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

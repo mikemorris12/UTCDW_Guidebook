@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>3.1 Station Observations &#8212; UTCDW Guidebook</title>
   
   
@@ -376,9 +377,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="station-observations">
+  <section class="tex2jax_ignore mathjax_ignore" id="station-observations">
 <h1>3.1 Station Observations<a class="headerlink" href="#station-observations" title="Permalink to this heading">#</a></h1>
-<div class="section" id="downloading-and-data-cleaning">
+<section id="downloading-and-data-cleaning">
 <h2>3.1.1 Downloading and Data Cleaning<a class="headerlink" href="#downloading-and-data-cleaning" title="Permalink to this heading">#</a></h2>
 <p>For many practical applications, expecially in fields like engineering design, it is common practice to use observations at a nearby weather station to calculate the relevant climate indicators for a piece of infrastructure. Environment and Climate Change Canada (ECCC) has historical station observations available for hundreds of weather stations in Canada. The comprehensive list of stations, including their names, locations, and unique Station ID codes, can be found in the <code class="docutils literal notranslate"><span class="pre">Station</span> <span class="pre">Inventory</span> <span class="pre">EN.csv</span></code> file in <a class="reference external" href="https://drive.google.com/drive/folders/1WJCDEU34c60IfOnG4rv5EPZ4IhhW9vZH">this Google Drive</a></p>
 <p>This notebook will show you how to download ECCC weather station observational data, plot some time series of climate variables, and calculate climatologies and extreme values. The above Google Drive includes instructions on how to download the data files using shell scripting, but here we will use the Python package <code class="docutils literal notranslate"><span class="pre">ec3</span></code> to download the data in an easier way. <a class="reference external" href="https://gitlab.com/claut/ec3.py">The source code and limited documentation for this module can be found on GitLab</a>.</p>
@@ -446,10 +447,10 @@ find_station(name=None, province=None, period=None, type=None, detect_recodes=Fa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmpvwd6ndvb
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmptdpwyxbs
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
   warnings.warn(&quot;Cannot find the station inventory in the current working directory.&quot;)
 </pre></div>
 </div>
@@ -560,7 +561,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9931a895dfe4dc60c7a763f8fb99b1c84d5f0842f36f1783753fdbe2d5cbd467.png" src="../_images/9931a895dfe4dc60c7a763f8fb99b1c84d5f0842f36f1783753fdbe2d5cbd467.png" />
+<img alt="../_images/3fa2918efda3d83d0b4466cd73cfb211a577da1a98117aef458ef3553d5acf37.png" src="../_images/3fa2918efda3d83d0b4466cd73cfb211a577da1a98117aef458ef3553d5acf37.png" />
 </div>
 </div>
 <p>The plot shows that the data for the Station ID 5051 ends in the early 2000s, which isn’t exactly what was stated in the output of <code class="docutils literal notranslate"><span class="pre">ec3.find_station</span></code>. Let’s check exactly when the daily data for each of the three Station IDs starts and ends, by dropping NaNs and then finding the min and max date values.</p>
@@ -600,7 +601,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/42d6876037ef2a04978af3f7faee7545624b16e98c77572574a3f34b7d6e2990.png" src="../_images/42d6876037ef2a04978af3f7faee7545624b16e98c77572574a3f34b7d6e2990.png" />
+<img alt="../_images/6f843f212c10f5556ea14c09063ecf6e582f8779c612cc55dd856449bf44c1da.png" src="../_images/6f843f212c10f5556ea14c09063ecf6e582f8779c612cc55dd856449bf44c1da.png" />
 </div>
 </div>
 <p>The data from the two sources agree very well during the overlapping period, though are not perfectly identical. Perhaps there was an instrument change that led to the ID change in the first place, it’s difficult to know. Regardless, in a situtation like this it should be safe to choose the data from either record. We will choose the data from Station ID 31688 because it contribues to a greater proportion of the chosen time period. Now that all of the data cleaning is finished, let’s plot at the daily maximum temperature over the whole record.</p>
@@ -622,7 +623,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a26806a5ff7f72080f79cb0fe0b029c0df351fff71089c5e6e7d9edc90fc40c2.png" src="../_images/a26806a5ff7f72080f79cb0fe0b029c0df351fff71089c5e6e7d9edc90fc40c2.png" />
+<img alt="../_images/aafc102fa610afff0c0d056965bd3c3938235c95b31dc53e10868e836539f10e.png" src="../_images/aafc102fa610afff0c0d056965bd3c3938235c95b31dc53e10868e836539f10e.png" />
 </div>
 </div>
 <p>One feature that stands out is the oscillatory nature of the data. Each year there are maxima in the summer and minima in the winter, but because we’ve plotted many years of data, it can be hard to discern any other features, such as day-to-day changes. Let’s plot the data for one year in particular to see these features:</p>
@@ -637,12 +638,12 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4e3abcbef85fb35daa0e8a0610ff2d7913f9045b638572d45fb6fd96e3442d6c.png" src="../_images/4e3abcbef85fb35daa0e8a0610ff2d7913f9045b638572d45fb6fd96e3442d6c.png" />
+<img alt="../_images/0bf427c4c4d1716ce7c8ea5415f55a248164f71ee43f78f499eb00c7444666e1.png" src="../_images/0bf427c4c4d1716ce7c8ea5415f55a248164f71ee43f78f499eb00c7444666e1.png" />
 </div>
 </div>
 <p>Now we can really see the day-to-day variations in temperature, as well as the seasonal cycle. There was evidently a a few warm days early in the year, and a short cold spell in early May, but otherwise, we see the temperature rising into the summer, peaking in July and August, and then falling again in the winter.</p>
-</div>
-<div class="section" id="seasonal-cycles-and-climatologies">
+</section>
+<section id="seasonal-cycles-and-climatologies">
 <h2>3.1.2 Seasonal Cycles and Climatologies<a class="headerlink" href="#seasonal-cycles-and-climatologies" title="Permalink to this heading">#</a></h2>
 <p>To get an idea of the typical seaosonal cycle of temperaure, we can calculate the <em>daily climatology</em> of the daily maximum temperature. What this means is we calculate a long-term average for each day of the year.  We can do this using the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> functionality of Pandas, taking advantage of the <code class="docutils literal notranslate"><span class="pre">dayofyear</span></code> attribute of the pd.Datetime datatype we converted the date values to in the function <code class="docutils literal notranslate"><span class="pre">download_station_data</span></code>.</p>
 <p>Because we’re taking a long-term average, the plot will be much smoother, since we’re averaging out much of the noise that makes up the day-to-day variability, like we see in the plot of one specific year. To get an idea of what typical variations look like, we can also calculate the standard deviation of temperature for each day, across all years, and add it to our plot as shading.</p>
@@ -673,7 +674,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eaccfacdd09cebe4aca899fee481382e51bf7216126ea569f0d5e0d1f81554e9.png" src="../_images/eaccfacdd09cebe4aca899fee481382e51bf7216126ea569f0d5e0d1f81554e9.png" />
+<img alt="../_images/b3b15417ee45447fc7e8ce653a88b79027b121313df8514f6f84ac655c964b9b.png" src="../_images/b3b15417ee45447fc7e8ce653a88b79027b121313df8514f6f84ac655c964b9b.png" />
 </div>
 </div>
 <p>While this plot isn’t perfectly smooth, the day-to-day variations in the solid line are smaller than in the time series for the year 2015, because of the long-term averaging. The shading represents the typical range of temperatures for each day. It’s important to note that grouped averaging for each day of the year individually isn’t the only way to calculate a climatology. A method that could give a smoother result would be to first calculate a rolling average of the data (i.e. 7-day rolling mean) before taking the long-term mean or standard deviation. This is valid, since there isn’t a good reason why the typical temperature range for a given day should be meaningfully different than for the rest of the week.</p>
@@ -714,7 +715,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/518c5ead2a721bc8a8c93e294cfb81c26a42bc5c72e64d5ecd2094e2c4003634.png" src="../_images/518c5ead2a721bc8a8c93e294cfb81c26a42bc5c72e64d5ecd2094e2c4003634.png" />
+<img alt="../_images/1ff53d34dd655c56e3df79e641eaaa2a886e9cd61b1e689cc881a596f8a751e0.png" src="../_images/1ff53d34dd655c56e3df79e641eaaa2a886e9cd61b1e689cc881a596f8a751e0.png" />
 </div>
 </div>
 <p>Temperature has a strong and relatively obvious seasonal cycle. But what about other climate variables, like precipitation? Let’s do the same analysis that we just did for daily maximum temperature, for daily total precipitation amounts.</p>
@@ -764,14 +765,14 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c5becd3dcb9474e94cbc34b935fb2aa71427efa5d2dec9864b5be3909fedcb47.png" src="../_images/c5becd3dcb9474e94cbc34b935fb2aa71427efa5d2dec9864b5be3909fedcb47.png" />
+<img alt="../_images/aca3556b93ac1db492d9c8096f08664c90f26a069509b8608e797ec6ec7eb08b.png" src="../_images/aca3556b93ac1db492d9c8096f08664c90f26a069509b8608e797ec6ec7eb08b.png" />
 </div>
 </div>
 <p>The daily climatology of precipitation at this station clearly looks much different from that of temperature. There are no major swings over the course of the year, which means that it may be less important to account for the time of year when doing analysis with precipitation (unlike temperature, where conditions in winter are much different than for summer).</p>
 <p>Next, even after applying the 7-day rolling mean, the day-to-day variations are much less smooth than for temperature. One reason for this is that precipitation is very much an “on-or-off” phenomenon - many days will have zero precipitation, but when it does precipitate, there can be very large amounts (i.e. extreme values) which affect the long-term mean for that day.</p>
 <p>Finally, it looks like the method of estimating the typical range of values using <span class="math notranslate nohighlight">\(\pm\)</span> one standard deviation produces negative values at the lower end of the range, which is unphysical. This last issue can be resolved by choosing a different method for characterizing the range of typical values. One such method is to use a range of <em>percentiles</em> (also called <em>quantiles</em>) as the upper and lower bounds for the typical range (i.e. 10th-90th percentile). This is how <a class="reference external" href="https://climatedata.ca/">climatedata.ca</a> (a source of observational data and post-processed climate model output for Canada) reports the typical ranges of variability for climate data.</p>
-</div>
-<div class="section" id="extreme-values">
+</section>
+<section id="extreme-values">
 <h2>3.1.3 Extreme Values<a class="headerlink" href="#extreme-values" title="Permalink to this heading">#</a></h2>
 <p>Weather outside of the typical range of variability, termed “extreme weather” is often of interest for climate-sensitive domain applications. Extreme temperatures can elevate building energy use due to air conditioning and heating. Extreme precipitation can cause flooding and damage to infrastructure near water basins or rivers, and extreme wind speeds can damage bridges, power lines, and other infrastructure.</p>
 <p>There are two broad-strokes categories of methods by which extreme values of climate variables are quantified. The first is a <strong>peaks over threshold</strong> (POT) approach, by which values above (or below) some pre-determined threshold are considered to be extreme events. For example, when calculating the climate index “Tropical Nights”, we consider extreme warm days to be those with daily minimum temperature above 20<span class="math notranslate nohighlight">\(^{\circ}\)</span>C. The threshold need not be a single fixed value - for many applications it is common to use a certain percentile value (i.e. the 95th percentile) as a threshold for defining extreme values, based on the distribution of the climate variable for a particular location. This allows one to tailor the threshold to the local climate, which is often how infrastructure is designed in practice.</p>
@@ -786,27 +787,7 @@ None
 <span class="n">df_1950_1991</span> <span class="o">=</span> <span class="n">download_station_data</span><span class="p">(</span><span class="n">stn_ids_toronto_city</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1950</span><span class="p">,</span> <span class="mi">1992</span><span class="p">))</span>
 
 <span class="c1"># stitch together with what we had already</span>
-<span class="n">df_toronto_city_longrecord</span> <span class="o">=</span> <span class="n">df_1950_1991</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_toronto_city</span><span class="p">)</span>                                 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">/var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/ipykernel_13374/1386844892.py</span> in <span class="ni">?</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="c1"># download data for this station for an earlier period</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">df_1950_1991</span> <span class="o">=</span> <span class="n">download_station_data</span><span class="p">(</span><span class="n">stn_ids_toronto_city</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">years</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1950</span><span class="p">,</span> <span class="mi">1992</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># stitch together with what we had already</span>
-
-<span class="nn">~/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/pandas/core/generic.py</span> in <span class="ni">?</span><span class="nt">(self, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6200</span>             <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessors</span>
-<span class="g g-Whitespace">   </span><span class="mi">6201</span>             <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6202</span>         <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">6203</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">6204</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: &#39;DataFrame&#39; object has no attribute &#39;append&#39;
+<span class="n">df_toronto_city_longrecord</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_1950_1991</span><span class="p">,</span> <span class="n">df_toronto_city</span><span class="p">])</span>                                 
 </pre></div>
 </div>
 </div>
@@ -823,6 +804,9 @@ None
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/6bb58abb2511ad3b605dd04c85dc4c05fb39c2489a062640fdfaf20ff2d63975.png" src="../_images/6bb58abb2511ad3b605dd04c85dc4c05fb39c2489a062640fdfaf20ff2d63975.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -838,19 +822,24 @@ None
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>87.50195232590536
+</pre></div>
+</div>
+</div>
 </div>
 <p>This very quick analysis has shown that the 50-year return value of daily precipitation for Toronto is about 87 mm. As a sanity check, the time series of annual maximum values for the 71 year period 1950-2021 has a peak value of just under 100 mm, so 87 mm could plausibly have a one-in-50 chance of occurrence in any given year.</p>
 <p>This analysis assumes that the distribution of precipitation in Toronto is <em>stationary</em> for the entire period used for calculation. In other words, there is no trend in the frequency or intensity of extreme events in the study period. When considering how climate change affects return period values of a climate variable, one would need to allow for  time-dependence of the GEV parameters (or dependance on the level of global warming, to avoid dependance on the future forcing scenario). This more advanced method is outside the scope of this Guidebook. A simple alternative is to focus the future analysis on a time period distinct from the historical period used to establish the baseline climate.</p>
-</div>
-<div class="section" id="summary">
+</section>
+<section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>This section of the Guidebook has introduced you to working with climate data from weather station observations. While useful for many impact studies, some applications require data with coverage over some larger spatial domain. The following section will introduce you to gridded observational data products, and how to download and analyze them.</p>
-</div>
-<div class="section" id="appendix-other-sources-of-station-data">
+</section>
+<section id="appendix-other-sources-of-station-data">
 <h2>Appendix: Other Sources of Station Data<a class="headerlink" href="#appendix-other-sources-of-station-data" title="Permalink to this heading">#</a></h2>
 <p>This notebook focused only on ECCC Weather Station data for Canada. For studies outside of Canada that require station observations, you’ll of course need alternate sources of data. One such dataset is the <a class="reference external" href="https://doi.org/10.7289/V5D21VHZ">Global Historical Climatology Network - Daily</a>, which is a database of station observations across the world. Python packages for downloading this data exist, but have not yet been tested or implemented by the UTCDW developers. Sub-daily station observations can be found by searching the <a class="reference external" href="https://www.ncdc.noaa.gov/cdo-web/search">NOAA Climate Data Online database</a>. Other sources of station data certainly exist, but intstructions for accessing them are outside the current scope of this guide.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

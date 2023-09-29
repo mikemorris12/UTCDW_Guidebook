@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>1.1 Setting Up Your Python Environment &#8212; UTCDW Guidebook</title>
   
   
@@ -360,7 +361,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="setting-up-your-python-environment">
+  <section class="tex2jax_ignore mathjax_ignore" id="setting-up-your-python-environment">
 <h1>1.1 Setting Up Your Python Environment<a class="headerlink" href="#setting-up-your-python-environment" title="Permalink to this heading">#</a></h1>
 <p>The programming language used in the UTCDW is the latest version of Python 3, with the Anaconda3 package/environment manager. The Guidebook assumes basic familiarity with Python, but not necessarily all of the packages used for analysis. If you do not have Python/Anaconda installed on your machine, <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">you can follow the instructions here</a>.</p>
 <p>Once you have Anaconda installed, you must create an environment in which you will install all the necessary packages. Because one of the packages you need to install (ec3, used for downloading weather station observational data from Environment and Climate Change Canada) is a custom package from a personal channel, the following commands will need to be run for conda to be able to find the package:</p>
@@ -381,6 +382,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> (used for arrays and other mathematical operations)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">scipy</span></code> (additional scientific and mathematical operations)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> (for making plots)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> (for styling plots)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cartopy</span></code> (for plotting maps)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nc-time-axis</span></code> (for plotting time series)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> (tabular data analysis and other useful functions)</p></li>
@@ -399,10 +401,11 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> (regression functions with <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> data types)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">xesmf</span></code> (for re-gridding climate data)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">xclim</span></code> (workhorse package for statistical downscaling and other climate analysis)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xskillscore</span></code> (useful functions for climate data and xarray)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">libpysal</span></code> and <code class="docutils literal notranslate"><span class="pre">esda</span></code> (for calculating spatial autocorrelations)</p></li>
 </ul>
 <p>Once you’ve set up your Python environment, you will be able to run the examples in this Guidebook, and eventually, to get started on working with climate data in Python.</p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

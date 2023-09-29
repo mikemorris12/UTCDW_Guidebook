@@ -28,6 +28,7 @@ List of environments:
 * `numpy` (used for arrays and other mathematical operations)
 * `scipy` (additional scientific and mathematical operations)
 * `matplotlib` (for making plots)
+* `seaborn` (for styling plots)
 * `cartopy` (for plotting maps)
 * `nc-time-axis` (for plotting time series)
 * `pandas` (tabular data analysis and other useful functions)
@@ -46,6 +47,7 @@ List of environments:
 * `scikit-learn` (regression functions with `numpy.array` data types)
 * `xesmf` (for re-gridding climate data)
 * `xclim` (workhorse package for statistical downscaling and other climate analysis)
+* `xskillscore` (useful functions for climate data and xarray)
 * `libpysal` and `esda` (for calculating spatial autocorrelations)
 
 Once you've set up your Python environment, you will be able to run the examples in this Guidebook, and eventually, to get started on working with climate data in Python.
