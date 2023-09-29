@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,12 +37,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -67,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="4.3 Downscaling Methods" href="section4.3_downscaling_methods.html" />
     <link rel="prev" title="4.1 Downscaling Basics" href="section4.1_downscaling_basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -76,6 +78,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -311,10 +322,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -322,7 +333,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -369,10 +380,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="bias-correction-methods">
-<h1>4.2 Bias-Correction Methods<a class="headerlink" href="#bias-correction-methods" title="Permalink to this headline">#</a></h1>
+<h1>4.2 Bias-Correction Methods<a class="headerlink" href="#bias-correction-methods" title="Permalink to this heading">#</a></h1>
 <p>A plethora of methods exist for statistical downscaling and bias correction - too many to document in this guide. Here we will cover several methods of varying degrees of complexity, most of which are implemented in the Python package <code class="docutils literal notranslate"><span class="pre">xclim</span></code>. The first few methods will be purely methods of univariate <em>bias correction</em>, and can be applied either to model ouput at a single location, using station observations as the training data, or as the bias-correction step in a true “downscaling” method, which produces gridded data with enhanced spatial resolution (using gridded observations as the training data).</p>
 <div class="section" id="the-delta-method">
-<h2>4.2.1 The “Delta” Method<a class="headerlink" href="#the-delta-method" title="Permalink to this headline">#</a></h2>
+<h2>4.2.1 The “Delta” Method<a class="headerlink" href="#the-delta-method" title="Permalink to this heading">#</a></h2>
 <p>The simplest possible method of bias correction is called the “Delta” method. In this method, the climate model ouput is used only to calculate the mean change in the quantity of interest <span class="math notranslate nohighlight">\(X\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\Delta = X_{GCM}^{proj} - X_{GCM}^{hist}\]</div>
@@ -392,7 +403,7 @@ document.write(`
 <p>This is essentially equivalent to the Delta method, since the mean difference between <span class="math notranslate nohighlight">\(X_{SDS}\)</span> and <span class="math notranslate nohighlight">\(X_{obs}\)</span> will still be equal to <span class="math notranslate nohighlight">\(\Delta\)</span>. However, now the distribution of <span class="math notranslate nohighlight">\(X_{SDS}\)</span> will have the same shape as <span class="math notranslate nohighlight">\(X_{GCM}^{proj}\)</span> - which may be biased. The next method accounts for bias in the variance of the simulated data.</p>
 </div>
 <div class="section" id="bias-variance-correction">
-<h2>4.2.2 Bias-Variance Correction<a class="headerlink" href="#bias-variance-correction" title="Permalink to this headline">#</a></h2>
+<h2>4.2.2 Bias-Variance Correction<a class="headerlink" href="#bias-variance-correction" title="Permalink to this heading">#</a></h2>
 <p>The second simplest method of bias correction involves correction of both the mean bias and the variance of the climate model output. The deviations from the modelled historical mean are scaled to have a variance equal to the sample variance of the observations, and then these scaled anomalies are added to the observed sample mean. The transfer function for this method is:</p>
 <div class="math notranslate nohighlight">
 \[X_{SDS} = \left(X_{GCM}^{proj} - \overline{X_{GCM}^{hist}} \right) \times \frac{\sigma_{OBS}}{\sigma_{GCM}^{hist}} + \overline{X_{OBS}}\]</div>
@@ -401,9 +412,9 @@ document.write(`
 <p>If mean temperatures are the most relevant metric for your study, this method of bias correction is likely sufficient. If extremes are important for your application, this method is not appropriate because the tails of an approximately-Gaussian distribution are where it may be most likely to have non-Gaussian behavior. For this reason, non-parametric quantile mapping methods are preferred, as they can handle data generated from any probability distribution.</p>
 </div>
 <div class="section" id="quantile-mapping-methods">
-<h2>4.2.3 Quantile Mapping Methods<a class="headerlink" href="#quantile-mapping-methods" title="Permalink to this headline">#</a></h2>
+<h2>4.2.3 Quantile Mapping Methods<a class="headerlink" href="#quantile-mapping-methods" title="Permalink to this heading">#</a></h2>
 <div class="section" id="id1">
-<h3>4.2.3.1<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>4.2.3.1<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>As discussed, empirical quantile mapping (EQM) can be used to map data sampled from one probability distribution to another. Empirical quantile mapping takes the <span class="math notranslate nohighlight">\(k\)</span>’th quantile of the input (climate model) distribution and maps it to the <span class="math notranslate nohighlight">\(k\)</span>’th quantile of the target (observed) distribution. For a random variable <span class="math notranslate nohighlight">\(X\)</span>, the <span class="math notranslate nohighlight">\(k\)</span>’th quantile is given by the inverse CDF evaluated at <span class="math notranslate nohighlight">\(k\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
 \[x_{k} = F_{X}^{-1}(k)\]</div>
@@ -418,7 +429,7 @@ document.write(`
 <p>On its own, empirical quantile mapping is not so useful for adjusting climate change projections, because the projected changes will be washed out by mapping the data back to the observed historical distribution. This can be seen in the massively deflated variance of the adjusted end-of-century projections, relative to the unadjusted raw model projections. Clever individuals have developed two variants of quantile mapping, which preserve projected changes while also correcting for biases in all quantiles of the target variable’s distribution.</p>
 </div>
 <div class="section" id="detrended-quantile-mapping">
-<h3>4.2.3.2 Detrended Quantile Mapping<a class="headerlink" href="#detrended-quantile-mapping" title="Permalink to this headline">#</a></h3>
+<h3>4.2.3.2 Detrended Quantile Mapping<a class="headerlink" href="#detrended-quantile-mapping" title="Permalink to this heading">#</a></h3>
 <p>Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping introduced by <span id="id2">[<a class="reference internal" href="../guidebook_references.html#id6" title="Alex J. Cannon, Stephen R. Sobie, and Trevor Q. Murdock. Bias Correction of GCM Precipitation by Quantile Mapping: How Well Do Methods Preserve Changes in Quantiles and Extremes? Journal of Climate, 28(17):6938–6959, September 2015. URL: http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1 (visited on 2022-12-06), doi:10.1175/JCLI-D-14-00754.1.">Cannon <em>et al.</em>, 2015</a>]</span> designed to preserve the model climate change signal, while also bias-correcting the distribution of the target variable. EQM cannot handle projected future values that fall outside of the range of historical values - the maximum (or minimum) future projected value will be mapped to the maximum (minimum) historical value, even though it may be physically realistic that new record-setting extreme values will occur under increased radiative forcing. Alternatively, some extrapolaion algorithm must be invoked, but there is no agreed upon method for doing so. DQM avoids the need for extrapolation by removing the long-term mean change from the model projections before quantile mapping, so the input values lie in the range of the historical simulation values. The trend is then reimposed after. For a ratio variable such as precipitation, the mean change is removed by multaplicative scaling, i.e.</p>
 <div class="math notranslate nohighlight">
 \[x_{SDS}^{proj}(t) = F_{OBS}^{-1}\left[F_{GCM}\left(x_{GCM}^{proj}(t) \times \frac{\overline{x_{GCM}^{hist}}} {\overline{x_{GCM}^{proj}}} \right)\right] \times \frac{\overline{x_{GCM}^{proj}}} {\overline{x_{GCM}^{hist}}}\]</div>
@@ -429,7 +440,7 @@ document.write(`
 <p><img alt="" src="../_images/pdfs_and_cdfs_dqm_temp.png" /></p>
 </div>
 <div class="section" id="quantile-delta-mapping">
-<h3>4.2.3.3 Quantile Delta Mapping<a class="headerlink" href="#quantile-delta-mapping" title="Permalink to this headline">#</a></h3>
+<h3>4.2.3.3 Quantile Delta Mapping<a class="headerlink" href="#quantile-delta-mapping" title="Permalink to this heading">#</a></h3>
 <p>As noted in <span id="id3">[<a class="reference internal" href="../guidebook_references.html#id6" title="Alex J. Cannon, Stephen R. Sobie, and Trevor Q. Murdock. Bias Correction of GCM Precipitation by Quantile Mapping: How Well Do Methods Preserve Changes in Quantiles and Extremes? Journal of Climate, 28(17):6938–6959, September 2015. URL: http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1 (visited on 2022-12-06), doi:10.1175/JCLI-D-14-00754.1.">Cannon <em>et al.</em>, 2015</a>]</span>, DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution <em>and</em> preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation <span class="math notranslate nohighlight">\(x_{GCM}^{proj}(t)\)</span>, the quantile <span class="math notranslate nohighlight">\(\tau(t)\)</span> is calculated using the empirical CDF <span class="math notranslate nohighlight">\(F_{GCM}^{proj}\)</span> for a time window around <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\tau(t) = F_{GCM}^{proj}[x_{GCM}^{proj}(t)]\]</div>
@@ -480,11 +491,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section4.1_downscaling_basics.html"
@@ -504,10 +514,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -577,8 +584,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

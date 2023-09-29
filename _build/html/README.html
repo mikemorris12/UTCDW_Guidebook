@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,12 +37,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -64,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chapter 1: Introduction" href="Chapter1/chapter1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -73,6 +75,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -308,10 +319,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -319,7 +330,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -364,34 +375,34 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="utcdw-guidebook">
-<h1>UTCDW Guidebook<a class="headerlink" href="#utcdw-guidebook" title="Permalink to this headline">#</a></h1>
+<h1>UTCDW Guidebook<a class="headerlink" href="#utcdw-guidebook" title="Permalink to this heading">#</a></h1>
 <p><em>Michael Morris, Paul J. Kushner, and Karen L. Smith</em></p>
 <p><em>Version 0.9 – Last updated September 27 2023</em></p>
 <p>Welcome to the Guidebook for the University of Toronto Climate Downscaling Workflow. If you’re accessing these resources, it means you are interested in using data to study how climate change may affect a particular domain in the built or natural environment. The purpose of the UTCDW Guidebook is to help you develop the skills and knowledge needed to design and conduct a climate change impact analysis study and perform your own statistical downscaling of climate model data. This Guidebook takes advantage of the <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter Book</a> format to intermix text explaining concepts and methods with code that demonstrates application.</p>
 <div class="section" id="who-this-guide-is-for">
-<h2>Who This Guide is For<a class="headerlink" href="#who-this-guide-is-for" title="Permalink to this headline">#</a></h2>
+<h2>Who This Guide is For<a class="headerlink" href="#who-this-guide-is-for" title="Permalink to this heading">#</a></h2>
 <p>The target audience for the UTCDW Guidebook is a researcher with little or no foundation in climate science, who studies a system that is sensitive to weather and climate. This could be, for example, an engineer who studies building energy use, which depends on climatic variables such as temperature and humidity. In order to quantitatively study how climate change might affect the system you study and properly interpret the results, you need some basic knowledge of the climate system and climate modeling.</p>
 <p>We start with basic background on the climate system and climate modeling, before developing skills in climate impacts analysis. This includes background on how climate change projections are produced, sources of uncertainty and limitations of climate projections, and the type and structure of available data from the projections. We will learn why raw data from climate model projections is usually unsuitable for regional climate impact assessment, and why post-processing (downscaling) must be applied to account for systematic biases and coarse spatial sampling.</p>
 <p>The UTCDW Guidebook illustrates these concepts through hands on coded examples in which you, the audience, will access and analyze climate data. It will then guide you through the process of downscaling, explaining both the theoretical background and many examples of how downscaling works in practice. Through this process, and using our UTCDW Survey tool on the website, you will be learn how to develop your own climate downscaling workflow for your system of interest.</p>
 </div>
 <div class="section" id="limitations-of-the-utcdw-guidebook">
-<h2>Limitations of the UTCDW Guidebook<a class="headerlink" href="#limitations-of-the-utcdw-guidebook" title="Permalink to this headline">#</a></h2>
+<h2>Limitations of the UTCDW Guidebook<a class="headerlink" href="#limitations-of-the-utcdw-guidebook" title="Permalink to this heading">#</a></h2>
 <p>The UTCDW provides educational material to help you design and conduct your own analyses, but we cannot give detailed guidance on any specific research problem. It provides general guidance and a few examples, but there are too many possible applications of climate downscaling to be exhaustive. Notably, we cannot tell you <em>how</em> your domain application is sensitive to climatic factors. As the expert on the system you study, it’s up to you to have a sense of the important climate variables for your application, and how you might quantify the way weather and climate affect your study system. If you require climate data as inputs to a model (for example, a model that calculates building energy use as a function of outside temperature and humidity), then you should be familiar with which input variables are required, and at what spatial and temporal sampling. We call the quantity which depends on climate variables, and is relevant for your domain application, a “climate indicator”, whether it’s calculated using an analytic expression or a complex numerical model. Climate indicators will be discussed further in Chapter 5, but it’s important to know from the start that this guide assumes you have a way to quantify how your study system depends on climatic factors.</p>
 </div>
 <div class="section" id="issues-feedback-and-support">
-<h2>Issues, Feedback, and Support<a class="headerlink" href="#issues-feedback-and-support" title="Permalink to this headline">#</a></h2>
+<h2>Issues, Feedback, and Support<a class="headerlink" href="#issues-feedback-and-support" title="Permalink to this heading">#</a></h2>
 <p>If you encounter a problem with the UTCDW Guidebook, would like to make suggestions on how to improve it, or otherwise would like to contact the authors, please use the <a class="reference external" href="https://utcdw.physics.utoronto.ca/feedback/">Feedback page</a> of the main UTCDW website. We invite you to contribute to the UTCDW Guidebook by making a Pull Request through the <a class="reference external" href="https://github.com/mikemorris12/UTCDW_Guidebook">Github Repository</a> that hosts the files that comprise the UTCDW Guidebook. If you’re not familiar with Git, then you’re welcome to use the Feedback page instead.</p>
 </div>
 <div class="section" id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h2>
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this heading">#</a></h2>
 <p>The contents of the UTCDW Guidebook were written predominantly by Michael Morris. This work was performed under the supervision of Professor Paul J. Kushner, who conceived of the project and provided feedback, and Professor Karen L. Smith, who provided content suggestions and feedback for most chapters. Special thanks to Aleksandra Elias Chereque, Cassandra Chanen and Lilian Chan who tested early iterations of the materials. Extra special thanks to Julian Comanean, who coded the <a class="reference external" href="https://utcdw.physics.utoronto.ca/">UTCDW website</a> and the guided survey/flowchart generator, and designed the UTCDW logo.</p>
 </div>
 <div class="section" id="funding-acknowledgement">
-<h2>Funding Acknowledgement<a class="headerlink" href="#funding-acknowledgement" title="Permalink to this headline">#</a></h2>
+<h2>Funding Acknowledgement<a class="headerlink" href="#funding-acknowledgement" title="Permalink to this heading">#</a></h2>
 <p>Funding for this project was provided by the <a class="reference external" href="https://uoftcse.ca/">Centre for Climate Science and Engineering</a>, <a class="reference external" href="https://cpe.utoronto.ca/">Climate Positive Energy</a>, and the University of Toronto <a class="reference external" href="https://datasciences.utoronto.ca/">Data Sciences Institute</a>.</p>
 </div>
 <div class="section" id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">#</a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading">#</a></h2>
 <p>This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. You are free to copy, redistribute, and share this book, in any medium, or format. You may also adapt the book, improve it, and re-use it in your own materials. However, keep in mind that you must give credit where credit is due, and any works that you produce based on this work are subject to the same license. For more details, click the badge below.</p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 </div>
@@ -424,11 +435,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
        href="Chapter1/chapter1.html"
@@ -439,10 +449,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -510,8 +517,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

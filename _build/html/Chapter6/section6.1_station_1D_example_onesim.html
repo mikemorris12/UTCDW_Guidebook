@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,12 +37,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -67,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="6.2 Edmonton AC Loads: Multi-Model Analysis" href="section6.2_station_1D_example_multimodel.html" />
     <link rel="prev" title="Chapter 6: Workflow Examples" href="chapter6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -76,6 +78,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -311,10 +322,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -322,7 +333,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -368,14 +379,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="edmonton-ac-loads-single-simulation-analysis">
-<h1>6.1 Edmonton AC Loads: Single Simulation Analysis<a class="headerlink" href="#edmonton-ac-loads-single-simulation-analysis" title="Permalink to this headline">#</a></h1>
+<h1>6.1 Edmonton AC Loads: Single Simulation Analysis<a class="headerlink" href="#edmonton-ac-loads-single-simulation-analysis" title="Permalink to this heading">#</a></h1>
 <p>This toy example is about potential effects of climate change on air conditioning loads in the Canadian city of Edmonton. To start small, this example will focus on a single spatial location, and as such, will demonstrate only <em>bias-correction</em> of climate model data, not true spatial downscaling.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Because of the small scope of this example, you should be able to run the code on a personal computer (like all of the previous notebooks). The later examples which involve spatial downscaling will likely require more memory and processing power than a laptop or basic desktop computer can handle.</p>
 </div>
 <div class="section" id="preliminary-study-design">
-<h2>6.1.1 Preliminary Study Design<a class="headerlink" href="#preliminary-study-design" title="Permalink to this headline">#</a></h2>
+<h2>6.1.1 Preliminary Study Design<a class="headerlink" href="#preliminary-study-design" title="Permalink to this heading">#</a></h2>
 <p>Before starting any analysis, some preliminary decisions must be made. The <a class="reference external" href="https://utcdw.physics.utoronto.ca/survey/">guided survey provided by the UTCDW</a> will help you work through each of the necessary decisions, explained in more detail in Chapter 5 of the UTCDW Guidebook. Herein we’ll specify the responses to each survey question, and generate a flowchart that will guide us through the steps of the analysis.</p>
 <p>The first few questions of the survey have already been answered, just by defining our study problem. The subject of our study is changes to AC loads in Edmonton, which itself already includes the <strong>spatial domain</strong> we will study.</p>
 <p>Next we need to decide on the time periods of analysis, one to establish the historical baseline from which changes will be measured, and the other to use for future projections. Each period should be at least 30 years long, which is the standard for establishing climate normals. For the historical baseline, we will choose <strong>1980-2010</strong>. This period is entirely covered by the historical CMIP6 simulations, which end in the year 2015. It also will allow us to later use the NRCanMet gridded observational data from PCIC, which is only available up to the year 2010. For the future period, we’ll use the end-of-century period <strong>2070-2100</strong>. For a practical study, you might be interested in a closer-term future period, but using an end-of-century period for this pedagogical will maximize the strength of the signal.</p>
@@ -395,7 +406,7 @@ CDD = \sum_{i=1}^{365}\left(T_{i} - T_{thresh}\right) I\left(T_{i} &gt; T_{thres
 <p>The top half of the flowchart contains the answers to the survey questions, regarding the data we’ve chosen to use. These decisions feed into the analysis steps on the bottom half of the flowchart, which is standardized. Of course, there remain decisions to be made regarding the important aspects of the model data to validate, and your method of bias-correction/downscaling, but these can be dealt with after having decided on which datasets to use, and may become more apparent after doing exploratory analysis with the data.</p>
 </div>
 <div class="section" id="selecting-and-downloading-the-datasets">
-<h2>6.1.2 Selecting and Downloading the Datasets<a class="headerlink" href="#selecting-and-downloading-the-datasets" title="Permalink to this headline">#</a></h2>
+<h2>6.1.2 Selecting and Downloading the Datasets<a class="headerlink" href="#selecting-and-downloading-the-datasets" title="Permalink to this heading">#</a></h2>
 <p>Having decided on the scope of the project, and some details that constrain the datasets that will be used in the study, we can start acquiring the data. Let’s begin with the observational dataset: ECCC weather station observations for a single site in Edmonton. We will use the <code class="docutils literal notranslate"><span class="pre">ec3</span></code> package to search for an appropriate station and download the data. Then we’ll do some data cleaning with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and eventually convert the station data into <code class="docutils literal notranslate"><span class="pre">xarray</span></code> format so it can be processed in the same way as the model data, and be used with <code class="docutils literal notranslate"><span class="pre">xclim</span></code> for bias correction and calculating the climate indicator.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -1340,7 +1351,7 @@ Data variables:
 </div>
 </div>
 <div class="section" id="assessing-model-obs-consistency">
-<h2>6.1.3 Assessing Model-Obs Consistency<a class="headerlink" href="#assessing-model-obs-consistency" title="Permalink to this headline">#</a></h2>
+<h2>6.1.3 Assessing Model-Obs Consistency<a class="headerlink" href="#assessing-model-obs-consistency" title="Permalink to this heading">#</a></h2>
 <p>Now that we’ve aquired the model data for our study location, and for the right time periods, we can take a peek at the data and compare the raw model simulations to the observations. This will help us characterize the bias in the raw historical simulations, plus the climate change signal in the raw model projections relative to the historical simulation. First let’s plot the daily climatologies for each dataset, all on the same axes.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -1567,7 +1578,7 @@ Data variables:
 <p>Despite good agreement regarding the daily climatology and the overall mean and standard deviation, the model shows a fairly sizable bias in the number of annual CDDs. 13 CDDs per year, compared to the observed long-term mean of about 86 CDDs per year, is a mean bias of about 15%. Going through the exercise of calculating the climate indicator using the raw model data has illuminated this important bias, which wouldn’t be easily deduced by examining at the previous plots. The spurious low-temperature peak of the model PDF hints that there may be too few warm days, but we couldn’t make this conclusion without calculating the CDDs.</p>
 </div>
 <div class="section" id="evaluating-the-climate-change-signal">
-<h2>6.1.4 Evaluating the Climate Change Signal<a class="headerlink" href="#evaluating-the-climate-change-signal" title="Permalink to this headline">#</a></h2>
+<h2>6.1.4 Evaluating the Climate Change Signal<a class="headerlink" href="#evaluating-the-climate-change-signal" title="Permalink to this heading">#</a></h2>
 <p>Having characterized the model bias using the historical simulation and the observations, it is time to evaluate the climate change projections of the raw model simulations. First we will plot the daily climatology of the SSP3-7.0 end-of-century projections, and compare to the historical period model daily climatology.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -1776,7 +1787,7 @@ Data variables:
 <p>Wow! The raw model projects an enormous increase in annual CDDs, as we suspected based on the large increase in mean summertime temperatures. This should establish our baseline expectation for what to see in the bias-corrected projections. The exact change may be different, but because we are using a univariate method, we should still see a large increase in CDDs for the future scenario.</p>
 </div>
 <div class="section" id="applying-the-bias-correction">
-<h2>6.1.5 Applying the Bias Correction<a class="headerlink" href="#applying-the-bias-correction" title="Permalink to this headline">#</a></h2>
+<h2>6.1.5 Applying the Bias Correction<a class="headerlink" href="#applying-the-bias-correction" title="Permalink to this heading">#</a></h2>
 <p>In this example, we will use Quantile Delta Mapping (QDM, <span id="id1">[<a class="reference internal" href="../guidebook_references.html#id6" title="Alex J. Cannon, Stephen R. Sobie, and Trevor Q. Murdock. Bias Correction of GCM Precipitation by Quantile Mapping: How Well Do Methods Preserve Changes in Quantiles and Extremes? Journal of Climate, 28(17):6938–6959, September 2015. URL: http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1 (visited on 2022-12-06), doi:10.1175/JCLI-D-14-00754.1.">Cannon <em>et al.</em>, 2015</a>]</span> and Section 4.2.3.3) as the method for bias correction. Since we are using data only for a single location, there is no true “downscaling” involved, as the spatial sampling of the results will be the same as the inputs - a 1D timeseries. This bias-correction method is preferred because it corrects for biases in all quantiles of the distribution of the variable of interest <em>and</em> preserves the model-projected relative changes in the entire distribution as well. The former is true for any quantile-mapping based bias-correction method (such as EQM, Section 4.2.3.1), but the latter is the defining feature of QDM. This makes it particularly good for handling changes to extreme values (i.e. high and low quantiles of the distribution), as opposed to other methods which preserve only the mean change projected by the model.</p>
 <p><code class="docutils literal notranslate"><span class="pre">xclim.sdba</span></code> has implementated the QDM method with the class <code class="docutils literal notranslate"><span class="pre">xclim.sdba.adjustment.QuantileDeltaMapping</span></code> (<a class="reference external" href="https://xclim.readthedocs.io/en/stable/xclim.sdba.html#xclim.sdba.adjustment.QuantileDeltaMapping">documentation</a>). All of the classes in <code class="docutils literal notranslate"><span class="pre">xclim.sdba.adjust</span></code> have a <code class="docutils literal notranslate"><span class="pre">.train</span></code> method, which fits the quantiles and calculates the adjustment factors, and a <code class="docutils literal notranslate"><span class="pre">.adjust</span></code> method, which applies the bias correction to the provided <code class="docutils literal notranslate"><span class="pre">xr.DataArray</span></code>. The content herein will try to demonstrate how to use this package, but you should also take the time to review the documentation for the adjustment method, plus their generic <a class="reference external" href="https://xclim.readthedocs.io/en/stable/notebooks/sdba.html">examples</a> of how to use <code class="docutils literal notranslate"><span class="pre">xclim.sdba</span></code>, before proceeding. You should also review the tips for applying bias-correction methods provided in Section 5.4.2 of this Guidebook.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -1821,7 +1832,7 @@ Data variables:
 </div>
 </div>
 <div class="section" id="validating-the-bias-corrected-data">
-<h2>6.1.6 Validating the Bias-Corrected Data<a class="headerlink" href="#validating-the-bias-corrected-data" title="Permalink to this headline">#</a></h2>
+<h2>6.1.6 Validating the Bias-Corrected Data<a class="headerlink" href="#validating-the-bias-corrected-data" title="Permalink to this heading">#</a></h2>
 <p>As a first check, let’s compare the daily climatologies and PDFs of the observed and adjusted historical simulation. The adjusted historical PDF should match the observed PDF essentially perfectly. Since the data are grouped by month when calculating the adjustment factors, the <em>monthly</em> climatologies should match perfectly, but there may be some small bias remaining in the daily climatology. We could have chosen to group by <code class="docutils literal notranslate"><span class="pre">time.dayofyear</span></code>, but with only 31 years in each dataset there is probably too small of a sample size to robustly characterize the whole distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1949,7 +1960,7 @@ Data variables:
 <p>The effect of the bias adjustment on the SSP3-7.0 projections is fairly minor, though it does weaken the low-temperature peka of the PDF, much like it does for the historical distribution. Whether this leads to any substantial change in the projections of CDDs is difficult to discern from looking at the PDF. All in all, the bias was fairly minimal for this model, so it’s no surprise that the effect of the bias adjustment is marginal.</p>
 </div>
 <div class="section" id="downscaled-projections-of-our-climate-indicator">
-<h2>6.1.7 Downscaled Projections of our Climate Indicator<a class="headerlink" href="#downscaled-projections-of-our-climate-indicator" title="Permalink to this headline">#</a></h2>
+<h2>6.1.7 Downscaled Projections of our Climate Indicator<a class="headerlink" href="#downscaled-projections-of-our-climate-indicator" title="Permalink to this heading">#</a></h2>
 <p>Next we will investigate the effect of the bias adjustment on the calculation of CDDs, including both validating the downscaled historical data and assessing the changes to the downscaled future projections.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -2044,11 +2055,10 @@ Data variables:
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="chapter6.html"
@@ -2068,10 +2078,7 @@ Data variables:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2140,8 +2147,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
