@@ -15,7 +15,7 @@ Now you are ready to set up your Conda environemnt. To ensure version compatabil
 
 Once set up, you can activate the environment using the command:
 
-`conda activate UTCDW`
+`conda activate UTCDW-env`
 
 Most, but not all, of the packages used for the UTCDW Guidebook are listed below. If you prefer to work in your pre-existing conda environment, or if you are having issues setting up your environment using the provided `.yml` files, you can install them using
 
