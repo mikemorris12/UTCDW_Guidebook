@@ -415,14 +415,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:218: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def _day_length(lat: int | float, mth: int):  # pragma: no cover
-/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:238: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def _day_length_factor(lat: float, mth: int):  # pragma: no cover
-</pre></div>
-</div>
-</div>
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -1241,7 +1233,7 @@ document.write(`
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidate_members</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">member</span> <span class="o">=</span> <span class="n">candidate_members</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">results_for_this_model</span> <span class="o">=</span> <span class="n">df_search_model</span><span class="p">[</span><span class="n">df_search_model</span><span class="o">.</span><span class="n">member_id</span> <span class="o">==</span> <span class="n">member</span><span class="p">]</span>
-        <span class="n">df_search_mm_onemember</span> <span class="o">=</span> <span class="n">df_search_mm_onemember</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">results_for_this_model</span><span class="p">)</span>
+        <span class="n">df_search_mm_onemember</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_search_mm_onemember</span><span class="p">,</span> <span class="n">results_for_this_model</span><span class="p">])</span>
         
 <span class="n">df_search_mm_onemember</span><span class="p">[</span><span class="n">df_search_mm_onemember</span><span class="o">.</span><span class="n">source_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;IPSL-CM6A-LR&#39;</span><span class="p">,</span> <span class="s1">&#39;INM-CM5-0&#39;</span><span class="p">])]</span>
 </pre></div>
@@ -1609,7 +1601,7 @@ INM-CM5-0
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4a9aca787d2af40e8e2ae7f2be56cfeafc104f91cd60bc200d47692d5f400ecf.png" src="../_images/4a9aca787d2af40e8e2ae7f2be56cfeafc104f91cd60bc200d47692d5f400ecf.png" />
+<img alt="../_images/fde55a54094ae6dbb2a5957bb664fbaee43c3ef1289bd1e7221140eaa73e1fc4.png" src="../_images/fde55a54094ae6dbb2a5957bb664fbaee43c3ef1289bd1e7221140eaa73e1fc4.png" />
 </div>
 </div>
 <p>This plot shows how the multi-model average daily mean temperature climatology varies with the future scenario. The historical climatology (blue) shows a slight cold bias relative to the observations (black), which will hopefully be eliminated after bias-correcting the models. The future scenarios all show warming realtive to the historical period, though only the two highest-emission scenarios (SSP3-7.0 and SSP5-8.5) have peaks that exceed the observed range of variability.</p>
@@ -1673,7 +1665,7 @@ INM-CM5-0
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b1b5fe94cd21ebe6e56f62762b05a33d693b733788d05709a99143c2aa97ba03.png" src="../_images/b1b5fe94cd21ebe6e56f62762b05a33d693b733788d05709a99143c2aa97ba03.png" />
+<img alt="../_images/bea923168075cc8518565e8109f93cdcb959d35566f2a61db656021750868cc7.png" src="../_images/bea923168075cc8518565e8109f93cdcb959d35566f2a61db656021750868cc7.png" />
 </div>
 </div>
 <p>In this plot the blue bars show the multi-model mean change in the average annual CDDs, while the black errorbars represent the standard deviation across models for the given scenario. Clearly scenario uncertainty plays a large role in the overall range of projections, with the low end of the SSP5-8.5 projections not overlapping at all with the high end of the SSP2-1.6 projections. The errorbar doesn’t overlap with zero for any scenario, so all scenarios project a statistically significant increase to CDDs.</p>
@@ -1865,7 +1857,7 @@ INM-CM5-0
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/3366b64ee64aec170f330488fc723f77171760a267e8c3e85aad9104b231cb51.png" src="../_images/3366b64ee64aec170f330488fc723f77171760a267e8c3e85aad9104b231cb51.png" />
+<img alt="../_images/863988ebdf4364cc497157211310102a43b93d2457ea60233e77e675f0b6db20.png" src="../_images/863988ebdf4364cc497157211310102a43b93d2457ea60233e77e675f0b6db20.png" />
 </div>
 </div>
 <p>The character of the changes to the daily climatology of <code class="docutils literal notranslate"><span class="pre">tas</span></code> isn’t really changed by the bias correction, but the historical multi-model mean (blue) now matches the observed climatology (black) more closely. Next let’s test the statistical significance of mean change to <code class="docutils literal notranslate"><span class="pre">tas</span></code> for each scenario.</p>
@@ -2058,7 +2050,7 @@ INM-CM5-0
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/8d20bdb0bac95b7b9eb5f1037fb435fe08bd6a304c9c6da4f4e6da88d0af254d.png" src="../_images/8d20bdb0bac95b7b9eb5f1037fb435fe08bd6a304c9c6da4f4e6da88d0af254d.png" />
+<img alt="../_images/02a959adefe07e2f47103a1720321a745a188bfd5437703dca25f59216d70eda.png" src="../_images/02a959adefe07e2f47103a1720321a745a188bfd5437703dca25f59216d70eda.png" />
 </div>
 </div>
 <p>The effect of the bias correction was to increase the magnitude of the CDD projections for each scenario, though the size of the model spread and scenario spread appears mostly unchanged. Like we did for the raw model projections, we can quantify the relative contributions of model uncertainty and scenario uncertainty by comparing the spread across models/scenarios to the mean change across models/scenarios.</p>
@@ -2121,7 +2113,7 @@ INM-CM5-0
     </tr>
     <tr>
       <th>mean</th>
-      <td>39.66</td>
+      <td>39.67</td>
     </tr>
   </tbody>
 </table>
@@ -2137,7 +2129,7 @@ INM-CM5-0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scenario Uncercainty After Bias-Adjustment: 51.01%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scenario Uncercainty After Bias-Adjustment: 51.02%
 </pre></div>
 </div>
 </div>

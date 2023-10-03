@@ -514,11 +514,11 @@ day_ERA5-Land_NAM.ncml
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
   warnings.warn(&quot;Cannot find the station inventory in the current working directory.&quot;)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmpi3y179gf
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmphe9netyk
 </pre></div>
 </div>
 </div>
@@ -546,7 +546,7 @@ day_ERA5-Land_NAM.ncml
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/daae1ef2901a5cfbf53c62c099352f20978a3a68445c91d739c91ee6b79a8a6c.png" src="../_images/daae1ef2901a5cfbf53c62c099352f20978a3a68445c91d739c91ee6b79a8a6c.png" />
+<img alt="../_images/e918e8e97e626542961f90f44e15cea8d8e9598a22c501b87b21a58543886d38.png" src="../_images/e918e8e97e626542961f90f44e15cea8d8e9598a22c501b87b21a58543886d38.png" />
 </div>
 </div>
 <p>This is a lot of stations! Since the UTCDW Guidebook is for instructional purposes, we will look at data for only 5 of them. For scientific purposes, the best practice is to include all available data in your analysis.</p>
@@ -599,7 +599,7 @@ day_ERA5-Land_NAM.ncml
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/db593ae636138f4af9b5dc681715be911f4444209bf160e0ddbe056d782b22e0.png" src="../_images/db593ae636138f4af9b5dc681715be911f4444209bf160e0ddbe056d782b22e0.png" />
+<img alt="../_images/946742f09595c383d348095b8ec6d0d1af9f8af2edb289c644bcc973bd62f464.png" src="../_images/946742f09595c383d348095b8ec6d0d1af9f8af2edb289c644bcc973bd62f464.png" />
 </div>
 </div>
 <p>The station <code class="docutils literal notranslate"><span class="pre">PORT</span> <span class="pre">MOODY</span> <span class="pre">GLENAYRE</span></code> has a long period of missing data, and some of the other stations appear to be missing data for certain periods as well. For a fair comparison, it’s important to mask the reanalysis when the obs are missing data (after checking that there wasn’t a station ID change during that period, though we won’t do that here - see Section 3.1). Luckily, <code class="docutils literal notranslate"><span class="pre">xarray</span></code> has built-in capability of handling missing values, and usually neglects them in calculations.</p>

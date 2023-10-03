@@ -443,14 +443,6 @@ CDD = \sum_{i=1}^{365}\left(T_{i} - T_{thresh}\right) I\left(T_{i} &gt; T_{thres
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:218: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def _day_length(lat: int | float, mth: int):  # pragma: no cover
-/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:238: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def _day_length_factor(lat: float, mth: int):  # pragma: no cover
-</pre></div>
-</div>
-</div>
 </details>
 </div>
 <div class="cell docutils container">
@@ -465,11 +457,11 @@ CDD = \sum_{i=1}^{365}\left(T_{i} - T_{thresh}\right) I\left(T_{i} &gt; T_{thres
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
   warnings.warn(&quot;Cannot find the station inventory in the current working directory.&quot;)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmpavd2qytg
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmplr0ssqzc
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: In addition to the stations found, the following combinations may provide sufficient baseline data.
@@ -551,7 +543,7 @@ Station 31427 : EDMONTON CITY CENTRE AWOS (2005-2015)
       <td>2015</td>
       <td>1973.0</td>
       <td>2015.0</td>
-      <td>18.841757933518178 km</td>
+      <td>18.84175793351712 km</td>
     </tr>
     <tr>
       <th>2416</th>
@@ -938,6 +930,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -959,14 +956,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -976,13 +975,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -1020,7 +1022,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -1037,13 +1040,20 @@ Coordinates:
     lon      float64 246.5
 Data variables:
     tas      (time) float64 -9.4 -5.8 -10.3 -11.8 ... -11.0 -17.6 -18.0 -19.0
-    Name     (time) object &#x27;EDMONTON CITY CENTRE A&#x27; ... &#x27;EDMONTON CITY CENTRE...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-e3e6fb3d-8e28-4279-bf32-e4c7a8d7ca62' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-e3e6fb3d-8e28-4279-bf32-e4c7a8d7ca62' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 11214</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-4ec1ab86-51a7-4039-ba07-d9b62a1a3870' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4ec1ab86-51a7-4039-ba07-d9b62a1a3870' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1980-01-01 ... 2010-12-31</div><input id='attrs-b04c6f4f-2c0b-47cf-8094-a8b6e8198a88' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b04c6f4f-2c0b-47cf-8094-a8b6e8198a88' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-958dd590-9342-4d19-bf40-322d3ac72459' class='xr-var-data-in' type='checkbox'><label for='data-958dd590-9342-4d19-bf40-322d3ac72459' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1980-01-01T00:00:00.000000000&#x27;, &#x27;1980-01-02T00:00:00.000000000&#x27;,
+    Name     (time) object &#x27;EDMONTON CITY CENTRE A&#x27; ... &#x27;EDMONTON CITY CENTRE...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-52ff8a78-10c7-4948-a868-475112982d38' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-52ff8a78-10c7-4948-a868-475112982d38' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 11214</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-575a6920-61d0-4057-bef1-05d877c62c36' class='xr-section-summary-in' type='checkbox'  checked><label for='section-575a6920-61d0-4057-bef1-05d877c62c36' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1980-01-01 ... 2010-12-31</div><input id='attrs-84a4575a-9426-49bf-8ec4-4c101fa94b76' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-84a4575a-9426-49bf-8ec4-4c101fa94b76' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1d9da649-38fb-4610-b3c2-397de2b90f11' class='xr-var-data-in' type='checkbox'><label for='data-1d9da649-38fb-4610-b3c2-397de2b90f11' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1980-01-01T00:00:00.000000000&#x27;, &#x27;1980-01-02T00:00:00.000000000&#x27;,
        &#x27;1980-01-03T00:00:00.000000000&#x27;, ..., &#x27;2010-12-29T00:00:00.000000000&#x27;,
        &#x27;2010-12-30T00:00:00.000000000&#x27;, &#x27;2010-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>53.57</div><input id='attrs-69bb0c6e-4597-441b-bf86-e5b01a160a7c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-69bb0c6e-4597-441b-bf86-e5b01a160a7c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a134d653-55cb-4c92-985f-8805a22eb4cd' class='xr-var-data-in' type='checkbox'><label for='data-a134d653-55cb-4c92-985f-8805a22eb4cd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(53.57)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>246.5</div><input id='attrs-498a46d6-c73c-43d8-9cd1-6550dbaf7270' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-498a46d6-c73c-43d8-9cd1-6550dbaf7270' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-729ccc9e-442c-43f5-a577-9d9cd22eb12a' class='xr-var-data-in' type='checkbox'><label for='data-729ccc9e-442c-43f5-a577-9d9cd22eb12a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(246.48)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-05eee5ab-da4d-47b4-9aa6-78366f2f624c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-05eee5ab-da4d-47b4-9aa6-78366f2f624c' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-9.4 -5.8 -10.3 ... -18.0 -19.0</div><input id='attrs-771f7964-f774-478a-94e7-2d37b40f2dfa' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-771f7964-f774-478a-94e7-2d37b40f2dfa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-620f5d8b-607b-48b7-bbf1-162a7349c8b2' class='xr-var-data-in' type='checkbox'><label for='data-620f5d8b-607b-48b7-bbf1-162a7349c8b2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ -9.4,  -5.8, -10.3, ..., -17.6, -18. , -19. ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Name</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;EDMONTON CITY CENTRE A&#x27; ... &#x27;ED...</div><input id='attrs-163823fd-b0e5-453a-ab57-06e4e2220974' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-163823fd-b0e5-453a-ab57-06e4e2220974' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4b6f2f7c-b7ab-42c6-9c0a-84c3b3646271' class='xr-var-data-in' type='checkbox'><label for='data-4b6f2f7c-b7ab-42c6-9c0a-84c3b3646271' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;EDMONTON CITY CENTRE A&#x27;, &#x27;EDMONTON CITY CENTRE A&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>53.57</div><input id='attrs-31f779dc-77a7-4a6c-acab-ebd126387a6f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-31f779dc-77a7-4a6c-acab-ebd126387a6f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8b4d2214-a2dc-45ce-861a-33195734e2b2' class='xr-var-data-in' type='checkbox'><label for='data-8b4d2214-a2dc-45ce-861a-33195734e2b2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(53.57)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>246.5</div><input id='attrs-9af5d1ea-2e5e-4557-af88-6030347e6062' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9af5d1ea-2e5e-4557-af88-6030347e6062' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-659c32a2-853d-4284-a9f0-66c0f0967c32' class='xr-var-data-in' type='checkbox'><label for='data-659c32a2-853d-4284-a9f0-66c0f0967c32' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(246.48)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f0517933-e1b1-4d4b-8e7f-de59c4a85ca2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f0517933-e1b1-4d4b-8e7f-de59c4a85ca2' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-9.4 -5.8 -10.3 ... -18.0 -19.0</div><input id='attrs-33761d18-b231-4a2b-8d1f-9f2c97ee01ed' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-33761d18-b231-4a2b-8d1f-9f2c97ee01ed' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-433da03a-e333-4194-9df7-fd9a25f2d121' class='xr-var-data-in' type='checkbox'><label for='data-433da03a-e333-4194-9df7-fd9a25f2d121' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ -9.4,  -5.8, -10.3, ..., -17.6, -18. , -19. ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Name</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;EDMONTON CITY CENTRE A&#x27; ... &#x27;ED...</div><input id='attrs-d9e857fc-8935-4d70-9bd6-ed79ccb1f1e8' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d9e857fc-8935-4d70-9bd6-ed79ccb1f1e8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-afa5a370-967f-4287-95a1-d46aa16670cc' class='xr-var-data-in' type='checkbox'><label for='data-afa5a370-967f-4287-95a1-d46aa16670cc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;EDMONTON CITY CENTRE A&#x27;, &#x27;EDMONTON CITY CENTRE A&#x27;,
        &#x27;EDMONTON CITY CENTRE A&#x27;, ..., &#x27;EDMONTON CITY CENTRE AWOS&#x27;,
        &#x27;EDMONTON CITY CENTRE AWOS&#x27;, &#x27;EDMONTON CITY CENTRE AWOS&#x27;],
-      dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f8e26ccd-593f-4ef4-93f2-a30994b9b8ae' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f8e26ccd-593f-4ef4-93f2-a30994b9b8ae' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+      dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-cb3e2d5c-4f97-4cb0-8ae8-60d98428691b' class='xr-section-summary-in' type='checkbox'  ><label for='section-cb3e2d5c-4f97-4cb0-8ae8-60d98428691b' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0020bf24-3f4a-448a-9987-5ad39818a2d7' class='xr-index-data-in' type='checkbox'/><label for='index-0020bf24-3f4a-448a-9987-5ad39818a2d7' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1980-01-01&#x27;, &#x27;1980-01-02&#x27;, &#x27;1980-01-03&#x27;, &#x27;1980-01-04&#x27;,
+               &#x27;1980-01-05&#x27;, &#x27;1980-01-06&#x27;, &#x27;1980-01-07&#x27;, &#x27;1980-01-08&#x27;,
+               &#x27;1980-01-09&#x27;, &#x27;1980-01-10&#x27;,
+               ...
+               &#x27;2010-12-22&#x27;, &#x27;2010-12-23&#x27;, &#x27;2010-12-24&#x27;, &#x27;2010-12-25&#x27;,
+               &#x27;2010-12-26&#x27;, &#x27;2010-12-27&#x27;, &#x27;2010-12-28&#x27;, &#x27;2010-12-29&#x27;,
+               &#x27;2010-12-30&#x27;, &#x27;2010-12-31&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=11214, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-68b647ef-ac31-4c57-af5c-25c6c4f0c1a3' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-68b647ef-ac31-4c57-af5c-25c6c4f0c1a3' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </details>
 </div>
 <p>Having downloaded the station observational data, the next step is to download the raw model data. Since it tends to be more reliable than the ESGF, we’ll search the Google Cloud Services CMIP6 archive for data from our chosen model and scenarios.</p>
@@ -1343,8 +1353,8 @@ Data variables:
 <span class="n">tas_ssp3_raw</span> <span class="o">=</span> <span class="n">ds_ssp3_raw</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="n">stn_lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">stn_lon</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span> 
 
 <span class="c1"># select time periods</span>
-<span class="n">tas_hist_raw</span> <span class="o">=</span> <span class="n">tas_hist_raw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_hist_raw</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">years_hist</span><span class="p">))</span>
-<span class="n">tas_ssp3_raw</span> <span class="o">=</span> <span class="n">tas_ssp3_raw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_ssp3_raw</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">years_future</span><span class="p">))</span>
+<span class="n">tas_hist_raw</span> <span class="o">=</span> <span class="n">tas_hist_raw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_hist_raw</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">years_hist</span><span class="p">))</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">tas_ssp3_raw</span> <span class="o">=</span> <span class="n">tas_ssp3_raw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_ssp3_raw</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">years_future</span><span class="p">))</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1410,7 +1420,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/3c57584689a5cb37199e9a32e915b4ec2592698d7a0fac7244c631b12528ba02.png" src="../_images/3c57584689a5cb37199e9a32e915b4ec2592698d7a0fac7244c631b12528ba02.png" />
+<img alt="../_images/be78089ef0cb49539363557a53dc2c1aa0e7ec50f3a68a6ef1186307c371267c.png" src="../_images/be78089ef0cb49539363557a53dc2c1aa0e7ec50f3a68a6ef1186307c371267c.png" />
 </div>
 </div>
 <p>Strange, the observed data drops to a very low value at the end of the year, and extends past the model data on the x axis. This is because the model calendar does not include leap years! To account for this discrepancy, we will drop leap days from the station data to rectify the difference in calendars, and then re-do the calculation.</p>
@@ -1461,7 +1471,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1867d707e707d73b896976b16a34c92dc5565f2a674e287e3b27793aa593f9fd.png" src="../_images/1867d707e707d73b896976b16a34c92dc5565f2a674e287e3b27793aa593f9fd.png" />
+<img alt="../_images/45584cf562390f8cc41f37498bc6180db1f9918de58bd525ae0554a8993956bb.png" src="../_images/45584cf562390f8cc41f37498bc6180db1f9918de58bd525ae0554a8993956bb.png" />
 </div>
 </div>
 <p>This second plot is a more fair comparison of the daily climatologies. The model bias for this location (i.e. the difference between the obs and the historical simulation) isn’t especially large in this case, which is encouraging. The daily climatoloies do not agree perfectly, most notably in the summertime when the model historical climatology peaks later in the year than the observed climatology, but the one-standard-deviation (one-<span class="math notranslate nohighlight">\(\sigma\)</span>) ranges overlap a lot. We’ll continue to characterize the model bias in the next step by plotting the PDFs and CDFs of daily mean temperature for both datasets.</p>
@@ -1517,7 +1527,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/5fbe1c44fd14c3ce9df883f81173864a1230470b44f7c7866d871676562bcabc.png" src="../_images/5fbe1c44fd14c3ce9df883f81173864a1230470b44f7c7866d871676562bcabc.png" />
+<img alt="../_images/bcae2b8ccd284e982d0b2089242631c440f58cbeac4f0a3525bcb7968f2cefe5.png" src="../_images/bcae2b8ccd284e982d0b2089242631c440f58cbeac4f0a3525bcb7968f2cefe5.png" />
 </div>
 </div>
 <p>This situation is similar to Section 3.4.4 where we compared the temperature distributions for Toronto between CanESM5 and the Toronto City ECCC station. Here the mean bias is small and the overall variability is similar, but the model (CESM2) distribution is sharply bimodal while the observed temperature distribution is less so. This feature of the bias in the model temperatures cannot be determined by comparing the daily climatologies, but it’s important to account for. Thankfully, our quantile mapping based bias correction methods (like Quantile Delta Mapping) can help correct for this. Later on we’ll reproduce this plot with bias-corrected model data to see if it helps correct for the spurious bimodality of the daily mean temperature distribution.</p>
@@ -1573,7 +1583,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/2956609f7d615edb59170f7646c9a7fe21377b4590e3c946077f77f4f31975fa.png" src="../_images/2956609f7d615edb59170f7646c9a7fe21377b4590e3c946077f77f4f31975fa.png" />
+<img alt="../_images/bd8e6ab2c3d0741cd4f21571b65422616b0afbd33fa8464b30a62a49c2884e2b.png" src="../_images/bd8e6ab2c3d0741cd4f21571b65422616b0afbd33fa8464b30a62a49c2884e2b.png" />
 </div>
 </div>
 <p>Despite good agreement regarding the daily climatology and the overall mean and standard deviation, the model shows a fairly sizable bias in the number of annual CDDs. 13 CDDs per year, compared to the observed long-term mean of about 86 CDDs per year, is a mean bias of about 15%. Going through the exercise of calculating the climate indicator using the raw model data has illuminated this important bias, which wouldn’t be easily deduced by examining at the previous plots. The spurious low-temperature peak of the model PDF hints that there may be too few warm days, but we couldn’t make this conclusion without calculating the CDDs.</p>
@@ -1630,7 +1640,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/543675c34804963e2d12cc6cd42508266238962e4476581d36126c0133675919.png" src="../_images/543675c34804963e2d12cc6cd42508266238962e4476581d36126c0133675919.png" />
+<img alt="../_images/c5c29a5de8d3f6c74054fab0b84236e49bc0e8027c147fdc0f04545bb674fcf0.png" src="../_images/c5c29a5de8d3f6c74054fab0b84236e49bc0e8027c147fdc0f04545bb674fcf0.png" />
 </div>
 </div>
 <p>We see clear signs of warming in the end-of-century period under the SSP3-7.0 scenario, especially in the summer season. The low end of the one-<span class="math notranslate nohighlight">\(\sigma\)</span> range for this case is completely above the high end of the variability range for the model historical case. This is likely to result in large changes in our climate indicator, cooling degree days.</p>
@@ -1759,7 +1769,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e5acfb462e12d42425c128b9ad937ae9d9308d89ac96ed9a375a1d7aee708e65.png" src="../_images/e5acfb462e12d42425c128b9ad937ae9d9308d89ac96ed9a375a1d7aee708e65.png" />
+<img alt="../_images/f53940c903ef641463cd771ae48e58e27373b64e19296c36c17451265d48c651.png" src="../_images/f53940c903ef641463cd771ae48e58e27373b64e19296c36c17451265d48c651.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1909,7 +1919,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/8066b2655c97f1b895709c4308678c72150f548426e2ff90feb01b5ed68d2932.png" src="../_images/8066b2655c97f1b895709c4308678c72150f548426e2ff90feb01b5ed68d2932.png" />
+<img alt="../_images/36ccc175535c2efeb655a18f8372521285c83195b70993dfc3471afe42a84c75.png" src="../_images/36ccc175535c2efeb655a18f8372521285c83195b70993dfc3471afe42a84c75.png" />
 </div>
 </div>
 <p>The daily climatology of the QDM historical data matches much more closely with the station observations than the raw model did. Most notably, the uncertainty shading shows greater overlap, indicating a better match of the interannual variability for each day of the year. Additionally, the timing of the peak temperatures in the summertime matches better than it did for the raw model.</p>
@@ -1954,7 +1964,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/26abc993c3a8d54bffde10d2b8c6e27918366cb3571a58f8a90d27e7c91ceb08.png" src="../_images/26abc993c3a8d54bffde10d2b8c6e27918366cb3571a58f8a90d27e7c91ceb08.png" />
+<img alt="../_images/94386ce721a6ffefff8cfbaec7c4f26cffb8e8c285ce7bb611b2ae4d75db893b.png" src="../_images/94386ce721a6ffefff8cfbaec7c4f26cffb8e8c285ce7bb611b2ae4d75db893b.png" />
 </div>
 </div>
 <p>Comparing the PDFs of the raw model and bias-corrected output, we can see the impact of applying QDM. The bias-adjusted historical simulation matches the observed PDF much more closely, though it still has a slightly higher low-temperature peak than the observations. This may be an artefact introduced by the monthly grouping - we enforced that the distributions for each month of the year must match individually, not the overall distribution. We can test if the bias-adjusted data follows a significantly different distribution than the observations using the <a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test">Kolmogorov-Smirnov test</a>, like in Section 4.4.1. The null hypothesis of this test is that both samples being compared are drawn from the same underlying probability distribution. The p-value of 0.51 is sufficiently high that we fail to reject the null hypothesis, and thus there isn’t sufficient evidence to claim that they follow different sampling distributions.</p>
@@ -2024,7 +2034,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/c004fe7e6c7cab361e99b6ca400bf1fd3f43eeb84f3e42b61fa8a7384682a222.png" src="../_images/c004fe7e6c7cab361e99b6ca400bf1fd3f43eeb84f3e42b61fa8a7384682a222.png" />
+<img alt="../_images/1e6193895699a83b12bd975c95c4ab047da9ef10838d710b34d56c24d5972b61.png" src="../_images/1e6193895699a83b12bd975c95c4ab047da9ef10838d710b34d56c24d5972b61.png" />
 </div>
 </div>
 <p>The effect of the bias adjustment on the model historical CDDs is positive - the mean number of annual CDDs is very close to the observed long-term mean. The number of future CDDs also increases as a result of the bias correction, but the mean change is essentially unchanged. This behavior might lead you to question whether the bias correction was worth it at all, but remember that this model had a very low bias in daily mean temperature for our study site. Other models, which we’ll investigate in the next section, may not show the same behavior.</p>
