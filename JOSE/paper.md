@@ -1,5 +1,5 @@
 ---
-title: The University of Toronto Climate Downscaling Workflow: Tools and Resources for Climate Change Impact Analysis
+title: 'The University of Toronto Climate Downscaling Workflow: Tools and Resources for Climate Change Impact Analysis'
 authors:
 - name: Michael Morris
   orcid: 0000-0002-5758-2182
