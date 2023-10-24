@@ -1,4 +1,4 @@
---
+---
 title: The University of Toronto Climate Downscaling Workflow: Tools and Resources for Climate Change Impact Analysis
 authors:
 - name: Michael Morris
@@ -17,7 +17,7 @@ affiliations:
   index: 2
 date: October 2023
 bibliography: paper.bib
---
+---
 
 # Summary
 
