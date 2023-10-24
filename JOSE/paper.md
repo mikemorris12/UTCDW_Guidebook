@@ -17,7 +17,7 @@ affiliations:
 - name: Department of Physical and Environmental Sciences, University of Toronto Scarborough
   index: 2
 date: 2023
-bibliography: paper.bib
+bibliography: JOSE/paper.bib
 --
 
 # Summary
