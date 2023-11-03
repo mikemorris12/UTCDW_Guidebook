@@ -11,14 +11,14 @@ The transfer function will generally have free parameters $\theta$ that we must 
 
 |![](./figures/ConstructedAnalogs2.jpeg)|
 |:--:|
-|*Illustration of the Constructed Analogues statistical downscaling method, from [Abatzoglou (2011)](https://climate.northwestknowledge.net/MACA/MACAmethod.php)* {cite}`abatzoglou_comparison_2012`|
+|*Illustration of the Constructed Analogues statistical downscaling method, from [Abatzoglou (2011)](https://climate.northwestknowledge.net/MACA/MACAmethod.php) and {cite:t}`abatzoglou_comparison_2012`*|
 
 
 ## 4.1.2 Dynamical Downscaling
 
 |![](./figures/cordex_domains.png)|
 |:--:|
-|*Standard domains for Regional Climate Model simulations contributing to the Coordinated Regional Downscaling Experiment (CORDEX) project {cite}`cordex-sat_summary_2020`.*|
+|*Standard domains for Regional Climate Model simulations contributing to the Coordinated Regional Downscaling Experiment (CORDEX) project {cite:p}`cordex-sat_summary_2020`.*|
 
 Dynamical Downscaling involves using the output of a coarse resolution global model as boundary conditions for a limited-area, higher-resolution **Regional Climate Model** (RCM). Dynamical downscaling uses physical relationships to simulate the climate at a higher resolution, and because physics does not change over time, there is no reliance on the assumption of stationarity. RCMs will use higher-resolution lower boundary conditions (LBCs), and thus can directly simulate the effects of topography, land surface types, and bodies of water too small to be represented in the LBCs of GCMs. Because they don't use observations for bias-correction, they can also provide high-resolution climate information in regions where observations are sparse or unavailable, such as the Arctic or much of the Southern Hemisphere.
 
