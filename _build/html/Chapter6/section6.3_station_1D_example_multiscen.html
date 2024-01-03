@@ -363,7 +363,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">6.3.2 Exploratory Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-bias-correction">6.3.3 Applying Bias-Correction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validating-multi-scenario-downscaled-data">6.3.4 Validating Multi-Scenario Downscaled Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downscaled-indicator-for-multiple-scenarios">6.2.5 Downscaled Indicator for Multiple Scenarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downscaled-indicator-for-multiple-scenarios">6.3.5 Downscaled Indicator for Multiple Scenarios</a></li>
 </ul>
             </nav>
         </div>
@@ -377,7 +377,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="edmonton-ac-loads-multi-scenario-analysis">
 <h1>6.3 Edmonton AC Loads: Multi-Scenario Analysis<a class="headerlink" href="#edmonton-ac-loads-multi-scenario-analysis" title="Permalink to this heading">#</a></h1>
-<p>This notebook continues the worked example on analyzing projections of air conditioning loads in Edmonton, using Cooling Degree Days as the climate indicator and weather station data as the observational product. Here we expand the scope of the analysis to include projections not only from multiple CMIP6 models, but also for multiple future scenarios. Here is an updated flowchart, generated using the UTCDW survey:</p>
+<p>This notebook continues the worked example on analyzing projections of air conditioning loads in Edmonton, using Cooling Degree Days as the climate indicator and weather station data as the observational product. Here we expand the scope of the analysis to include projections not only from multiple CMIP6 models but also for multiple future scenarios. Here is an updated flowchart, generated using the UTCDW survey:</p>
 <a class="reference internal image-reference" href="../_images/survey_station_multiscenario.png"><img alt="../_images/survey_station_multiscenario.png" class="align-center" src="../_images/survey_station_multiscenario.png" style="width: 600px;" /></a>
 <p>As always, we’ll begin by importing the necessary packages and acquiring the observational data.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -503,7 +503,7 @@ document.write(`
 <ul class="simple">
 <li><p>SSP1-2.6 (Sustainability)</p></li>
 <li><p>SSP2-4.5 (Middle of the Road)</p></li>
-<li><p>SSP3-7.0 (Regionaly Rivalry)</p></li>
+<li><p>SSP3-7.0 (Regional Rivalry)</p></li>
 <li><p>SSP5-8.5 (Fossil-Fueled Development)</p></li>
 </ul>
 <p>For each model, we’ll again use only a single ensemble member. The code below will search the Google Cloud CMIP6 data catalog for ensemble members that include the historical simulation, plus branches for each of the 4 SSPs listed above. For consistency between the historical data and future projections, they must all come from the same ensemble member.</p>
@@ -1546,7 +1546,7 @@ INM-CM5-0
 </section>
 <section id="exploratory-analysis">
 <h2>6.3.2 Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this heading">#</a></h2>
-<p>With this multi-model, multi-scenario ensemble, we can do much of the same analysis as before, and also quantify the effects of scenario uncertainty on the future projections. Since the historical validation for this case would be exactly the same as Section 6.2 (since there’s only one historical scenario), we can get right into looking at the raw model future projections. Since we already explored model uncertainty in 6.2, let’s look at the raw projections of the multi-model ensemble. Remember though that when we get to the bias-correction, it should be applied to each model individually, <strong>not to the multi-model mean</strong>.</p>
+<p>With this multi-model, multi-scenario ensemble, we can do much of the same analysis as before and also quantify the effects of scenario uncertainty on future projections. Since the historical validation for this case would be exactly the same as Section 6.2 (since there’s only one historical scenario), we can get right into looking at the raw model future projections. Since we already explored model uncertainty in 6.2, let’s look at the raw projections of the multi-model ensemble. Remember though that when we get to the bias-correction, it should be applied to each model individually, <strong>not to the multi-model mean</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the daily climatology, averaged across models, for the historical and future data</span>
@@ -1604,8 +1604,8 @@ INM-CM5-0
 <img alt="../_images/fde55a54094ae6dbb2a5957bb664fbaee43c3ef1289bd1e7221140eaa73e1fc4.png" src="../_images/fde55a54094ae6dbb2a5957bb664fbaee43c3ef1289bd1e7221140eaa73e1fc4.png" />
 </div>
 </div>
-<p>This plot shows how the multi-model average daily mean temperature climatology varies with the future scenario. The historical climatology (blue) shows a slight cold bias relative to the observations (black), which will hopefully be eliminated after bias-correcting the models. The future scenarios all show warming realtive to the historical period, though only the two highest-emission scenarios (SSP3-7.0 and SSP5-8.5) have peaks that exceed the observed range of variability.</p>
-<p>We should expect that CDDs will increase under each scenario, and the increases will probably be largest for the higher forcing scenarios. However, we already saw that the inter-model spread for projections was quite large for the single-scenario analysis. Will the spread across scenarios be larger? Let’s calculate the CDDs before and after bias-adjustment and investigate.</p>
+<p>This plot shows how the multi-model average daily mean temperature climatology varies with the future scenario. The historical climatology (blue) shows a slight cold bias relative to the observations (black), which will hopefully be eliminated after bias-correcting the models. The future scenarios all show warming relative to the historical period, though only the two highest-emission scenarios (SSP3-7.0 and SSP5-8.5) have peaks that exceed the observed range of variability.</p>
+<p>We should expect that CDDs will increase under each scenario, and the increases will probably be larger for the higher forcing scenarios. However, we already saw that the inter-model spread for projections was quite large for the single-scenario analysis. Will the spread across scenarios be larger? Let’s calculate the CDDs before and after bias-adjustment and investigate.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1668,8 +1668,8 @@ INM-CM5-0
 <img alt="../_images/bea923168075cc8518565e8109f93cdcb959d35566f2a61db656021750868cc7.png" src="../_images/bea923168075cc8518565e8109f93cdcb959d35566f2a61db656021750868cc7.png" />
 </div>
 </div>
-<p>In this plot the blue bars show the multi-model mean change in the average annual CDDs, while the black errorbars represent the standard deviation across models for the given scenario. Clearly scenario uncertainty plays a large role in the overall range of projections, with the low end of the SSP5-8.5 projections not overlapping at all with the high end of the SSP2-1.6 projections. The errorbar doesn’t overlap with zero for any scenario, so all scenarios project a statistically significant increase to CDDs.</p>
-<p>Interestingly, the model spread is larger for the higher forcing scenarios - in other words the model uncertainty grows with the strength of the forcing. Is that also true for the <em>percent uncertainty</em>? Let’s check:</p>
+<p>In this plot, the blue bars show the multi-model mean change in the average annual CDDs, while the black error bars represent the standard deviation across models for the given scenario. Clearly, scenario uncertainty plays a large role in the overall range of projections, with the low end of the SSP5-8.5 projections not overlapping at all with the high end of the SSP2-1.6 projections. The error bar doesn’t overlap with zero for any scenario, so all scenarios project a statistically significant increase in CDDs.</p>
+<p>Interestingly, the model spread is larger for the higher forcing scenarios. In other words, the model uncertainty grows with the strength of the forcing. Is that also true for the <em>percent uncertainty</em>? Let’s check:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdds_mm_delta_raw_model_spread_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">cdds_mm_delta_raw_model_spread</span> <span class="o">/</span> <span class="n">cdds_mm_delta_raw_ensmean</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
@@ -1756,11 +1756,11 @@ INM-CM5-0
 </div>
 </div>
 <p>In the raw model output, it appears that the relative contribution of scenario uncertainty is slightly larger than the typical magnitude of model uncertainty. This isn’t so surprising, because the bar chart shows a very large disparity between the high and low forcing scenarios.</p>
-<p>We’ll re-do these calculations for the bias-adjusted CDD projections to get a final assessment of the magnitude of model uncertainty and scenario uncerainty on the projections.</p>
+<p>We’ll re-do these calculations for the bias-adjusted CDD projections to get a final assessment of the magnitude of model uncertainty and scenario uncertainty on the projections.</p>
 </section>
 <section id="applying-bias-correction">
 <h2>6.3.3 Applying Bias-Correction<a class="headerlink" href="#applying-bias-correction" title="Permalink to this heading">#</a></h2>
-<p>Now it’s time to apply the QDM bias correction to the model <code class="docutils literal notranslate"><span class="pre">tas</span></code> data. Like for the multi-model example, the <code class="docutils literal notranslate"><span class="pre">xclim</span></code> bias-adjustment routines apply separate adjustments over each dimension, so the function call is exactly the same as before.</p>
+<p>Now it’s time to apply the QDM bias correction to the model <code class="docutils literal notranslate"><span class="pre">tas</span></code> data. The function call is exactly the same as in the multi-model example because the <code class="docutils literal notranslate"><span class="pre">xclim</span></code> bias-adjustment routines apply separate adjustments over each dimension.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1860,7 +1860,7 @@ INM-CM5-0
 <img alt="../_images/863988ebdf4364cc497157211310102a43b93d2457ea60233e77e675f0b6db20.png" src="../_images/863988ebdf4364cc497157211310102a43b93d2457ea60233e77e675f0b6db20.png" />
 </div>
 </div>
-<p>The character of the changes to the daily climatology of <code class="docutils literal notranslate"><span class="pre">tas</span></code> isn’t really changed by the bias correction, but the historical multi-model mean (blue) now matches the observed climatology (black) more closely. Next let’s test the statistical significance of mean change to <code class="docutils literal notranslate"><span class="pre">tas</span></code> for each scenario.</p>
+<p>The character of the changes to the daily climatology of <code class="docutils literal notranslate"><span class="pre">tas</span></code> isn’t really changed by the bias correction, but the historical multi-model mean (blue) now matches the observed climatology (black) more closely. Next, let’s test the statistical significance of mean change to <code class="docutils literal notranslate"><span class="pre">tas</span></code> for each scenario.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1971,8 +1971,8 @@ INM-CM5-0
 <p>The increase in mean <code class="docutils literal notranslate"><span class="pre">tas</span></code> is significant for all scenarios.</p>
 </section>
 <section id="downscaled-indicator-for-multiple-scenarios">
-<h2>6.2.5 Downscaled Indicator for Multiple Scenarios<a class="headerlink" href="#downscaled-indicator-for-multiple-scenarios" title="Permalink to this heading">#</a></h2>
-<p>Next let’s examine the changes to CDDs.</p>
+<h2>6.3.5 Downscaled Indicator for Multiple Scenarios<a class="headerlink" href="#downscaled-indicator-for-multiple-scenarios" title="Permalink to this heading">#</a></h2>
+<p>Next, let’s examine the changes to CDDs.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -2053,7 +2053,7 @@ INM-CM5-0
 <img alt="../_images/02a959adefe07e2f47103a1720321a745a188bfd5437703dca25f59216d70eda.png" src="../_images/02a959adefe07e2f47103a1720321a745a188bfd5437703dca25f59216d70eda.png" />
 </div>
 </div>
-<p>The effect of the bias correction was to increase the magnitude of the CDD projections for each scenario, though the size of the model spread and scenario spread appears mostly unchanged. Like we did for the raw model projections, we can quantify the relative contributions of model uncertainty and scenario uncertainty by comparing the spread across models/scenarios to the mean change across models/scenarios.</p>
+<p>The effect of the bias correction was to increase the magnitude of the CDD projections for each scenario, though the size of the model spread and scenario spread appear mostly unchanged. As we did for the raw model projections, we can quantify the relative contributions of model uncertainty and scenario uncertainty by comparing the spread across models/scenarios to the mean change across models/scenarios.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdds_delta_qdm_model_spread_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">cdds_qdm_delta_stdev</span> <span class="o">/</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
@@ -2134,7 +2134,7 @@ INM-CM5-0
 </div>
 </div>
 </div>
-<p>After applying the bias correction, the spread in projections across both models and scenarios is reduced, but scenario uncertainty still dominates model structural uncertainty, and now to a much greater extent. Therefore we’ll use the spread across scenarios to generate our final range of changes to CDDs in Edmonton, from the historucal baseline period to the end of the 21st century. Again we’ll use the 10th-90th percentile range to produce the overall uncerainty range, just this time across scenarios.</p>
+<p>After applying the bias correction, the spread in projections across both models and scenarios is reduced, but scenario uncertainty still dominates model structural uncertainty, and now to a much greater extent. Therefore we’ll use the spread across scenarios to generate our final range of changes to CDDs in Edmonton, from the historical baseline period to the end of the 21st century. Again we’ll use the 10th-90th percentile range to produce the overall uncertainty range, just this time across scenarios.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdd_change_10p</span> <span class="o">=</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
@@ -2157,8 +2157,8 @@ INM-CM5-0
 </div>
 </div>
 </div>
-<p>This size of this projection range is similar to the range across models in Section 6.2, but because we’re considering some weaker forcing scenarios, the magnitude of the changes is smaller than for the SSP3-7.0 scenario alone.</p>
-<p>Including multiple models and scenarios into this analysis has allowed us to characterize uncertainty in the future projections - something we couldn’t do in the previous examples where either only one model or one scenario were investigated.</p>
+<p>The size of this projection range is similar to the range across models in Section 6.2, but because we’re considering some weaker forcing scenarios, the magnitude of the changes is smaller than for the SSP3-7.0 scenario alone.</p>
+<p>Including multiple models and scenarios in this analysis has allowed us to characterize uncertainty in the future projections - something we couldn’t do in the previous examples where either only one model or one scenario was investigated.</p>
 <p>So far none of the examples have assessed the contribution of internal climate variability to the uncertainty in future projections. For an end-of-century projection period and a variable like daily mean temperature which has a robust climate change signal, it’s unlikely that internal variability would be comparable to model or scenario uncertainty. However, internal variability can be very important for near-term projections, when the magnitude of the climate change signal may not yet exceed the range of historical variability. In the next section, we’ll attempt to prove this by using multiple realizations for a single model.</p>
 </section>
 </section>
@@ -2230,7 +2230,7 @@ INM-CM5-0
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">6.3.2 Exploratory Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-bias-correction">6.3.3 Applying Bias-Correction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validating-multi-scenario-downscaled-data">6.3.4 Validating Multi-Scenario Downscaled Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downscaled-indicator-for-multiple-scenarios">6.2.5 Downscaled Indicator for Multiple Scenarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downscaled-indicator-for-multiple-scenarios">6.3.5 Downscaled Indicator for Multiple Scenarios</a></li>
 </ul>
   </nav></div>
 

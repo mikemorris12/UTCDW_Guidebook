@@ -377,7 +377,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="edmonton-ac-loads-near-term-projections">
 <h1>6.4 Edmonton AC Loads: Near-Term Projections<a class="headerlink" href="#edmonton-ac-loads-near-term-projections" title="Permalink to this heading">#</a></h1>
-<p>The previous worked examples on this topic used an end-of-century period as the time horizon for the future projections. This was useful for getting a strong signal to demonstrate the downscaling and validation methods, but it may not be what most practitioners are interested in. Here we’ll reproduce the analysis in 6.3, but for a future time period of 2030-2060. To slightly reduce the dimensionality, we’ll return to using only one model. Since its downscaled projections fall near the middle of the multi-model range, and it has multiple ensemble members available for all scenarios, we’ll choose MPI-ESM1-2-LR as our model.</p>
+<p>The previous worked examples on this topic used an end-of-century period as the time horizon for future projections. This was useful for getting a strong signal to demonstrate the downscaling and validation methods, but it may not be what most practitioners are interested in. Here we’ll reproduce the analysis in 6.3, but for a future time period of 2030-2060. To slightly reduce the dimensionality, we’ll return to using only one model. Since its downscaled projections fall near the middle of the multi-model range, and it has multiple ensemble members available for all scenarios, we’ll choose MPI-ESM1-2-LR as our model.</p>
 <p>Here is an updated flowchart, generated using the UTCDW survey:</p>
 <a class="reference internal image-reference" href="../_images/survey_station_nearterm.png"><img alt="../_images/survey_station_nearterm.png" class="align-center" src="../_images/survey_station_nearterm.png" style="width: 600px;" /></a>
 <section id="acquiring-the-data">
@@ -415,14 +415,6 @@ document.write(`
 
 <span class="c1"># url for the CSV file that contains the data catalog</span>
 <span class="n">url_gcsfs_catalog</span> <span class="o">=</span> <span class="s1">&#39;https://storage.googleapis.com/cmip6/cmip6-zarr-consolidated-stores.csv&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:218: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def _day_length(lat: int | float, mth: int):  # pragma: no cover
-/Users/mikemorris/opt/anaconda3/envs/UTCDW/lib/python3.9/site-packages/xclim/indices/fire/_cffwis.py:238: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def _day_length_factor(lat: float, mth: int):  # pragma: no cover
 </pre></div>
 </div>
 </div>
@@ -513,7 +505,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open the Google Cloud model data catalog with pandas</span>
 <span class="n">df_catalog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_gcsfs_catalog</span><span class="p">)</span>
 
-<span class="c1"># search for entries which have daily tas data from the selected scenarios and models</span>
+<span class="c1"># search for entries that have daily tas data from the selected scenarios and models</span>
 <span class="n">scenarios</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp126&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp245&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp370&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">]</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;MPI-ESM1-2-LR&quot;</span>
@@ -1450,11 +1442,11 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/dbd638417b83f54b5d0761fe0bbb564f7e697b6ce31b671b4b7b24973b9d478f.png" src="../_images/dbd638417b83f54b5d0761fe0bbb564f7e697b6ce31b671b4b7b24973b9d478f.png" />
+<img alt="../_images/358cd2911d3cd12cb1af349a5f2223a755697157d7b6186719a9ece826541334.png" src="../_images/358cd2911d3cd12cb1af349a5f2223a755697157d7b6186719a9ece826541334.png" />
 </div>
 </div>
 <p>First of all, recall from 6.2 that the MPI model had a sizeable negative temperature bias relative to observations for our study location, which is why the historical climatology (blue) and even the SSP5-8.5 climatology (purple) is much colder than the observations (black).</p>
-<p>More importantly though, this plot illustrates well how internal variability is more important than scenario uncertainty for near-term projections. For the end-of-century case in 6.3, the daily climatologies for the higher-forcing scenarios stood out clearly from the historical baseline period. In the plot above, they do not. The variability range for the high-emissions, SSP5-8.5 scenario has a great deal of overlap with the historical range of variability. This casts doubt on whether the change to <code class="docutils literal notranslate"><span class="pre">tas</span></code> is even statistically significant. That said, we also have a larger effective sample size than before, because each ensemble member contributes to the ensemble mean independently. This means that the magnitude of the signal doesn’t need to be as large to be considered statistically significant.</p>
+<p>More importantly, this plot illustrates well how internal variability is more important than scenario uncertainty for near-term projections. For the end-of-century case in 6.3, the daily climatologies for the higher-forcing scenarios stood out clearly from the historical baseline period. In the plot above, they do not. The variability range for the high-emissions, SSP5-8.5 scenario has a great deal of overlap with the historical range of variability. This casts doubt on whether the change to <code class="docutils literal notranslate"><span class="pre">tas</span></code> is even statistically significant. That said, we also have a larger effective sample size than before because each ensemble member contributes to the ensemble mean independently. This means that the magnitude of the signal doesn’t need to be as large to be considered statistically significant.</p>
 <p>Let’s run the hypothesis test to check.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -1482,7 +1474,7 @@ document.write(`
     
     <span class="k">return</span> <span class="n">neff</span>
 
-<span class="c1"># calculate effective sample size and sum across ensemble members, each each ens member is independent</span>
+<span class="c1"># calculate effective sample size and sum across ensemble members, each ens member is independent</span>
 <span class="n">neff_hist_raw</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">tas_ens_hist_raw</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;realization&#39;</span><span class="p">)</span>
 <span class="n">neff_future_raw</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">tas_ens_future_raw</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s1">&#39;realization&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1632,10 +1624,10 @@ p-values for mean change of raw tas
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/6b3beb846641277ea73f735cd179d4bfd40b0e5981c6846cb4b1fa84cca21967.png" src="../_images/6b3beb846641277ea73f735cd179d4bfd40b0e5981c6846cb4b1fa84cca21967.png" />
+<img alt="../_images/909125b33076af505a4365ce9f4058734a02708e46d0075c853b4d7a807113f6.png" src="../_images/909125b33076af505a4365ce9f4058734a02708e46d0075c853b4d7a807113f6.png" />
 </div>
 </div>
-<p>This bar chart shows how the range of changes to CDDs (as projected by the raw model output) is also dominated by internal variability rather than scenario uncertainty. The higher forcing scenario project greater near-term increases to CDDs, but the spread across ensemble members (represented by the black errorbars) overlaps between the SSP5-8.5 and SSP1-2.6 scenarios. To quantify the relative contribution of each source of uncertainty, we can do a similar calculation to 6.3 where we compared model uncertainty to scenario uncerainty.</p>
+<p>This bar chart shows how the range of changes to CDDs (as projected by the raw model output) is also dominated by internal variability rather than scenario uncertainty. The higher forcing scenario projects greater near-term increases to CDDs, but the spread across ensemble members (represented by the black error bars) overlaps between the SSP5-8.5 and SSP1-2.6 scenarios. To quantify the relative contribution of each source of uncertainty, we can do a similar calculation to 6.3 where we compared model uncertainty to scenario uncertainty.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># spread due to internal variability</span>
@@ -1826,7 +1818,7 @@ p-values for mean change of raw tas
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/f47304409936919b03a30b60bf8f4b76fbdb220ece02f9d877366ded14be2af8.png" src="../_images/f47304409936919b03a30b60bf8f4b76fbdb220ece02f9d877366ded14be2af8.png" />
+<img alt="../_images/b417a93e108ab0674dcab01062e74e34af09c2103e670d6283fbc25c4aa5cc97.png" src="../_images/b417a93e108ab0674dcab01062e74e34af09c2103e670d6283fbc25c4aa5cc97.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1914,7 +1906,7 @@ p-values for mean change of raw tas
 </section>
 <section id="downscaled-indicator">
 <h2>6.4.4 Downscaled Indicator<a class="headerlink" href="#downscaled-indicator" title="Permalink to this heading">#</a></h2>
-<p>Next let’s examine the changes to CDDs.</p>
+<p>Next, let’s examine the changes to CDDs.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1986,7 +1978,7 @@ p-values for mean change of raw tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/283d4aa56ebd4577723dfd1b44fe0363fdee2beecf2d53d813f8358c5486c276.png" src="../_images/283d4aa56ebd4577723dfd1b44fe0363fdee2beecf2d53d813f8358c5486c276.png" />
+<img alt="../_images/33f97fb531390d6f79723ef17be27ea6da700e9f259e80b2f219404d943a5a36.png" src="../_images/33f97fb531390d6f79723ef17be27ea6da700e9f259e80b2f219404d943a5a36.png" />
 </div>
 </div>
 <p>Because the model was biased cold relative to the observations, the bias-corrected CDDs projections are much larger than the raw model projections - just like we saw in section 6.2 for the MPI model. As for the spread across scenarios, it now also appears to be slightly larger than for the raw model projections, but since the bias was so large it’s hard to determine by visual inspection if this means that scenario uncertainty now dominates internal variability. Based on the bias-corrected temperature climatologies, it appears that internal variability may exceed scenario uncertainty, but let’s do the calculation to tell for sure.</p>
@@ -2041,7 +2033,7 @@ p-values for mean change of raw tas
     </tr>
     <tr>
       <th>ssp245</th>
-      <td>16.05</td>
+      <td>16.04</td>
     </tr>
     <tr>
       <th>ssp370</th>
@@ -2075,7 +2067,7 @@ p-values for mean change of raw tas
 </div>
 </div>
 <p>Interesting! After applying bias adjustment, the relative uncertainty in the projections due to internal climate variability is now smaller than the spread across scenarios. Remember that these projections are only from a single model, so this result may not hold true in general. Other models may show greater variations due to internal climate variability than MPI-ESM1-2-LR. For the most robust results, you should repeat the analysis in this notebook for multiple models.</p>
-<p>To estimate internal varability in a multi-model ensemble, you could calculate the variance across realizations for each model, take the ensemble mean, and then square-root. This is not so different from what we did in Section 6.3 to estimate the model spread for each scenario, so a user looking to test their programming skills would benefit from doing this as an exercise.</p>
+<p>To estimate internal variability in a multi-model ensemble, you could calculate the variance across realizations for each model, take the ensemble mean, and then take the square root. This is not so different from what we did in Section 6.3 to estimate the model spread for each scenario, so a user looking to test their programming skills would benefit from doing this as an exercise.</p>
 <p>Having established that scenario uncertainty dominates the uncertainty in near-term projections of CDDs for this model, let’s finish the workflow by calculating a range of percentage changes, using the spread across scenarios.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
