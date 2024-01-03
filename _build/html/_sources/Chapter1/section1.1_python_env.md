@@ -8,7 +8,7 @@ Once you have Anaconda installed, you must create an environment in which you wi
 
 `conda config --append channels claut`
 
-Now you are ready to set up your Conda environemnt. To ensure version compatability, we have provided files in the [UTCDW GitHub repository](https://github.com/mikemorris12/UTCDW_Guidebook) which can be used to install all of the required Python packages with the versions used for development of the Guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt.
+Now you are ready to set up your Conda environment. To ensure version compatibility, we have provided files in the [UTCDW GitHub repository](https://github.com/mikemorris12/UTCDW_Guidebook) which can be used to install all of the required Python packages with the versions used for development of the Guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt. Note that no environment `.yml` file is provided for Windows operating systems, because the developers have not tested the code on Windows machines. Nevertheless, Anaconda provides a [Windows version](https://docs.anaconda.com/free/anaconda/install/windows/) of their environment manager which can be used to set up the UTCDW environment on a Windows machine. The main difference from MacOS and Linux is that the command line will be accessed via Anaconda Prompt, since Windows does not include a native Terminal application.
 
 * `conda env create -f UTCDW_env_Linux.yml` (Linux)
 * `conda env create -f UTCDW_env_MacOS.yml` (MacOS with Apple Silicon chip)
@@ -21,9 +21,9 @@ Most, but not all, of the packages used for the UTCDW Guidebook are listed below
 
 `conda install <package names>`
 
-Where `<package names>` is to be replaced by the following package names, each separated by a space. Installing all packages at once helps ensure version consistency for packages that depend on others (e.g. `pandas` and `xarray` have dependencies on `numpy` and `scipy`, `cartopy` has a dependency on `matplotlib`, etc.). Anaconda attempts to ensure that there are no dependency issues with existing packages when installing a new one, but sometimes error can arise when installing packages one-by-one.
+Where `<package names>` is to be replaced by the following package names, each separated by a space. Installing all packages at once helps ensure version consistency for packages that depend on others (e.g. `pandas` and `xarray` have dependencies on `numpy` and `scipy`, `cartopy` has a dependency on `matplotlib`, etc.). Anaconda attempts to ensure that there are no dependency issues with existing packages when installing a new one, but sometimes errors can arise when installing packages one-by-one.
 
-List of environments:
+List of packages:
 
 * `numpy` (used for arrays and other mathematical operations)
 * `scipy` (additional scientific and mathematical operations)
