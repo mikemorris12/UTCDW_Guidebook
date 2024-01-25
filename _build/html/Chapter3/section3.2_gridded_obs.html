@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3.2 Gridded Observations &#8212; UTCDW Guidebook</title>
   
   
@@ -19,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +37,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -79,15 +77,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -323,10 +312,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -334,7 +323,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -382,16 +371,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="gridded-observations">
+  <div class="tex2jax_ignore mathjax_ignore section" id="gridded-observations">
 <h1>3.2 Gridded Observations<a class="headerlink" href="#gridded-observations" title="Permalink to this heading">#</a></h1>
 <p>When climate information is needed for an expanded spatial region, instead of a collection of individual points, it is necessary that we use gridded data in our analysis. Gridded <em>observational</em> data is produced in order to fill this need, and usually comes from carefully interpolated station observations or from satellite observations. To be useful for downscaling, the spatial resolution of the gridded observations must be finer than that of the climate model data being downscaled - otherwise there is no way to map the model output to a higher resolution grid while adding fine-scale information. With gridded observational data, we can do all of the same exploratory data analysis as we did with station data, but results will typically be plotted as maps instead of 1D curves.</p>
-<section id="the-netcdf-data-file-format">
+<div class="section" id="the-netcdf-data-file-format">
 <h2>3.2.1 The netCDF Data File Format<a class="headerlink" href="#the-netcdf-data-file-format" title="Permalink to this heading">#</a></h2>
 <p>In the previous section, we worked with 1D time series data from weather station observations. This sort of data is easy to handle with the tabular format of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames, but gridded climate data can have two or three spatial dimensions (typically latitude, longitude, and a vertical dimension such as pressure or height). The time dimension makes 4 dimensions in total, which means we need to use multi-dimensional arrays to manipulate the data. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is not designed for smoothly working with multidimensional arrays in an easy way, so we need a new sort of data type to handle gridded data. Additionally, gridded climate data is often too “big” (in terms of file size) to store in the ASCII text formats (such as .csv) that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> handles. So, in addition to a new data type, we also need a new file format that saves the data in the more efficient binary format (instead of plain text, which is less efficient storage-wise).</p>
 <p>The standard file type for spatio-temporal climate data is called netCDF, or “Network Common Data Form”. netCDF is a “self-describing” data format, in the sense that the files contain metadata about the physical dimensions and coordinates of the data, and other attributes such as units and possibly, history of how the data was generated.</p>
 <p>You can open and read netCDF files with Python using the package <a class="reference external" href="https://unidata.github.io/netcdf4-python/">netcdf4-python</a>, and extract the data in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays. This package is a basic, low-level interface that is expanded upon in the higher-level package  <a class="reference external" href="https://docs.xarray.dev/en/stable/">xarray</a>. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> is built for working with arrays with named dimensions (such as “time” or “latitude”) and is the workhorse for doing climate analysis in Python. It shares much of the same functionality as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> for doing calculations and supports <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/dask.html">parallelizing operations</a> with <a class="reference external" href="https://docs.dask.org/en/stable/">dask</a>, which can significantly speed up calculations involving large datasets. From here on, nearly all of our code will rely on <code class="docutils literal notranslate"><span class="pre">xarray</span></code> for working with netCDF data and doing analysis.</p>
-</section>
-<section id="accessing-data-with-opendap">
+</div>
+<div class="section" id="accessing-data-with-opendap">
 <h2>3.2.2 Accessing Data with OPeNDAP<a class="headerlink" href="#accessing-data-with-opendap" title="Permalink to this heading">#</a></h2>
 <p>In this Guidebook, we’ll focus on the gridded observational products hosted on the <a class="reference external" href="https://pavics.ouranos.ca/datasets.html#a">PAVICS THREDDS server</a>, which can be accessed directly using the OPeNDAP capability of <code class="docutils literal notranslate"><span class="pre">xarray</span></code>.</p>
 <p>The dataset we’ll explore here is the NRCan (Natural Resources Canada) gridded observations, derived from station observations using the ANUSPLIN interpolation algorithm. The spatial resolution is 10 km<span class="math notranslate nohighlight">\(\times\)</span>10 km, and data is available from 1950-2017. More information on this dataset can be found in <span id="id1">McKenney <em>et al.</em> [<a class="reference internal" href="../guidebook_references.html#id19" title="Daniel W. McKenney, Michael F. Hutchinson, Pia Papadopol, Kevin Lawrence, John Pedlar, Kathy Campbell, Ewa Milewska, Ron F. Hopkinson, David Price, and Tim Owen. Customized Spatial Climate Models for North America. Bull. Amer. Meteor. Soc., 92(12):1611–1622, December 2011. URL: http://journals.ametsoc.org/doi/10.1175/2011BAMS3132.1 (visited on 2023-09-06), doi:10.1175/2011BAMS3132.1.">2011</a>]</span>. The entire dataset is large (about 50 GB per variable), so we will work with subsets of the data that are easy to load into memory. Thankfully, the OPeNDAP protocol allows for the subsetting to happen at the host end before the data is loaded onto your local machine.</p>
@@ -907,8 +896,8 @@ Attributes: (12/15)
 <img alt="../_images/a3e28e17bd6d221c7162cc0082f94f943a380b3138dd20a7b1fafafacff5429c.png" src="../_images/a3e28e17bd6d221c7162cc0082f94f943a380b3138dd20a7b1fafafacff5429c.png" />
 </div>
 </div>
-</section>
-<section id="analyzing-the-data">
+</div>
+<div class="section" id="analyzing-the-data">
 <h2>3.2.3 Analyzing the Data<a class="headerlink" href="#analyzing-the-data" title="Permalink to this heading">#</a></h2>
 <p>The above map shows that on the day in question, there was fairly heavy precipitation in Alberta, near Calgary. Let’s subset the data in this region so we can analyze it further.</p>
 <div class="cell docutils container">
@@ -1014,8 +1003,8 @@ Attributes: (12/15)
 </div>
 </div>
 <p>This map tells us that the 50-year return value of precipitation near Calgary is about 65 mm/day, so the event on the day we selected was certainly a lot of rain, but not particularly close to a 50-year event.</p>
-</section>
-<section id="other-calculations">
+</div>
+<div class="section" id="other-calculations">
 <h2>3.2.4 Other Calculations<a class="headerlink" href="#other-calculations" title="Permalink to this heading">#</a></h2>
 <p>Doing the calculation of 50-year return values for gridded data with xarray was a particularly cumbersome task. For most typical calculations, we can do everything with just xarray and numpy, there is usually no need to use <code class="docutils literal notranslate"><span class="pre">dask</span></code> directly. Next let’s use the pandas-like functionality of xarray to calculate a monthly climatology of daily maximum temperature for the Toronto region, to compare to our previous station-based estimates.</p>
 <div class="cell docutils container">
@@ -1082,11 +1071,11 @@ Attributes: (12/15)
 </div>
 <p>The climatology maps plotted here largely agree with those from the station observations in Section 3.1, which is no surprise since the gridded data here is derived from station observations. This notebook has demonstrated some of the capabilities and limitations of xarray regarding handling climate data.</p>
 <p>A major limitation of many observational data products, including gridded data products like the NRCAN ANUSPLIN dataset, is a lack of complete spatial coverage. This product only includes data for Canada, it is cut off at the border with the United States, which is why the above maps are blank in the southern part of the domain. One solution to this issue regarding spatial coverage is to use <strong>reanalysis</strong> data as a proxy for observations. Reanalysis data will be the subject of the following section.</p>
-</section>
-<section id="saving-the-data-locally">
+</div>
+<div class="section" id="saving-the-data-locally">
 <h2>3.2.5 Saving the Data Locally<a class="headerlink" href="#saving-the-data-locally" title="Permalink to this heading">#</a></h2>
 <p>This notebook has demonstrated some exploratory analysis of the observational data. In your workflow, you’re going to want to use this data again later, for model validation, downscaling, and possibly for other types of analysis. Instead of re-loading it from the remote server every time, you can save the data to a netCDF file on your own machine. There are two options for doing this, both will be demonstrated in this subsection.</p>
-<section id="saving-with-to-netcdf">
+<div class="section" id="saving-with-to-netcdf">
 <h3>3.2.5.1 Saving with to_netcdf<a class="headerlink" href="#saving-with-to-netcdf" title="Permalink to this heading">#</a></h3>
 <p>If your whole project focuses on a small spatial domain like the one selected for this notebook, then all of the data can be transferred over the OPeNDAP protocol. However, for the reasons discussed above, it’s a good idea to save the data locally. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Datasets and DataArrays have a built-in method <code class="docutils literal notranslate"><span class="pre">to_netcdf()</span></code> that will create a netCDF file with a name you specify, and write the data to that file. This is an easy way of saving your data, and it can be applied to any data in <code class="docutils literal notranslate"><span class="pre">xarray</span></code> format. It’s especially useful to save the results of time-consuming calculations, so you don’t need to re-do the same data processing over and over again. Here we’ll save both the raw data and monthly climatology for the daily maximum temperature in the Toronto region, each to their own separate file.</p>
 <div class="cell docutils container">
@@ -1105,8 +1094,8 @@ Attributes: (12/15)
 </div>
 </div>
 </div>
-</section>
-<section id="downloading-complete-datasets">
+</div>
+<div class="section" id="downloading-complete-datasets">
 <h3>3.2.5.2 Downloading Complete Datasets<a class="headerlink" href="#downloading-complete-datasets" title="Permalink to this heading">#</a></h3>
 <p>As mentioned in the preamble to this notebook, only small subsets of the NRCAN observational data can be accessed remotely through OPeNDAP. For most practical uses, you’ll need to download and save the data to your own machine. This cannot be done from the PAVICS server due to technical limitations, but you can access this dataset from the <a class="reference external" href="https://pacificclimate.org/data">PCIC data portal</a> as well (albeit only for the period 1950-2010). More documentation about the PCIC data portal can be found <a class="reference external" href="https://data.pacificclimate.org/portal/docs/index.html">here</a>.</p>
 <p>Below is code for a function that can be used to download the data (it is the same function we’ll use in section 3.4 for downloading climate model output from the ESGF archive).</p>
@@ -1193,14 +1182,14 @@ Attributes: (12/15)
 <img alt="../_images/0da3c011a07b0991be15288d7e497c713c0ac79218643629e022b1746e21ab8f.png" src="../_images/0da3c011a07b0991be15288d7e497c713c0ac79218643629e022b1746e21ab8f.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="appendix-other-gridded-observational-datasets">
+</div>
+</div>
+<div class="section" id="appendix-other-gridded-observational-datasets">
 <h2>Appendix: Other gridded observational datasets<a class="headerlink" href="#appendix-other-gridded-observational-datasets" title="Permalink to this heading">#</a></h2>
 <p>The NRCan gridded observations have daily temporal frequency and include spatial coverage for Canada only - if you require coverage for other regions or sub-daily data, you may be able to find what you’re looking for by searching the <a class="reference external" href="https://climatedataguide.ucar.edu/">NCAR Climate Data Guide</a>, or you may need to rely on reanalysis data (described in the next section).</p>
 <p>Another commonly used gridded observational dataset, with coverage over southern Canada, the contiguous United States, and Mexico, is the <a class="reference external" href="https://doi.org/10.7289/v5x34vf6">Livneh dataset</a>. Further information about this dataset, how it was created, and how to access it, can be found on its <a class="reference external" href="https://climatedataguide.ucar.edu/climate-data/livneh-gridded-precipitation-and-other-meteorological-variables-continental-us-mexico">NCAR Climate Data Guide page</a>.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1227,10 +1216,11 @@ Attributes: (12/15)
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section3.1_station_data.html"
@@ -1250,7 +1240,10 @@ Attributes: (12/15)
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1322,8 +1315,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
