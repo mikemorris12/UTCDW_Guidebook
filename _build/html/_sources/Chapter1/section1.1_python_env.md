@@ -8,10 +8,15 @@ Once you have Anaconda installed, you must create an environment in which you wi
 
 `conda config --append channels claut`
 
-Now you are ready to set up your Conda environment. To ensure version compatibility, we have provided files in the [UTCDW GitHub repository](https://github.com/mikemorris12/UTCDW_Guidebook) which can be used to install all of the required Python packages with the versions used for development of the Guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt. Note that no environment `.yml` file is provided for Windows operating systems, because the developers have not tested the code on Windows machines. Nevertheless, Anaconda provides a [Windows version](https://docs.anaconda.com/free/anaconda/install/windows/) of their environment manager which can be used to set up the UTCDW environment on a Windows machine. The main difference from MacOS and Linux is that the command line will be accessed via Anaconda Prompt, since Windows does not include a native Terminal application.
+Now you are ready to set up your Conda environment. To ensure version compatibility, we have provided files in the [UTCDW GitHub repository](https://github.com/mikemorris12/UTCDW_Guidebook) which can be used to install all of the required Python packages with the versions used for development of the Guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt (Windows), since Windows does not include a native Terminal application. 
 
 * `conda env create -f UTCDW_env_Linux.yml` (Linux)
 * `conda env create -f UTCDW_env_MacOS.yml` (MacOS with Apple Silicon chip)
+* `conda env create -f UTCDW_env_Windows.yml` (MacOS with Apple Silicon chip)
+
+```{note}
+The UTCDW_env_Windows.yml does not include certain packages available in the MacOS and Linux environment files, such as [xesmf](https://xesmf.readthedocs.io/en/latest/index.html), since they are not compatible with the Windows operating system. See [this page](https://xesmf.readthedocs.io/en/latest/installation.html#notes-for-windows-users) for further explanation, and possible workarounds. The xesmf package is primarily used within the [BCCA gridded downscaling code](https://github.com/mikemorris12/UTCDW_Guidebook/blob/master/downscaling_code/BCCA.py), used in the example in [Chapter 6.5](https://utcdw.physics.utoronto.ca/UTCDW_Guidebook/Chapter6/section6.5_gridded_DBCCA_example.html). Windows users will not be able to run this code without implementing one of the workarounds described in the xesmf documentation.
+```
 
 Once set up, you can activate the environment using the command:
 
