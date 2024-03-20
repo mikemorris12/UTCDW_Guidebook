@@ -22,7 +22,7 @@ Another decision to be made when applying QM bias corrections is the number of q
 
 In addition to the decisions made about the details of the bias correction methods, it's also important to remember that most climate data will not be ready to plug and play with the canned routines of `xclim` or other climate analysis packages, or there might be other minor things to consider to ensure a successful workflow. For the sake of brevity, these tips will be itemized below.
 
-* Calendar consistency: Observational data is likely to include leap years, while most climate model data does not. You can exclude data on February 28th's using `xclim.core.convert_calendar` ([docs](https://xclim.readthedocs.io/en/stable/xclim.core.html#xclim.core.calendar.convert_calendar))
+* Calendar consistency: Observational data is likely to include leap years, while most climate model data does not. You can exclude data on February 28th's using `xclim.core.convert_calendar` ([docs](https://xclim.readthedocs.io/en/stable/apidoc/xclim.core.html#xclim.core.calendar.convert_calendar))
 
 * Data units: Observational data and model output often are recorded using different units. For example, most observed precipitation data is in units of mm/day, but the standard CMIP6 unit for precipitation is kg m$^{-2}$ s$^{-1}$. To convert the model data to mm/day, you'll need to divide by the density of water (1000 kg m$^{-3}$), multiply by 1000 to convert m to mm, and then multiply by 86400 (to convert mm/s to mm/day). The same goes for temperature - model output is usually in Kelvin but observations are usually in degrees Celsius.
 

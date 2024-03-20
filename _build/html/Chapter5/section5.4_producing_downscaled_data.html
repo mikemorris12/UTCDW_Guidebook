@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>5.4 Producing Downscaled Projections &#8212; UTCDW Guidebook</title>
   
   
@@ -18,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -312,10 +323,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -323,7 +334,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -372,51 +383,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="producing-downscaled-projections">
+  <section class="tex2jax_ignore mathjax_ignore" id="producing-downscaled-projections">
 <h1>5.4 Producing Downscaled Projections<a class="headerlink" href="#producing-downscaled-projections" title="Permalink to this heading">#</a></h1>
 <p>The next stage in the workflow is to use what you learned by exploring the observational and raw model data to select and apply your method for bias correcting and/or downscaling the model output to product calibrated projections of your required climate variables. In order to keep your workflow manageable, it is smart to work through the whole procedure using data from just one ensemble member from model, and once you’ve got things working, expand to additional ensemble members and models.</p>
-<div class="section" id="choosing-a-bias-correction-downscaling-method">
+<section id="choosing-a-bias-correction-downscaling-method">
 <h2>5.4.1 Choosing a Bias Correction/Downscaling Method<a class="headerlink" href="#choosing-a-bias-correction-downscaling-method" title="Permalink to this heading">#</a></h2>
 <p>The best bias correction and/or downscaling methods to use depend on both your spatial sampling requirements, and the results of your investigation of the model biases. If you require gridded data with high spatial resolution, using a true “downscaling” method, such as a constructed analogue based method, is necessary. However, if all you need is point data at one or more distinct spatial locations, then a 1D bias correction method is sufficient, and there isn’t a need to produce output on a fine spatial grid. We recommend Quantile Delta Mapping (QDM) because of its ability to adjust biases in all quantiles of the distribution of a quantity, while also preserving projected changes in extreme values <span id="id1">[<a class="reference internal" href="../guidebook_references.html#id6" title="Alex J. Cannon, Stephen R. Sobie, and Trevor Q. Murdock. Bias Correction of GCM Precipitation by Quantile Mapping: How Well Do Methods Preserve Changes in Quantiles and Extremes? Journal of Climate, 28(17):6938–6959, September 2015. URL: http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1 (visited on 2022-12-06), doi:10.1175/JCLI-D-14-00754.1.">Cannon <em>et al.</em>, 2015</a>]</span>.</p>
 <p>If you wish to use an analogue method such as DBCCA or BCCAQ for spatial downscaling, the nature of the model biases is important to consider. Good agreement between the raw model output and observations means that only minor bias adjustment is required, and it is likely that there are observed analogues that share similar qualities to the model days being downscaled. If this is the case, then proceed with your preferred analogue downscaling method. Here we recommend DBCCA, because of its ease of implementation relative to BCCAQ, while retaining good performance (as per <span id="id2">Murdock <em>et al.</em> [<a class="reference internal" href="../guidebook_references.html#id22" title="Trevor Q. Murdock, Stephen R. Sobie, and James Hiebert. Statistical downscaling of future climate projections for North America. Technical Report KM040-131148/A, Pacific Climate Impacts Consortium, July 2014. URL: https://www.pacificclimate.org/sites/default/files/publications/PCIC_EC_downscaling_report_2014.pdf.">2014</a>]</span> and <span id="id3">Werner and Cannon [<a class="reference internal" href="../guidebook_references.html#id7" title="Arelia T. Werner and Alex J. Cannon. Hydrologic extremes – an intercomparison of multiple gridded statistical downscaling methods. Hydrol. Earth Syst. Sci., 20(4):1483–1508, April 2016. URL: https://hess.copernicus.org/articles/20/1483/2016/ (visited on 2022-12-07), doi:10.5194/hess-20-1483-2016.">2016</a>]</span>. Code for the DBCCA method is included in Chapter 6, along with examples implementing it.</p>
 <p>If the raw model data looks very different from the observations, in terms of probability distributions, spatial patterns, or historical trends, then analogue-based downscaling methods may not be appropriate. The lowest 30 RMSE patterns from the observations might not be good matches to the model pattern, so the downscaled data would not be reflective of the underlying model projections, which aren’t even trustworthy in the first place. Clearly, things are much more difficult in this case, and the multivariate downscaling methods that might be more acceptable are outside of the scope of this guide. Alternatively, high-resolution climate simulations such as RCM data from <a class="reference external" href="https://cordex.org/">CORDEX</a> or global data from <a class="reference external" href="https://highresmip.org/">HighResMIP</a> may provide better raw model output to use as the starting point for statistical downscaling, though you should still perform the same validation you would for coarse model data. If high resolution model data still shows very poor agreement with observations for one or more of your required variables, then you’ll need to look outside this guide for additional guidance regarding best practices for downscaling these climate variables.</p>
-</div>
-<div class="section" id="applying-bias-correction-and-downscaling">
+</section>
+<section id="applying-bias-correction-and-downscaling">
 <h2>5.4.2 Applying Bias Correction and Downscaling<a class="headerlink" href="#applying-bias-correction-and-downscaling" title="Permalink to this heading">#</a></h2>
 <p>Having chosen a downscaling or bias correction method, you’re almost ready to apply it using your selected datasets. The last decision to be made is the way in which you’ll apply the quantile-mapping (QM) based bias correction, be it alone or as a part of a spatial downscaling method like DBCCA. Recall that in the previous section of this chapter, we saw that the CanESM5 monthly mean temperatures in Toronto are biased high in the warm-season months and low in the cold-season months. Because the bias varies seasonally, it makes sense to separate (or “group”) the data by the month of the year and apply a different bias correction to each group. Calculating one set of adjustment factors for the entire dataset would leave a remaining bias in the seasonal cycle of temperature. Understanding the properties of the model bias will help you decide if a grouped bias correction is appropriate or not. In the <code class="docutils literal notranslate"><span class="pre">xclim.sdba</span></code> module that implements the different QM-based bias adjustment methods, you can specify the time unit by which you’d like to group the data using the <code class="docutils literal notranslate"><span class="pre">group</span></code> keyword argument to the <code class="docutils literal notranslate"><span class="pre">train</span></code> method of the adjustment method object (i.e. <code class="docutils literal notranslate"><span class="pre">xclim.sdba.adjustment.QuantileDeltaMapping.train(obs_data,</span> <span class="pre">hist_model_data,</span> <span class="pre">group</span> <span class="pre">=</span> <span class="pre">'time.month')</span></code> for monthly groups). To avoid abrupt changes from one month to the next, you can specify an interpolation method that will be used to smooth the transitions using the <code class="docutils literal notranslate"><span class="pre">interp</span></code> keyword argument to the <code class="docutils literal notranslate"><span class="pre">adjust</span></code> method, i.e. <code class="docutils literal notranslate"><span class="pre">xclim.sdba.adjustment.QuantileDeltaMapping.adjust(future_model_data,</span> <span class="pre">interp</span> <span class="pre">=</span> <span class="pre">'linear')</span></code> (or alternatively <code class="docutils literal notranslate"><span class="pre">interp</span> <span class="pre">=</span> <span class="pre">'cubic'</span></code>). See documentation and examples of the <code class="docutils literal notranslate"><span class="pre">xclim.sdba</span></code> bias adjustment methods <a class="reference external" href="https://xclim.readthedocs.io/en/stable/notebooks/sdba.html">here</a>.</p>
 <p>The type of climate change “delta” must also be specified when using either Quantile Delta Mapping or Detrended Quantile Mapping. The appropriate choice depends on the variable being downscaled. For interval variables such as temperature, use an additive delta, and for ratio variables such as precipitation, a multiplicative delta is most appropriate. An interval variable is one where differences are meaningful, and a ratio variable is an interval variable with a defined absolute zero <span id="id4">[<a class="reference internal" href="../guidebook_references.html#id6" title="Alex J. Cannon, Stephen R. Sobie, and Trevor Q. Murdock. Bias Correction of GCM Precipitation by Quantile Mapping: How Well Do Methods Preserve Changes in Quantiles and Extremes? Journal of Climate, 28(17):6938–6959, September 2015. URL: http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1 (visited on 2022-12-06), doi:10.1175/JCLI-D-14-00754.1.">Cannon <em>et al.</em>, 2015</a>, <a class="reference internal" href="../guidebook_references.html#id25" title="L. Finkelstein and M. S. Leaning. A review of the fundamental concepts of measurement. Measurement, 2(1):25–34, January 1984. URL: https://www.sciencedirect.com/science/article/pii/0263224184900204 (visited on 2023-09-06), doi:10.1016/0263-2241(84)90020-4.">Finkelstein and Leaning, 1984</a>]</span>. Temperature is considered an interval variable because it is typically measured in degrees Celsius, where the zero is not an absolute zero. The type of delta is specified using the <code class="docutils literal notranslate"><span class="pre">kind</span></code> keyword argument in the <code class="docutils literal notranslate"><span class="pre">train</span></code> method of <code class="docutils literal notranslate"><span class="pre">xclim</span></code> adjustment objects (i.e. <code class="docutils literal notranslate"><span class="pre">xclim.sdba.adjustment.QuantileDeltaMapping.train(...,</span> <span class="pre">kind</span> <span class="pre">=</span> <span class="pre">&quot;+&quot;)</span></code>).</p>
 <p>Another decision to be made when applying QM bias corrections is the number of quantiles to estimate from the data, and how to interpolate adjustment factors between the computed quantiles. <code class="docutils literal notranslate"><span class="pre">xclim</span></code>’s implementation of quantile mapping does not assume any form of the underlying probability distribution of the data, it estimates a specified number of quantiles empirically, and interpolates between them when applying the bias adjustment. This is done for several reasons. First, it’s difficult to specify a particular type of probability distribution that a climate variable should theoretically follow, so estimating quantiles empirically avoids this issue. Next, it’s not reasonable statistically to sort each dataset and do a one-to-one mapping of the N’th highest model value to the N’th highest observed value, which is the same as choosing the same number of quantiles to estimate as there are data points. Since the data points are not all independent (due to autocorrelations, as discussed in Section 3.4) the true number of degrees of freedom is less than the number of data points, and using more parameters than data points is considered overfitting. Finally, estimating a moderate number of quantiles and interpolating, instead of direct one-to-one mapping of data values, is much faster computationally. The <code class="docutils literal notranslate"><span class="pre">xclim</span></code> default number of quantiles (specified by the keyword argument <code class="docutils literal notranslate"><span class="pre">nquantiles</span></code> in the <code class="docutils literal notranslate"><span class="pre">train</span></code> methods) is 20, but usually a larger number is appropriate. For many cases, only very minor differences are apparent when using <code class="docutils literal notranslate"><span class="pre">nquantiles</span></code> above 50 or so.</p>
-<div class="section" id="data-cleaning-and-additional-tips">
+<section id="data-cleaning-and-additional-tips">
 <h3>5.4.2.1 Data Cleaning and Additional Tips<a class="headerlink" href="#data-cleaning-and-additional-tips" title="Permalink to this heading">#</a></h3>
 <p>In addition to the decisions made about the details of the bias correction methods, it’s also important to remember that most climate data will not be ready to plug and play with the canned routines of <code class="docutils literal notranslate"><span class="pre">xclim</span></code> or other climate analysis packages, or there might be other minor things to consider to ensure a successful workflow. For the sake of brevity, these tips will be itemized below.</p>
 <ul class="simple">
-<li><p>Calendar consistency: Observational data is likely to include leap years, while most climate model data does not. You can exclude data on February 28th’s using <code class="docutils literal notranslate"><span class="pre">xclim.core.convert_calendar</span></code> (<a class="reference external" href="https://xclim.readthedocs.io/en/stable/xclim.core.html#xclim.core.calendar.convert_calendar">docs</a>)</p></li>
+<li><p>Calendar consistency: Observational data is likely to include leap years, while most climate model data does not. You can exclude data on February 28th’s using <code class="docutils literal notranslate"><span class="pre">xclim.core.convert_calendar</span></code> (<a class="reference external" href="https://xclim.readthedocs.io/en/stable/apidoc/xclim.core.html#xclim.core.calendar.convert_calendar">docs</a>)</p></li>
 <li><p>Data units: Observational data and model output often are recorded using different units. For example, most observed precipitation data is in units of mm/day, but the standard CMIP6 unit for precipitation is kg m<span class="math notranslate nohighlight">\(^{-2}\)</span> s<span class="math notranslate nohighlight">\(^{-1}\)</span>. To convert the model data to mm/day, you’ll need to divide by the density of water (1000 kg m<span class="math notranslate nohighlight">\(^{-3}\)</span>), multiply by 1000 to convert m to mm, and then multiply by 86400 (to convert mm/s to mm/day). The same goes for temperature - model output is usually in Kelvin but observations are usually in degrees Celsius.</p></li>
 <li><p>Unit Attributes: <code class="docutils literal notranslate"><span class="pre">xclim</span></code> requires all variables (in <code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code> format) to have a <code class="docutils literal notranslate"><span class="pre">units</span></code> attribute. Assign this using <code class="docutils literal notranslate"><span class="pre">da.attrs['units']</span> <span class="pre">=</span> <span class="pre">unit_name</span></code> where <code class="docutils literal notranslate"><span class="pre">unit_name</span></code> is the appropriate unit for the quantity in <code class="docutils literal notranslate"><span class="pre">da</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">'K'</span></code>, <code class="docutils literal notranslate"><span class="pre">'degC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mm/day'</span></code>, etc.).</p></li>
 <li><p>Precipitation frequency: Climate models often have a “drizzle” bias, where the frequency of very small amounts of precipitation is too high, and the frequency of exactly zero precipitation (“dry days”) is much too low. This can cause the low-quantile adjustment factors in quantile mapping to be poorly constrained. It’s helpful to adjust the frequency of dry days to match that of observations using <code class="docutils literal notranslate"><span class="pre">xclim.sdba.processing.adapt_freq</span></code>. This function takes a keyword argument <code class="docutils literal notranslate"><span class="pre">thresh</span></code> that specifies the threshold below which days are considered to be dry days, if you don’t wish to match the frequency of exact zeros. For example, you could call <code class="docutils literal notranslate"><span class="pre">adapt_freq(obs_pr,</span> <span class="pre">model_pr,</span> <span class="pre">thresh</span> <span class="pre">=</span> <span class="pre">0.05</span> <span class="pre">mm</span> <span class="pre">d-1)</span></code> if you wish to consider days with less than 0.05 mm of precipitation to be “dry days”.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="validating-the-downscaled-data">
+</section>
+</section>
+<section id="validating-the-downscaled-data">
 <h2>5.4.3 Validating the Downscaled Data<a class="headerlink" href="#validating-the-downscaled-data" title="Permalink to this heading">#</a></h2>
 <p>After you’ve got your downscaled climate variables, whether you did the downscaling yourself or you’re using pre-produced downscaled projections, you must still do some more analysis before you can get to work on applying the data to your field-specific research question.</p>
-<div class="section" id="agreement-with-observations">
+<section id="agreement-with-observations">
 <h3>5.4.3.1 Agreement with Observations<a class="headerlink" href="#agreement-with-observations" title="Permalink to this heading">#</a></h3>
 <p>Section 4.4 demonstrated a number of metrics by which you may wish to validate the downscaled historical data against observations. As mentioned in that notebook, the best practice is to split the historical period into a training set, which you use to train the downscaling method (i.e. the dataset you use to select the analogue days, fit the quantile mapping bias correction, etc.) and a testing set (also called a validation set), which you use to independently assess the quality of agreement between the downscaled data and observations. As you saw in 4.4, this can be tricky for multiple reasons. First, if the observational record only goes back a few decades, each dataset will likely be smaller than the ideal minimum of 30 years. Second, if the model has a bias in the historical time trend, like CanESM5 does for near-surface temperatures (see examples in Section 4.4.4) then there may be a poor agreement between the downscaled data and observations that could be mitigated by using all available observations to train the downscaling method. Since these issues can and will vary across different models, wait until you’ve been able to to validate a number of models before deciding that the quality of the downscaled data is too poor to be acceptable and changing something about your workflow. If a model that produces poor results really stands out in the context of the multi-model spectrum, then it’s okay to consider its projections less credible than the others, but it’s dishonest to throw out its projections entirely.</p>
 <p>Another important takeaway from Section 4.4 should be that you can do validation on both the downscaled climate variables <em>and</em> the climate indicator they’re used to calculate. If your study involves using downscaled climate data as inputs for an impact model (like the VIC model in hydrology), then it might be feasible for you to also use observational data as inputs, and compare the results that used the downscaled historical data as inputs. When validating a climate indicator or the outputs of your impact model, you’ll need to leverage your expertise on the subject matter of your study and decide which properties are most important to get right. This could be having a low mean bias, good agreement in the probability distributions, good reproduction of spatial or temporal autocorrelation structures, or something that people outside of your field may not be familiar with.</p>
 <p>Similar to running your impact model/calculating your indicator using observational data, you should also consider doing this using the raw, non-downscaled model output. This may not be possible if your impact model explicitly requires high spatial resolution, since an important reason for downscaling is to increase the spatial resolution of the data, but if it is, you can compare the results for the downscaled data (both historical and future projections) to those for the raw model data, and check that the downscaled data indeed has reduced biases relative to observations.</p>
-</div>
-<div class="section" id="significance-of-climate-change-signal">
+</section>
+<section id="significance-of-climate-change-signal">
 <h3>5.4.3.2 Significance of Climate Change Signal<a class="headerlink" href="#significance-of-climate-change-signal" title="Permalink to this heading">#</a></h3>
 <p>Sections 3.4.5 and  4.5 demonstrated how one can test the statistical significance of projected changes to a climate variable or indicator under a future climate scenario. Because of natural fluctuations in the climate (i.e. internal variability), what might appear as a change due to climate change may still fall within the normal range of values under future climate. In order to make any claim that climate change has an effect on your quantities of interest, you need to test for statistical significance.</p>
 <p>Like with validation, you can test the significance of changes to both the climate variables and your indicator(s)/impact model outputs, and for both raw and downscaled model data. Hopefully, you did this for the raw model data already during the exploratory analysis phase, but if not, now is a good time to do so. It’s important to have an idea of what the unadjusted model projections are, since the statistically downscaled data will (in cases covered in this guide) mainly reflect the raw model projections, with added spatial detail and reduced effects of model bias.</p>
-</div>
-<div class="section" id="credibility-of-climate-change-signal">
+</section>
+<section id="credibility-of-climate-change-signal">
 <h3>5.4.3.3 Credibility of Climate Change Signal<a class="headerlink" href="#credibility-of-climate-change-signal" title="Permalink to this heading">#</a></h3>
 <p>In addition to statistical significance, it’s important to ensure that the downscaled future projections make sense physically. The first thing to do as a sanity check is to ensure that the downscaled projections are qualitatively similar to the raw model projections. At the very least, they should share the same sign (i.e. increases or decreases) as the raw model projections, for the univariate downscaling methods covered in this guide. If not, there is likely an error somewhere in your code. Next, you should be planning your study with some expectation of what the effect of climate change should be, based on a review of the relevant literature. For example, we expect to see projected increases in temperature, increases in precipitation in historically wet regions, and decreases to precipitation in historically arid regions. If your downscaled projections are in stark contrast to the well-established effects of climate change, there is reason to doubt that your results are physically credible. It’s not possible to list here all of the expected effects of climate change on every aspect of the climate system, so this is a matter that will require you to develop your own intuition and background knowledge by synthesizing the relevant previous work, including possibly the most recent <a class="reference external" href="https://www.ipcc.ch/assessment-report/ar6/">IPCC Assessment Report</a> (which does in fact discuss all known effects of climate change on all aspects of the climate system!).</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -443,11 +454,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section5.3_exploratory_data_analysis.html"
@@ -467,10 +477,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -543,8 +550,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
