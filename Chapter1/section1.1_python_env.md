@@ -12,7 +12,7 @@ Now you are ready to set up your Conda environment. To ensure version compatibil
 
 * `conda env create -f UTCDW_env_Linux.yml` (Linux)
 * `conda env create -f UTCDW_env_MacOS.yml` (MacOS with Apple Silicon chip)
-* `conda env create -f UTCDW_env_Windows.yml` (MacOS with Apple Silicon chip)
+* `conda env create -f UTCDW_env_Windows.yml` (Windows)
 
 ```{note}
 The UTCDW_env_Windows.yml does not include certain packages available in the MacOS and Linux environment files, such as [xesmf](https://xesmf.readthedocs.io/en/latest/index.html), since they are not compatible with the Windows operating system. See [this page](https://xesmf.readthedocs.io/en/latest/installation.html#notes-for-windows-users) for further explanation, and possible workarounds. The xesmf package is primarily used within the [BCCA gridded downscaling code](https://github.com/mikemorris12/UTCDW_Guidebook/blob/master/downscaling_code/BCCA.py), used in the example in [Chapter 6.5](https://utcdw.physics.utoronto.ca/UTCDW_Guidebook/Chapter6/section6.5_gridded_DBCCA_example.html). Windows users will not be able to run this code without implementing one of the workarounds described in the xesmf documentation.
