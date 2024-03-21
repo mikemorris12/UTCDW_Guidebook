@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3.3 Reanalysis Data &#8212; UTCDW Guidebook</title>
   
   
@@ -19,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +37,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -79,15 +77,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -212,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.3_station_1D_example_multiscen.html">6.3 Edmonton AC Loads: Multi-Scenario Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.4_station_1D_example_nearterm.html">6.4 Edmonton AC Loads: Near-Term Projections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.5_gridded_DBCCA_example.html">6.5 Edmonton AC Loads: Gridded Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.6_Toronto_Electricity_example.html">6.6 Future Toronto Electricity Demands from Cooling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guidebook_references.html">References</a></li>
@@ -323,10 +313,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -334,7 +324,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -375,13 +365,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="reanalysis-data">
+  <div class="tex2jax_ignore mathjax_ignore section" id="reanalysis-data">
 <h1>3.3 Reanalysis Data<a class="headerlink" href="#reanalysis-data" title="Permalink to this heading">#</a></h1>
 <p>In the previous section of this chapter, we explored a gridded observational data product. Gridded observations can be very useful, but as we saw, they can suffer from limitations. These include a limited spatial extent - we don’t always have observations for every location (especially in the Southern Hemisphere, where observational data is more limited). Another case that has not yet been discussed is when observations are not available for a variable you need for your analysis. For example, the NRCan ANUSPLIN gridded observations include precipitation, daily maximum, and daily minimum temperature. What if your analysis requires relative humidity, or wind speed? Or what if you need data at sub-daily temporal intervals, such as hourly or 6-hourly? When observational data is not available, the next best thing to use is often <strong>reanalysis</strong> data.</p>
 <p>Reanalysis is produced by constraining a numerical weather forecast model with observational data from many sources, through a process called data assimilation. One can think of it as similar to a forecast, but with the advantage of being informed by observations both before, during, and after the time of interest. Because reanalysis is produced by a model, it has global coverage and can provide data for variables and locations for which we don’t have observations. These estimates are still constrained by observations, through covariances that arise from physical relationships.</p>
 <p>However, one must still be careful when using reanalysis data, as there can be biases that arise through systematic model errors, or due to a lack of constraint in regions that are especially sparse of observations. Before using reanalysis data, it’s best to validate it against any observations available in your study region, to characterize these biases and ensure that reanalysis is appropriate for your study.</p>
 <p>The current state-of-the-art global reanalysis is the 5th version of the reanalysis produced by the European Centre for Medium-Range Weather Forecasts (<a class="reference external" href="https://confluence.ecmwf.int/display/CKB/ERA5">ERA5</a> <span id="id1">Hersbach <em>et al.</em> [<a class="reference internal" href="../guidebook_references.html#id3" title="Hans Hersbach, Bill Bell, Paul Berrisford, Shoji Hirahara, András Horányi, Joaquín Muñoz‐Sabater, Julien Nicolas, Carole Peubey, Raluca Radu, Dinand Schepers, Adrian Simmons, Cornel Soci, Saleh Abdalla, Xavier Abellan, Gianpaolo Balsamo, Peter Bechtold, Gionata Biavati, Jean Bidlot, Massimo Bonavita, Giovanna Chiara, Per Dahlgren, Dick Dee, Michail Diamantakis, Rossana Dragani, Johannes Flemming, Richard Forbes, Manuel Fuentes, Alan Geer, Leo Haimberger, Sean Healy, Robin J. Hogan, Elías Hólm, Marta Janisková, Sarah Keeley, Patrick Laloyaux, Philippe Lopez, Cristina Lupu, Gabor Radnoti, Patricia Rosnay, Iryna Rozum, Freja Vamborg, Sebastien Villaume, and Jean‐Noël Thépaut. The ERA5 global reanalysis. Q.J.R. Meteorol. Soc., 146(730):1999–2049, July 2020. URL: https://onlinelibrary.wiley.com/doi/10.1002/qj.3803 (visited on 2022-03-16), doi:10.1002/qj.3803.">2020</a>]</span>). The spatial resolution of ERA5 is 0.25<span class="math notranslate nohighlight">\(^{\circ}\)</span> latitude <span class="math notranslate nohighlight">\(\times\)</span> longitude and data is available at hourly intervals  so the volume of data can be very large. When sub-daily data is needed, it is common to use 6-hourly intervals to reduce the computational demands of the analysis.</p>
-<section id="accessing-the-data">
+<div class="section" id="accessing-the-data">
 <h2>3.3.1 Accessing the Data<a class="headerlink" href="#accessing-the-data" title="Permalink to this heading">#</a></h2>
 <p>A limited selection of ERA5 variables at both hourly and daily frequencies with spatial coverage over North America is hosted on the PAVICS server. If you require other variables or data for a different part of the world, you can download it to a netCDF file via the <a class="reference external" href="https://doi.org/10.24381/cds.adbb2d47">Copernicus Climate Data Store</a> using their <a class="reference external" href="https://cds.climate.copernicus.eu/api-how-to">Python API</a>. The CDS API supports both spatial and temporal subsetting in a download request, so you can download only the data you need - though this is still likely to be many GB if you require hourly data, even for a moderately sized spatial domain.</p>
 <p>In this notebook, we will acquire ERA5 daily maximum temperature data from the PAVICS OPeNDAP server, select a region for analysis, and validate the reanalysis against station observations in the region of study. As with the previous notebook, we will use <code class="docutils literal notranslate"><span class="pre">xarray</span></code> as the primary tool for analysis.</p>
@@ -465,8 +455,8 @@ day_ERA5-Land_NAM.ncml
 </div>
 </div>
 <p>The PAVICS reanalysis catalog contains 4 datasets. Two are for daily frequency, two for hourly frequency. The ones with ERA5-Land in their name are for a reanalysis product related to ERA5, <a class="reference external" href="https://confluence.ecmwf.int/display/CKB/ERA5-Land%3A+data+documentation">which you can read more about here</a>.</p>
-</section>
-<section id="validating-reanalysis-against-station-observations">
+</div>
+<div class="section" id="validating-reanalysis-against-station-observations">
 <h2>3.3.2 Validating Reanalysis Against Station Observations<a class="headerlink" href="#validating-reanalysis-against-station-observations" title="Permalink to this heading">#</a></h2>
 <p>Since we will be analyzing daily maximum temperature, we will load data from the first dataset, <code class="docutils literal notranslate"><span class="pre">day_ERA5_NAM.ncml</span></code>. The region we will select for validation is the greater Vancouver area.</p>
 <div class="cell docutils container">
@@ -714,14 +704,14 @@ day_ERA5-Land_NAM.ncml
 </div>
 </div>
 <p>The biases here are not terribly large but are substantial enough to be worth taking into account if ERA5 were to be used as the reference data set for a downscaling study. Of course for Vancouver, we could just use a gridded observational product directly if spatial information is needed. This brief analysis demonstrates that even for regions with plenty of observational data, reanalysis data must still be used with caution. While it is a very useful tool for climate analysis, it is not a perfect substitute for observational data.</p>
-</section>
-<section id="appendix-other-reanalysis-analysis-data">
+</div>
+<div class="section" id="appendix-other-reanalysis-analysis-data">
 <h2>Appendix: Other Reanalysis &amp; Analysis Data<a class="headerlink" href="#appendix-other-reanalysis-analysis-data" title="Permalink to this heading">#</a></h2>
 <p>To quantify uncertainty in reanalysis data, it can be useful to compare results across multiple data products. Other current-generation reanalysis include <a class="reference external" href="https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/">MERRA2</a> produced by NASA in the United States, and <a class="reference external" href="https://climatedataguide.ucar.edu/climate-data/jra-55">JRA-55</a> produced by the Japanese Meteorological Agency.</p>
 <p>For some applications, data with a higher spatial resolution than the 0.25<span class="math notranslate nohighlight">\(^{\circ}\)</span> of ERA5 is required. The ECMWF also publishes a <a class="reference external" href="https://rda.ucar.edu/datasets/ds113.1/">9 km resolution operational analysis</a>. Operational analysis is similar to a reanalysis, but does not include observations after the fact since it is produced in near real-time (it is used as initial conditions for weather forecasts). This product only includes data back to 2016, when the ECMWF started producing forecasts at this resolution. Unfortunately, it is not very useful as training data for downscaling, because its limited record means it cannot be used to robustly characterize long-term climate statistics.</p>
 <p>ECCC also produces operational analysis and weather forecasts at high resolution, up to 2.5 km. These data products also suffer from a limited record length, but if they are of interest, they can be accessed via the <a class="reference external" href="https://caspar-data.ca/">Canadian Surface Prediction Archive</a>.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -748,10 +738,11 @@ day_ERA5-Land_NAM.ncml
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section3.2_gridded_obs.html"
@@ -771,7 +762,10 @@ day_ERA5-Land_NAM.ncml
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -836,8 +830,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
