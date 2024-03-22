@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>4.4 Downscaling Validation &#8212; UTCDW Guidebook</title>
   
   
@@ -18,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -201,7 +212,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.3_station_1D_example_multiscen.html">6.3 Edmonton AC Loads: Multi-Scenario Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.4_station_1D_example_nearterm.html">6.4 Edmonton AC Loads: Near-Term Projections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.5_gridded_DBCCA_example.html">6.5 Edmonton AC Loads: Gridded Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.6_Toronto_Electricity_example.html">6.6 Future Toronto Electricity Demands from Cooling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guidebook_references.html">References</a></li>
@@ -313,10 +323,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -324,7 +334,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -366,7 +376,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="downscaling-validation">
+  <section class="tex2jax_ignore mathjax_ignore" id="downscaling-validation">
 <h1>4.4 Downscaling Validation<a class="headerlink" href="#downscaling-validation" title="Permalink to this heading">#</a></h1>
 <p>After employing a method of statistical downscaling, such as DBCCA, it is important to perform some health checks and validation on the downscaled output, just like one would for the raw model data during the preliminary stages of analysis. However, since the downscaled results will be used to inform the rest of the climate impact study, the tests for agreement between the downscaled historical data and the observations need to be more stringent. Bias-correction and downscaling should bring historical GCM data to excellent agreement with observations for a similar time period. Otherwise, the chosen methods shouldn’t be trusted to perform well for future, out-of-sample data.</p>
 <p>In this notebook we will use some publicly available downscaled climate data from PCIC, downscaled using BCCAQv2, and the NRCan ANUSPLIN observations used as the training data for downscaling. We will perform some statistical tests to assess the agreement between the downscaled data and observations for the historical period, as well as some tests of significance for the climate change signal.</p>
@@ -545,7 +555,7 @@ document.write(`
 <img alt="../_images/fa7451bf4ca5720e0e4d0c4a5ed86c85092cf70a148bcaedd2ce14360fa64ddf.png" src="../_images/fa7451bf4ca5720e0e4d0c4a5ed86c85092cf70a148bcaedd2ce14360fa64ddf.png" />
 </div>
 </div>
-<div class="section" id="distribution-of-values">
+<section id="distribution-of-values">
 <h2>4.4.1 Distribution of Values<a class="headerlink" href="#distribution-of-values" title="Permalink to this heading">#</a></h2>
 <p>The first test we will perform is one that tests that the probability distribution of the downscaled historical data is consistent with that of the observations. The most appropriate statistical test for this purpose is the <strong>two-sample Kolmogorov-Smirnov test</strong>, often shortened to the <a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test">KS test</a>. This is a nonparametric test, so we don’t need to make any assumptions of Gaussian statistics, as one does with the Student’s <span class="math notranslate nohighlight">\(t\)</span>-test, for example.</p>
 <p>The null hypothesis of the KS test is that the two sets of data being compared are generated from the same underlying probability distribution. For our purpose, we <em>want</em> the two distributions to be indistinguishable, so if we can reject the null hypothesis, this means the bias correction has not done its job well. The Scipy routine <code class="docutils literal notranslate"><span class="pre">ks_2samp</span></code> implements this test in Python and returns both the test statistic and the associated p-value (which is what we’re more interested in). Let’s run this test in the next notebook cell</p>
@@ -611,8 +621,8 @@ document.write(`
 </div>
 </div>
 <p>For the training period, the KS test p-values are mostly greater than the typical thresholds of 0.05 or 0.1 for rejecting the null hypothesis. This means for these locations we do not have sufficient evidence to say that the downscaled GCM data and the observations follow different probability distributions - which is good! This is not unexpected, since BCCAQv2 uses Quantile Delta Mapping for bias correction, and quantile mapping forces the distribution of the downscaled historical GCM data to match the observed distribution (as we saw in Section 4.2). However, it looks like there are some parts of the domain where the distributions are significantly different (according to the KS test) and even more regions in the validation period. Because we’re looking at only a short time period, this could be a sampling issue, but it may also indicate some issues with the downscaling method. Assessing results for multiple methods of downscaling would be necessary to get an idea of the performance of one method relative to others.</p>
-</div>
-<div class="section" id="spatial-structure">
+</section>
+<section id="spatial-structure">
 <h2>4.4.2 Spatial Structure<a class="headerlink" href="#spatial-structure" title="Permalink to this heading">#</a></h2>
 <p>The KS test assesses whether the distributions of the downscaled data at each location follows the same probability distribution as the observations. Passing this test does not guarantee that the observed spatial relationships of the data are preserved by the downscaling. In other words, we also need to assess if the <em>spatial autocorrelation</em> of the downscaled data agrees with the observations. The statistic we will use to measure the spatial autocorrelation is called <a class="reference external" href="https://en.wikipedia.org/wiki/Moran%27s_I">Moran’s I</a>. This statistic is calculated with the formula:</p>
 <div class="math notranslate nohighlight">
@@ -694,8 +704,8 @@ Downscaled GCM Moran I: 0.92 +/- 0.04
 </div>
 </div>
 <p>The mean Moran’s I values for the observational data and the downscaled GCM data are consistent with each other, which is promising. The BCCA portion of the BCCAQv2 downscaling algorithm performs well at producing observed spatial structures in the downscaled data because it constructs the downscaled data using observed spatial patterns. The downscaled data shows slightly weaker spatial autocorrelation, perhaps because of the QDM step, which as discussed in the previous section, can degrade spatial structures. All in all, the two values are similar enough that there is no major cause for concern that the downscaled data is <em>poorly</em> representing the spatial autocorrelations of this climate variable.</p>
-</div>
-<div class="section" id="temporal-sequencing">
+</section>
+<section id="temporal-sequencing">
 <h2>4.4.3 Temporal Sequencing<a class="headerlink" href="#temporal-sequencing" title="Permalink to this heading">#</a></h2>
 <p>In addition to spatial autocorrelations, we should also assess the quality with which the downscaled data captures observed temporal autocorrelations. The lag-<span class="math notranslate nohighlight">\(k\)</span> autocorrelation for a time series <span class="math notranslate nohighlight">\(x(t)\)</span> is defined as:</p>
 <div class="math notranslate nohighlight">
@@ -863,8 +873,8 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </div>
 <p>For lags up to 4 days, the downscaled GCM data shows similar autocorrelations to the observations. But as we can see from both the maps and the curve for the arbitrarily selected grid cell, the autocorrelations decay much faster for the GCM than the observations. So for timescales longer than a week or so (twice 4 days), the temporal sequencing of events in the downscaled GCM output may not be reliable. This might not be much of a problem if the climate indicator for your problem is based on annual aggregated totals (i.e. heating/cooling degree days, tropical nights, etc.), but it could be problematic for certain applications - this is where your own domain knowledge is important for assessing which sets of downscaled climate data suits your needs.</p>
-</div>
-<div class="section" id="extreme-indicators">
+</section>
+<section id="extreme-indicators">
 <h2>4.4.4 Extreme Indicators<a class="headerlink" href="#extreme-indicators" title="Permalink to this heading">#</a></h2>
 <p>Because of the effects extreme weather has on people and infrastructure, it is often the focus of climate change impact studies. Assessing the performance of downscaling methods to reproduce observed metrics/indicators of climate extremes is important. These tests also serve as independent measures of downscaling skill, because downscaling methods are not typically designed explicitly to perform well regarding extreme values <span id="id2">[<a class="reference internal" href="../guidebook_references.html#id7" title="Arelia T. Werner and Alex J. Cannon. Hydrologic extremes – an intercomparison of multiple gridded statistical downscaling methods. Hydrol. Earth Syst. Sci., 20(4):1483–1508, April 2016. URL: https://hess.copernicus.org/articles/20/1483/2016/ (visited on 2022-12-07), doi:10.5194/hess-20-1483-2016.">Werner and Cannon, 2016</a>]</span>. The <a class="reference external" href="https://www.wcrp-climate.org/data-etccdi">Expert Team of Climate Change Detection and Indices</a> (ETCCDI) has developed an extensive list of climate indices (<a class="reference external" href="https://www.climdex.org/learn/indices/">ClimDEX</a>) that can be used for validation of downscaled climate data, as in <span id="id3">Werner and Cannon [<a class="reference internal" href="../guidebook_references.html#id7" title="Arelia T. Werner and Alex J. Cannon. Hydrologic extremes – an intercomparison of multiple gridded statistical downscaling methods. Hydrol. Earth Syst. Sci., 20(4):1483–1508, April 2016. URL: https://hess.copernicus.org/articles/20/1483/2016/ (visited on 2022-12-07), doi:10.5194/hess-20-1483-2016.">2016</a>]</span>.</p>
 <p>Using our daily minimum temperature data, we will calculate two ClimDEX indices. Tropical Nights is a measure of extreme warm days and is defined as the number of days with daily minimum temperature above 20<span class="math notranslate nohighlight">\(^{\circ}\)</span>C. Even in the summer season, midlatitude nighttime temperatures do not often exceed this threshold, and when they do, there can be impacts on things like human comfort and air conditioning demand.</p>
@@ -1002,8 +1012,8 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <p>Interestingly, the downscaled data agrees better with the observations for the validation period, though it is likely that this is due to the historical warming trend - there will be fewer days below the 10th percentile of the reference period because the overall distribution of temperatures has shifted to higher values over time.</p>
 <p>For the training period, which overlaps completely with the baseline 1961-1990 period, the downscaled model output has more cold spells than observed. The overestimate of CSDI in the downscaled data would be important to keep under consideration for a study regarding changes to low temperatures. Again, a multi-model analysis may reveal that other models or a multi-model mean perform better at reproducing observed statistics for your metrics of interest. Choosing a range of models that represent the high and low ends of the distribution across models gives the best characterization of uncertainty due to modelling errors. There will be further discussion on model selection in Chapter 5.</p>
 <p>Now that we’ve characterized our downscaled historical data as being in satisfactory agreement with observations, we can proceed to analyze the downscaled future projections. This will be the subject of the following section in this chapter.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1030,11 +1040,10 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section4.3_downscaling_methods.html"
@@ -1054,10 +1063,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1123,8 +1129,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

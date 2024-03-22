@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>5.3 Exploratory Data Analysis &#8212; UTCDW Guidebook</title>
   
   
@@ -18,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -75,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -199,7 +210,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.3_station_1D_example_multiscen.html">6.3 Edmonton AC Loads: Multi-Scenario Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.4_station_1D_example_nearterm.html">6.4 Edmonton AC Loads: Near-Term Projections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.5_gridded_DBCCA_example.html">6.5 Edmonton AC Loads: Gridded Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.6_Toronto_Electricity_example.html">6.6 Future Toronto Electricity Demands from Cooling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guidebook_references.html">References</a></li>
@@ -311,10 +321,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -322,7 +332,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -362,15 +372,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis">
+  <section class="tex2jax_ignore mathjax_ignore" id="exploratory-data-analysis">
 <h1>5.3 Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h1>
 <p>Once you have selected the observational and model datasets to use for your analysis, you can begin doing some exploratory data analysis, which will inform how you choose to downscale the model data. This involves much of the analysis demonstrated in Chapter 3, but the most crucial steps for the workflow are explained in this section. If you’re new to analyzing climate data and don’t have much intuition for the typical characteristics of different variables, it’s very important that you explore your data extensively by making plots of time series and probability distributions and calculating important quantities, such as climatologies and extreme values.</p>
-<div class="section" id="check-model-obs-consistency">
+<section id="check-model-obs-consistency">
 <h2>5.3.1 Check Model/Obs Consistency<a class="headerlink" href="#check-model-obs-consistency" title="Permalink to this heading">#</a></h2>
 <p>As demonstrated in Section 3.4, climate models are not perfect representations of the real physical climate system. Model output contains systematic errors that we call <em>biases</em> that downscaling and bias adjustment models aim to account for. In section 3.4 and, to some extent, section 4.4, we demonstrated how to quantify model biases. In particular, 3.4 compared the probability density functions of Toronto monthly mean temperatures between one member of the CanESM5 historical ensemble, and observations from a weather station. Comparing the PDFs of a quantity at a particular location is useful for getting a sense of the severity and character of the model biases. This will be important for choosing an appropriate downscaling or bias-correction method (section 5.4.1).</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><img alt="" src="../_images/toronto_tmean_monthly_from3.4.png" /></p></th>
+<tr class="row-odd"><th class="head text-center"><p><img alt="" src="../_images/toronto_tmean_monthly_from3.4.png" /></p></th>
 </tr>
 </thead>
 <tbody>
@@ -379,9 +389,9 @@ document.write(`
 </tbody>
 </table>
 <p>We also compared the monthly climatologies of monthly mean temperature in Toronto, as well as the month-by-month mean bias of the model. The overall mean bias is small, but the mean bias for individual months of the year are all much larger. Since the mean bias is typically positive in the summer months and negative in the winter months, the effect averages out over the whole year, but the biases at smaller time scales will have important effects on your analysis. Understanding the seasonality of biases is also important when selecting your bias correction and/or downscaling methods. When biases vary seasonally like they do in this example, you’ll want to apply adjustments that vary seasonally, to match the model to the observed climatology. When the biases do not show evidence of a systematic seasonal cycle, it’s better to use as much data as possible to characterize the whole distribution of values.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-center head"><p><img alt="" src="../_images/tmean_climatologies_from3.4.png" /></p></th>
+<tr class="row-odd"><th class="head text-center"><p><img alt="" src="../_images/tmean_climatologies_from3.4.png" /></p></th>
 </tr>
 </thead>
 <tbody>
@@ -390,13 +400,13 @@ document.write(`
 </tbody>
 </table>
 <p>Assessing model biases goes beyond comparing PDFs and climatological means. Depending on your application, you may also wish to quantify biases in extreme values of your variables/quantities of interest, and also possibly temporal and spatial autocorrelations, as demonstrated in Section 4.4. The same methods, used there for validating downscaled model output, can be applied to validate raw model ouput. It can also be informative to calculate your climate indicator(s) or run your impact model using the raw model data, and compare to results calculated with observations, since sometimes biases in your indicator or impact model cannot be easily deduced from the biases in the input variables, especially for complex impact models that take many inputs. This is not possible if your impact model only takes high-resolution gridded input data, since of course the raw model output has coarse spatial resolution but can be done easily if you are interested in a simple indicator like Cooling Degree Days.</p>
-</div>
-<div class="section" id="evaluate-climate-change-signal">
+</section>
+<section id="evaluate-climate-change-signal">
 <h2>5.3.2 Evaluate Climate Change Signal<a class="headerlink" href="#evaluate-climate-change-signal" title="Permalink to this heading">#</a></h2>
 <p>Sections 3.4.5 and 4.5 discussed the investigation of projected changes to climate variables in raw and downscaled GCM data, respectively. As mentioned in 3.4.5, it’s important to have an idea of the sign, magnitude, and statistical significance of the projected changes to your variables of interest (and possibly your climate indicator), before doing downscaling and proceeding further into your study. The univariate downscaling and/or bias correction methods covered in Chapter 4 are designed to reduce model biases and enhance spatial resolution, but cannot substantially change the nature of the climate change signal produced in the unadjusted model output. If the raw model projects no significant change, the same will almost certainly be true in the downscaled projections. Additionally, combining information about the projected changes to the input variables with knowledge about the sensitivities of your climate indicator/impact model to its inputs allows you to interpret and explain your end results.</p>
 <p>Sections 2.3 and 5.2 discussed the different sources of uncertainty in climate change projections, and how to select your datasets to best characterize the effect of these sources of uncertainty on the range of projections. Having an idea of these uncertainty ranges in the raw model data will be helpful for interpreting your final results.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -423,11 +433,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section5.2_data_selection.html"
@@ -447,10 +456,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -514,8 +520,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

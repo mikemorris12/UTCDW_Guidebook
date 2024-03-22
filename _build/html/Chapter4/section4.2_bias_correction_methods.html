@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>4.2 Bias-Correction Methods &#8212; UTCDW Guidebook</title>
   
   
@@ -18,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -201,7 +212,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.3_station_1D_example_multiscen.html">6.3 Edmonton AC Loads: Multi-Scenario Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.4_station_1D_example_nearterm.html">6.4 Edmonton AC Loads: Near-Term Projections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.5_gridded_DBCCA_example.html">6.5 Edmonton AC Loads: Gridded Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.6_Toronto_Electricity_example.html">6.6 Future Toronto Electricity Demands from Cooling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guidebook_references.html">References</a></li>
@@ -313,10 +323,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -324,7 +334,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -370,10 +380,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="bias-correction-methods">
+  <section class="tex2jax_ignore mathjax_ignore" id="bias-correction-methods">
 <h1>4.2 Bias-Correction Methods<a class="headerlink" href="#bias-correction-methods" title="Permalink to this heading">#</a></h1>
 <p>A plethora of methods exist for statistical downscaling and bias correction - too many to document in this guide. Here we will cover several methods of varying degrees of complexity, most of which are implemented in the Python package <code class="docutils literal notranslate"><span class="pre">xclim</span></code>. The first few methods will be purely methods of univariate <em>bias correction</em>, and can be applied either to model output at a single location, using station observations as the training data, or as the bias-correction step in a true “downscaling” method, which produces gridded data with enhanced spatial resolution (using gridded observations as the training data).</p>
-<div class="section" id="the-delta-method">
+<section id="the-delta-method">
 <h2>4.2.1 The “Delta” Method<a class="headerlink" href="#the-delta-method" title="Permalink to this heading">#</a></h2>
 <p>The simplest possible method of bias correction is called the “Delta” method. In this method, the climate model output is used only to calculate the mean change in the quantity of interest <span class="math notranslate nohighlight">\(X\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -392,8 +402,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[X_{SDS} = X_{GCM}^{proj} - \overline{X_{GCM}^{hist}} + \overline{X_{OBS}}\]</div>
 <p>This is essentially equivalent to the Delta method, since the mean difference between <span class="math notranslate nohighlight">\(X_{SDS}\)</span> and <span class="math notranslate nohighlight">\(X_{obs}\)</span> will still be equal to <span class="math notranslate nohighlight">\(\Delta\)</span>. However, now the distribution of <span class="math notranslate nohighlight">\(X_{SDS}\)</span> will have the same shape as <span class="math notranslate nohighlight">\(X_{GCM}^{proj}\)</span> - which may be biased. The next method accounts for bias in the variance of the simulated data.</p>
-</div>
-<div class="section" id="bias-variance-correction">
+</section>
+<section id="bias-variance-correction">
 <h2>4.2.2 Bias-Variance Correction<a class="headerlink" href="#bias-variance-correction" title="Permalink to this heading">#</a></h2>
 <p>The second simplest method of bias correction involves correcting biases in both the mean and the variance of the climate model output. The deviations from the modelled historical mean are scaled to have a variance equal to the sample variance of the observations, and then these scaled anomalies are added to the observed sample mean. The transfer function for this method is:</p>
 <div class="math notranslate nohighlight">
@@ -401,10 +411,10 @@ document.write(`
 <p>This method expands on the Delta method by accounting for potential model biases in the variance of <span class="math notranslate nohighlight">\(X\)</span>, and retains the temporal fluctuations of the model output data. If the distribution of <span class="math notranslate nohighlight">\(X\)</span> is Gaussian, this method is equivalent to <strong>empirical quantile mapping</strong>, which will be an important part of the more sophisticated methods to be discussed later. For highly non-Gaussian variables, such as precipitation or wind speed, this method would be inappropriate. These variables are bounded below by zero, and this method could result in unphysical negative values. For variables that are approximately Gaussian, like temperature (for a given month of the year), this method may be more appropriate, as illustrated in the figure below.</p>
 <p><img alt="" src="../_images/pdfs_JanTMean_BiasVarianceCorrection.png" /></p>
 <p>If mean temperatures are the most relevant metric for your study, this method of bias correction is likely sufficient. If extremes are important for your application, this method is not appropriate because the tails of an approximately Gaussian distribution are where it may be most likely to have non-Gaussian behavior. For this reason, non-parametric quantile mapping methods are preferred, as they can handle data generated from any probability distribution.</p>
-</div>
-<div class="section" id="quantile-mapping-methods">
+</section>
+<section id="quantile-mapping-methods">
 <h2>4.2.3 Quantile Mapping Methods<a class="headerlink" href="#quantile-mapping-methods" title="Permalink to this heading">#</a></h2>
-<div class="section" id="empirical-quantile-mapping">
+<section id="empirical-quantile-mapping">
 <h3>4.2.3.1 Empirical Quantile Mapping<a class="headerlink" href="#empirical-quantile-mapping" title="Permalink to this heading">#</a></h3>
 <p>As discussed, empirical quantile mapping (EQM) can be used to map data sampled from one probability distribution to another. Empirical quantile mapping takes the <span class="math notranslate nohighlight">\(k\)</span>’th quantile of the input (climate model) distribution and maps it to the <span class="math notranslate nohighlight">\(k\)</span>’th quantile of the target (observed) distribution. For a random variable <span class="math notranslate nohighlight">\(X\)</span>, the <span class="math notranslate nohighlight">\(k\)</span>’th quantile is given by the inverse CDF evaluated at <span class="math notranslate nohighlight">\(k\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
@@ -418,8 +428,8 @@ document.write(`
 <p>The process is illustrated in the figure below. By design, the distribution of the adjusted model historical data matches the observed distribution exactly.</p>
 <p><img alt="" src="../_images/pdfs_and_cdfs_eqm.png" /></p>
 <p>On its own, empirical quantile mapping is not so useful for adjusting climate change projections, because the projected changes will be washed out by mapping the data back to the observed historical distribution. This can be seen in the massively deflated variance of the adjusted end-of-century projections, relative to the unadjusted raw model projections. Clever individuals have developed two variants of quantile mapping, which preserve projected changes while also correcting for biases in all quantiles of the target variable’s distribution.</p>
-</div>
-<div class="section" id="detrended-quantile-mapping">
+</section>
+<section id="detrended-quantile-mapping">
 <h3>4.2.3.2 Detrended Quantile Mapping<a class="headerlink" href="#detrended-quantile-mapping" title="Permalink to this heading">#</a></h3>
 <p>Detrended Quantile Mapping (DQM) is one of two variants of quantile mapping introduced by <span id="id1">Cannon <em>et al.</em> [<a class="reference internal" href="../guidebook_references.html#id6" title="Alex J. Cannon, Stephen R. Sobie, and Trevor Q. Murdock. Bias Correction of GCM Precipitation by Quantile Mapping: How Well Do Methods Preserve Changes in Quantiles and Extremes? Journal of Climate, 28(17):6938–6959, September 2015. URL: http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1 (visited on 2022-12-06), doi:10.1175/JCLI-D-14-00754.1.">2015</a>]</span> designed to preserve the model climate change signal, while also bias-correcting the distribution of the target variable. EQM cannot handle projected future values that fall outside of the range of historical values - the maximum (or minimum) future projected value will be mapped to the maximum (minimum) historical value, even though it may be physically realistic that new record-setting extreme values will occur under increased radiative forcing. Alternatively, some extrapolation algorithm must be invoked, but there is no agreed-upon method for doing so. DQM avoids the need for extrapolation by removing the long-term mean change from the model projections before quantile mapping, so the input values lie in the range of the historical simulation values. The trend is then reimposed after. For a ratio variable such as precipitation, the mean change is removed by multiplicative scaling, i.e.</p>
 <div class="math notranslate nohighlight">
@@ -429,8 +439,8 @@ document.write(`
 \[x_{SDS}^{proj}(t) = F_{OBS}^{-1}\left[F_{GCM}\left(x_{GCM}^{proj}(t) - \overline{x_{GCM}^{proj}} + \overline{x_{GCM}^{hist}}  \right)\right] - \overline{x_{GCM}^{hist}} + \overline{x_{GCM}^{proj}}\]</div>
 <p>A comparison between EQM and DQM is presented in the figure below. Note how the model-projected negative skewness of the distribution is somewhat preserved in the DQM-adjusted projections but is completely attenuated in the EQM-adjusted data.</p>
 <p><img alt="" src="../_images/pdfs_and_cdfs_dqm_temp.png" /></p>
-</div>
-<div class="section" id="quantile-delta-mapping">
+</section>
+<section id="quantile-delta-mapping">
 <h3>4.2.3.3 Quantile Delta Mapping<a class="headerlink" href="#quantile-delta-mapping" title="Permalink to this heading">#</a></h3>
 <p>As noted in <span id="id2">Cannon <em>et al.</em> [<a class="reference internal" href="../guidebook_references.html#id6" title="Alex J. Cannon, Stephen R. Sobie, and Trevor Q. Murdock. Bias Correction of GCM Precipitation by Quantile Mapping: How Well Do Methods Preserve Changes in Quantiles and Extremes? Journal of Climate, 28(17):6938–6959, September 2015. URL: http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1 (visited on 2022-12-06), doi:10.1175/JCLI-D-14-00754.1.">2015</a>]</span>, DQM will preserve the mean climate change signal from the simulations, but not necessarily changes in the tails of the distribution (extremes). For this reason, they also proposed the similarly-named but materially different Quantile Delta Mapping (QDM) method, which explicitly corrects biases in all quantiles of the distribution <em>and</em> preserves the climate change signal for all quantiles, not just the mean change. The QDM algorithm is as follows. For a given value of the target variable from the future projection simulation <span class="math notranslate nohighlight">\(x_{GCM}^{proj}(t)\)</span>, the quantile <span class="math notranslate nohighlight">\(\tau(t)\)</span> is calculated using the empirical CDF <span class="math notranslate nohighlight">\(F_{GCM}^{proj}\)</span> for a time window around <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -453,9 +463,9 @@ document.write(`
 \]</div>
 <p>A comparison between each of the three quantile mapping-based methods is shown in the following figure. While the difference between QDM and DQM is only marginal for this case, <span id="id4">Cannon <em>et al.</em> [<a class="reference internal" href="../guidebook_references.html#id6" title="Alex J. Cannon, Stephen R. Sobie, and Trevor Q. Murdock. Bias Correction of GCM Precipitation by Quantile Mapping: How Well Do Methods Preserve Changes in Quantiles and Extremes? Journal of Climate, 28(17):6938–6959, September 2015. URL: http://journals.ametsoc.org/doi/10.1175/JCLI-D-14-00754.1 (visited on 2022-12-06), doi:10.1175/JCLI-D-14-00754.1.">2015</a>]</span> demonstrates that QDM suffers from fewer artefacts relating to changes in extreme values than DQM, and especially fewer than EQM. For this reason, QDM is the preferred bias-correction method to be employed as a part of the UTCDW.</p>
 <p><img alt="" src="../_images/pdfs_and_cdfs_qdm_temp.png" /></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -482,11 +492,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section4.1_downscaling_basics.html"
@@ -506,10 +515,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -579,8 +585,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
