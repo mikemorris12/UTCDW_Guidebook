@@ -41,5 +41,6 @@ chapters:
     - file: Chapter6/section6.3_station_1D_example_multiscen
     - file: Chapter6/section6.4_station_1D_example_nearterm
     - file: Chapter6/section6.5_gridded_DBCCA_example
+    - file: Chapter6/section6.6_Toronto_Electricity_example
   - file: guidebook_references
 
