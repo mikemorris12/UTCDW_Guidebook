@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3.2 Gridded Observations &#8212; UTCDW Guidebook</title>
   
   
@@ -19,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +37,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -79,15 +77,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -324,10 +313,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -335,7 +324,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -383,20 +372,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="gridded-observations">
+  <div class="tex2jax_ignore mathjax_ignore section" id="gridded-observations">
 <h1>3.2 Gridded Observations<a class="headerlink" href="#gridded-observations" title="Permalink to this heading">#</a></h1>
 <p>When climate information is needed for an expanded spatial region, instead of a collection of individual points, it is necessary that we use gridded data in our analysis. Gridded <em>observational</em> data is produced in order to fill this need, and usually comes from carefully interpolated station observations or from satellite observations. To be useful for downscaling, the spatial resolution of the gridded observations must be finer than that of the climate model data being downscaled - otherwise there is no way to map the model output to a higher resolution grid while adding fine-scale information. With gridded observational data, we can do all of the same exploratory data analysis as we did with station data, but results will typically be plotted as maps instead of 1D curves.</p>
-<section id="the-netcdf-data-file-format">
+<div class="section" id="the-netcdf-data-file-format">
 <h2>3.2.1 The netCDF Data File Format<a class="headerlink" href="#the-netcdf-data-file-format" title="Permalink to this heading">#</a></h2>
 <p>In the previous section, we worked with 1D time series data from weather station observations. This sort of data is easy to handle with the tabular format of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames, but gridded climate data can have two or three spatial dimensions (typically latitude, longitude, and a vertical dimension such as pressure or height). The time dimension makes 4 dimensions in total, which means we need to use multi-dimensional arrays to manipulate the data. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is not designed for smoothly working with multidimensional arrays in an easy way, so we need a new sort of data type to handle gridded data. Additionally, gridded climate data is often too “big” (in terms of file size) to store in the ASCII text formats (such as .csv) that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> handles. So, in addition to a new data type, we also need a new file format that saves the data in the more efficient binary format (instead of plain text, which is less efficient storage-wise).</p>
 <p>The standard file type for spatio-temporal climate data is called netCDF, or “Network Common Data Form”. netCDF is a “self-describing” data format, in the sense that the files contain metadata about the physical dimensions and coordinates of the data, and other attributes such as units and possibly, history of how the data was generated.</p>
 <p>You can open and read netCDF files with Python using the package <a class="reference external" href="https://unidata.github.io/netcdf4-python/">netcdf4-python</a>, and extract the data in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays. This package is a basic, low-level interface that is expanded upon in the higher-level package  <a class="reference external" href="https://docs.xarray.dev/en/stable/">xarray</a>. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> is built for working with arrays with named dimensions (such as “time” or “latitude”) and is the workhorse for doing climate analysis in Python. It shares much of the same functionality as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> for doing calculations and supports <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/dask.html">parallelizing operations</a> with <a class="reference external" href="https://docs.dask.org/en/stable/">dask</a>, which can significantly speed up calculations involving large datasets. From here on, nearly all of our code will rely on <code class="docutils literal notranslate"><span class="pre">xarray</span></code> for working with netCDF data and doing analysis.</p>
-</section>
-<section id="accessing-data-with-opendap">
+</div>
+<div class="section" id="accessing-data-with-opendap">
 <h2>3.2.2 Accessing Data with OPeNDAP<a class="headerlink" href="#accessing-data-with-opendap" title="Permalink to this heading">#</a></h2>
 <p>In this Guidebook, we’ll focus on the gridded observational products hosted on the <a class="reference external" href="https://pavics.ouranos.ca/datasets.html#a">PAVICS THREDDS server</a>, which can be accessed directly using the OPeNDAP capability of <code class="docutils literal notranslate"><span class="pre">xarray</span></code>.</p>
 <p>The dataset we’ll explore here is the NRCan (Natural Resources Canada) gridded observations, derived from station observations using the ANUSPLIN interpolation algorithm. The spatial resolution is 10 km<span class="math notranslate nohighlight">\(\times\)</span>10 km, and data is available from 1950-2017. More information on this dataset can be found in <span id="id1">McKenney <em>et al.</em> [<a class="reference internal" href="../guidebook_references.html#id19" title="Daniel W. McKenney, Michael F. Hutchinson, Pia Papadopol, Kevin Lawrence, John Pedlar, Kathy Campbell, Ewa Milewska, Ron F. Hopkinson, David Price, and Tim Owen. Customized Spatial Climate Models for North America. Bull. Amer. Meteor. Soc., 92(12):1611–1622, December 2011. URL: http://journals.ametsoc.org/doi/10.1175/2011BAMS3132.1 (visited on 2023-09-06), doi:10.1175/2011BAMS3132.1.">2011</a>]</span>. The entire dataset is large (about 50 GB per variable), so we will work with subsets of the data that are easy to load into memory. Thankfully, the OPeNDAP protocol allows for the subsetting to happen at the host end before the data is loaded onto your local machine.</p>
-<p>There is a limit to how much data can be transferred from the PAVICS server to your local machine via OPeNDAP, so for production uses you’ll need to download the data and store it locally. See the end of this section for a brief tutorial on how to download and save the NRCAN gridded observational data. If you only need data for a small region then OPeNDAP is sufficient, but it is still a good idea to save your data to your own machine for easy re-use. This too will be covered in this notebook.</p>
+<p>It can be tedious and slow to repeatedly transfer the same data from a remote server  to your local machine via OPeNDAP, so for production uses and easy repeatability you’ll need to download the data and store it locally. See the end of this section for a brief tutorial on how to download and save the NRCAN gridded observational data. If you only need data for a small region then OPeNDAP is sufficient, but it is still a good idea to save your data to your own machine for easy re-use. This too will be covered in this notebook.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>It’s important to remember that working with gridded data can require significantly more computational resources (storage, memory, and processor time) than data for a single location, especially for high temporal frequencies (daily or greater), fine spatial resolutions (finer than 1 degree), and large spatial domains. Keep this in mind when downloading gridded data.</p>
@@ -441,8 +430,10 @@ nrcan.ncml
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># there are two versions of the NRCAN dataset. We will use the more recent one, version 2.</span>
 <span class="n">cds</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
 
-<span class="c1"># open the dataset using the OPenDAP URL</span>
-<span class="n">nrcan_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">cds</span><span class="o">.</span><span class="n">access_urls</span><span class="p">[</span><span class="s2">&quot;OPENDAP&quot;</span><span class="p">])</span>
+<span class="c1"># open the dataset using the OPenDAP URL. Passing chunks = &#39;auto&#39; will speed up processing</span>
+<span class="c1"># using dask under the hood, and will also allow you to process a larger volume of data </span>
+<span class="c1"># over OPenDAP.</span>
+<span class="n">nrcan_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">cds</span><span class="o">.</span><span class="n">access_urls</span><span class="p">[</span><span class="s2">&quot;OPENDAP&quot;</span><span class="p">],</span> <span class="n">chunks</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 
 <span class="c1"># this will print out an interactive summary of the contents of the dataset</span>
 <span class="n">nrcan_ds</span>
@@ -820,9 +811,9 @@ Coordinates:
   * lon      (lon) float32 -141.0 -140.9 -140.8 -140.7 ... -52.21 -52.13 -52.04
   * time     (time) datetime64[ns] 1950-01-01 1950-01-02 ... 2017-12-31
 Data variables:
-    tasmin   (time, lat, lon) float32 ...
-    tasmax   (time, lat, lon) float32 ...
-    pr       (time, lat, lon) float32 ...
+    tasmin   (time, lat, lon) float32 dask.array&lt;chunksize=(3375, 69, 144), meta=np.ndarray&gt;
+    tasmax   (time, lat, lon) float32 dask.array&lt;chunksize=(3375, 69, 144), meta=np.ndarray&gt;
+    pr       (time, lat, lon) float32 dask.array&lt;chunksize=(3375, 69, 144), meta=np.ndarray&gt;
 Attributes: (12/15)
     Conventions:          CF-1.5
     title:                NRCAN ANUSPLIN daily gridded dataset : version 2
@@ -836,12 +827,372 @@ Attributes: (12/15)
     license_type:         permissive
     license:              https://open.canada.ca/en/open-government-licence-c...
     attribution:          The authors provide this data under the Environment...
-    citation:             Natural Resources Canada ANUSPLIN interpolated hist...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-f1fb7261-2251-4150-8e09-5c141a77be62' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f1fb7261-2251-4150-8e09-5c141a77be62' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 510</li><li><span class='xr-has-index'>lon</span>: 1068</li><li><span class='xr-has-index'>time</span>: 24837</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-3328243e-c1d1-47b9-a14b-b912bf54ecfb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3328243e-c1d1-47b9-a14b-b912bf54ecfb' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>83.46 83.38 83.29 ... 41.12 41.04</div><input id='attrs-0d5718d4-cf8e-4387-81dd-75078484e436' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0d5718d4-cf8e-4387-81dd-75078484e436' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e05fbddf-3d1b-42e6-bf58-69855595d5b4' class='xr-var-data-in' type='checkbox'><label for='data-e05fbddf-3d1b-42e6-bf58-69855595d5b4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>_ChunkSizes :</span></dt><dd>510</dd></dl></div><div class='xr-var-data'><pre>array([83.45833 , 83.375   , 83.291664, ..., 41.208332, 41.125   , 41.041668],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-141.0 -140.9 ... -52.13 -52.04</div><input id='attrs-3e27d683-b326-457f-bf70-453c060c4894' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3e27d683-b326-457f-bf70-453c060c4894' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cbec00a0-5c6e-4569-ace7-3e8d665c0693' class='xr-var-data-in' type='checkbox'><label for='data-cbec00a0-5c6e-4569-ace7-3e8d665c0693' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>_ChunkSizes :</span></dt><dd>1068</dd></dl></div><div class='xr-var-data'><pre>array([-140.95833 , -140.875   , -140.79167 , ...,  -52.208336,  -52.125004,
-        -52.04167 ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1950-01-01 ... 2017-12-31</div><input id='attrs-1bf68979-57b4-47fa-886c-f6c689715ff4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1bf68979-57b4-47fa-886c-f6c689715ff4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-18093ecb-a05e-4bb3-bdfe-634cca4853b8' class='xr-var-data-in' type='checkbox'><label for='data-18093ecb-a05e-4bb3-bdfe-634cca4853b8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>_ChunkSizes :</span></dt><dd>1024</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1950-01-01T00:00:00.000000000&#x27;, &#x27;1950-01-02T00:00:00.000000000&#x27;,
+    citation:             Natural Resources Canada ANUSPLIN interpolated hist...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-1d3a8b65-e5fa-4494-b43b-1a59adbbea9a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1d3a8b65-e5fa-4494-b43b-1a59adbbea9a' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 510</li><li><span class='xr-has-index'>lon</span>: 1068</li><li><span class='xr-has-index'>time</span>: 24837</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-86d47c05-6ae8-4f5f-a666-61a2fc75e37e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-86d47c05-6ae8-4f5f-a666-61a2fc75e37e' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>83.46 83.38 83.29 ... 41.12 41.04</div><input id='attrs-1c6be66a-32be-4a19-9c4e-f3a7915eb29b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1c6be66a-32be-4a19-9c4e-f3a7915eb29b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cf5625a6-d299-47f0-9ca4-ae6f2a13dbe0' class='xr-var-data-in' type='checkbox'><label for='data-cf5625a6-d299-47f0-9ca4-ae6f2a13dbe0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>_ChunkSizes :</span></dt><dd>510</dd></dl></div><div class='xr-var-data'><pre>array([83.45833 , 83.375   , 83.291664, ..., 41.208332, 41.125   , 41.041668],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-141.0 -140.9 ... -52.13 -52.04</div><input id='attrs-6ce7afc8-a959-4507-af03-01db80ef9aec' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6ce7afc8-a959-4507-af03-01db80ef9aec' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9e4993b3-d8d8-465f-a5e5-58e988cedf4d' class='xr-var-data-in' type='checkbox'><label for='data-9e4993b3-d8d8-465f-a5e5-58e988cedf4d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>_ChunkSizes :</span></dt><dd>1068</dd></dl></div><div class='xr-var-data'><pre>array([-140.95833 , -140.875   , -140.79167 , ...,  -52.208336,  -52.125004,
+        -52.04167 ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1950-01-01 ... 2017-12-31</div><input id='attrs-cac6286b-44ab-4498-9dd2-ea71af5b96d0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cac6286b-44ab-4498-9dd2-ea71af5b96d0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-04ffcb5b-9753-401e-a4a0-1efb41fe6d4c' class='xr-var-data-in' type='checkbox'><label for='data-04ffcb5b-9753-401e-a4a0-1efb41fe6d4c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>_ChunkSizes :</span></dt><dd>1024</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1950-01-01T00:00:00.000000000&#x27;, &#x27;1950-01-02T00:00:00.000000000&#x27;,
        &#x27;1950-01-03T00:00:00.000000000&#x27;, ..., &#x27;2017-12-29T00:00:00.000000000&#x27;,
        &#x27;2017-12-30T00:00:00.000000000&#x27;, &#x27;2017-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-48052a22-d3ee-4ae0-80ef-53ec37639d74' class='xr-section-summary-in' type='checkbox'  checked><label for='section-48052a22-d3ee-4ae0-80ef-53ec37639d74' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tasmin</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4479cb8f-1987-4754-8f92-e6986e25c7f9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4479cb8f-1987-4754-8f92-e6986e25c7f9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e39324c4-ad7f-47da-b172-f68caf178020' class='xr-var-data-in' type='checkbox'><label for='data-e39324c4-ad7f-47da-b172-f68caf178020' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>air_temperature</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>_ChunkSizes :</span></dt><dd>[366  50  50]</dd></dl></div><div class='xr-var-data'><pre>[13528217160 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tasmax</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9be7db5b-c9ae-4de4-a382-20b63cb461b9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9be7db5b-c9ae-4de4-a382-20b63cb461b9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-57455fe8-b1f6-4ad3-bd43-90178e399cd1' class='xr-var-data-in' type='checkbox'><label for='data-57455fe8-b1f6-4ad3-bd43-90178e399cd1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>air_temperature</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>_ChunkSizes :</span></dt><dd>[366  50  50]</dd></dl></div><div class='xr-var-data'><pre>[13528217160 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pr</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-899848e7-5bdd-4de3-bc85-d668e79d468a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-899848e7-5bdd-4de3-bc85-d668e79d468a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-74967593-a4a2-4486-9d97-44b8411aa3e2' class='xr-var-data-in' type='checkbox'><label for='data-74967593-a4a2-4486-9d97-44b8411aa3e2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>mm s-1</dd><dt><span>long_name :</span></dt><dd>lwe_precipitation_rate</dd><dt><span>standard_name :</span></dt><dd>lwe_precipitation_rate</dd><dt><span>_ChunkSizes :</span></dt><dd>[366  50  50]</dd></dl></div><div class='xr-var-data'><pre>[13528217160 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6b2da4a9-4fe8-4b31-ae83-228087e86c78' class='xr-section-summary-in' type='checkbox'  ><label for='section-6b2da4a9-4fe8-4b31-ae83-228087e86c78' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a3fe0be1-d038-4e3c-93e8-6978b8e48a3f' class='xr-index-data-in' type='checkbox'/><label for='index-a3fe0be1-d038-4e3c-93e8-6978b8e48a3f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([83.45832824707031,            83.375, 83.29166412353516,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5aed5e5a-d477-4e13-934f-37ac981b448e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5aed5e5a-d477-4e13-934f-37ac981b448e' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tasmin</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(3375, 69, 144), meta=np.ndarray&gt;</div><input id='attrs-51ce4c4a-0c01-4282-8024-72e6ad069203' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-51ce4c4a-0c01-4282-8024-72e6ad069203' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f835889f-2649-4a4d-8c0d-7d6fa7e5f9a6' class='xr-var-data-in' type='checkbox'><label for='data-f835889f-2649-4a4d-8c0d-7d6fa7e5f9a6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>air_temperature</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>_ChunkSizes :</span></dt><dd>[366  50  50]</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 50.40 GiB </td>
+                        <td> 127.92 MiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (24837, 510, 1068) </td>
+                        <td> (3375, 69, 144) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 512 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="164" height="149" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="10" y1="3" x2="80" y2="74" />
+  <line x1="10" y1="7" x2="80" y2="78" />
+  <line x1="10" y1="11" x2="80" y2="82" />
+  <line x1="10" y1="15" x2="80" y2="86" />
+  <line x1="10" y1="19" x2="80" y2="90" />
+  <line x1="10" y1="23" x2="80" y2="94" />
+  <line x1="10" y1="27" x2="80" y2="98" />
+  <line x1="10" y1="29" x2="80" y2="99" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="29" style="stroke-width:2" />
+  <line x1="19" y1="9" x2="19" y2="38" />
+  <line x1="29" y1="19" x2="29" y2="48" />
+  <line x1="38" y1="28" x2="38" y2="57" />
+  <line x1="48" y1="38" x2="48" y2="67" />
+  <line x1="57" y1="47" x2="57" y2="77" />
+  <line x1="67" y1="57" x2="67" y2="86" />
+  <line x1="77" y1="67" x2="77" y2="96" />
+  <line x1="80" y1="70" x2="80" y2="99" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 80.58823529411765,70.58823529411765 80.58823529411765,99.76748240752141 10.0,29.179247113403765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="43" y2="0" style="stroke-width:2" />
+  <line x1="19" y1="9" x2="53" y2="9" />
+  <line x1="29" y1="19" x2="62" y2="19" />
+  <line x1="38" y1="28" x2="72" y2="28" />
+  <line x1="48" y1="38" x2="81" y2="38" />
+  <line x1="57" y1="47" x2="91" y2="47" />
+  <line x1="67" y1="57" x2="101" y2="57" />
+  <line x1="77" y1="67" x2="110" y2="67" />
+  <line x1="80" y1="70" x2="114" y2="70" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="14" y1="0" x2="85" y2="70" />
+  <line x1="19" y1="0" x2="89" y2="70" />
+  <line x1="23" y1="0" x2="94" y2="70" />
+  <line x1="28" y1="0" x2="98" y2="70" />
+  <line x1="32" y1="0" x2="103" y2="70" />
+  <line x1="37" y1="0" x2="107" y2="70" />
+  <line x1="41" y1="0" x2="112" y2="70" />
+  <line x1="43" y1="0" x2="114" y2="70" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 43.57670173063948,0.0 114.16493702475714,70.58823529411765 80.58823529411765,70.58823529411765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="80" y1="70" x2="114" y2="70" style="stroke-width:2" />
+  <line x1="80" y1="74" x2="114" y2="74" />
+  <line x1="80" y1="78" x2="114" y2="78" />
+  <line x1="80" y1="82" x2="114" y2="82" />
+  <line x1="80" y1="86" x2="114" y2="86" />
+  <line x1="80" y1="90" x2="114" y2="90" />
+  <line x1="80" y1="94" x2="114" y2="94" />
+  <line x1="80" y1="98" x2="114" y2="98" />
+  <line x1="80" y1="99" x2="114" y2="99" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="80" y1="70" x2="80" y2="99" style="stroke-width:2" />
+  <line x1="85" y1="70" x2="85" y2="99" />
+  <line x1="89" y1="70" x2="89" y2="99" />
+  <line x1="94" y1="70" x2="94" y2="99" />
+  <line x1="98" y1="70" x2="98" y2="99" />
+  <line x1="103" y1="70" x2="103" y2="99" />
+  <line x1="107" y1="70" x2="107" y2="99" />
+  <line x1="112" y1="70" x2="112" y2="99" />
+  <line x1="114" y1="70" x2="114" y2="99" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="80.58823529411765,70.58823529411765 114.16493702475714,70.58823529411765 114.16493702475714,99.76748240752141 80.58823529411765,99.76748240752141" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="97.376586" y="119.767482" font-size="1.0rem" font-weight="100" text-anchor="middle" >1068</text>
+  <text x="134.164937" y="85.177859" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,134.164937,85.177859)">510</text>
+  <text x="35.294118" y="84.473365" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,35.294118,84.473365)">24837</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tasmax</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(3375, 69, 144), meta=np.ndarray&gt;</div><input id='attrs-4e2cf46d-bf7f-479a-b227-c089015817e1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4e2cf46d-bf7f-479a-b227-c089015817e1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c1245b8f-3c7c-4c4a-9476-b426bc1bea8c' class='xr-var-data-in' type='checkbox'><label for='data-c1245b8f-3c7c-4c4a-9476-b426bc1bea8c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>air_temperature</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>_ChunkSizes :</span></dt><dd>[366  50  50]</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 50.40 GiB </td>
+                        <td> 127.92 MiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (24837, 510, 1068) </td>
+                        <td> (3375, 69, 144) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 512 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="164" height="149" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="10" y1="3" x2="80" y2="74" />
+  <line x1="10" y1="7" x2="80" y2="78" />
+  <line x1="10" y1="11" x2="80" y2="82" />
+  <line x1="10" y1="15" x2="80" y2="86" />
+  <line x1="10" y1="19" x2="80" y2="90" />
+  <line x1="10" y1="23" x2="80" y2="94" />
+  <line x1="10" y1="27" x2="80" y2="98" />
+  <line x1="10" y1="29" x2="80" y2="99" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="29" style="stroke-width:2" />
+  <line x1="19" y1="9" x2="19" y2="38" />
+  <line x1="29" y1="19" x2="29" y2="48" />
+  <line x1="38" y1="28" x2="38" y2="57" />
+  <line x1="48" y1="38" x2="48" y2="67" />
+  <line x1="57" y1="47" x2="57" y2="77" />
+  <line x1="67" y1="57" x2="67" y2="86" />
+  <line x1="77" y1="67" x2="77" y2="96" />
+  <line x1="80" y1="70" x2="80" y2="99" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 80.58823529411765,70.58823529411765 80.58823529411765,99.76748240752141 10.0,29.179247113403765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="43" y2="0" style="stroke-width:2" />
+  <line x1="19" y1="9" x2="53" y2="9" />
+  <line x1="29" y1="19" x2="62" y2="19" />
+  <line x1="38" y1="28" x2="72" y2="28" />
+  <line x1="48" y1="38" x2="81" y2="38" />
+  <line x1="57" y1="47" x2="91" y2="47" />
+  <line x1="67" y1="57" x2="101" y2="57" />
+  <line x1="77" y1="67" x2="110" y2="67" />
+  <line x1="80" y1="70" x2="114" y2="70" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="14" y1="0" x2="85" y2="70" />
+  <line x1="19" y1="0" x2="89" y2="70" />
+  <line x1="23" y1="0" x2="94" y2="70" />
+  <line x1="28" y1="0" x2="98" y2="70" />
+  <line x1="32" y1="0" x2="103" y2="70" />
+  <line x1="37" y1="0" x2="107" y2="70" />
+  <line x1="41" y1="0" x2="112" y2="70" />
+  <line x1="43" y1="0" x2="114" y2="70" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 43.57670173063948,0.0 114.16493702475714,70.58823529411765 80.58823529411765,70.58823529411765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="80" y1="70" x2="114" y2="70" style="stroke-width:2" />
+  <line x1="80" y1="74" x2="114" y2="74" />
+  <line x1="80" y1="78" x2="114" y2="78" />
+  <line x1="80" y1="82" x2="114" y2="82" />
+  <line x1="80" y1="86" x2="114" y2="86" />
+  <line x1="80" y1="90" x2="114" y2="90" />
+  <line x1="80" y1="94" x2="114" y2="94" />
+  <line x1="80" y1="98" x2="114" y2="98" />
+  <line x1="80" y1="99" x2="114" y2="99" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="80" y1="70" x2="80" y2="99" style="stroke-width:2" />
+  <line x1="85" y1="70" x2="85" y2="99" />
+  <line x1="89" y1="70" x2="89" y2="99" />
+  <line x1="94" y1="70" x2="94" y2="99" />
+  <line x1="98" y1="70" x2="98" y2="99" />
+  <line x1="103" y1="70" x2="103" y2="99" />
+  <line x1="107" y1="70" x2="107" y2="99" />
+  <line x1="112" y1="70" x2="112" y2="99" />
+  <line x1="114" y1="70" x2="114" y2="99" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="80.58823529411765,70.58823529411765 114.16493702475714,70.58823529411765 114.16493702475714,99.76748240752141 80.58823529411765,99.76748240752141" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="97.376586" y="119.767482" font-size="1.0rem" font-weight="100" text-anchor="middle" >1068</text>
+  <text x="134.164937" y="85.177859" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,134.164937,85.177859)">510</text>
+  <text x="35.294118" y="84.473365" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,35.294118,84.473365)">24837</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pr</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(3375, 69, 144), meta=np.ndarray&gt;</div><input id='attrs-e2eb30f3-518c-49f1-ba29-3b45d7026735' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e2eb30f3-518c-49f1-ba29-3b45d7026735' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-68644184-b652-4ce5-970c-dc5620fdc1a0' class='xr-var-data-in' type='checkbox'><label for='data-68644184-b652-4ce5-970c-dc5620fdc1a0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>mm s-1</dd><dt><span>long_name :</span></dt><dd>lwe_precipitation_rate</dd><dt><span>standard_name :</span></dt><dd>lwe_precipitation_rate</dd><dt><span>_ChunkSizes :</span></dt><dd>[366  50  50]</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 50.40 GiB </td>
+                        <td> 127.92 MiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (24837, 510, 1068) </td>
+                        <td> (3375, 69, 144) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 512 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="164" height="149" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="10" y1="3" x2="80" y2="74" />
+  <line x1="10" y1="7" x2="80" y2="78" />
+  <line x1="10" y1="11" x2="80" y2="82" />
+  <line x1="10" y1="15" x2="80" y2="86" />
+  <line x1="10" y1="19" x2="80" y2="90" />
+  <line x1="10" y1="23" x2="80" y2="94" />
+  <line x1="10" y1="27" x2="80" y2="98" />
+  <line x1="10" y1="29" x2="80" y2="99" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="29" style="stroke-width:2" />
+  <line x1="19" y1="9" x2="19" y2="38" />
+  <line x1="29" y1="19" x2="29" y2="48" />
+  <line x1="38" y1="28" x2="38" y2="57" />
+  <line x1="48" y1="38" x2="48" y2="67" />
+  <line x1="57" y1="47" x2="57" y2="77" />
+  <line x1="67" y1="57" x2="67" y2="86" />
+  <line x1="77" y1="67" x2="77" y2="96" />
+  <line x1="80" y1="70" x2="80" y2="99" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 80.58823529411765,70.58823529411765 80.58823529411765,99.76748240752141 10.0,29.179247113403765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="43" y2="0" style="stroke-width:2" />
+  <line x1="19" y1="9" x2="53" y2="9" />
+  <line x1="29" y1="19" x2="62" y2="19" />
+  <line x1="38" y1="28" x2="72" y2="28" />
+  <line x1="48" y1="38" x2="81" y2="38" />
+  <line x1="57" y1="47" x2="91" y2="47" />
+  <line x1="67" y1="57" x2="101" y2="57" />
+  <line x1="77" y1="67" x2="110" y2="67" />
+  <line x1="80" y1="70" x2="114" y2="70" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="14" y1="0" x2="85" y2="70" />
+  <line x1="19" y1="0" x2="89" y2="70" />
+  <line x1="23" y1="0" x2="94" y2="70" />
+  <line x1="28" y1="0" x2="98" y2="70" />
+  <line x1="32" y1="0" x2="103" y2="70" />
+  <line x1="37" y1="0" x2="107" y2="70" />
+  <line x1="41" y1="0" x2="112" y2="70" />
+  <line x1="43" y1="0" x2="114" y2="70" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 43.57670173063948,0.0 114.16493702475714,70.58823529411765 80.58823529411765,70.58823529411765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="80" y1="70" x2="114" y2="70" style="stroke-width:2" />
+  <line x1="80" y1="74" x2="114" y2="74" />
+  <line x1="80" y1="78" x2="114" y2="78" />
+  <line x1="80" y1="82" x2="114" y2="82" />
+  <line x1="80" y1="86" x2="114" y2="86" />
+  <line x1="80" y1="90" x2="114" y2="90" />
+  <line x1="80" y1="94" x2="114" y2="94" />
+  <line x1="80" y1="98" x2="114" y2="98" />
+  <line x1="80" y1="99" x2="114" y2="99" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="80" y1="70" x2="80" y2="99" style="stroke-width:2" />
+  <line x1="85" y1="70" x2="85" y2="99" />
+  <line x1="89" y1="70" x2="89" y2="99" />
+  <line x1="94" y1="70" x2="94" y2="99" />
+  <line x1="98" y1="70" x2="98" y2="99" />
+  <line x1="103" y1="70" x2="103" y2="99" />
+  <line x1="107" y1="70" x2="107" y2="99" />
+  <line x1="112" y1="70" x2="112" y2="99" />
+  <line x1="114" y1="70" x2="114" y2="99" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="80.58823529411765,70.58823529411765 114.16493702475714,70.58823529411765 114.16493702475714,99.76748240752141 80.58823529411765,99.76748240752141" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="97.376586" y="119.767482" font-size="1.0rem" font-weight="100" text-anchor="middle" >1068</text>
+  <text x="134.164937" y="85.177859" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,134.164937,85.177859)">510</text>
+  <text x="35.294118" y="84.473365" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,35.294118,84.473365)">24837</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-5c270b19-ce72-4058-816c-7bf10a722fc0' class='xr-section-summary-in' type='checkbox'  ><label for='section-5c270b19-ce72-4058-816c-7bf10a722fc0' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f11683b7-ae4e-4867-a201-8d06b4da4dc8' class='xr-index-data-in' type='checkbox'/><label for='index-f11683b7-ae4e-4867-a201-8d06b4da4dc8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([83.45832824707031,            83.375, 83.29166412353516,
        83.20832824707031,            83.125, 83.04166412353516,
        82.95832824707031,            82.875, 82.79166412353516,
        82.70832824707031,
@@ -850,7 +1201,7 @@ Attributes: (12/15)
        41.54166793823242, 41.45833206176758,            41.375,
        41.29166793823242, 41.20833206176758,            41.125,
        41.04166793823242],
-      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;, length=510))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-8287b544-9332-4173-bb4b-9ca0cc01c85c' class='xr-index-data-in' type='checkbox'/><label for='index-8287b544-9332-4173-bb4b-9ca0cc01c85c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ -140.9583282470703,            -140.875,  -140.7916717529297,
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;, length=510))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c0f33f37-5525-45c6-af30-0aa8ee6a1c9a' class='xr-index-data-in' type='checkbox'/><label for='index-c0f33f37-5525-45c6-af30-0aa8ee6a1c9a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ -140.9583282470703,            -140.875,  -140.7916717529297,
         -140.7083282470703,            -140.625,  -140.5416717529297,
         -140.4583282470703,            -140.375,  -140.2916717529297,
         -140.2083282470703,
@@ -859,14 +1210,14 @@ Attributes: (12/15)
         -52.54167175292969, -52.458335876464844, -52.375003814697266,
         -52.29167175292969, -52.208335876464844, -52.125003814697266,
         -52.04167175292969],
-      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=1068))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d1cd1a36-ceb4-49e7-8413-16fefe1986ea' class='xr-index-data-in' type='checkbox'/><label for='index-d1cd1a36-ceb4-49e7-8413-16fefe1986ea' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1950-01-01&#x27;, &#x27;1950-01-02&#x27;, &#x27;1950-01-03&#x27;, &#x27;1950-01-04&#x27;,
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=1068))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-47e01f6e-7020-4740-ac69-5e03d25392e3' class='xr-index-data-in' type='checkbox'/><label for='index-47e01f6e-7020-4740-ac69-5e03d25392e3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1950-01-01&#x27;, &#x27;1950-01-02&#x27;, &#x27;1950-01-03&#x27;, &#x27;1950-01-04&#x27;,
                &#x27;1950-01-05&#x27;, &#x27;1950-01-06&#x27;, &#x27;1950-01-07&#x27;, &#x27;1950-01-08&#x27;,
                &#x27;1950-01-09&#x27;, &#x27;1950-01-10&#x27;,
                ...
                &#x27;2017-12-22&#x27;, &#x27;2017-12-23&#x27;, &#x27;2017-12-24&#x27;, &#x27;2017-12-25&#x27;,
                &#x27;2017-12-26&#x27;, &#x27;2017-12-27&#x27;, &#x27;2017-12-28&#x27;, &#x27;2017-12-29&#x27;,
                &#x27;2017-12-30&#x27;, &#x27;2017-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=24837, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-eefb2a3a-0a8d-4e3e-9771-e361889e4f10' class='xr-section-summary-in' type='checkbox'  ><label for='section-eefb2a3a-0a8d-4e3e-9771-e361889e4f10' class='xr-section-summary' >Attributes: <span>(15)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.5</dd><dt><span>title :</span></dt><dd>NRCAN ANUSPLIN daily gridded dataset : version 2</dd><dt><span>history :</span></dt><dd>Fri Jan 25 14:11:15 2019 : Convert from original format to NetCDF</dd><dt><span>institute_id :</span></dt><dd>NRCAN</dd><dt><span>frequency :</span></dt><dd>day</dd><dt><span>abstract :</span></dt><dd>Gridded daily observational dataset produced by Natural Resources Canada (NRCan), available at 300 arc second spatial resolution (1/12° grids, ~10 km) over Canada. The version 2 dataset was updated in its entirety compared with version 1 and is not a simple extension of version 1 with additional years of data. Gridding was accomplished with the Australian National University Spline (ANUSPLIN) implementation of the trivariate thin plate splines interpolation method with latitude, longitude and elevation as predictors. </dd><dt><span>dataset_description :</span></dt><dd>https://cfs.nrcan.gc.ca/projects/3/1</dd><dt><span>type :</span></dt><dd>gridded_obs</dd><dt><span>institute :</span></dt><dd>Natural Resources Canada : Canadian Forest Service</dd><dt><span>dataset_id :</span></dt><dd>NRCAN_anusplin_daily_v2</dd><dt><span>version :</span></dt><dd>2.0</dd><dt><span>license_type :</span></dt><dd>permissive</dd><dt><span>license :</span></dt><dd>https://open.canada.ca/en/open-government-licence-canada</dd><dt><span>attribution :</span></dt><dd>The authors provide this data under the Environment and Climate Change Canada Data Server End Use License and demand that any references to or derivative works based on this dataset be cited using the provided citation information</dd><dt><span>citation :</span></dt><dd>Natural Resources Canada ANUSPLIN interpolated historical climate model from McKenney, D.W., M.F. Hutchinson, P. Papadol, K. Lawrence, J. Pedlar, K. Campbell, E. Milewska, R.F. Hopkinson, D. Price, and T. Owen, 2011. Customized Spatial Climate Models for North America. Bull. Amer. Meteor. Soc., 92, 1611-1622, https://doi.org/10.1175/2011BAMS3132.1</dd></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=24837, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-54acdfa6-6194-4781-bf17-c933fe6baa87' class='xr-section-summary-in' type='checkbox'  ><label for='section-54acdfa6-6194-4781-bf17-c933fe6baa87' class='xr-section-summary' >Attributes: <span>(15)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.5</dd><dt><span>title :</span></dt><dd>NRCAN ANUSPLIN daily gridded dataset : version 2</dd><dt><span>history :</span></dt><dd>Fri Jan 25 14:11:15 2019 : Convert from original format to NetCDF</dd><dt><span>institute_id :</span></dt><dd>NRCAN</dd><dt><span>frequency :</span></dt><dd>day</dd><dt><span>abstract :</span></dt><dd>Gridded daily observational dataset produced by Natural Resources Canada (NRCan), available at 300 arc second spatial resolution (1/12° grids, ~10 km) over Canada. The version 2 dataset was updated in its entirety compared with version 1 and is not a simple extension of version 1 with additional years of data. Gridding was accomplished with the Australian National University Spline (ANUSPLIN) implementation of the trivariate thin plate splines interpolation method with latitude, longitude and elevation as predictors. </dd><dt><span>dataset_description :</span></dt><dd>https://cfs.nrcan.gc.ca/projects/3/1</dd><dt><span>type :</span></dt><dd>gridded_obs</dd><dt><span>institute :</span></dt><dd>Natural Resources Canada : Canadian Forest Service</dd><dt><span>dataset_id :</span></dt><dd>NRCAN_anusplin_daily_v2</dd><dt><span>version :</span></dt><dd>2.0</dd><dt><span>license_type :</span></dt><dd>permissive</dd><dt><span>license :</span></dt><dd>https://open.canada.ca/en/open-government-licence-canada</dd><dt><span>attribution :</span></dt><dd>The authors provide this data under the Environment and Climate Change Canada Data Server End Use License and demand that any references to or derivative works based on this dataset be cited using the provided citation information</dd><dt><span>citation :</span></dt><dd>Natural Resources Canada ANUSPLIN interpolated historical climate model from McKenney, D.W., M.F. Hutchinson, P. Papadol, K. Lawrence, J. Pedlar, K. Campbell, E. Milewska, R.F. Hopkinson, D. Price, and T. Owen, 2011. Customized Spatial Climate Models for North America. Bull. Amer. Meteor. Soc., 92, 1611-1622, https://doi.org/10.1175/2011BAMS3132.1</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Accessing the data with <code class="docutils literal notranslate"><span class="pre">xr.open_dataset()</span></code> has returned an <code class="docutils literal notranslate"><span class="pre">xr.Dataset</span></code> object, which itself contains three <code class="docutils literal notranslate"><span class="pre">xr.DataArray</span></code>s that store each of the three variables: precipitation, and daily maximum and minimum temperature. We can take a peek at the data for a particular day and plot it on a map using the package <a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">cartopy</a>.</p>
 <div class="cell docutils container">
@@ -905,11 +1256,19 @@ Attributes: (12/15)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a3e28e17bd6d221c7162cc0082f94f943a380b3138dd20a7b1fafafacff5429c.png" src="../_images/a3e28e17bd6d221c7162cc0082f94f943a380b3138dd20a7b1fafafacff5429c.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/cartopy/io/__init__.py:241: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/50m_cultural/ne_50m_admin_1_states_provinces_lakes.zip
+  warnings.warn(f&#39;Downloading: {url}&#39;, DownloadWarning)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/cartopy/io/__init__.py:241: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/50m_physical/ne_50m_coastline.zip
+  warnings.warn(f&#39;Downloading: {url}&#39;, DownloadWarning)
+</pre></div>
+</div>
+<img alt="../_images/eadae78fc97fa02cdc01a90743c9d90654b7c74915303b273a28d6b93190dda0.png" src="../_images/eadae78fc97fa02cdc01a90743c9d90654b7c74915303b273a28d6b93190dda0.png" />
 </div>
 </div>
-</section>
-<section id="analyzing-the-data">
+</div>
+<div class="section" id="analyzing-the-data">
 <h2>3.2.3 Analyzing the Data<a class="headerlink" href="#analyzing-the-data" title="Permalink to this heading">#</a></h2>
 <p>The above map shows that on the day in question, there was fairly heavy precipitation in Alberta, near Calgary. Let’s subset the data in this region so we can analyze it further.</p>
 <div class="cell docutils container">
@@ -956,30 +1315,51 @@ Attributes: (12/15)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/64db54ca31961fde0d2da8b02316dd5ab95c6f6c72d0a68f1bdc734fb5942f39.png" src="../_images/64db54ca31961fde0d2da8b02316dd5ab95c6f6c72d0a68f1bdc734fb5942f39.png" />
+<img alt="../_images/6fa6492ed4f8894221059f96f079d18bedc398c24af0c777ad33c82e6bac7ff9.png" src="../_images/6fa6492ed4f8894221059f96f079d18bedc398c24af0c777ad33c82e6bac7ff9.png" />
 </div>
 </div>
-<p>Zooming in around Calgary confirms that there was heavy precipitation there on this particular day - about 27 mm. To see “how extreme” this amount of precipitation is, we can compare it to the 50-year return values for this region. We can calculate this by fitting a GEV distribution to the data for each grid cell, just like we did for the station data in section 3.1. The function <code class="docutils literal notranslate"><span class="pre">dask.array.apply_along_axis</span></code> is useful for this, since the <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> fitting functions work only for 1D data by default.</p>
+<p>Zooming in around Calgary confirms that there was heavy precipitation there on this particular day - about 27 mm. To see “how extreme” this amount of precipitation is, we can compare it to the 50-year return values for this region. We can calculate this by fitting a GEV distribution to the data for each grid cell, just like we did for the station data in section 3.1. The function <code class="docutils literal notranslate"><span class="pre">xarray.apply_ufunc</span></code> is useful for this, since the <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> fitting functions work only for 1D data by default.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># annual maximum precip</span>
 <span class="n">precip_annmax</span> <span class="o">=</span> <span class="n">precip</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
-<span class="c1"># fit the GEV distribution at each grid cell - this will return a dask array, which is like a numpy array,</span>
-<span class="c1"># so it loses the named dimensions</span>
-<span class="n">gev_params</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">fit</span><span class="p">,</span> 
-                                         <span class="n">precip_annmax</span><span class="o">.</span><span class="n">get_axis_num</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">),</span>
-                                         <span class="n">precip_annmax</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="c1"># get rid of the chunks along the time dim</span>
+<span class="c1"># since fitting the GEV is a reduction operation</span>
+<span class="c1"># over this dimension. Required for use with xr.apply_ufunc.</span>
+<span class="n">precip_annmax</span> <span class="o">=</span> <span class="n">precip_annmax</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 
-<span class="c1"># calculate 50-year return period value  - this function will automatically do the calculation</span>
-<span class="c1"># for each grid cell without any</span>
-<span class="n">precip_return50</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">50</span><span class="p">),</span> <span class="n">gev_params</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gev_params</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">gev_params</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1"># define a wrapper function to return the GEV params in a numpy array</span>
+<span class="c1"># instead of a tuple. This is required for use with xr.apply_ufunc.</span>
+<span class="n">fit_GEV_numpy</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># fit the GEV distribution at each grid cell individually and in parallel</span>
+<span class="n">gev_params</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span><span class="n">fit_GEV_numpy</span><span class="p">,</span>
+                            <span class="n">precip_annmax</span><span class="p">,</span>
+                            <span class="n">input_core_dims</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">]],</span>
+                            <span class="n">output_core_dims</span>  <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;param&#39;</span><span class="p">]],</span>
+                            <span class="n">output_sizes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;param&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+                            <span class="n">dask</span> <span class="o">=</span> <span class="s1">&#39;parallelized&#39;</span><span class="p">,</span>
+                            <span class="n">output_dtypes</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                            <span class="n">vectorize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/scipy/stats/_distn_infrastructure.py:409: RuntimeWarning: invalid value encountered in scalar divide
-  return m3 / np.power(m2, 1.5)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_32627/792669526.py:14: FutureWarning: ``output_sizes`` should be given in the ``dask_gufunc_kwargs`` parameter. It will be removed as direct parameter in a future version.
+  gev_params = xr.apply_ufunc(fit_GEV_numpy,
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate 50-year return period value  - this function will automatically do the calculation</span>
+<span class="c1"># for each grid cell without any</span>
+<span class="n">precip_return50</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">genextreme</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">50</span><span class="p">),</span> 
+                                       <span class="n">gev_params</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">param</span> <span class="o">=</span> <span class="mi">0</span><span class="p">),</span> 
+                                       <span class="n">gev_params</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">param</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> 
+                                       <span class="n">gev_params</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">param</span> <span class="o">=</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1011,12 +1391,12 @@ Attributes: (12/15)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/74ea99d96ec9991d1a7d903e3c8e855824acd153acb7e957c8e81ce3ee287c59.png" src="../_images/74ea99d96ec9991d1a7d903e3c8e855824acd153acb7e957c8e81ce3ee287c59.png" />
+<img alt="../_images/f7a9a4090c4e848e77a3b0e4d31512307ae72f0e7bb793b05b6bb58be1f8e748.png" src="../_images/f7a9a4090c4e848e77a3b0e4d31512307ae72f0e7bb793b05b6bb58be1f8e748.png" />
 </div>
 </div>
 <p>This map tells us that the 50-year return value of precipitation near Calgary is about 65 mm/day, so the event on the day we selected was certainly a lot of rain, but not particularly close to a 50-year event.</p>
-</section>
-<section id="other-calculations">
+</div>
+<div class="section" id="other-calculations">
 <h2>3.2.4 Other Calculations<a class="headerlink" href="#other-calculations" title="Permalink to this heading">#</a></h2>
 <p>Doing the calculation of 50-year return values for gridded data with xarray was a particularly cumbersome task. For most typical calculations, we can do everything with just xarray and numpy, there is usually no need to use <code class="docutils literal notranslate"><span class="pre">dask</span></code> directly. Next let’s use the pandas-like functionality of xarray to calculate a monthly climatology of daily maximum temperature for the Toronto region, to compare to our previous station-based estimates.</p>
 <div class="cell docutils container">
@@ -1078,18 +1458,18 @@ Attributes: (12/15)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/54489ca85c908cac43541e2495d1255a1c8129b6f2fd97c2ee0eeb39c3f907eb.png" src="../_images/54489ca85c908cac43541e2495d1255a1c8129b6f2fd97c2ee0eeb39c3f907eb.png" />
+<img alt="../_images/e414f3f3d153c9018b9f6ea3dc6f0079ba3d2c2997dbdc1b527f6bc1ec88115f.png" src="../_images/e414f3f3d153c9018b9f6ea3dc6f0079ba3d2c2997dbdc1b527f6bc1ec88115f.png" />
 </div>
 </div>
 <p>The climatology maps plotted here largely agree with those from the station observations in Section 3.1, which is no surprise since the gridded data here is derived from station observations. This notebook has demonstrated some of the capabilities and limitations of xarray regarding handling climate data.</p>
 <p>A major limitation of many observational data products, including gridded data products like the NRCAN ANUSPLIN dataset, is a lack of complete spatial coverage. This product only includes data for Canada, it is cut off at the border with the United States, which is why the above maps are blank in the southern part of the domain. One solution to this issue regarding spatial coverage is to use <strong>reanalysis</strong> data as a proxy for observations. Reanalysis data will be the subject of the following section.</p>
-</section>
-<section id="saving-the-data-locally">
+</div>
+<div class="section" id="saving-the-data-locally">
 <h2>3.2.5 Saving the Data Locally<a class="headerlink" href="#saving-the-data-locally" title="Permalink to this heading">#</a></h2>
 <p>This notebook has demonstrated some exploratory analysis of the observational data. In your workflow, you’re going to want to use this data again later, for model validation, downscaling, and possibly for other types of analysis. Instead of re-loading it from the remote server every time, you can save the data to a netCDF file on your own machine. There are two options for doing this, both will be demonstrated in this subsection.</p>
-<section id="saving-with-to-netcdf">
+<div class="section" id="saving-with-to-netcdf">
 <h3>3.2.5.1 Saving with to_netcdf<a class="headerlink" href="#saving-with-to-netcdf" title="Permalink to this heading">#</a></h3>
-<p>If your whole project focuses on a small spatial domain like the one selected for this notebook, then all of the data can be transferred over the OPeNDAP protocol. However, for the reasons discussed above, it’s a good idea to save the data locally. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Datasets and DataArrays have a built-in method <code class="docutils literal notranslate"><span class="pre">to_netcdf()</span></code> that will create a netCDF file with a name you specify, and write the data to that file. This is an easy way of saving your data, and it can be applied to any data in <code class="docutils literal notranslate"><span class="pre">xarray</span></code> format. It’s especially useful to save the results of time-consuming calculations, so you don’t need to re-do the same data processing over and over again. Here we’ll save both the raw data and monthly climatology for the daily maximum temperature in the Toronto region, each to their own separate file.</p>
+<p>If your whole project focuses on a small spatial domain like the one selected for this notebook, then all of the data can be quickly transferred over the OPeNDAP protocol. However, for the reasons discussed above, it’s a good idea to save the data locally. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Datasets and DataArrays have a built-in method <code class="docutils literal notranslate"><span class="pre">to_netcdf()</span></code> that will create a netCDF file with a name you specify, and write the data to that file. This is an easy way of saving your data, and it can be applied to any data in <code class="docutils literal notranslate"><span class="pre">xarray</span></code> format. It’s especially useful to save the results of time-consuming calculations, so you don’t need to re-do the same data processing over and over again. Here we’ll save both the raw data and monthly climatology for the daily maximum temperature in the Toronto region, each to their own separate file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a directory to save the output, only if it doesn&#39;t already exist</span>
@@ -1106,10 +1486,10 @@ Attributes: (12/15)
 </div>
 </div>
 </div>
-</section>
-<section id="downloading-complete-datasets">
+</div>
+<div class="section" id="downloading-complete-datasets">
 <h3>3.2.5.2 Downloading Complete Datasets<a class="headerlink" href="#downloading-complete-datasets" title="Permalink to this heading">#</a></h3>
-<p>As mentioned in the preamble to this notebook, only small subsets of the NRCAN observational data can be accessed remotely through OPeNDAP. For most practical uses, you’ll need to download and save the data to your own machine. This cannot be done from the PAVICS server due to technical limitations, but you can access this dataset from the <a class="reference external" href="https://pacificclimate.org/data">PCIC data portal</a> as well (albeit only for the period 1950-2010). More documentation about the PCIC data portal can be found <a class="reference external" href="https://data.pacificclimate.org/portal/docs/index.html">here</a>.</p>
+<p>As mentioned in the preamble to this notebook, it’s often convenient and/or necessary to download and save the data to your own machine. This cannot be done from the PAVICS server due to technical limitations, but you can access this dataset from the <a class="reference external" href="https://pacificclimate.org/data">PCIC data portal</a> as well (albeit only for the period 1950-2010). More documentation about the PCIC data portal can be found <a class="reference external" href="https://data.pacificclimate.org/portal/docs/index.html">here</a>.</p>
 <p>Below is code for a function that can be used to download the data (it is the same function we’ll use in section 3.4 for downloading climate model output from the ESGF archive).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1132,7 +1512,8 @@ Attributes: (12/15)
 <p>In a similar way to accessing data from a THREDDS server using OPeNDAP, we’ll need to load a data catalog from a URL, and parse the results to find the URL for the dataset we want. Let’s do that below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://tools.pacificclimate.org/dataportal/gridded_observations/catalog/catalog.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_pcic_catalog</span> <span class="o">=</span> <span class="s2">&quot;https://data.pacificclimate.org/portal/gridded_observations/catalog/catalog.json&quot;</span>
+<span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url_pcic_catalog</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
     <span class="n">datasets</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">datasets</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </pre></div>
@@ -1159,16 +1540,10 @@ Attributes: (12/15)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading  nrcan_data/test_NRCAN_download.nc
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                              | 0.00/10.0 [00:00&lt;?, ?MiB/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                                                                                                                                | 0.00/10.0 [00:00&lt;?, ?MiB/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|███████████▋                           | 3.00/10.0 [00:00&lt;00:00, 14.3MiB/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|███████████████████████████████████    | 9.00/10.0 [00:00&lt;00:00, 25.8MiB/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.0MiB [00:00, 28.0MiB/s]                                                      
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.0MiB [00:00, 1.05kMiB/s]                                                                                                                                                                       
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1191,17 +1566,17 @@ Attributes: (12/15)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0da3c011a07b0991be15288d7e497c713c0ac79218643629e022b1746e21ab8f.png" src="../_images/0da3c011a07b0991be15288d7e497c713c0ac79218643629e022b1746e21ab8f.png" />
+<img alt="../_images/303121a72b982ac97500e9e59d3d09b3b74d2af222dfb432b8fa3ec47ac008d7.png" src="../_images/303121a72b982ac97500e9e59d3d09b3b74d2af222dfb432b8fa3ec47ac008d7.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="appendix-other-gridded-observational-datasets">
+</div>
+</div>
+<div class="section" id="appendix-other-gridded-observational-datasets">
 <h2>Appendix: Other gridded observational datasets<a class="headerlink" href="#appendix-other-gridded-observational-datasets" title="Permalink to this heading">#</a></h2>
 <p>The NRCan gridded observations have daily temporal frequency and include spatial coverage for Canada only - if you require coverage for other regions or sub-daily data, you may be able to find what you’re looking for by searching the <a class="reference external" href="https://climatedataguide.ucar.edu/">NCAR Climate Data Guide</a>, or you may need to rely on reanalysis data (described in the next section).</p>
 <p>Another commonly used gridded observational dataset, with coverage over southern Canada, the contiguous United States, and Mexico, is the <a class="reference external" href="https://doi.org/10.7289/v5x34vf6">Livneh dataset</a>. Further information about this dataset, how it was created, and how to access it, can be found on its <a class="reference external" href="https://climatedataguide.ucar.edu/climate-data/livneh-gridded-precipitation-and-other-meteorological-variables-continental-us-mexico">NCAR Climate Data Guide page</a>.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1228,10 +1603,11 @@ Attributes: (12/15)
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section3.1_station_data.html"
@@ -1251,7 +1627,10 @@ Attributes: (12/15)
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1323,8 +1702,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

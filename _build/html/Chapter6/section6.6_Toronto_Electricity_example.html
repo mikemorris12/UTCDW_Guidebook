@@ -7,8 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6.6 Future Toronto Electricity Demands from Cooling &#8212; UTCDW Guidebook</title>
   
   
@@ -19,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +37,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -77,15 +75,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -322,10 +311,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -333,7 +322,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -388,23 +377,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="future-toronto-electricity-demands-from-cooling">
+  <div class="tex2jax_ignore mathjax_ignore section" id="future-toronto-electricity-demands-from-cooling">
 <h1>6.6 Future Toronto Electricity Demands from Cooling<a class="headerlink" href="#future-toronto-electricity-demands-from-cooling" title="Permalink to this heading">#</a></h1>
 <p>This is a worked example of the UTCDW workflow examining the impact of future extreme heat on energy demand in Toronto, Ontario. While less pedagogically focused than the previous worked examples, it shows how a user of the might implement the workflow in practice. This example was developed by Cassandra Chanen and edited by Michael Morris.</p>
 <p>According to IESO, air-conditioning accounts for roughly one-third of Ontario’s electricity use on hot summer days. In 2019, Environment and Climate Change Canada released a report that found Canada is warming at rougly twice the global average rate [1]. Toronto is particularly important to study because it is an urban heat island, and because Toronto and its surrounding areas are heavily populated.
 While understanding future energy demand is a complex question that could influenced by a wide range of variables, it is key that understanding future heat is a crucial component.</p>
 <p>[1] (Bush, E. and Lemmen, D.S., editors (2019): Canada’s Changing Climate Report; Government of Canada, Ottawa, ON. 444 p.)</p>
-<section id="survey-output">
+<div class="section" id="survey-output">
 <h2>6.6.1 Survey Output<a class="headerlink" href="#survey-output" title="Permalink to this heading">#</a></h2>
 <p>In order to explore this question, we first filled out the UTCDW survey. This survey guides the user through key questions that need to be answered in order to proceed with the downscaling process.</p>
 <p>Two historical time periods (1981-2000 and 2001-2020) and two future time periods (2031-2050 and 2081-2100) were selected. CanESM5 was chosen for the model data, and a combination of station data and NRCan gridded data was chosen for the observation data.</p>
 <p>Cooling degree days was chosen as an engineering indicator because it is a commonly used to project energy consumption from cooling. Cooling degree days are calculated using the number of degrees above 18 degrees Celcius the average temperature is on a given day. For example, if the average temperature is 20 degrees on a given day that day has a CDD value of 2. If it is 20 degrees for an entire week, there are 14 CDDs that week.</p>
 <p>Daily temperatures were chosen as the relevant climactic indicators required to calculate cooling degree days.</p>
 <a class="reference internal image-reference" href="../_images/survey.png"><img alt="../_images/survey.png" class="align-center" src="../_images/survey.png" style="width: 600px;" /></a>
-</section>
-<section id="point-based-downscaling-quantile-delta-mapping">
+</div>
+<div class="section" id="point-based-downscaling-quantile-delta-mapping">
 <h2>6.6.2 Point-Based Downscaling: Quantile-Delta Mapping<a class="headerlink" href="#point-based-downscaling-quantile-delta-mapping" title="Permalink to this heading">#</a></h2>
-<section id="downloading-data">
+<div class="section" id="downloading-data">
 <h3>6.6.2.1 Downloading Data<a class="headerlink" href="#downloading-data" title="Permalink to this heading">#</a></h3>
 <p><strong>Model Data</strong></p>
 <p>The following code was used to download CanESM5 data for ssp245 and ssp434.</p>
@@ -412,8 +401,8 @@ While understanding future energy demand is a complex question that could influe
 <p>The following python code was used to download NRCan data for Southern Ontario from 1981-2020:</p>
 <p><strong>Station Data</strong></p>
 <p>The following python code was used to download station data for Southern Ontario from 1981-2020:</p>
-</section>
-<section id="plotting-station-data">
+</div>
+<div class="section" id="plotting-station-data">
 <h3>6.6.2.2 Plotting Station Data<a class="headerlink" href="#plotting-station-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -502,8 +491,8 @@ While understanding future energy demand is a complex question that could influe
 </div>
 </div>
 </div>
-</section>
-<section id="plotting-model-data">
+</div>
+<div class="section" id="plotting-model-data">
 <h3>6.6.2.3 Plotting Model Data<a class="headerlink" href="#plotting-model-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -531,8 +520,8 @@ While understanding future energy demand is a complex question that could influe
 <img alt="../_images/3698696a5866627255baa9531f9bd592f4b2a0cf21d07a064918cdcdd74751ba.png" src="../_images/3698696a5866627255baa9531f9bd592f4b2a0cf21d07a064918cdcdd74751ba.png" />
 </div>
 </div>
-</section>
-<section id="calculating-climatologies-and-plotting-temperature-distribution">
+</div>
+<div class="section" id="calculating-climatologies-and-plotting-temperature-distribution">
 <h3>6.6.2.4 Calculating Climatologies and Plotting Temperature Distribution<a class="headerlink" href="#calculating-climatologies-and-plotting-temperature-distribution" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -592,8 +581,8 @@ While understanding future energy demand is a complex question that could influe
 <img alt="../_images/31460028d263a6f083799e7695c317ed28de4ea02e0221f6d4ff204677c03573.png" src="../_images/31460028d263a6f083799e7695c317ed28de4ea02e0221f6d4ff204677c03573.png" />
 </div>
 </div>
-</section>
-<section id="plotting-cooling-degree-days">
+</div>
+<div class="section" id="plotting-cooling-degree-days">
 <h3>6.6.2.5 Plotting Cooling Degree Days<a class="headerlink" href="#plotting-cooling-degree-days" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -638,9 +627,9 @@ While understanding future energy demand is a complex question that could influe
 </div>
 </div>
 <p>The results of this plot demonstrate that even a relatively small mean temperature bias (-0.01) can translate to a significant mean CDD bias (231.7).</p>
-</section>
-</section>
-<section id="downscaling-with-a-spatial-dimension-dbcca">
+</div>
+</div>
+<div class="section" id="downscaling-with-a-spatial-dimension-dbcca">
 <h2>6.6.3 Downscaling with a Spatial Dimension: DBCCA<a class="headerlink" href="#downscaling-with-a-spatial-dimension-dbcca" title="Permalink to this heading">#</a></h2>
 <p>This section adds a spatial dimension to the downscaling problem approached in the previous section (Cooling Degree Days in Southern Ontario). The downscaling technique used is Double Bias Correction Constructed Analogs (DBCCA).</p>
 <p>DBCCA code can be downloaded from the UTCDW Github.</p>
@@ -1115,8 +1104,8 @@ Data variables:
 <img alt="../_images/a7197408508e84dc404d87cd4bb7e066f88bf4659e0aa6642218be6d7e0ce50a.png" src="../_images/a7197408508e84dc404d87cd4bb7e066f88bf4659e0aa6642218be6d7e0ce50a.png" />
 </div>
 </div>
-</section>
-<section id="comparing-different-model-results">
+</div>
+<div class="section" id="comparing-different-model-results">
 <h2>6.6.4 Comparing Different Model Results<a class="headerlink" href="#comparing-different-model-results" title="Permalink to this heading">#</a></h2>
 <p>During the initial phase of this project, we made the decision to use the CESM2 model and an SSP3-7.0 scenario. In this section, we continue to explore and SSP3-7.0 scenario but use different models including CanESM5, and MPI.</p>
 <p>Exploring different models is important because different models may be able to resolve certain aspects of future climate better than others. Using more models ensures that you are able to draw more robust conclusions about future climate and understand by looking at features are shared across models.</p>
@@ -1396,7 +1385,7 @@ Data variables:
 </div>
 </div>
 </div>
-<section id="comparing-change-in-cdds-for-all-3-models">
+<div class="section" id="comparing-change-in-cdds-for-all-3-models">
 <h3>6.6.4.1 Comparing change in CDDs for all 3 models<a class="headerlink" href="#comparing-change-in-cdds-for-all-3-models" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1464,8 +1453,8 @@ Data variables:
 </div>
 </div>
 <p>The plot above demonstrates how changing models can impact the results of downscaling. There is strong agreement between the MPI and CESM2 models, with almost identical high and low areas and scales of CDD change. In the CanESM5 model, changes in cooling degree days are more pronounced, however, the spatial distribution of highs and lows remains consistent, with high CDD change areas along the coast of Lake Ontario and lows in more rural Northern Ontario.</p>
-</section>
-<section id="multi-model-mean">
+</div>
+<div class="section" id="multi-model-mean">
 <h3>6.6.4.2 Multi-Model Mean<a class="headerlink" href="#multi-model-mean" title="Permalink to this heading">#</a></h3>
 <p>Multi-model means can be a useful way to summarize the results of many different models. Using the mean can help to reduce the impact of irregularities in different models and produce more reliable results. Means should be used carefully, as sometimes the differences between model results such as extreme values could be important to understanding the phenomenon you are looking at, or at understanding the behaviour of particular models.
 In this case, with all three models equally weighted the the CanESM5 irregularities are less clear.</p>
@@ -1512,16 +1501,16 @@ In this case, with all three models equally weighted the the CanESM5 irregularit
 <img alt="../_images/efc80448890c3479e08fb3aaf696025368b6dc239bae9fc888706993b30a3ad2.png" src="../_images/efc80448890c3479e08fb3aaf696025368b6dc239bae9fc888706993b30a3ad2.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="exploring-indicator-choices">
+</div>
+</div>
+<div class="section" id="exploring-indicator-choices">
 <h2>6.6.5 Exploring Indicator Choices<a class="headerlink" href="#exploring-indicator-choices" title="Permalink to this heading">#</a></h2>
 <p>The results of both the QDM and DBCCA downscaling demonstrate that cooling degree days are a highly sensitive engineering variable. Small changes in average temperature over a season add up to significant increases in CDDs.</p>
 <p>Validating your choice in indicators is an important aspect of the engineering design process. Cooling Degree Days are a standard indicator that is easy to calculate, but may not be the best model for energy demand. Considering other indicators can help validate our choice in indicator and provide a more holistic understanding of future heat.</p>
 <p>This section explores the impact of changing the engineering indicator on our results. Shifting from a climatic indicator (from the original model) to an engineering indicator is the last step of our analysis, so no further downscaling is required unless a new variable is required that was not previously downscaled.</p>
 <p>The indicator chosen is a custom indicator which approximates of energy demand based on the historical relationship between temperature and energy use in Ontario.</p>
-</section>
-<section id="custom-indicator-historical-correlation">
+</div>
+<div class="section" id="custom-indicator-historical-correlation">
 <h2>6.6.5.1 Custom Indicator: Historical Correlation<a class="headerlink" href="#custom-indicator-historical-correlation" title="Permalink to this heading">#</a></h2>
 <p>This section uses a custom model developped by Elise Emma Lagace that correlates daily maximum temperature to Ontario Electricity demand. The following figures from her Chapter 3 of her thesis <i> Assessing the Impact of Climate Change on Electricity Planning in Ontario, Canada </i> illustrates the strong correlation between energy use and electricity demand.</p>
 <p>The full thesis document can be found <a class="reference external" href="https://tspace.library.utoronto.ca/handle/1807/109060">here</a>.</p>
@@ -1765,8 +1754,8 @@ In this case, with all three models equally weighted the the CanESM5 irregularit
 <img alt="../_images/c5eab9c3cd5f773aef7ca6dc3e6f76f83c5002a91b55644329f35be887f9cea5.png" src="../_images/c5eab9c3cd5f773aef7ca6dc3e6f76f83c5002a91b55644329f35be887f9cea5.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1793,10 +1782,11 @@ In this case, with all three models equally weighted the the CanESM5 irregularit
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section6.5_gridded_DBCCA_example.html"
@@ -1816,7 +1806,10 @@ In this case, with all three models equally weighted the the CanESM5 irregularit
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1895,8 +1888,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
