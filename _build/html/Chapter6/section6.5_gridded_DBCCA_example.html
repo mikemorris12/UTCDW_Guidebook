@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>6.5 Edmonton AC Loads: Gridded Example &#8212; UTCDW Guidebook</title>
   
   
@@ -18,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -77,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -313,10 +324,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -324,7 +335,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -372,10 +383,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="edmonton-ac-loads-gridded-example">
+  <section class="tex2jax_ignore mathjax_ignore" id="edmonton-ac-loads-gridded-example">
 <h1>6.5 Edmonton AC Loads: Gridded Example<a class="headerlink" href="#edmonton-ac-loads-gridded-example" title="Permalink to this heading">#</a></h1>
 <p>This worked example will show you how to implement a true “downscaling” method to produce calibrated high-resolution climate projections. Using gridded data for climate impact analysis, instead of one or more point locations, allows you to study the spatial variability in your indicator and its future projections. Some variables may be fairly spatially uniform over the scale of a particular urban region, but others may show significant spatial structure in both the historical climate and the projected changes, due to a number of factors. These small-scale spatial variations can lead to different impacts on different communities. Accounting for spatial variability is important for being able to quantify the unequal effects of climate change on historically marginalized groups of people since populations of ethnic minorities, the elderly, and the disabled are also typically spatially heterogeneous. These groups of people already suffer greater exposure to climate risks, and this inequality could be amplified by unfavourable spatial patterns of climatic changes. Social justice is only one reason why gridded climate projections are useful, but we choose to highlight it here since it is often overlooked in favour of other less human-centred scientific focuses.</p>
-<div class="section" id="study-design">
+<section id="study-design">
 <h2>6.5.1 Study Design<a class="headerlink" href="#study-design" title="Permalink to this heading">#</a></h2>
 <p>This notebook will expand on the examples of Sections 6.1-6.4 and make projections of Cooling Degree Days in a region around the city of Edmonton. To clearly illustrate the value of higher spatial resolution, we’ll use a <span class="math notranslate nohighlight">\(5^{\circ} \times 10^{\circ}\)</span> latitude <span class="math notranslate nohighlight">\(\times\)</span> longitude region centred on the city. This encompasses most of Northern Alberta, but since it extends westward into a region of high elevation and complex topography, it really shows the improvements that can be offered by high spatial resolution.</p>
 <p>Like 6.1-6.3, we will use 1980-2010 as the historical baseline period and 2070-2100 as the future projection period. Because of the much larger volume of data that comes with using high-resolution gridded climate data, we’ll return to the scope of Section 6.1 and use only a single model (CESM2) and future scenario (SSP3-7.0).</p>
@@ -441,8 +452,8 @@ document.write(`
 </div>
 </details>
 </div>
-</div>
-<div class="section" id="downloading-the-data">
+</section>
+<section id="downloading-the-data">
 <h2>6.5.2 Downloading the Data<a class="headerlink" href="#downloading-the-data" title="Permalink to this heading">#</a></h2>
 <p>Conveniently, the ERA5-Land data for North America is available from the PAVICS OPeNDAP server, and it can be accessed just the same as the ERA5 data in <a class="reference external" href="https://utcdw.physics.utoronto.ca/UTCDW_Guidebook/Chapter3/section3.3_reanalysis.html">Section 3.3</a>. The hidden code cells below will download the ERA5-Land data, plus the CESM2 historical and SSP3-7.0 data for ensemble member <code class="docutils literal notranslate"><span class="pre">r10i1p1f1</span></code>, and subset to select the desired spatial domain and time periods.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -516,10 +527,10 @@ document.write(`
 </div>
 </details>
 </div>
-</div>
-<div class="section" id="exploratory-analysis">
+</section>
+<section id="exploratory-analysis">
 <h2>6.5.3 Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this heading">#</a></h2>
-<div class="section" id="model-obs-consistency">
+<section id="model-obs-consistency">
 <h3>6.5.3.1 Model/Obs Consistency<a class="headerlink" href="#model-obs-consistency" title="Permalink to this heading">#</a></h3>
 <p>To get a sense of the difference in spatial scale between the raw model data and the high-res ERA5-Land data, we can plot maps using the matplotlib <code class="docutils literal notranslate"><span class="pre">pcolormesh</span></code> routine. Like before, let’s compare the raw model historical climatology of daily mean temperature to the “observations”. To limit the number of maps, we’ll plot the monthly climatologies instead of the daily climatologies, which we did in the 1D examples. Each panel represents the long-term mean for a different month of the year. The subplot titles indicate the order of the months (i.e. 1 is January, 2 is February, etc.).</p>
 <div class="cell tag_hide-cell docutils container">
@@ -653,8 +664,8 @@ document.write(`
 </div>
 </div>
 <p>Just like the temperature climatology, the pseudo-observations show much more spatial detail, including topographic effects in the southwest corner of the domain. The coarse resolution of the climate model output prevents it from representing fine-scale features, only capturing large-scale gradients on the order of hundreds of kilometers.</p>
-</div>
-<div class="section" id="raw-model-climate-change-signal">
+</section>
+<section id="raw-model-climate-change-signal">
 <h3>6.5.3.2 Raw Model Climate Change Signal<a class="headerlink" href="#raw-model-climate-change-signal" title="Permalink to this heading">#</a></h3>
 <p>Next, we will plot the raw model climate change projections of annual mean CDDs. Later, we can compare this plot to the downscaled projections, to examine the effect of downscaling on the results.</p>
 <div class="cell tag_hide-input docutils container">
@@ -692,9 +703,9 @@ document.write(`
 </div>
 </div>
 <p>The magnitude of the changes varies quite significantly within the region. Near the centre, where the city of Edmonton is located, the magnitude is of course essentially the same as in Section 6.1 which used the same model and future scenario. However, the southeast region with its higher elevation and overall colder climate shows smaller increases in CDDs, while the southeastern region has an even stronger projected increase than the centre. These large-scale structures will remain in the downscaled projections, but the hope is that the downscaling adds some fine-scale details.</p>
-</div>
-</div>
-<div class="section" id="applying-dbcca-downscaling">
+</section>
+</section>
+<section id="applying-dbcca-downscaling">
 <h2>6.5.4 Applying DBCCA Downscaling<a class="headerlink" href="#applying-dbcca-downscaling" title="Permalink to this heading">#</a></h2>
 <p>Now it is time to produce our downscaled daily mean temperature data using the DBCCA method. As mentioned, code that implements this method is provided in the <a class="reference external" href="https://github.com/mikemorris12/UTCDW_Guidebook">UTCDW GitHub repository</a>.</p>
 <div class="admonition note">
@@ -750,8 +761,8 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="validating-the-downscaled-data">
+</section>
+<section id="validating-the-downscaled-data">
 <h2>6.5.5 Validating the Downscaled Data<a class="headerlink" href="#validating-the-downscaled-data" title="Permalink to this heading">#</a></h2>
 <p>To validate the downscaled data we’ll compare the monthly climatologies to ERA5-Land. First we’ll plot the downscaled monthly climatology, and then the difference between it and the ERA5-Land climatology.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -937,8 +948,8 @@ document.write(`
 </div>
 </div>
 <p>The downscaling leaves a small bias in the CDDs, but the magnitude is small compared to the typical number of annual CDDs, except maybe in the southwest corner of the region where there is complex topography. Clearly the downscaling improves the spatial variability of temperature in this region, based on the maps of historical CDDs and the monthly temperature climatology, but a minor bias remains, minor enough to not have a substantial effect on the results.</p>
-</div>
-<div class="section" id="downscaled-cdd-projections">
+</section>
+<section id="downscaled-cdd-projections">
 <h2>6.5.6 Downscaled CDD Projections<a class="headerlink" href="#downscaled-cdd-projections" title="Permalink to this heading">#</a></h2>
 <p>Now satisfied with the job done by the downscaling, we can calculate projections of CDDs using the downscaled SSP3-7.0 scenario. We’ll compare this to the raw model projections to illustrate the impact of the downscaling.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -1006,8 +1017,8 @@ document.write(`
 </div>
 <p>The downscaling has had the desired effect on the CDD projections. Smaller-scale spatial features are present in the downscaled CDD change, including in the mountainous region in the southwest, but also within the large-scale southeast-to-northwest gradient. These smaller features can be important to consider for climate impact analysis. For example, there is a small, oblong region of weaker CDD increase directly to the east of the city of Edmonton (the black star) in the downscaled projections, which could be relevant for city planners to take into account for adaptation planning. This feature is not at all visible in the raw model projections, because the spatial resolution is far too coarse.</p>
 <p>A limitation of the current example is of course that we’ve only considered a single model and a single future scenario. The computational cost of spatial downscaling is too high for us to include multiple models, scenarios, and ensemble members in a notebook example, but for a relatively small region like the one examined here, you could feasibly produce statistically downscaled projections for many models and scenarios in a matter of several hours to. a few days, depending on your computing resources. After the downscaling is finished, analysis of the data should be tractable within a Jupyter Notebook.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1034,11 +1045,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section6.4_station_1D_example_nearterm.html"
@@ -1058,10 +1068,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1133,8 +1140,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

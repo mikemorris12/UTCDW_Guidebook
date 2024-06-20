@@ -7,7 +7,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>6.4 Edmonton AC Loads: Near-Term Projections &#8212; UTCDW Guidebook</title>
   
   
@@ -18,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -75,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -311,10 +322,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -322,7 +333,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -365,12 +376,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="edmonton-ac-loads-near-term-projections">
+  <section class="tex2jax_ignore mathjax_ignore" id="edmonton-ac-loads-near-term-projections">
 <h1>6.4 Edmonton AC Loads: Near-Term Projections<a class="headerlink" href="#edmonton-ac-loads-near-term-projections" title="Permalink to this heading">#</a></h1>
 <p>The previous worked examples on this topic used an end-of-century period as the time horizon for future projections. This was useful for getting a strong signal to demonstrate the downscaling and validation methods, but it may not be what most practitioners are interested in. Here we’ll reproduce the analysis in 6.3, but for a future time period of 2030-2060. To slightly reduce the dimensionality, we’ll return to using only one model. Since its downscaled projections fall near the middle of the multi-model range, and it has multiple ensemble members available for all scenarios, we’ll choose MPI-ESM1-2-LR as our model.</p>
 <p>Here is an updated flowchart, generated using the UTCDW survey:</p>
 <a class="reference internal image-reference" href="../_images/survey_station_nearterm.png"><img alt="../_images/survey_station_nearterm.png" class="align-center" src="../_images/survey_station_nearterm.png" style="width: 600px;" /></a>
-<div class="section" id="acquiring-the-data">
+<section id="acquiring-the-data">
 <h2>6.4.1 Acquiring the Data<a class="headerlink" href="#acquiring-the-data" title="Permalink to this heading">#</a></h2>
 <p>As always, we’ll begin by importing the necessary packages and acquiring the data.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -1301,8 +1312,8 @@ document.write(`
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exploratory-analysis">
+</section>
+<section id="exploratory-analysis">
 <h2>6.4.2 Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this heading">#</a></h2>
 <p>As in 6.3.2, we’ll plot the daily climatologies for each scenario. To show the effect of internal variability, this time we will plot shading to represent the spread across both years and ensemble members. For easier visibility, we’ll do this only for the historical and SSP5-8.5 scenarios.</p>
 <div class="cell docutils container">
@@ -1665,8 +1676,8 @@ p-values for mean change of raw tas
 </div>
 </div>
 <p>As expected, the relative contribution of scenario uncertainty for the near-term projections is much smaller than the contribution of internal variability. After doing the bias correction, we can check this again.</p>
-</div>
-<div class="section" id="bias-correction-validation">
+</section>
+<section id="bias-correction-validation">
 <h2>6.4.3 Bias Correction &amp; Validation<a class="headerlink" href="#bias-correction-validation" title="Permalink to this heading">#</a></h2>
 <p>As with the multi-model case, we should do the bias correction <strong>before</strong> doing any ensemble averaging. Then we’ll plot the <code class="docutils literal notranslate"><span class="pre">tas</span></code> climatology and test the statistical significance of the mean climate change signal.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -1853,8 +1864,8 @@ p-values for mean change of raw tas
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="downscaled-indicator">
+</section>
+<section id="downscaled-indicator">
 <h2>6.4.4 Downscaled Indicator<a class="headerlink" href="#downscaled-indicator" title="Permalink to this heading">#</a></h2>
 <p>Next, let’s examine the changes to CDDs.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -2055,8 +2066,8 @@ p-values for mean change of raw tas
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="summary">
+</section>
+<section id="summary">
 <h2>6.4.5 Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>These examples about AC loads in Edmonton have demonstrated a basic implementation of the UTCDW. In Section 6.1.1, we worked through the study design survey and made decisions regarding the key parameters for our study. These included:</p>
 <ul class="simple">
@@ -2084,8 +2095,8 @@ p-values for mean change of raw tas
 <li><p>Interpreted the results in the context of uncertainty</p></li>
 </ul>
 <p>By modifying the code in these notebooks, you should be able to easily produce your own bias-corrected climate projections for whatever scientific or practical purpose you’re interested in. The type of validation work you might wish to do will be different depending on your application, your climate indicator, and the properties of the climatic variables you’re working with, but the steps for producing the downscaled projections and quantifying uncertainty are essentially the same no matter what problem you’re working on.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2112,11 +2123,10 @@ p-values for mean change of raw tas
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="section6.3_station_1D_example_multiscen.html"
@@ -2136,10 +2146,7 @@ p-values for mean change of raw tas
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2206,8 +2213,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
