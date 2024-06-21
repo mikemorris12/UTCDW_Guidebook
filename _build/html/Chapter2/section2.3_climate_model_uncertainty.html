@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2.3 Climate Model Uncertainty &#8212; UTCDW Guidebook</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter2/section2.3_climate_model_uncertainty';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../README.html">
+  
   
   
   
@@ -153,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="UTCDW Guidebook - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="UTCDW Guidebook - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -169,27 +180,28 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter1/chapter1.html">Chapter 1: Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter1/chapter1.html">Chapter 1: Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter1/section1.1_python_env.html">1.1 Setting Up Your Python Environment</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter2.html">Chapter 2: Intro to Climate Science and Modeling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter2.html">Chapter 2: Intro to Climate Science and Modeling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="section2.1_climate_basics.html">2.1 Climate Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section2.2_climate_modeling.html">2.2 Climate Modeling</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3 Climate Model Uncertainty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter2_summary.html">2.4 Chapter Summary</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/chapter3.html">Chapter 3: Exploring Climate Data</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter3/chapter3.html">Chapter 3: Exploring Climate Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.1_station_data.html">3.1 Station Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.2_gridded_obs.html">3.2 Gridded Observations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.3_reanalysis.html">3.3 Reanalysis Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.4_climate_model_output.html">3.4 Climate Model Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.4_climate_model_output_from_ESGF.html">3.4 Climate Model Output from ESGF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.5_model_data_on_google_cloud.html">3.5 Climate Model Data on Google Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter3/section3.6_model_data_with_intake_esm.html">Climate Model Data with Intake-ESM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter3/chapter3_summary.html">3.6 Chapter Summary</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/chapter4.html">Chapter 4: Statistical Downscaling</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/chapter4.html">Chapter 4: Statistical Downscaling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.1_downscaling_basics.html">4.1 Downscaling Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.2_bias_correction_methods.html">4.2 Bias-Correction Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.3_downscaling_methods.html">4.3 Downscaling Methods</a></li>
@@ -197,16 +209,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.5_assessing_downscaled_projections.html">4.5 Assessing Downscaled Climate Projections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter4/chapter4_summary.html">4.6 Chapter Summary</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter5/chapter5.html">Chapter 5: Downscaling Workflow</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter5/chapter5.html">Chapter 5: Downscaling Workflow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.1_climate_indicators.html">5.1 Climate Indicators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.2_data_selection.html">5.2 Data Selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.3_exploratory_data_analysis.html">5.3 Exploratory Data Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.4_producing_downscaled_data.html">5.4 Producing Downscaled Projections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter5/chapter5_summary.html">5.5 Chapter Summary</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter6/chapter6.html">Chapter 6: Workflow Examples</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter6/chapter6.html">Chapter 6: Workflow Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.1_station_1D_example_onesim.html">6.1 Edmonton AC Loads: Single Simulation Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.2_station_1D_example_multimodel.html">6.2 Edmonton AC Loads: Multi-Model Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.3_station_1D_example_multiscen.html">6.3 Edmonton AC Loads: Multi-Scenario Analysis</a></li>
@@ -214,7 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.5_gridded_DBCCA_example.html">6.5 Edmonton AC Loads: Gridded Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.6_Toronto_Electricity_example.html">6.6 Future Toronto Electricity Demands from Cooling</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../guidebook_references.html">References</a></li>
 </ul>
 
@@ -231,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -240,14 +252,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -322,6 +334,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -332,6 +345,7 @@ document.write(`
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -339,9 +353,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -374,15 +388,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="climate-model-uncertainty">
-<h1>2.3 Climate Model Uncertainty<a class="headerlink" href="#climate-model-uncertainty" title="Permalink to this heading">#</a></h1>
+<h1>2.3 Climate Model Uncertainty<a class="headerlink" href="#climate-model-uncertainty" title="Link to this heading">#</a></h1>
 <p>From the discussion in the previous section, you likely picked up on the fact that projections made using climate models are inherently subject to uncertainty. In fact, each of the three main sources of uncertainty in climate modeling were strongly hinted at in Sections 2.1 and 2.2, but here they will be laid out explicitly, and we will discuss how climate scientists attempt to quantify the effects of each source of uncertainty.</p>
 <section id="scenario-uncertainty">
-<h2>2.3.1 Scenario Uncertainty<a class="headerlink" href="#scenario-uncertainty" title="Permalink to this heading">#</a></h2>
+<h2>2.3.1 Scenario Uncertainty<a class="headerlink" href="#scenario-uncertainty" title="Link to this heading">#</a></h2>
 <p>The most obvious source of uncertainty in future climate projections is that we don’t know what actions humans will take that affect the climate. We don’t know how much CO<span class="math notranslate nohighlight">\(_{2}\)</span> and other greenhouse gases we will emit; we don’t know how land use will change, and we don’t know what sorts of policies will be adopted and implemented to mitigate climate change. In other words, there is no “correct” set of boundary conditions to give to a climate model to do projections of future climate. Instead, we can study a range of plausible future pathways of emissions and other anthropogenic factors that influence the climate, and take a conditional approach. <em>If</em> humans follow this certain course of action, <em>then</em> this is what the effects on the climate could be. As a part of the CMIP protocols and the IPCC Assessment Reports, experts develop a set of scenarios reflecting different courses of action, from aggressive mitigation and carbon removal to laissez-faire regulation and continued heavy reliance on fossil fuels. These scenarios include time series of greenhouse gas concentrations, land usages, and other human-influenced boundary conditions to use for future climate simulation.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><img alt="" src="../_images/ssp_co2_concentrations.png" /></p></th>
 </tr>
@@ -392,15 +406,16 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>For CMIP5/AR5 (circa 2013-2014), these scenarios were called the <a class="reference external" href="https://skepticalscience.com/rcp.php">Representative Concentration Pathways</a>, or “RCPs”, each numbered by the year-2100 net top of atmosphere <a class="reference external" href="https://en.wikipedia.org/wiki/Radiative_forcing">radiative forcing</a> in units of <span class="math notranslate nohighlight">\(W/m^{2}\)</span> (RCP2.6, RCP4.5, RCP6.0, and RCP8.5). For the next phases of each of these projects (CMIP6 and AR6), these scenarios were expanded upon with the <a class="reference external" href="https://www.carbonbrief.org/explainer-how-shared-socioeconomic-pathways-explore-future-climate-change/">Shared Socioeconomic Pathways</a> (SSPs), which include additional GHG scenarios as well as new factors such as population growth and economic factors so that social scientists can use the same analysis framework as physical climate scientists.</p>
 <p>The existence of these different scenarios is great, but it doesn’t resolve the issue that we don’t (and can’t) know which one will be closest to reality. No likelihood of any of the SSPs or RCPs is quantified. That leaves you as someone studying the impacts of climate change with a choice. You can either look at an envelope of possible outcomes by choosing a high and low forcing scenario, be conservative and focus only on the worst-case, highest forcing scenario, or you can sidestep the issue entirely, and instead look at impacts at a particular level of global warming (i.e. 2<span class="math notranslate nohighlight">\(^{\circ}\)</span>C), using data from several different scenario-simulations together. The idea behind this latter approach is that the impacts of a certain amount of global warming should be similar regardless of how long it took to get there, and the main difference between scenarios is how long it takes to reach a certain warming level. Nothing guarantees this to be true, which is why it’s important to use data from multiple scenarios to construct the projections. Note that for some applications, such as the likelihood of record-breaking extreme events, the rate of warming <em>can</em> be relevant for the results <span id="id2">[<a class="reference internal" href="../guidebook_references.html#id18" title="E. M. Fischer, S. Sippel, and R. Knutti. Increasing probability of record-shattering climate extremes. Nat. Clim. Chang., 11(8):689–695, August 2021. URL: https://www.nature.com/articles/s41558-021-01092-9 (visited on 2023-09-06), doi:10.1038/s41558-021-01092-9.">Fischer <em>et al.</em>, 2021</a>]</span>, so take this into account when deciding which approach to take regarding scenario uncertainty.</p>
 </section>
 <section id="internal-variability">
-<h2>2.3.2 Internal Variability<a class="headerlink" href="#internal-variability" title="Permalink to this heading">#</a></h2>
+<h2>2.3.2 Internal Variability<a class="headerlink" href="#internal-variability" title="Link to this heading">#</a></h2>
 <p>Section 2.1.2 introduced you to the concept of natural climate variability and broke it down into two components. Natural external forcings, such as variations in the intensity of incoming solar radiation, and internal variability, due to the inherent chaos in the climate system and modes of variability such as the El Nino-Southern Oscillation. For a given, fixed external forcing (be it natural or anthropogenic), there exist many possible time evolution trajectories for the system to take. Some possible realizations may have more El Ninos (for example), which would make them warmer than those that have more La Ninas. Looking at only one projection of the future, we can’t separate the effects of external anthropogenic forcing from the effects of internal variability. The amount of projected global warming (or any change to any quantity) could be inflated or deflated by the effects of internal variability. The only way to study the effects of internal variability is to run an <strong>ensemble</strong> of simulations, to sample the range of possible trajectories for a given pathway of external forcing. The spread across the ensemble (standard deviation, IQR, etc.) is how we quantify the uncertainty due to internal variability.</p>
 <p>The particular trajectory for a given climate model simulation with fixed external forcing depends on the initial conditions. You may wonder why we can’t just initialize a model with observed initial conditions, to see what future the model projects for the trajectory of our real-world climate system. Doing this would essentially be an attempt to forecast the weather years or decades into the future - it’s impossible! We don’t have spatially complete and infinitely precise observations of the climate system, so after a very short period of time, the model trajectory would become completely detached from our real-world realization of internal variability. Instead, we estimate the size of the fluctuations due to internal variability by running an <strong>ensemble</strong> of many different simulations with the same external forcing, but slightly different initial conditions. Each individual simulation is called an <strong>ensemble member</strong>. Each ensemble member represents an equally plausible trajectory of the climate given the external forcing - even historical forcing. Climate modelers run ensembles for historical (20th century to early 21st century) and pre-industrial control levels of GHGs and other boundary conditions, to establish the effects of internal variability on the baseline climate from which anthropogenically forced changes are assessed. Ensembles of future forcing scenarios (the RCPs or SSPs) are used to disentangle true climate change signals from fluctuations due to internal variability. The best estimate of a model’s projected climate can be taken to be the <strong>ensemble mean</strong>, or average of results across all members of the ensemble.</p>
 <p>Relevant for climate impact studies, internal variability causes more uncertainty for regional climate projections than for projections at larger scales. This is illustrated in the figure below, which shows the ensemble mean (line) and standard deviation (shading) of 2-metre air temperature projections for both Toronto (the single grid cell nearest to the city) and the global mean, from the <a class="reference external" href="https://www.cesm.ucar.edu/community-projects/lens">CESM1 Large Ensemble</a> project <span id="id3">[<a class="reference internal" href="../guidebook_references.html#id4" title="J. E. Kay, C. Deser, A. Phillips, A. Mai, C. Hannay, G. Strand, J. M. Arblaster, S. C. Bates, G. Danabasoglu, J. Edwards, M. Holland, P. Kushner, J.-F. Lamarque, D. Lawrence, K. Lindsay, A. Middleton, E. Munoz, R. Neale, K. Oleson, L. Polvani, and M. Vertenstein. The Community Earth System Model (CESM) Large Ensemble Project: A Community Resource for Studying Climate Change in the Presence of Internal Climate Variability. Bulletin of the American Meteorological Society, 96(8):1333–1349, August 2015. Publisher: American Meteorological Society Section: Bulletin of the American Meteorological Society. URL: https://journals.ametsoc.org/view/journals/bams/96/8/bams-d-13-00255.1.xml (visited on 2022-03-23), doi:10.1175/BAMS-D-13-00255.1.">Kay <em>et al.</em>, 2015</a>]</span>.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><img alt="" src="../_images/cesmle_temperature.png" /></p></th>
 </tr>
@@ -410,10 +425,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>The shaded range, representing the spread across the ensemble members, is much larger for Toronto than for the global mean. This means that detecting significant climate change signals (i.e. a change that falls outside the range of historical internal variability) can be more difficult the more localized you get. This is especially true for variables subject to a lot of noise, such as precipitation. Assessing the statistical significance of climate change signals will be discussed further in Chapters 3 and 4, once we start working with climate model data.</p>
 </section>
 <section id="model-structural-uncertainty">
-<h2>2.3.3 Model Structural Uncertainty<a class="headerlink" href="#model-structural-uncertainty" title="Permalink to this heading">#</a></h2>
+<h2>2.3.3 Model Structural Uncertainty<a class="headerlink" href="#model-structural-uncertainty" title="Link to this heading">#</a></h2>
 <p>The third major source of uncertainty relates to the different choices in model construction. Differences in the model numerical schemes and in parameterizations mean different models give different answers, and only to a limited extent can we say that one model may be more reliable than another. By comparing model output for a historical simulation to observations, we can quantify the model <strong>bias</strong>, and one might be tempted to place more confidence in the projections of the model that is the least biased (in other words, the one that best reproduces the observed historical climate). However, there is an issue with climate modeling (and other sorts of modeling of complex systems) called <em><a class="reference external" href="https://en.wikipedia.org/wiki/Equifinality">equifinality</a></em>. Equifinality in this context means that multiple different models can agree equally well with historical observations, but they can each produce different future projections. The model with the lowest bias for the past is not guaranteed to have the best performance in the future. We really have no way to pick a single model to expect to perform best.</p>
 <p>Structural uncertainty can be quantified by including a <strong>multi-model ensemble</strong> in your analysis. The IPCC Assessment Reports frequently use multi-model averages as our best estimates of future climate, though such averaging must be done carefully. The best practice in most cases is to perform analysis for each model individually and aggregate the final results to produce a range of final results that encompass the distribution across models, and thus reflect inter-model uncertainty. Averaging before computing derived quantities can attenuate internal variability and extreme events within individual model simulations, since the sequencing of events in one simulation is completely unrelated to the sequencing of events in another (this also holds true for aggregating data from different ensemble members from a single model). Since different models can produce different projections, but for reasons not well understood, it’s necessary to include multiple models in your climate change impact study to properly quantify the degree of uncertainty in your projections.</p>
 <p>Including data from every single available climate model simulation is obviously not feasible for most climate change impact studies. Inevitably you will need to do some <strong>model selection</strong> and choose a subset of models to include in your full analysis. This may include models that envelope the high and low ends of <a class="reference external" href="https://en.wikipedia.org/wiki/Climate_sensitivity">climate sensitivity</a>, or those which show the largest and smallest projected changes to your main variable of interest. This strategy can allow you to quantify the majority of the possible range of futures while limiting the amount of data you need to process.</p>
@@ -449,8 +465,8 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="section2.2_climate_modeling.html"
@@ -478,6 +494,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -509,9 +526,10 @@ By Mike Morris, Karen Smith, and Paul Kushner
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -535,8 +553,8 @@ By Mike Morris, Karen Smith, and Paul Kushner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

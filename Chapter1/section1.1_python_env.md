@@ -41,6 +41,7 @@ List of packages:
 * `ec3` (for downloading Canadian weather station observational data)
 * `esgf-pyclient` (for downloading climate model data)
 * `gcsfs` (for accessing climate model data stores on Google Cloud Services)
+* `intake-esm` (for accessing climate model data from other remote servers, including Google)
 * `siphon` (for downloading data files)
 * `requests` (another package for downloading data files)
 * `tqdm` (progress bar for downloading data)

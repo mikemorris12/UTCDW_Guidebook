@@ -1,0 +1,2200 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.4 Climate Model Output from ESGF &#8212; UTCDW Guidebook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter3/section3.4_climate_model_output_from_ESGF';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5 Climate Model Data on Google Cloud" href="section3.5_model_data_on_google_cloud.html" />
+    <link rel="prev" title="3.3 Reanalysis Data" href="section3.3_reanalysis.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="UTCDW Guidebook - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="UTCDW Guidebook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    UTCDW Guidebook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter1/chapter1.html">Chapter 1: Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter1/section1.1_python_env.html">1.1 Setting Up Your Python Environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2/chapter2.html">Chapter 2: Intro to Climate Science and Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.1_climate_basics.html">2.1 Climate Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.2_climate_modeling.html">2.2 Climate Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/section2.3_climate_model_uncertainty.html">2.3 Climate Model Uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter2/chapter2_summary.html">2.4 Chapter Summary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chapter3.html">Chapter 3: Exploring Climate Data</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="section3.1_station_data.html">3.1 Station Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.2_gridded_obs.html">3.2 Gridded Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.3_reanalysis.html">3.3 Reanalysis Data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.4 Climate Model Output from ESGF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.5_model_data_on_google_cloud.html">3.5 Climate Model Data on Google Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.6_model_data_with_intake_esm.html">Climate Model Data with Intake-ESM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter3_summary.html">3.6 Chapter Summary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/chapter4.html">Chapter 4: Statistical Downscaling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.1_downscaling_basics.html">4.1 Downscaling Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.2_bias_correction_methods.html">4.2 Bias-Correction Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.3_downscaling_methods.html">4.3 Downscaling Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.4_downscaling_validation.html">4.4 Downscaling Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/section4.5_assessing_downscaled_projections.html">4.5 Assessing Downscaled Climate Projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter4/chapter4_summary.html">4.6 Chapter Summary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter5/chapter5.html">Chapter 5: Downscaling Workflow</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.1_climate_indicators.html">5.1 Climate Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.2_data_selection.html">5.2 Data Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.3_exploratory_data_analysis.html">5.3 Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/section5.4_producing_downscaled_data.html">5.4 Producing Downscaled Projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter5/chapter5_summary.html">5.5 Chapter Summary</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter6/chapter6.html">Chapter 6: Workflow Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.1_station_1D_example_onesim.html">6.1 Edmonton AC Loads: Single Simulation Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.2_station_1D_example_multimodel.html">6.2 Edmonton AC Loads: Multi-Model Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.3_station_1D_example_multiscen.html">6.3 Edmonton AC Loads: Multi-Scenario Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.4_station_1D_example_nearterm.html">6.4 Edmonton AC Loads: Near-Term Projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.5_gridded_DBCCA_example.html">6.5 Edmonton AC Loads: Gridded Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Chapter6/section6.6_Toronto_Electricity_example.html">6.6 Future Toronto Electricity Demands from Cooling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidebook_references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Chapter3/section3.4_climate_model_output_from_ESGF.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.4 Climate Model Output from ESGF</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data">3.4.1 Searching For Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data">3.4.2 Downloading Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-and-exploring-the-data">3.4.3 Opening and Exploring the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-exploration-of-model-bias">3.4.4 Basic Exploration of Model Bias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-testing-for-trends-and-changes">3.4.5 Significance Testing for Trends and Changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-changes-deltas">3.4.5.1 Discrete Changes (Deltas)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends">3.4.5.2 Trends</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-multiple-ensemble-members">3.4.6 Analyzing Multiple Ensemble Members</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="climate-model-output-from-esgf">
+<h1>3.4 Climate Model Output from ESGF<a class="headerlink" href="#climate-model-output-from-esgf" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code for downloading climate model data in this section was adapted from Section 6.1 of <span id="id1">Anderson and Smith [<a class="reference internal" href="../guidebook_references.html#id26" title="Conor I. Anderson and Karen L. Smith. A narrative approach to building computational capacity for climate change impact assessment in professional master's students. Journal of Open Source Education, 4(46):100, December 2021. URL: https://jose.theoj.org/papers/10.21105/jose.00100 (visited on 2023-09-07), doi:10.21105/jose.00100.">2021</a>]</span>.</p>
+</div>
+<p>Up until now, this chapter has focused on acquiring and analyzing climate data from observations, or reanalysis data which assimilates observational data into a weather forecast model. These sources of data are only half of the story. Since this guide is about climate change projections, we must also learn how to download and process output from climate model simulations.</p>
+<p>Output from climate models that participated in the CMIP projects has been made publicly available for download from the <a class="reference external" href="https://esgf.llnl.gov/">Earth System Grid Federation (ESGF)</a>. The ESGF is a peer-to-peer network with nodes hosted by several research centres around the world. The archive of data hosted on a given node can be searched and navigated in a browser. The website for the node hosted at Lawrence Livermore National Laboratory in the USA can be found <a class="reference external" href="https://esgf-dev1.llnl.gov/search">at this link</a>, and links for all of the nodes can be found <a class="reference external" href="https://esgf.llnl.gov/nodes.html">here</a>. Via the browser interface, one can populate their data cart like an online store and generate a <code class="docutils literal notranslate"><span class="pre">wget</span></code> script that when executed, will download the selected data. However, this process can be somewhat cumbersome if you are interested in large amounts of data, or if you wish to create an automated workflow. For advanced users, the ESGF offers a RESTful API, which is outside the scope of this guide. In this guide, we will use the Python package (<a class="reference external" href="https://esgf-pyclient.readthedocs.io/en/latest/index.html">esgf-pyclient</a>) (also called <code class="docutils literal notranslate"><span class="pre">pyesgf</span></code>) as an interface to the API. With <code class="docutils literal notranslate"><span class="pre">pyesgf</span></code>, one can either get an OPeNDAP URL to access the data directly or get a URL from which the data can be downloaded using the Python <code class="docutils literal notranslate"><span class="pre">requests</span></code> library.</p>
+<p><a class="reference external" href="https://esgf.github.io/esgf-user-support/index.html">Complete documentation for the ESGF, and all options for accessing the data, can be found here</a>.</p>
+<p>As with the reanalysis and gridded observations, climate model output is typically very large in volume. For this reason, we will show examples in this notebook using monthly means instead of daily means or 6-hourly instantaneous output, which is typically required for climate impact analysis.</p>
+<section id="searching-for-data">
+<h2>3.4.1 Searching For Data<a class="headerlink" href="#searching-for-data" title="Link to this heading">#</a></h2>
+<p>To search the ESGF archive we must first establish a connection to an ESGF node using the <code class="docutils literal notranslate"><span class="pre">pyesgf.search.SearchConnection</span></code> class. To do this, we pass the URL for the node to <code class="docutils literal notranslate"><span class="pre">SearchConnection</span></code>. Since each node may only host a subset of the complete CMIP archive, the argument <code class="docutils literal notranslate"><span class="pre">distrib</span> <span class="pre">=</span> <span class="pre">True</span></code> tells the API to search across all nodes, not just the one we connected to.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are sometimes network/service issues with the ESGF nodes, meaning you may sometimes get unexpected errors when using esgf-pyclient or when downloading data from the ESGF. You can try connecting to a different node, or waiting and trying to run the code later. The URLs for each of the nodes, and their operating status, can be found <a class="reference external" href="https://esgf-node.llnl.gov/status/">on this page</a>. If you’re really stuck, you can try accessing CMIP data through Google Cloud Services, following the tutorial in Section 3.5.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the required packages</span>
+<span class="kn">from</span> <span class="nn">pyesgf.search</span> <span class="kn">import</span> <span class="n">SearchConnection</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">ec3</span>
+
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">xclim</span> <span class="kn">import</span> <span class="n">ensembles</span>
+
+<span class="c1"># use this to suppress a warning which we can ignore</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ESGF_PYCLIENT_NO_FACETS_STAR_WARNING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;on&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># establish a connection to the LLNL node</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">SearchConnection</span><span class="p">(</span><span class="s1">&#39;https://esgf-node.llnl.gov/esg-search&#39;</span><span class="p">,</span> <span class="n">distrib</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># if that doesn&#39;t work, try the UK node</span>
+<span class="c1">#conn = SearchConnection(&#39;https://esgf.ceda.ac.uk/esg-search&#39;, distrib=True)</span>
+
+<span class="c1"># German Node:</span>
+<span class="c1">#conn = SearchConnection(&#39;http://esgf-data.dkrz.de/esg-search&#39;, distrib=True)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After connecting to a node we need to decide which data we’d like to access. The search function takes a number of different search parameters (also called <em>facets</em>), listed and described in the table below. Unfortunately, the names for some of the search parameters are different for the CMIP5 and CMIP6 archives, so both are included in the table.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Search Criterion</p></th>
+<th class="head text-center"><p>CMIP5 Name</p></th>
+<th class="head text-center"><p>CMIP6 Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Project (i.e. CMIP6, CORDEX, etc.)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">project</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">project</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Model Name</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">model</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">source_id</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Time Frequency</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">time_frequency</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">table_id</span></code> or <code class="docutils literal notranslate"><span class="pre">frequency</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Forcing Scenario</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">experiment</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">experiment_id</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Variable</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">variable</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">Variable</span> <span class="pre">ID</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Ensemble Member</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">ensemble</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">member_id</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Climate domain (i.e. atmosphere, ocean,  land, etc.)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">realm</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">realm</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that the CMIP model variable names can be somewhat cryptic. You can find these using the drop-down menus on the left hand side of the <a class="reference external" href="https://esgf-dev1.llnl.gov/search">ESGF Metagrid page</a>, but for convenience, we link to a  table that maps the longer, more easily understandable variable names to the short variables names (which you include in the search), on <a class="reference external" href="https://clipc-services.ceda.ac.uk/dreq/mipVars.html">this page</a>.</p>
+<p>To include multiple values for a search parameter (e.g. if you want data for both historical and SSP5-8.5 forcing scenarios), you can separate the search keywords with a comma (e.g. <code class="docutils literal notranslate"><span class="pre">experiment_id</span> <span class="pre">=</span> <span class="pre">'historical,ssp585'</span></code>). Let’s do exactly this, searching for <code class="docutils literal notranslate"><span class="pre">tas</span></code> (surface air temperature) data at monthly frequency from the model <code class="docutils literal notranslate"><span class="pre">CanESM5</span></code>, the Canadian model contributing to CMIP6. To limit the amount of data involved, we’ll also select only one ensemble member (<code class="docutils literal notranslate"><span class="pre">r1i1p1f1</span></code>), instead of the whole ensemble. Dropping the search parameter <code class="docutils literal notranslate"><span class="pre">member_id</span></code> would make the search return results for all ensemble members (if there are multiple members for the model(s)/experiment(s) of interest).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">new_context</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;CMIP6&quot;</span><span class="p">,</span>
+                         <span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;historical,ssp585&#39;</span><span class="p">,</span>
+                         <span class="n">source_id</span> <span class="o">=</span> <span class="s2">&quot;CanESM5&quot;</span><span class="p">,</span>
+                         <span class="n">frequency</span> <span class="o">=</span> <span class="s1">&#39;mon&#39;</span><span class="p">,</span> <span class="c1"># monthly (&#39;day&#39; for daily, &#39;6hr&#39; for 6-hourly, etc.)</span>
+                         <span class="n">member_id</span><span class="o">=</span><span class="s2">&quot;r1i1p1f1&quot;</span><span class="p">,</span>
+                         <span class="n">variable_id</span> <span class="o">=</span> <span class="s2">&quot;tas&quot;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our search returned multiple results, meaning several different data files match our search criteria. The results still need a bit more processing until we can get the download URLs (or OPeNDAP URLs) for the data. Next, we’ll do this processing, and make a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> mapping the file names to the URLs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sometimes running this cell raises an error about shards, but running it a second time seems to work.</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">hit</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">file_context</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">hit</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">file_context</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+    <span class="n">files</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> 
+                                 <span class="s1">&#39;download_url&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">download_url</span><span class="p">,</span> 
+                                 <span class="s1">&#39;opendap_url&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">opendap_url</span><span class="p">},</span> <span class="n">hit</span><span class="p">))</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a longer list of files that match our search criteria. This might be a result of the distributed search returning the same data files, hosted on different nodes. Let’s print out all of the file names to check for duplicates before we do any downloading.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">():</span> <span class="c1"># print in alphabetical order</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
+tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
+</pre></div>
+</div>
+</div>
+</div>
+<p>As suspected, there are duplicates of each file - we really only want 4 files here. One for the historical experiment, and three for different time periods of the SSP5-8.5 experiment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter the DataFrame to drop duplicate filenames</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span>
+<span class="n">files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>filename</th>
+      <th>download_url</th>
+      <th>opendap_url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210...</td>
+      <td>http://crd-esgf-drc.ec.gc.ca/thredds/fileServe...</td>
+      <td>http://crd-esgf-drc.ec.gc.ca/thredds/dodsC/esg...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218...</td>
+      <td>http://crd-esgf-drc.ec.gc.ca/thredds/fileServe...</td>
+      <td>http://crd-esgf-drc.ec.gc.ca/thredds/dodsC/esg...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230...</td>
+      <td>http://crd-esgf-drc.ec.gc.ca/thredds/fileServe...</td>
+      <td>http://crd-esgf-drc.ec.gc.ca/thredds/dodsC/esg...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001...</td>
+      <td>http://aims3.llnl.gov/thredds/fileServer/css03...</td>
+      <td>http://aims3.llnl.gov/thredds/dodsC/css03_data...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="downloading-data">
+<h2>3.4.2 Downloading Data<a class="headerlink" href="#downloading-data" title="Link to this heading">#</a></h2>
+<p>We are now ready to access the data, either directly with <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and the OPenDAP URL or by downloading and saving the file locally. Since we already know how to do the former, we will do the latter. If you don’t want to save the data in the current working directory, append filename to the path to the directory you’d like to write the data to using <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adapted from: https://stackoverflow.com/a/37573701</span>
+<span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download a file hosted at &lt;url&gt; and write to &lt;filename&gt;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading &quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">total_size</span><span class="p">,</span> <span class="n">block_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content-length&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="mi">1024</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">block_size</span><span class="p">),</span>
+                         <span class="n">total</span><span class="o">=</span><span class="n">total_size</span><span class="o">//</span><span class="n">block_size</span><span class="p">,</span>
+                         <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;KiB&#39;</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">total_size</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">!=</span> <span class="n">total_size</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloaded size does not match expected size!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;FYI, the status code was &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a directory (inside the current working directory) to save the data to</span>
+<span class="n">data_directory</span> <span class="o">=</span> <span class="s2">&quot;CanESM5_tas_monthly&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data_directory</span><span class="p">):</span> <span class="c1"># only make the directory if it doesn&#39;t already exist</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">data_directory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download the data, one file at a time</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;download_url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">path_to_write</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    
+    <span class="c1"># only download if the files doesn&#39;t already exist. </span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path_to_write</span><span class="p">):</span> 
+        <span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">path_to_write</span><span class="p">)</span>
+    
+    <span class="c1"># if there is an error downloading a file, you&#39;ll need to either delete the file,</span>
+    <span class="c1"># or change this block of code to call download(url, path_to_write) without </span>
+    <span class="c1"># first checking if path_to_write exists,</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sometimes there are issues downloading files from the ESGF, due to technical errors on their end. One way to check whether the file was downloaded successfully is to look at the file size. For monthly data, we expect each file to be a few tens of MB, so if the file size is much smaller, there was likely a problem. This will get flagged in the <code class="docutils literal notranslate"><span class="pre">download</span></code> function we used to download the data, but we can also check the file size using the <code class="docutils literal notranslate"><span class="pre">os.stat</span></code> function, as demonstrated below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop through each file, just like when we downloaded them</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)):</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">filestats</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="n">size_in_MB</span> <span class="o">=</span> <span class="n">filestats</span><span class="o">.</span><span class="n">st_size</span> <span class="o">/</span> <span class="mf">1e6</span> <span class="c1"># convert bytes to megabytes</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Size of </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">size_in_MB</span><span class="si">}</span><span class="s2"> MB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Size of tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-210012.nc: 27.267498 MB
+Size of tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_210101-218012.nc: 25.23234 MB
+Size of tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc: 37.722355 MB
+Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>The size of each downloaded file is as expected, so we will proceed. If the rest of the notebook runs without error, then that’s another sign that the download was successful.</p>
+</section>
+<section id="opening-and-exploring-the-data">
+<h2>3.4.3 Opening and Exploring the Data<a class="headerlink" href="#opening-and-exploring-the-data" title="Link to this heading">#</a></h2>
+<p>Now that the files are downloaded and saved, we can open them directly with <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and do some analysis. Let’s plot a time series of temperature near Toronto for the whole record and compare the historical data to the Toronto City station observations (from Section 3.1). Since we’re opening multiple files, each of which has data for a different period of time, we’ll use the function <code class="docutils literal notranslate"><span class="pre">xr.open_mfdataset</span></code> (<a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.open_mfdataset.html">documentation</a>) to open all of them at once, and automatically concatenate them along the time dimension.</p>
+<p>The wildcard character <code class="docutils literal notranslate"><span class="pre">*</span></code> fills any possible value for the position where it occurs. In the example below, it takes the place of both <code class="docutils literal notranslate"><span class="pre">historical</span></code> and <code class="docutils literal notranslate"><span class="pre">ssp585</span></code> in its first occurrence. In the second occurrence, it takes the place of the year range, e.g. <code class="docutils literal notranslate"><span class="pre">185001-201412</span></code> for the historical period, <code class="docutils literal notranslate"><span class="pre">201501-210012</span></code> for the first chunk of the SSP5-8.5 period, etc. The wildcard character is an example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a>, which are symbols used to represent patterns in text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first open the CanESM5 data for ensemble member r1i1p1f1</span>
+<span class="n">ds_CanESM5</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">data_directory</span> <span class="o">+</span> <span class="s2">&quot;/tas_Amon_CanESM5_*_r1i1p1f1_gn_*.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now get obs data - this function is copied and modified from Section 3.1</span>
+<span class="n">stn_ids_toronto_city</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5051</span><span class="p">,</span> <span class="mi">31688</span><span class="p">,</span> <span class="mi">41863</span><span class="p">]</span>
+<span class="n">df_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">stn_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stn_ids_toronto_city</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">ec3</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> 
+                      <span class="nb">type</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="c1"># monthly mean data</span>
+                      <span class="n">progress</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># ensure no duplicate times</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date/Time&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;Date/Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span>
+    <span class="n">df_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df_obs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">df_list</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="n">column_name_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Date/Time&#39;</span><span class="p">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;Mean Temp (°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;tas&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;Latitude (y)&#39;</span><span class="p">:</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;Longitude (x)&#39;</span><span class="p">:</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;Station Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">}</span>
+    
+<span class="n">df_obs</span> <span class="o">=</span> <span class="n">df_obs</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_name_dict</span><span class="p">)</span>
+<span class="n">df_obs</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">column_name_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>
+<span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">])</span>
+<span class="n">df_obs</span> <span class="o">=</span> <span class="n">df_obs</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+    
+<span class="c1"># sort the data in proper chronological order</span>
+<span class="n">df_obs</span> <span class="o">=</span> <span class="n">df_obs</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="c1"># select data only up to 2015, when the &quot;historical&quot; simulation ends</span>
+<span class="n">df_obs</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="n">df_obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1850</span><span class="p">,</span> <span class="mi">2015</span><span class="p">))]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">df_obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1850-01-01 00:00:00 2006-12-01 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<p>The monthly data for this station ends at the end of 2006, but we’ll proceed regardless. Since we know that daily data is available up until the present, the best practice would be to calculate monthly means from the daily means (weighted by the number of days in the month), but we digress.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># interpolate the CanESM5 model data to the station location</span>
+<span class="n">station_lat</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">station_lon</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">360</span> <span class="c1"># model data longitudes go from (0, 360) instead of (-180, 180)</span>
+
+<span class="n">tas_CanESM5</span> <span class="o">=</span> <span class="n">ds_CanESM5</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="n">station_lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">station_lon</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># station and model data have different time datatypes, so make a time axis with</span>
+<span class="c1"># xarray to use for the obs</span>
+<span class="n">times_obs</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">cftime_range</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">df_obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> 
+                            <span class="c1"># need to add an extra month to the endpoint to make it closed at the right</span>
+                            <span class="n">end</span> <span class="o">=</span> <span class="n">df_obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span> 
+                            <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">calendar</span> <span class="o">=</span> <span class="s1">&#39;noleap&#39;</span><span class="p">)</span>
+<span class="c1"># plot the time series</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CanESM5&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times_obs</span><span class="p">,</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Station Obs&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Monthly Mean Temperature in Toronto&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2bec85af8d2e2388fc4332ddc53c4841bac7b759b07863e060d25fd93d2dc40c.png" src="../_images/2bec85af8d2e2388fc4332ddc53c4841bac7b759b07863e060d25fd93d2dc40c.png" />
+</div>
+</div>
+<p>While we should not expect the individual months of the simulated data to match up with the station observations, the degree of overlap is encouraging that the model agrees decently well with observations.</p>
+</section>
+<section id="basic-exploration-of-model-bias">
+<h2>3.4.4 Basic Exploration of Model Bias<a class="headerlink" href="#basic-exploration-of-model-bias" title="Link to this heading">#</a></h2>
+<p>To better quantify this, we can plot the probability distribution of each dataset during their common period and calculate metrics such as the mean bias. Because the model has lower minima than the observations, we might expect it to be biased cold (i.e. negative mean bias). It also has slightly more maxima that exceed the observations, so perhaps it also has a higher standard deviation. Let’s calculate these metrics and add them to the distribution plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select model data during obs period</span>
+<span class="n">obs_year_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">times_obs</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">times_obs</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># add one so the range includes the max year</span>
+<span class="n">tas_CanESM5_obsperiod</span> <span class="o">=</span> <span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">obs_year_range</span><span class="p">))</span>
+
+<span class="c1"># fit Kernel Density Estimator so we can plot a smooth distribution</span>
+<span class="n">kde_CanESM5</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">tas_CanESM5_obsperiod</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">kde_obs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="c1"># need to drop missing values or else scipy complains</span>
+
+
+<span class="c1"># mean values for each dataset</span>
+<span class="n">tas_CanESM5_mean</span> <span class="o">=</span> <span class="n">tas_CanESM5_obsperiod</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">tas_obs_mean</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># stdevs for each dataset</span>
+<span class="n">tas_CanESM5_stdev</span> <span class="o">=</span> <span class="n">tas_CanESM5_obsperiod</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">tas_obs_stdev</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># range of temperatures to plot</span>
+<span class="n">temperatures</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of Monthly Mean Temperatures in Toronto&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">kde_CanESM5</span><span class="p">(</span><span class="n">temperatures</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CanESM5&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">kde_obs</span><span class="p">(</span><span class="n">temperatures</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Station Obs&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">([</span><span class="n">tas_CanESM5_mean</span><span class="p">,</span> <span class="n">tas_obs_mean</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">],</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability Density&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># annotate with mean bias and ratio of stdevs</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">,</span> <span class="mf">0.038</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;Mean Bias: </span><span class="si">%.2f</span><span class="s1"> $^{\circ}$C&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tas_CanESM5_mean</span> <span class="o">-</span> <span class="n">tas_obs_mean</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">,</span> <span class="mf">0.036</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;Stdev Ratio: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tas_CanESM5_stdev</span> <span class="o">/</span> <span class="n">tas_obs_stdev</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/51412ef2bb0abca694a511fd0626ff27afd3a2c0d45b77add573efb915b1dfb2.png" src="../_images/51412ef2bb0abca694a511fd0626ff27afd3a2c0d45b77add573efb915b1dfb2.png" />
+</div>
+</div>
+<p>Indeed, the model data for this location is biased slightly low, and has too high of a standard deviation, compared to the station observations. For sub-monthly data, these biases could possibly be worse, which is one reason why downscaling and bias-correction are necessary parts of climate impact analysis.</p>
+<p>An interesting feature of these distributions of temperature is that they are <em>bimodal</em>, meaning there are two maxima. This is likely because of the seasonal cycle - the peak near lower temperatures is for cold-season months, and the other is for the warm season. For this reason, we often separate the data by month or by season when quantifying biases (at least for variables that have a strong seasonal cycle). Let’s do this by comparing the monthly climatologies of the two datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate monthly climatologies</span>
+<span class="n">tas_monthlyclim_CanESM5</span> <span class="o">=</span> <span class="n">tas_CanESM5_obsperiod</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">tas_monthlyclim_obs</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># difference in climatologies</span>
+<span class="n">monthlyclim_bias</span> <span class="o">=</span> <span class="n">tas_monthlyclim_CanESM5</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">tas_monthlyclim_obs</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">months</span> <span class="o">=</span> <span class="n">tas_monthlyclim_CanESM5</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">values</span> 
+
+<span class="c1"># plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Climatology of Monthly Mean Temperatures in Toronto&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">tas_monthlyclim_CanESM5</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CanESM5&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">tas_monthlyclim_obs</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Station Obs&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">monthlyclim_bias</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Model Bias&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Month of the Year&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0e5b7941a580a82fff15475f77ff62a3c2280610b3b194cad8871592868fc9c6.png" src="../_images/0e5b7941a580a82fff15475f77ff62a3c2280610b3b194cad8871592868fc9c6.png" />
+</div>
+</div>
+<p>This plot is much more informative! The overall negative mean bias is due to the fact that the model’s winter months are too cold, but in the annual mean this bias is somewhat washed out by the summer months being slightly too hot. This is also why the model data higher standard deviation than the observations - the contrast between the summer and winter seasons is greater than in observations. This example demonstrates that for variables with a strong seasonal cycle like temperature, bias correction should account for seasonally-varying biases. This can be done by grouping the data by the day or month of the year, and applying separate corrections to each of these groups. This example also illustrates why it’s important to learn some basic climate science before working with climate data, and to do exploratory analysis with the observations and raw model data before doing bias correction or downscaling. If one lacked the required background knowledge or if they didn’t assess the raw model biases and went directly to downscaling, they’d likely produce downscaled projections that still suffer from seasonally-dependent biases.</p>
+</section>
+<section id="significance-testing-for-trends-and-changes">
+<h2>3.4.5 Significance Testing for Trends and Changes<a class="headerlink" href="#significance-testing-for-trends-and-changes" title="Link to this heading">#</a></h2>
+<p>When analyzing future climate projections, an important question to ask early in your study is whether your climate variables of interest show significant trends or changes over the time horizon you plan to study. If, for example, you are interested in using precipitation data to drive a hydrology model and investigate how flooding might change for a certain catchment under climate change, but the changes to precipitation in your study area are not statistically significant, then your impact study will likely also have a null result.</p>
+<section id="discrete-changes-deltas">
+<h3>3.4.5.1 Discrete Changes (Deltas)<a class="headerlink" href="#discrete-changes-deltas" title="Link to this heading">#</a></h3>
+<p>There are a number of methods that climate scientists use to assess if climate change signals are significant. These methods range in complexity and statistical robustness. The simplest method would be to calculate the climatological standard deviation for the historical period and check if the projected mean change falls outside the one-sigma range. This method does not account for possible changes to the variance in the future period, the form of the distributions of the data (i.e. non-Gaussian variables like precipitation or wind speed), and is not very statistically robust. This extraordinarily simple method should only be used as a first rough assessment, and should not give much confidence that the changes are truly statistically significant.</p>
+<p>The next best way to test if a mean change is statistically significant is the two sample Student’s <a class="reference external" href="https://en.wikipedia.org/wiki/Student%27s_t-test"><span class="math notranslate nohighlight">\(t\)</span>-test</a>. This is a very common statistical test, used to assess if two different sets of data have different mean values. For large datasets, the <a class="reference external" href="https://en.wikipedia.org/wiki/Central_limit_theorem">central limit theorem</a> tells us that the distribution of the sample mean tends towards a Gaussian distribution even for non-Gaussian variables, so we don’t usually need to be concerned about the assumption of Gaussian distributions inherent to the <span class="math notranslate nohighlight">\(t\)</span>-test. However, we <em>do</em> need to be concerned about the assumption that each sample is <em>independent</em>. With time series data, especially climate time series data, there is nearly always significant serial dependence in the data. In other words, today’s weather is strongly related to yesterday’s weather, which means that data points close in time are not statistically independent of each other. For serially correlated data, the number of independent samples is not equal to the actual total number of samples. We instead calculate an <em>effective sample size</em> using the following formula <span id="id2">[<a class="reference internal" href="../guidebook_references.html#id27" title="Daniel S. Wilks. Statistical methods in the atmospheric sciences. Number 100 in International geophysics series. Elsevier, Amsterdam, Netherlands ;, fourth edition. edition, 2019. ISBN 978-0-12-816527-0.">Wilks, 2019</a>]</span>:</p>
+<div class="math notranslate nohighlight">
+\[N_{eff} = N \frac{1 - \rho_{1}}{1 + \rho_{1}} \]</div>
+<p>Where <span class="math notranslate nohighlight">\(\rho_{1}\)</span> is the <em>lag-one temporal autocorrelation</em> of the time series. For a time series <span class="math notranslate nohighlight">\(x(t)\)</span> with time step <span class="math notranslate nohighlight">\(\Delta t\)</span>, this is the correlation between <span class="math notranslate nohighlight">\(x(t)\)</span> and <span class="math notranslate nohighlight">\(x(t-\Delta t)\)</span>.</p>
+<p>Using the effective sample size correction, let’s use the two sample Student’s <span class="math notranslate nohighlight">\(t\)</span>-test to check if the monthly mean temperatures for Toronto in CanESM5 change significantly from the 1971-2000 period to the 2071-2100 period.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select historical and future periods</span>
+<span class="n">tas_CanESM5_hist</span> <span class="o">=</span> <span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1971</span><span class="p">,</span> <span class="mi">2001</span><span class="p">)))</span>
+<span class="n">tas_CanESM5_future</span> <span class="o">=</span> <span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2071</span><span class="p">,</span> <span class="mi">2101</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate effective sample size for historical and future periods</span>
+<span class="k">def</span> <span class="nf">effective_sample_size</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">ntime</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="c1"># times not including the final timestep</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ntime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># data not including the first timestep</span>
+    <span class="n">data_lag</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ntime</span><span class="p">))</span>
+    <span class="c1"># match up time values, otherwise the xr.corr function won&#39;t return the correct output</span>
+    <span class="n">data_lag</span> <span class="o">=</span> <span class="n">data_lag</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">times</span><span class="p">)</span>
+    
+    <span class="c1"># calculate correlation</span>
+    <span class="n">autocor</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">times</span><span class="p">),</span>
+                      <span class="n">data_lag</span><span class="p">,</span>
+                      <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span>
+    
+    <span class="n">neff</span> <span class="o">=</span> <span class="n">ntime</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">autocor</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">autocor</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">neff</span>
+
+<span class="n">neff_hist</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">tas_CanESM5_hist</span><span class="p">)</span>
+<span class="n">neff_future</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">tas_CanESM5_future</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate means and stdevs for each period</span>
+<span class="n">tas_CanESM5_hist_mean</span> <span class="o">=</span> <span class="n">tas_CanESM5_hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">tas_CanESM5_future_mean</span> <span class="o">=</span> <span class="n">tas_CanESM5_future</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="n">tas_CanESM5_hist_std</span> <span class="o">=</span> <span class="n">tas_CanESM5_hist</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">tas_CanESM5_future_std</span> <span class="o">=</span> <span class="n">tas_CanESM5_future</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="c1"># perform two_sample t-test to see if future temperatures are higher than past</span>
+<span class="n">tstat</span><span class="p">,</span> <span class="n">pval_neff</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind_from_stats</span><span class="p">(</span><span class="n">tas_CanESM5_hist_mean</span><span class="p">,</span>
+                                              <span class="n">tas_CanESM5_hist_std</span><span class="p">,</span>
+                                              <span class="n">neff_hist</span><span class="p">,</span>
+                                              <span class="n">tas_CanESM5_future_mean</span><span class="p">,</span> 
+                                              <span class="n">tas_CanESM5_future_std</span><span class="p">,</span> 
+                                              <span class="n">neff_future</span><span class="p">,</span>
+                                              <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                                              <span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;less&#39;</span><span class="p">)</span> 
+<span class="c1"># alt hypothesis is that the first dataset (historical) has a lower mean than the second dataset (future)</span>
+
+<span class="c1"># do it again using the total sample size, to demonstrate how the p-value will be underestimated</span>
+<span class="n">tstat</span><span class="p">,</span> <span class="n">pval_ntot</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind_from_stats</span><span class="p">(</span><span class="n">tas_CanESM5_hist_mean</span><span class="p">,</span>
+                                              <span class="n">tas_CanESM5_hist_std</span><span class="p">,</span>
+                                              <span class="nb">len</span><span class="p">(</span><span class="n">tas_CanESM5_hist</span><span class="o">.</span><span class="n">time</span><span class="p">),</span>
+                                              <span class="n">tas_CanESM5_future_mean</span><span class="p">,</span> 
+                                              <span class="n">tas_CanESM5_future_std</span><span class="p">,</span> 
+                                              <span class="nb">len</span><span class="p">(</span><span class="n">tas_CanESM5_future</span><span class="o">.</span><span class="n">time</span><span class="p">),</span>
+                                              <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                                              <span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;less&#39;</span><span class="p">)</span>
+
+<span class="c1"># print each p-value to 6 significant figures</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total Sample Size p-value: </span><span class="si">%.6f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pval_ntot</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Effective Sample Size p-value: </span><span class="si">%.6f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pval_neff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total Sample Size p-value: 0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Effective Sample Size p-value: 0.001478
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comparing the p-values calculated using the total sample size and the effective sample size confirms that failing to account for serial dependence in the data leads to overconfidence in the significance of results. For this case, the mean change is still significant after accounting for serial dependence, but this may not always be true. If the lag-1 autocorrelation is big enough, or if the magnitude of the change is small enough, then failing to correct for the influence of serial dependence might lead you to mistake a null result for a significant one.</p>
+</section>
+<section id="trends">
+<h3>3.4.5.2 Trends<a class="headerlink" href="#trends" title="Link to this heading">#</a></h3>
+<p>Sometimes a climate study might not focus on differences between a future and historical time period but instead focus on rates of change of a certain variable, i.e. a trend. Your first thought might be to use ordinary least squares to do a linear regression and test for significance of the slope parameter, but this will result in a similar issue to the one we just worked through. Ordinary linear regression assumes that all of the data samples are independent, so the presence of serial correlations will inflate the p-value. Additionally, many climate trends are nonlinear. Even global mean surface air temperature, possibly the most studied and well-understood climate variable, has been shown to have an accelerating trend over the past several decades <span id="id3">[<a class="reference internal" href="../guidebook_references.html#id20" title="S.K. Gulev, P.W. Thorne, J. Ahn, F.J. Dentener, C.M. Domingues, S. Gerland, D. Gong, D.S. Kaufman, H.C. Nnamchi, J. Quaas, J.A. Rivera, S. Sathyendranath, S.L. Smith, B. Trewin, K. von Schuckmann, and R.S. Vose. Chapter 2: Changing State of the Climate System. In Climate Change 2021 – The Physical Science Basis: Working Group I Contribution to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge University Press, 1 edition, July 2023. URL: https://www.cambridge.org/core/product/identifier/9781009157896/type/book (visited on 2023-09-06), doi:10.1017/9781009157896.">Gulev <em>et al.</em>, 2023</a>]</span>. For these reasons, more robust statistical tests have been developed for testing the significance of trends of serially correlated climate data.</p>
+<p>Here we will use the Mann-Kendall trend test <span id="id4">[<a class="reference internal" href="../guidebook_references.html#id27" title="Daniel S. Wilks. Statistical methods in the atmospheric sciences. Number 100 in International geophysics series. Elsevier, Amsterdam, Netherlands ;, fourth edition. edition, 2019. ISBN 978-0-12-816527-0.">Wilks, 2019</a>]</span> to test the statistical signficance of the trend in monthly mean temperatures in Toronto, as simulated by CanESM5. Unfortunately, this test is not implemented in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, but it is simple enough to code ourselves.</p>
+<p>The Mann-Kendall test is a nonparametric test for the presence of a trend in a time series. The test statistic for this test is (from <span id="id5">Yue and Wang [<a class="reference internal" href="../guidebook_references.html#id28" title="Sheng Yue and ChunYuan Wang. The Mann-Kendall Test Modified by Effective Sample Size to Detect Trend in Serially Correlated Hydrological Series. Water Resources Management, 18(3):201–218, June 2004. URL: http://link.springer.com/10.1023/B:WARM.0000043140.61082.60 (visited on 2023-09-22), doi:10.1023/B:WARM.0000043140.61082.60.">2004</a>]</span>):</p>
+<div class="math notranslate nohighlight">
+\[S = \sum_{i=1}^{N-1} \sum_{j=i+1}^{N} sgn(x_{j} - x_{i}) \]</div>
+<p>Where <span class="math notranslate nohighlight">\(sgn(y)\)</span> is <span class="math notranslate nohighlight">\(+1\)</span> if <span class="math notranslate nohighlight">\(y\)</span> is positive, <span class="math notranslate nohighlight">\(-1\)</span> if <span class="math notranslate nohighlight">\(y\)</span> is negative, and 0 if <span class="math notranslate nohighlight">\(y\)</span> is exactly zero. <span class="math notranslate nohighlight">\(S\)</span> is a count of how many pairs of data show increases over time minus the number that show decreases. For long enough time series (more than about 10 samples), <span class="math notranslate nohighlight">\(S\)</span> is approximately Gaussian, and under the null hypothesis of no trend, <span class="math notranslate nohighlight">\(S\)</span> should not be significantly different from zero. Wilks tells us that the variance of <span class="math notranslate nohighlight">\(S\)</span> depends on how many of the <span class="math notranslate nohighlight">\(x_{i}\)</span>’s are unique. If there are no repeated values, then</p>
+<div class="math notranslate nohighlight">
+\[
+Var(S) = \frac{n(n-1)(2n+5)}{18}
+\]</div>
+<p>And if there are any ties (repeated values), then</p>
+<div class="math notranslate nohighlight">
+\[
+Var(S) = \frac{n(n-1)(2n+5) - \sum_{j=1}^{J}t_{j}(t_{j}-1)(2t_{j}+5)}{18}
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(J\)</span> is the number of values that are repeated, and <span class="math notranslate nohighlight">\(t_{j}\)</span> is the number of instances of the <span class="math notranslate nohighlight">\(j\)</span>’th non-unique value. Climate model data are floating point decimal numbers, so it is very rare to have two values that are exactly repeated, so we won’t worry about this case here. If you are working with data that is only recorded to a finite tolerance (like for certain types of observational data), then you’ll likely need to account for repeated values when calculating <span class="math notranslate nohighlight">\(S\)</span> for the Mann-Kendall test.</p>
+<p>Conveniently, we can use the function <code class="docutils literal notranslate"><span class="pre">scipy.stats.kendaltau</span></code> to help us calculate <span class="math notranslate nohighlight">\(S\)</span>, since when there are no repeated values, <span class="math notranslate nohighlight">\(S = \frac{N(N-1)}{2}\tau\)</span>, where <span class="math notranslate nohighlight">\(\tau\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient">Kendall rank correlation coefficient</a>. This statistic is  related to the Mann-Kendall test, sort of like how the Pearson correlation is related to ordinary linear regression. The issue with <code class="docutils literal notranslate"><span class="pre">scipy.stats.kendaltau</span></code> is that it will return a p-value that does not account for serial correlation, so we can’t use it for hypothesis testing.</p>
+<p>To account for the serial correlation, we can use the relationship between the sample size <span class="math notranslate nohighlight">\(N\)</span> and the variance to define an effective variance:</p>
+<div class="math notranslate nohighlight">
+\[
+Var^{*}(S) = Var(S) \frac{1 + \rho_{1}}{1 - \rho_{1}}
+\]</div>
+<p>Having calculated our test statistic and its variance, and knowing that the sampling distribution of <span class="math notranslate nohighlight">\(S\)</span> is Gaussian, we can convert <span class="math notranslate nohighlight">\(S\)</span> to a standardized value <span class="math notranslate nohighlight">\(z\)</span> that follows standard Gaussain distribution (i.e. a mean of zero and variance of 1). The conversion goes like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+z = \left\{
+        \begin{array}{ll}
+            \frac{S-1}{\sqrt{Var^{*}(S)}} &amp; \quad S \gt 0 \\
+            \frac{S+1}{\sqrt{Var^{*}(S)}} &amp; \quad S \lt 0
+        \end{array}
+    \right.
+\end{align*}
+\end{split}\]</div>
+<p>The p-value can then be calculated using the one-minus the CDF of a standard Gaussian (i.e. <code class="docutils literal notranslate"><span class="pre">scipy.stats.norm.sf</span></code>). Let’s code this up and perform the Mann-Kendall test for the trend in our climate model data up to the year 2100.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mann_kendall_pvalue</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="c1"># kendall tau  - the np.arange(N) is there to represent the monotonically increasing time axis</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kendalltau</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># use tau to calculate the S statistic</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="c1"># calculate the variance and effective variance,</span>
+    <span class="c1"># taking advantage of our effective_sample_size function from the last example</span>
+    <span class="n">var_S</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">18</span>
+    <span class="n">N_eff</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">correction_factor</span> <span class="o">=</span> <span class="n">N</span> <span class="o">/</span> <span class="n">N_eff</span>
+    <span class="n">var_S_eff</span> <span class="o">=</span> <span class="n">var_S</span> <span class="o">*</span> <span class="n">correction_factor</span>
+    
+    <span class="c1"># standardize S to a z-score</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">S</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_S_eff</span><span class="p">)</span>
+    
+    <span class="c1"># calculate one-sided p-value using the standard normal distribution</span>
+    <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">pval</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval_trend_mk</span> <span class="o">=</span> <span class="n">mann_kendall_pvalue</span><span class="p">(</span><span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">2100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mann-Kendall Test p-value for Trend: </span><span class="si">%.6f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pval_trend_mk</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mann-Kendall Test p-value for Trend: 0.000083
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the p-value is very small for this robust test, we can confidently reject the null hypothesis of no trend and conclude that CanESM5 projects a significant increasing trend in Toronto monthly mean temperatures. When we move to looking at downscaled data from this model, we should expect to see results that are qualitatively similar, only with reduced biases relative to observations, and spatial information on a finer grid.</p>
+</section>
+</section>
+<section id="analyzing-multiple-ensemble-members">
+<h2>3.4.6 Analyzing Multiple Ensemble Members<a class="headerlink" href="#analyzing-multiple-ensemble-members" title="Link to this heading">#</a></h2>
+<p>The above examples used data only from a single ensemble member of CanESM5. In order to quantify uncertainty related to internal variability (Section 2.3), your final analysis should include multiple ensemble members, possibly from multiple models. Here we will use the Python module <code class="docutils literal notranslate"><span class="pre">xclim</span></code> and it’s <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code> functionality to analyze data from multiple ensemble members at once. The documentation for these utilities is <a class="reference external" href="https://xclim.readthedocs.io/en/latest/notebooks/ensembles.html">here</a>.</p>
+<div class="admonition-aside-about-xr-open-mfdataset admonition">
+<p class="admonition-title">Aside about xr.open_mfdataset</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">xr.open_mfdataset</span></code> to open multiple files that represent different ensemble members. To do this, you’ll need to use the keyword arguments it takes to intelligently structure the resulting Dataset. For example, you can use the argument <code class="docutils literal notranslate"><span class="pre">concat_dim</span></code> to create a new dimension called <code class="docutils literal notranslate"><span class="pre">'ensemble_member'</span></code>, so the data is shaped like <code class="docutils literal notranslate"><span class="pre">('ensemble_member',</span> <span class="pre">'time',</span> <span class="pre">'lat',</span> <span class="pre">'lon')</span></code>. Unfortunately, this only works if all of the data files use the same calendar. If you have a multi-model ensemble with models that use different calendars, it’s much better to use <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code>.</p>
+<p>If you do it this way, it’s tricky to concatenate along the time dimension as well (it’s technically possible, but it requires advanced knowledge of <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code> and its calendar-handling features). The easiest way to handle different files for different time periods (like we did in 3.4.3) is to open the files for each time period separately, and then concatenate them using <code class="docutils literal notranslate"><span class="pre">xr.concat</span></code> (<a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.concat.html">documentation</a>) and the keyword argument <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">&quot;time&quot;</span></code></p>
+<p>Since file I/O is usually slow compared to other steps of analysis, it’s best to do the smallest possible number of file opening calls. The best way to open your data will depend on the way your files are structured. Let’s say that you have separate data files for each year for a 100-year period, and 10 ensemble members. In this situation, it would be better to iterate over the ensemble member (10 iterations) and concatenate over time with <code class="docutils literal notranslate"><span class="pre">open_mfdataset</span></code>, instead iterating of over the time period (100 iterations) and concatenating ensemble members with <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code>. You can combine the 10 datasets, each representing a different ensemble member, into a single Dataset using <code class="docutils literal notranslate"><span class="pre">xr.concat</span></code> and the keyword argument <code class="docutils literal notranslate"><span class="pre">dim</span> <span class="pre">=</span> <span class="pre">&quot;ensemble_member&quot;</span></code>, or create an <code class="docutils literal notranslate"><span class="pre">xclim.ensembles</span></code> by passing the list of datasets to <code class="docutils literal notranslate"><span class="pre">xclim.ensembles.create_ensemble</span></code>.</p>
+<p><strong>Now back working with xclim.ensembles</strong></p>
+</div>
+<p>Below we’ll download data for a few more ensemble members from CanESM5, plot the data for the different ensemble members, and calculate some ensemble statistics. To keep things simple, we’ll do this only for the historical period.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>It’s commonly stated that ensemble or multi-model means give “better results” than data from individual ensemble members. This is true for certain cases - averaging model output for long-term mean quantities can reduce model biases, but you should <em>never</em> take an ensemble average as the first step in your workflow. Because different ensemble members have different realizations of internal variability and weather, averaging will attenuate variability and extremes. It’s okay to calculate ensemble means and other statistics in your exploratory analysis, but downscaling should be done to individual ensemble members separately, and the range of final results be assessed as the range over the ensemble.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query2</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">new_context</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;CMIP6&quot;</span><span class="p">,</span>
+                         <span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span>
+                         <span class="n">source_id</span> <span class="o">=</span> <span class="s2">&quot;CanESM5&quot;</span><span class="p">,</span>
+                         <span class="n">frequency</span> <span class="o">=</span> <span class="s1">&#39;mon&#39;</span><span class="p">,</span>
+                         <span class="n">member_id</span><span class="o">=</span><span class="s2">&quot;r2i1p1f1,r3i1p1f1,r4i1p1f1&quot;</span><span class="p">,</span>
+                         <span class="n">variable_id</span> <span class="o">=</span> <span class="s2">&quot;tas&quot;</span><span class="p">)</span>
+<span class="n">results2</span> <span class="o">=</span> <span class="n">query2</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+<span class="n">files2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results2</span><span class="p">)):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">hit</span> <span class="o">=</span> <span class="n">results2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">file_context</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">hit</span> <span class="o">=</span> <span class="n">results2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">file_context</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+    <span class="n">files2</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> 
+                                 <span class="s1">&#39;download_url&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">download_url</span><span class="p">,</span> 
+                                 <span class="s1">&#39;opendap_url&#39;</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">opendap_url</span><span class="p">},</span> <span class="n">hit</span><span class="p">))</span>
+<span class="n">files2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">files2</span><span class="p">)</span>
+<span class="n">files2</span> <span class="o">=</span> <span class="n">files2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span>
+
+<span class="n">files2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>filename</th>
+      <th>download_url</th>
+      <th>opendap_url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>tas_Amon_CanESM5_historical_r4i1p1f1_gn_185001...</td>
+      <td>http://aims3.llnl.gov/thredds/fileServer/css03...</td>
+      <td>http://aims3.llnl.gov/thredds/dodsC/css03_data...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tas_Amon_CanESM5_historical_r3i1p1f1_gn_185001...</td>
+      <td>http://aims3.llnl.gov/thredds/fileServer/css03...</td>
+      <td>http://aims3.llnl.gov/thredds/dodsC/css03_data...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tas_Amon_CanESM5_historical_r2i1p1f1_gn_185001...</td>
+      <td>http://aims3.llnl.gov/thredds/fileServer/css03...</td>
+      <td>http://aims3.llnl.gov/thredds/dodsC/css03_data...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download the file</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">files2</span><span class="p">)):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">files2</span><span class="p">[</span><span class="s1">&#39;download_url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">files2</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">path_to_write</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    
+    <span class="c1"># only download if the file doesn&#39;t already exist. </span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path_to_write</span><span class="p">):</span> 
+        <span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">path_to_write</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a list of the files to create the ensemble, using the wildcard character *. </span>
+<span class="c1"># note that the order of the files is random when using glob.glob and the wildcard character,</span>
+<span class="c1"># so the order of the &#39;realization&#39; dimension created by xclim.ensembles.create_ensemble</span>
+<span class="c1"># will also be random. You can specify the order of the &#39;realization&#39; coordinates</span>
+<span class="c1"># by making your own ordered list of file names.</span>
+<span class="n">historical_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">data_directory</span> <span class="o">+</span> <span class="s2">&quot;/tas_Amon_CanESM5_historical_*_gn_185001-201412.nc&quot;</span><span class="p">)</span>
+
+<span class="c1"># open up the two historical files using xclim.ensembles</span>
+<span class="n">ds_ensemble</span> <span class="o">=</span> <span class="n">ensembles</span><span class="o">.</span><span class="n">create_ensemble</span><span class="p">(</span><span class="n">historical_files</span><span class="p">)</span>
+
+<span class="c1"># print a summary of the dataset - the dimension &#39;realization&#39; represents the ensemble member</span>
+<span class="n">ds_ensemble</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:      (time: 1980, realization: 4, bnds: 2, lat: 64, lon: 128)
+Coordinates:
+  * time         (time) object 1850-01-16 12:00:00 ... 2014-12-16 12:00:00
+  * lat          (lat) float64 -87.86 -85.1 -82.31 -79.53 ... 82.31 85.1 87.86
+  * lon          (lon) float64 0.0 2.812 5.625 8.438 ... 348.8 351.6 354.4 357.2
+    height       float64 2.0
+  * realization  (realization) int64 0 1 2 3
+Dimensions without coordinates: bnds
+Data variables:
+    time_bnds    (realization, time, bnds) float64 dask.array&lt;chunksize=(1, 1980, 2), meta=np.ndarray&gt;
+    lat_bnds     (realization, lat, bnds) float64 dask.array&lt;chunksize=(1, 64, 2), meta=np.ndarray&gt;
+    lon_bnds     (realization, lon, bnds) float64 dask.array&lt;chunksize=(1, 128, 2), meta=np.ndarray&gt;
+    tas          (realization, time, lat, lon) float32 dask.array&lt;chunksize=(1, 1980, 64, 128), meta=np.ndarray&gt;
+Attributes: (12/53)
+    CCCma_model_hash:            3dedf95315d603326fde4f5340dc0519d80d10c0
+    CCCma_parent_runid:          rc3-pictrl
+    CCCma_pycmor_hash:           33c30511acc319a98240633965a04ca99c26427e
+    CCCma_runid:                 rc3.1-his01
+    Conventions:                 CF-1.7 CMIP-6.2
+    YMDH_branch_time_in_child:   1850:01:01:00
+    ...                          ...
+    tracking_id:                 hdl:21.14100/872062df-acae-499b-aa0f-9eaca76...
+    variable_id:                 tas
+    variant_label:               r1i1p1f1
+    version:                     v20190429
+    license:                     CMIP6 model data produced by The Government ...
+    cmor_version:                3.4.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-19884fda-ae13-419d-acea-430ab663b8d7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-19884fda-ae13-419d-acea-430ab663b8d7' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1980</li><li><span class='xr-has-index'>realization</span>: 4</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lat</span>: 64</li><li><span class='xr-has-index'>lon</span>: 128</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-ae9e99ba-8d71-4ac7-94fd-62dcc7c0666c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ae9e99ba-8d71-4ac7-94fd-62dcc7c0666c' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-16 12:00:00 ... 2014-12-...</div><input id='attrs-ae234c16-e196-4b86-8629-24842d000368' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ae234c16-e196-4b86-8629-24842d000368' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d3316f05-7497-45f0-b60e-cbf694a8f291' class='xr-var-data-in' type='checkbox'><label for='data-d3316f05-7497-45f0-b60e-cbf694a8f291' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 16, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1850, 2, 15, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1850, 3, 16, 12, 0, 0, 0, has_year_zero=True),
+       ...,
+       cftime.DatetimeNoLeap(2014, 10, 16, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 11, 16, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 12, 16, 12, 0, 0, 0, has_year_zero=True)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.86 -85.1 -82.31 ... 85.1 87.86</div><input id='attrs-03bc5571-5ce7-4fab-aca2-6644bf077275' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-03bc5571-5ce7-4fab-aca2-6644bf077275' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3df2b97f-d900-493e-bb05-389d29a4f1cb' class='xr-var-data-in' type='checkbox'><label for='data-3df2b97f-d900-493e-bb05-389d29a4f1cb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([-87.863799, -85.096527, -82.312913, -79.525607, -76.7369  , -73.947515,
+       -71.157752, -68.367756, -65.577607, -62.787352, -59.99702 , -57.206632,
+       -54.4162  , -51.625734, -48.835241, -46.044727, -43.254195, -40.463648,
+       -37.67309 , -34.882521, -32.091944, -29.30136 , -26.510769, -23.720174,
+       -20.929574, -18.138971, -15.348365, -12.557756,  -9.767146,  -6.976534,
+        -4.185921,  -1.395307,   1.395307,   4.185921,   6.976534,   9.767146,
+        12.557756,  15.348365,  18.138971,  20.929574,  23.720174,  26.510769,
+        29.30136 ,  32.091944,  34.882521,  37.67309 ,  40.463648,  43.254195,
+        46.044727,  48.835241,  51.625734,  54.4162  ,  57.206632,  59.99702 ,
+        62.787352,  65.577607,  68.367756,  71.157752,  73.947515,  76.7369  ,
+        79.525607,  82.312913,  85.096527,  87.863799])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 2.812 5.625 ... 354.4 357.2</div><input id='attrs-bffef89b-16b6-43ad-8484-fd42958375a5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bffef89b-16b6-43ad-8484-fd42958375a5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2aa29de2-ece3-4472-8ea9-72222d69556d' class='xr-var-data-in' type='checkbox'><label for='data-2aa29de2-ece3-4472-8ea9-72222d69556d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.    ,   2.8125,   5.625 ,   8.4375,  11.25  ,  14.0625,  16.875 ,
+        19.6875,  22.5   ,  25.3125,  28.125 ,  30.9375,  33.75  ,  36.5625,
+        39.375 ,  42.1875,  45.    ,  47.8125,  50.625 ,  53.4375,  56.25  ,
+        59.0625,  61.875 ,  64.6875,  67.5   ,  70.3125,  73.125 ,  75.9375,
+        78.75  ,  81.5625,  84.375 ,  87.1875,  90.    ,  92.8125,  95.625 ,
+        98.4375, 101.25  , 104.0625, 106.875 , 109.6875, 112.5   , 115.3125,
+       118.125 , 120.9375, 123.75  , 126.5625, 129.375 , 132.1875, 135.    ,
+       137.8125, 140.625 , 143.4375, 146.25  , 149.0625, 151.875 , 154.6875,
+       157.5   , 160.3125, 163.125 , 165.9375, 168.75  , 171.5625, 174.375 ,
+       177.1875, 180.    , 182.8125, 185.625 , 188.4375, 191.25  , 194.0625,
+       196.875 , 199.6875, 202.5   , 205.3125, 208.125 , 210.9375, 213.75  ,
+       216.5625, 219.375 , 222.1875, 225.    , 227.8125, 230.625 , 233.4375,
+       236.25  , 239.0625, 241.875 , 244.6875, 247.5   , 250.3125, 253.125 ,
+       255.9375, 258.75  , 261.5625, 264.375 , 267.1875, 270.    , 272.8125,
+       275.625 , 278.4375, 281.25  , 284.0625, 286.875 , 289.6875, 292.5   ,
+       295.3125, 298.125 , 300.9375, 303.75  , 306.5625, 309.375 , 312.1875,
+       315.    , 317.8125, 320.625 , 323.4375, 326.25  , 329.0625, 331.875 ,
+       334.6875, 337.5   , 340.3125, 343.125 , 345.9375, 348.75  , 351.5625,
+       354.375 , 357.1875])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>height</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>2.0</div><input id='attrs-58dc0727-2449-4f61-8be4-8088632fe527' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-58dc0727-2449-4f61-8be4-8088632fe527' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-50ba1694-7684-4ea0-8bec-f0636312d0a4' class='xr-var-data-in' type='checkbox'><label for='data-50ba1694-7684-4ea0-8bec-f0636312d0a4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>long_name :</span></dt><dd>height</dd><dt><span>standard_name :</span></dt><dd>height</dd></dl></div><div class='xr-var-data'><pre>array(2.)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>realization</span></div><div class='xr-var-dims'>(realization)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3</div><input id='attrs-b2bac979-d138-4634-9840-1b1ea27c2725' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b2bac979-d138-4634-9840-1b1ea27c2725' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-eecb8fa2-5bbc-4289-8ec9-e759d45b1f04' class='xr-var-data-in' type='checkbox'><label for='data-eecb8fa2-5bbc-4289-8ec9-e759d45b1f04' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>E</dd></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-cfd423c9-2e26-44ab-88a4-ad60fd75b155' class='xr-section-summary-in' type='checkbox'  checked><label for='section-cfd423c9-2e26-44ab-88a4-ad60fd75b155' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(realization, time, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1980, 2), meta=np.ndarray&gt;</div><input id='attrs-1d2d2a83-1e47-4e33-86ca-21ab90df6393' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1d2d2a83-1e47-4e33-86ca-21ab90df6393' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a8b9daa0-baa3-45a7-80cc-251ca98ad39d' class='xr-var-data-in' type='checkbox'><label for='data-a8b9daa0-baa3-45a7-80cc-251ca98ad39d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>calendar :</span></dt><dd>365_day</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 123.75 kiB </td>
+                        <td> 30.94 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (4, 1980, 2) </td>
+                        <td> (1, 1980, 2) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 4 chunks in 13 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="100" height="184" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="24" y2="134" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="24" y1="14" x2="24" y2="134" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 24.9485979497544,14.948597949754403 24.9485979497544,134.9485979497544 10.0,120.0" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="35" y2="0" style="stroke-width:2" />
+  <line x1="13" y1="3" x2="39" y2="3" />
+  <line x1="17" y1="7" x2="42" y2="7" />
+  <line x1="21" y1="11" x2="46" y2="11" />
+  <line x1="24" y1="14" x2="50" y2="14" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="35" y1="0" x2="50" y2="14" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 35.41261651458248,0.0 50.36121446433688,14.948597949754403 24.9485979497544,14.948597949754403" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="24" y1="14" x2="50" y2="14" style="stroke-width:2" />
+  <line x1="24" y1="134" x2="50" y2="134" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="24" y1="14" x2="24" y2="134" style="stroke-width:2" />
+  <line x1="50" y1="14" x2="50" y2="134" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="24.9485979497544,14.948597949754403 50.36121446433688,14.948597949754403 50.36121446433688,134.9485979497544 24.9485979497544,134.9485979497544" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="37.654906" y="154.948598" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
+  <text x="70.361214" y="74.948598" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,70.361214,74.948598)">1980</text>
+  <text x="7.474299" y="147.474299" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,7.474299,147.474299)">4</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(realization, lat, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 64, 2), meta=np.ndarray&gt;</div><input id='attrs-7d1e2d29-654c-40b4-a6aa-5819971a3ffe' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7d1e2d29-654c-40b4-a6aa-5819971a3ffe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5813fce7-4782-49fe-8aa8-3140cf124464' class='xr-var-data-in' type='checkbox'><label for='data-5813fce7-4782-49fe-8aa8-3140cf124464' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 4.00 kiB </td>
+                        <td> 1.00 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (4, 64, 2) </td>
+                        <td> (1, 64, 2) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 4 chunks in 13 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="112" height="191" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="31" y2="21" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="31" y2="141" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="31" y1="21" x2="31" y2="141" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 31.093851381887504,21.093851381887504 31.093851381887504,141.0938513818875 10.0,120.0" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="41" y2="0" style="stroke-width:2" />
+  <line x1="15" y1="5" x2="46" y2="5" />
+  <line x1="20" y1="10" x2="52" y2="10" />
+  <line x1="25" y1="15" x2="57" y2="15" />
+  <line x1="31" y1="21" x2="62" y2="21" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="31" y2="21" style="stroke-width:2" />
+  <line x1="41" y1="0" x2="62" y2="21" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 41.635229193102674,0.0 62.72908057499018,21.093851381887504 31.093851381887504,21.093851381887504" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="31" y1="21" x2="62" y2="21" style="stroke-width:2" />
+  <line x1="31" y1="141" x2="62" y2="141" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="31" y1="21" x2="31" y2="141" style="stroke-width:2" />
+  <line x1="62" y1="21" x2="62" y2="141" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="31.093851381887504,21.093851381887504 62.72908057499018,21.093851381887504 62.72908057499018,141.0938513818875 31.093851381887504,141.0938513818875" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="46.911466" y="161.093851" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
+  <text x="82.729081" y="81.093851" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,82.729081,81.093851)">64</text>
+  <text x="10.546926" y="150.546926" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,10.546926,150.546926)">4</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(realization, lon, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 128, 2), meta=np.ndarray&gt;</div><input id='attrs-7f8145f4-3bd4-4f5b-bdd7-43e1f379c12f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7f8145f4-3bd4-4f5b-bdd7-43e1f379c12f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f7bffd39-7707-4bad-9096-a1deee6f1f16' class='xr-var-data-in' type='checkbox'><label for='data-f7bffd39-7707-4bad-9096-a1deee6f1f16' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8.00 kiB </td>
+                        <td> 2.00 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (4, 128, 2) </td>
+                        <td> (1, 128, 2) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 4 chunks in 13 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="106" height="188" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="28" y2="18" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="28" y2="138" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="14" y1="4" x2="14" y2="124" />
+  <line x1="19" y1="9" x2="19" y2="129" />
+  <line x1="23" y1="13" x2="23" y2="133" />
+  <line x1="28" y1="18" x2="28" y2="138" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 28.608958348883927,18.608958348883927 28.608958348883927,138.60895834888393 10.0,120.0" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="37" y2="0" style="stroke-width:2" />
+  <line x1="14" y1="4" x2="42" y2="4" />
+  <line x1="19" y1="9" x2="46" y2="9" />
+  <line x1="23" y1="13" x2="51" y2="13" />
+  <line x1="28" y1="18" x2="56" y2="18" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="28" y2="18" style="stroke-width:2" />
+  <line x1="37" y1="0" x2="56" y2="18" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 37.67538719790747,0.0 56.2843455467914,18.608958348883927 28.608958348883927,18.608958348883927" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="28" y1="18" x2="56" y2="18" style="stroke-width:2" />
+  <line x1="28" y1="138" x2="56" y2="138" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="28" y1="18" x2="28" y2="138" style="stroke-width:2" />
+  <line x1="56" y1="18" x2="56" y2="138" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="28.608958348883927,18.608958348883927 56.28434554679139,18.608958348883927 56.28434554679139,138.60895834888393 28.608958348883927,138.60895834888393" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="42.446652" y="158.608958" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
+  <text x="76.284346" y="78.608958" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,76.284346,78.608958)">128</text>
+  <text x="9.304479" y="149.304479" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,9.304479,149.304479)">4</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(realization, time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1980, 64, 128), meta=np.ndarray&gt;</div><input id='attrs-e031c518-26b2-4d9a-9efb-ff4c38f18eca' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e031c518-26b2-4d9a-9efb-ff4c38f18eca' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d28206ec-e012-4702-a941-d9f63bc58c7f' class='xr-var-data-in' type='checkbox'><label for='data-d28206ec-e012-4702-a941-d9f63bc58c7f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Air Temperature</dd><dt><span>comment :</span></dt><dd>ST+273.16, CMIP_table_comment: near-surface (usually, 2 meter) air temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>original_name :</span></dt><dd>ST</dd><dt><span>history :</span></dt><dd>degctok 2019-04-30T17:32:17Z altered by CMOR: Treated scalar dimension: &#x27;height&#x27;. 2019-04-30T17:32:17Z altered by CMOR: Reordered dimensions, original order: lat lon time. 2019-04-30T17:32:17Z altered by CMOR: replaced missing value flag (1e+38) with standard missing value (1e+20).</dd><dt><span>cell_methods :</span></dt><dd>area: time: mean</dd><dt><span>cell_measures :</span></dt><dd>area: areacella</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 247.50 MiB </td>
+                        <td> 61.88 MiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (4, 1980, 64, 128) </td>
+                        <td> (1, 1980, 64, 128) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 4 chunks in 13 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="346" height="152" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="25" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="19" y1="0" x2="19" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 25.412616514582485,0.0 25.412616514582485,25.412616514582485 0.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="12.706308" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >4</text>
+  <text x="45.412617" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,45.412617,12.706308)">1</text>
+
+
+  <!-- Horizontal lines -->
+  <line x1="95" y1="0" x2="165" y2="70" style="stroke-width:2" />
+  <line x1="95" y1="31" x2="165" y2="102" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="95" y1="0" x2="95" y2="31" style="stroke-width:2" />
+  <line x1="165" y1="70" x2="165" y2="102" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="95.0,0.0 165.58823529411765,70.58823529411765 165.58823529411765,102.42676461338931 95.0,31.838529319271665" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="95" y1="0" x2="131" y2="0" style="stroke-width:2" />
+  <line x1="165" y1="70" x2="201" y2="70" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="95" y1="0" x2="165" y2="70" style="stroke-width:2" />
+  <line x1="131" y1="0" x2="201" y2="70" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="95.0,0.0 131.0630455309464,0.0 201.65128082506405,70.58823529411765 165.58823529411765,70.58823529411765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="165" y1="70" x2="201" y2="70" style="stroke-width:2" />
+  <line x1="165" y1="102" x2="201" y2="102" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="165" y1="70" x2="165" y2="102" style="stroke-width:2" />
+  <line x1="201" y1="70" x2="201" y2="102" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="165.58823529411765,70.58823529411765 201.65128082506405,70.58823529411765 201.65128082506405,102.42676461338931 165.58823529411765,102.42676461338931" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="183.619758" y="122.426765" font-size="1.0rem" font-weight="100" text-anchor="middle" >128</text>
+  <text x="221.651281" y="86.507500" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,221.651281,86.507500)">64</text>
+  <text x="120.294118" y="87.132647" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,120.294118,87.132647)">1980</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-5ec1d31a-fc75-4ceb-8c9c-3bb15de8f7ac' class='xr-section-summary-in' type='checkbox'  ><label for='section-5ec1d31a-fc75-4ceb-8c9c-3bb15de8f7ac' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f4f09e3e-5ab3-4d8e-93cb-040c8bbc5edf' class='xr-index-data-in' type='checkbox'/><label for='index-f4f09e3e-5ab3-4d8e-93cb-040c8bbc5edf' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([1850-01-16 12:00:00, 1850-02-15 00:00:00, 1850-03-16 12:00:00,
+             1850-04-16 00:00:00, 1850-05-16 12:00:00, 1850-06-16 00:00:00,
+             1850-07-16 12:00:00, 1850-08-16 12:00:00, 1850-09-16 00:00:00,
+             1850-10-16 12:00:00,
+             ...
+             2014-03-16 12:00:00, 2014-04-16 00:00:00, 2014-05-16 12:00:00,
+             2014-06-16 00:00:00, 2014-07-16 12:00:00, 2014-08-16 12:00:00,
+             2014-09-16 00:00:00, 2014-10-16 12:00:00, 2014-11-16 00:00:00,
+             2014-12-16 12:00:00],
+            dtype=&#x27;object&#x27;, length=1980, calendar=&#x27;noleap&#x27;, freq=&#x27;None&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0c604672-3870-4e3b-aef3-30e2448ee746' class='xr-index-data-in' type='checkbox'/><label for='index-0c604672-3870-4e3b-aef3-30e2448ee746' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ -87.86379883923273,  -85.09652698831745,  -82.31291294788636,
+        -79.52560657265951,   -76.7368996803684,  -73.94751515398974,
+        -71.15775201158739,  -68.36775610831324,  -65.57760701082788,
+        -62.78735179896313, -59.997020108491355,   -57.2066315276433,
+        -54.41619952608627, -51.625733674938296,  -48.83524096625064,
+       -46.044726631101724,  -43.25419466535099,  -40.46364817811508,
+        -37.67308962904537,   -34.8825209937735, -32.091943881744044,
+       -29.301359621762764, -26.510769325211022,  -23.72017393353477,
+        -20.92957425448953, -18.138970990239372, -15.348364759491508,
+        -12.55775611523069,  -9.767145559195578,  -6.976533553948642,
+        -4.185920533189158, -1.3953069108194975,  1.3953069108194975,
+         4.185920533189158,   6.976533553948642,   9.767145559195578,
+         12.55775611523069,  15.348364759491508,  18.138970990239372,
+         20.92957425448953,   23.72017393353477,  26.510769325211022,
+        29.301359621762764,  32.091943881744044,    34.8825209937735,
+         37.67308962904537,   40.46364817811508,   43.25419466535099,
+        46.044726631101724,   48.83524096625064,  51.625733674938296,
+         54.41619952608627,    57.2066315276433,  59.997020108491355,
+         62.78735179896313,   65.57760701082788,   68.36775610831324,
+         71.15775201158739,   73.94751515398974,    76.7368996803684,
+         79.52560657265951,   82.31291294788636,   85.09652698831745,
+         87.86379883923273],
+      dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-34932556-ad0c-4419-a161-f73396ddf095' class='xr-index-data-in' type='checkbox'/><label for='index-34932556-ad0c-4419-a161-f73396ddf095' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([     0.0,   2.8125,    5.625,   8.4375,    11.25,  14.0625,   16.875,
+        19.6875,     22.5,  25.3125,
+       ...
+        331.875, 334.6875,    337.5, 340.3125,  343.125, 345.9375,   348.75,
+       351.5625,  354.375, 357.1875],
+      dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=128))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>realization</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-24353697-e9c1-48a4-9037-2bf72d178fe2' class='xr-index-data-in' type='checkbox'/><label for='index-24353697-e9c1-48a4-9037-2bf72d178fe2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3], dtype=&#x27;int64&#x27;, name=&#x27;realization&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ad2b746c-7b00-4635-b871-a54e6a29460e' class='xr-section-summary-in' type='checkbox'  ><label for='section-ad2b746c-7b00-4635-b871-a54e6a29460e' class='xr-section-summary' >Attributes: <span>(53)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CCCma_model_hash :</span></dt><dd>3dedf95315d603326fde4f5340dc0519d80d10c0</dd><dt><span>CCCma_parent_runid :</span></dt><dd>rc3-pictrl</dd><dt><span>CCCma_pycmor_hash :</span></dt><dd>33c30511acc319a98240633965a04ca99c26427e</dd><dt><span>CCCma_runid :</span></dt><dd>rc3.1-his01</dd><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>YMDH_branch_time_in_child :</span></dt><dd>1850:01:01:00</dd><dt><span>YMDH_branch_time_in_parent :</span></dt><dd>5201:01:01:00</dd><dt><span>activity_id :</span></dt><dd>CMIP</dd><dt><span>branch_method :</span></dt><dd>Spin-up documentation</dd><dt><span>branch_time_in_child :</span></dt><dd>0.0</dd><dt><span>branch_time_in_parent :</span></dt><dd>1223115.0</dd><dt><span>contact :</span></dt><dd>ec.cccma.info-info.ccmac.ec@canada.ca</dd><dt><span>creation_date :</span></dt><dd>2019-04-30T17:32:17Z</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>all-forcing simulation of the recent past</dd><dt><span>experiment_id :</span></dt><dd>historical</dd><dt><span>external_variables :</span></dt><dd>areacella</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>further_info_url :</span></dt><dd>https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.historical.none.r1i1p1f1</dd><dt><span>grid :</span></dt><dd>T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa</dd><dt><span>grid_label :</span></dt><dd>gn</dd><dt><span>history :</span></dt><dd>2019-04-30T17:32:17Z ;rewrote data to be consistent with CMIP for variable tas found in table Amon.;
+Output from $runid</dd><dt><span>initialization_index :</span></dt><dd>1</dd><dt><span>institution :</span></dt><dd>Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada, Victoria, BC V8P 5C2, Canada</dd><dt><span>institution_id :</span></dt><dd>CCCma</dd><dt><span>mip_era :</span></dt><dd>CMIP6</dd><dt><span>nominal_resolution :</span></dt><dd>500 km</dd><dt><span>parent_activity_id :</span></dt><dd>CMIP</dd><dt><span>parent_experiment_id :</span></dt><dd>piControl</dd><dt><span>parent_mip_era :</span></dt><dd>CMIP6</dd><dt><span>parent_source_id :</span></dt><dd>CanESM5</dd><dt><span>parent_time_units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>parent_variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>physics_index :</span></dt><dd>1</dd><dt><span>product :</span></dt><dd>model-output</dd><dt><span>realization_index :</span></dt><dd>1</dd><dt><span>realm :</span></dt><dd>atmos</dd><dt><span>references :</span></dt><dd>Geophysical Model Development Special issue on CanESM5 (https://www.geosci-model-dev.net/special_issues.html)</dd><dt><span>source :</span></dt><dd>CanESM5 (2019): 
+aerosol: interactive
+atmos: CanAM5 (T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa)
+atmosChem: specified oxidants for aerosols
+land: CLASS3.6/CTEM1.2
+landIce: specified ice sheets
+ocean: NEMO3.4.1 (ORCA1 tripolar grid, 1 deg with refinement to 1/3 deg within 20 degrees of the equator; 361 x 290 longitude/latitude; 45 vertical levels; top grid cell 0-6.19 m)
+ocnBgchem: Canadian Model of Ocean Carbon (CMOC); NPZD ecosystem with OMIP prescribed carbonate chemistry
+seaIce: LIM2</dd><dt><span>source_id :</span></dt><dd>CanESM5</dd><dt><span>source_type :</span></dt><dd>AOGCM</dd><dt><span>sub_experiment :</span></dt><dd>none</dd><dt><span>sub_experiment_id :</span></dt><dd>none</dd><dt><span>table_id :</span></dt><dd>Amon</dd><dt><span>table_info :</span></dt><dd>Creation Date:(20 February 2019) MD5:374fbe5a2bcca535c40f7f23da271e49</dd><dt><span>title :</span></dt><dd>CanESM5 output prepared for CMIP6</dd><dt><span>tracking_id :</span></dt><dd>hdl:21.14100/872062df-acae-499b-aa0f-9eaca7681abc</dd><dt><span>variable_id :</span></dt><dd>tas</dd><dt><span>variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>version :</span></dt><dd>v20190429</dd><dt><span>license :</span></dt><dd>CMIP6 model data produced by The Government of Canada (Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada) is licensed under a Creative Commons Attribution ShareAlike 4.0 International License (https://creativecommons.org/licenses). Consult https://pcmdi.llnl.gov/CMIP6/TermsOfUse for terms of use governing CMIP6 output, including citation requirements and proper acknowledgment. Further information about this data, including some limitations, can be found via the further_info_url (recorded as a global attribute in this file) and at https:///pcmdi.llnl.gov/. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.</dd><dt><span>cmor_version :</span></dt><dd>3.4.0</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># interpolate the data to the Toronto station location</span>
+<span class="n">tas_CanESM5_ensemble</span> <span class="o">=</span> <span class="n">ds_ensemble</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="n">station_lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">station_lon</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span>
+
+<span class="c1"># calculate annual means - plotting monthly means is too noisy to see the example clearly</span>
+<span class="n">tas_CanESM5_ensemble_annual</span> <span class="o">=</span> <span class="n">tas_CanESM5_ensemble</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">tas_obs_annual</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># obs data is missing for a few years, and incomplete for 2003</span>
+<span class="n">tas_obs_annual</span> <span class="o">=</span> <span class="n">tas_obs_annual</span><span class="p">[</span><span class="n">tas_obs_annual</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2003</span><span class="p">]</span>
+
+<span class="c1"># obs data year values to pass to plotting function</span>
+<span class="n">yrmax_obs</span> <span class="o">=</span> <span class="n">tas_obs_annual</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">yrs_obs</span> <span class="o">=</span> <span class="n">tas_CanESM5_ensemble_annual</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_CanESM5_ensemble_annual</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;=</span> <span class="n">yrmax_obs</span><span class="p">)</span>
+
+<span class="c1"># calculate ensemble mean to include in the plot</span>
+<span class="n">tas_CanESM5_annual_ensmean</span> <span class="o">=</span> <span class="n">tas_CanESM5_ensemble_annual</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;realization&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot a time series of the annual mean temperatures for Toronto, using a different colour for each ensemble member</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># ensemble mean</span>
+<span class="n">tas_CanESM5_annual_ensmean</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> 
+                                     <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Ensemble Mean&#39;</span><span class="p">,</span> 
+                                     <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yrs_obs</span><span class="p">,</span> <span class="n">tas_obs_annual</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> 
+        <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Station Obs&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">tas_CanESM5_ensemble_annual</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;realization&#39;</span><span class="p">,</span> 
+                                      <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span>
+                                      <span class="n">add_legend</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> 
+                                      <span class="n">zorder</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CanESM5 Annual Mean Temperature in Toronto&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d2e8a43655c4a7f5734b0ac1cab9a7948c3bf1c8feba5f5661a921d0d2e0c417.png" src="../_images/d2e8a43655c4a7f5734b0ac1cab9a7948c3bf1c8feba5f5661a921d0d2e0c417.png" />
+</div>
+</div>
+<p>In the above plot, you can see how even the annual mean temperatures vary significantly across the ensemble, and show larger fluctuations than the ensemble mean (thick blue curve). The ensemble mean does not agree perfectly with the observations, because of model bias. Also, note that the year-to-year fluctuations in the ensemble mean are smaller than those for the observations. This is because observations reflect only one possible realization of the climate, so internal variability is still present. For observations, we can only disentangle forced trends (like the effects of increasing greenhouse gases) from internal variability using long-term trends. Over a short record, what might appear as a trend might actually be due to internal variability at decadal or interannual timescales. For model simulations, aggregating over multiple realizations smooths out the effects of internal variability and can give us a better estimate of the forced trend by itself. To get a plausible range of values, accounting for internal variability, you can use a measure of ensemble spread, like the standard deviation or range between a low and high quantile (e.g. 10th-90th percentile range).</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>This notebook has worked through the process of downloading CMIP6 climate model data from the ESGF and doing some basic model validation using station observations. Any other data hosted on the ESGF, including CORDEX regional climate model data, can be accessed in the same way. Users are encouraged to navigate the ESGF web portal before using <code class="docutils literal notranslate"><span class="pre">pyesgf</span></code> to ensure you’re using the correct facet names for the project you’re searching, and that the search is returning the results you expect.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Chapter3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="section3.3_reanalysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.3 Reanalysis Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="section3.5_model_data_on_google_cloud.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3.5 Climate Model Data on Google Cloud</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data">3.4.1 Searching For Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data">3.4.2 Downloading Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-and-exploring-the-data">3.4.3 Opening and Exploring the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-exploration-of-model-bias">3.4.4 Basic Exploration of Model Bias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-testing-for-trends-and-changes">3.4.5 Significance Testing for Trends and Changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-changes-deltas">3.4.5.1 Discrete Changes (Deltas)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends">3.4.5.2 Trends</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-multiple-ensemble-members">3.4.6 Analyzing Multiple Ensemble Members</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Morris, Karen Smith, and Paul Kushner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
