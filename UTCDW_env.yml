@@ -1,4 +1,4 @@
-name: UTCDW-env2
+name: UTCDW-env
 channels:
   - conda-forge
   - defaults
@@ -29,3 +29,4 @@ dependencies:
   - xskillscore
   - libpysal 
   - esda
+  - intake-esm
