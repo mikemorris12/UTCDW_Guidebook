@@ -2,16 +2,9 @@
 
 The programming language used in the UTCDW is the latest version of Python 3, with the Anaconda3 package/environment manager. The Guidebook assumes basic familiarity with Python, but not necessarily all of the packages used for analysis. If you do not have Python/Anaconda installed on your machine, [you can follow the instructions here](https://docs.anaconda.com/anaconda/install/).
 
-Once you have Anaconda installed, you must create an environment in which you will install all the necessary packages. Because one of the packages you need to install (ec3, used for downloading weather station observational data from Environment and Climate Change Canada) is a custom package from a personal channel, the following commands will need to be run for conda to be able to find the package:
+Once you have Anaconda installed, you must create an environment in which you will install all the necessary packages. We have provided files in the [UTCDW GitHub repository](https://github.com/mikemorris12/UTCDW_Guidebook) which can be used to install all of the required Python packages with the versions used for development of the Guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt (Windows), since Windows does not include a native Terminal application. 
 
-`conda config --prepend channels conda-forge`
-
-`conda config --append channels claut`
-
-Now you are ready to set up your Conda environment. To ensure version compatibility, we have provided files in the [UTCDW GitHub repository](https://github.com/mikemorris12/UTCDW_Guidebook) which can be used to install all of the required Python packages with the versions used for development of the Guidebook. Set up the environment by entering the following command into your command line terminal (on MacOS or Linux) or from the Anaconda Prompt (Windows), since Windows does not include a native Terminal application. 
-
-* `conda env create -f UTCDW_env_Linux.yml` (Linux)
-* `conda env create -f UTCDW_env_MacOS.yml` (MacOS with Apple Silicon chip)
+* `conda env create -f UTCDW_env.yml` (MacOS or Linux)
 * `conda env create -f UTCDW_env_Windows.yml` (Windows)
 
 ```{note}
@@ -26,7 +19,11 @@ Most, but not all, of the packages used for the UTCDW Guidebook are listed below
 
 `conda install <package names>`
 
-Where `<package names>` is to be replaced by the following package names, each separated by a space. Installing all packages at once helps ensure version consistency for packages that depend on others (e.g. `pandas` and `xarray` have dependencies on `numpy` and `scipy`, `cartopy` has a dependency on `matplotlib`, etc.). Anaconda attempts to ensure that there are no dependency issues with existing packages when installing a new one, but sometimes errors can arise when installing packages one-by-one.
+Where `<package names>` is to be replaced by the following package names, each separated by a space. Installing all packages at once helps ensure version consistency for packages that depend on others (e.g. `pandas` and `xarray` have dependencies on `numpy` and `scipy`, `cartopy` has a dependency on `matplotlib`, etc.). Anaconda attempts to ensure that there are no dependency issues with existing packages when installing a new one, but sometimes errors can arise when installing packages one-by-one. If you decide not to use the provided environment files, there is one extra step you'll need to take before installing packages.Because one of the packages you need to install (ec3, used for downloading weather station observational data from Environment and Climate Change Canada) is a custom package from a personal channel, the following commands will need to be run for conda to be able to find the package:
+
+`conda config --prepend channels conda-forge`
+
+`conda config --append channels claut`
 
 List of packages:
 
