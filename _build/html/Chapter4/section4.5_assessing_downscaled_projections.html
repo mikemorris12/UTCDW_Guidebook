@@ -400,7 +400,7 @@ document.write(`
 
 <span class="kn">from</span> <span class="nn">siphon.catalog</span> <span class="kn">import</span> <span class="n">TDSCatalog</span>
 <span class="kn">from</span> <span class="nn">xclim.core.calendar</span> <span class="kn">import</span> <span class="n">convert_calendar</span><span class="p">,</span> <span class="n">percentile_doy</span>
-<span class="kn">import</span> <span class="nn">xclim.indices</span> <span class="k">as</span> <span class="nn">xci</span>
+<span class="kn">import</span> <span class="nn">xclim.indicators</span> <span class="k">as</span> <span class="nn">xci</span>
 
 <span class="c1"># for getting data from Google Cloud </span>
 <span class="kn">import</span> <span class="nn">gcsfs</span>
@@ -665,8 +665,8 @@ document.write(`
     <span class="n">data_future</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
 
     <span class="c1"># calculate tropical nights</span>
-    <span class="n">tn_hist</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">tn_days_above</span><span class="p">(</span><span class="n">data_hist</span><span class="p">)</span>
-    <span class="n">tn_future</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">tn_days_above</span><span class="p">(</span><span class="n">data_future</span><span class="p">)</span>
+    <span class="n">tn_hist</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">tropical_nights</span><span class="p">(</span><span class="n">data_hist</span><span class="p">)</span>
+    <span class="n">tn_future</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">tropical_nights</span><span class="p">(</span><span class="n">data_future</span><span class="p">)</span>
 
     <span class="c1"># get effective sample size for each period, for significance testing later on</span>
     <span class="n">neff_hist</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">tn_hist</span><span class="p">)</span>
@@ -695,6 +695,20 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now we’ll plot the mean annual Tropical Nights for both the raw and downscaled historical simulations (click to reveal the code).</p>
 <div class="cell tag_hide-input docutils container">
@@ -720,7 +734,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/6830c8605cab81b3e4b951400bb5350af95b1082d289205e1e211d6f7b0282eb.png" src="../_images/6830c8605cab81b3e4b951400bb5350af95b1082d289205e1e211d6f7b0282eb.png" />
+<img alt="../_images/c33126b189ac5ad3b8c09d4b11e6f6e6b11cf8c8531c755b310749b42a92d673.png" src="../_images/c33126b189ac5ad3b8c09d4b11e6f6e6b11cf8c8531c755b310749b42a92d673.png" />
 </div>
 </div>
 <p>The downscaling is clearly adding a lot of value to the GCM simulations! The selected domain is covered by only 4 grid cells in the raw model, so basically none of the spatial variability seen in the downscaled data are represented. The raw model data also appears to have a significant high bias in Tropical Nights, which is consistent with the positive summertime temperature bias in CanESM5 seen in Section 3.4.</p>
@@ -746,7 +760,7 @@ document.write(`
     <span class="c1"># flatten p</span>
     <span class="n">dims</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">shape</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
     <span class="n">sortp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
     <span class="n">slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">alpha</span>
@@ -770,7 +784,7 @@ document.write(`
                                                <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 
     <span class="c1"># get new threshold using alpha_FDR and get array of 1&#39;s where p &lt; alpha_FDR (and 0&#39;s otherwise)</span>
-    <span class="n">alpha_FDR</span> <span class="o">=</span> <span class="n">fdr</span><span class="p">(</span><span class="n">pvals</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="n">alpha_FDR</span> <span class="o">=</span> <span class="n">fdr</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
     <span class="n">reject_null</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pvals</span> <span class="o">&lt;</span> <span class="n">alpha_FDR</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">reject_null</span>
@@ -845,7 +859,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/705f0c0e289b0cee3977142b9fc5d084a6b5ace7875f84d16bd7dd6ddb742063.png" src="../_images/705f0c0e289b0cee3977142b9fc5d084a6b5ace7875f84d16bd7dd6ddb742063.png" />
+<img alt="../_images/811e94291d18c814047dfedd029cd0e41bbc1836aa002b87ce325d034b921243.png" src="../_images/811e94291d18c814047dfedd029cd0e41bbc1836aa002b87ce325d034b921243.png" />
 </div>
 </div>
 <p>Comparing the raw and downscaled model data, both show very large increases in the number of Tropical Nights. While the raw simulations are biased high relative to observations (and to the downscaled data), the climate change differences are comparable in magnitude. As mentioned at the start of this notebook, this is a property of univariate statistical downscaling. The downscaling method itself cannot substantially alter the nature of the future projections from the model, all it can do is add spatial detail and adjust for biases relative to historical observations.</p>

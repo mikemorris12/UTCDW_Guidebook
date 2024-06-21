@@ -420,7 +420,7 @@ CDD = \sum_{i=1}^{365}\left(T_{i} - T_{thresh}\right) I\left(T_{i} &gt; T_{thres
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">from</span> <span class="nn">xclim</span> <span class="kn">import</span> <span class="n">sdba</span>
 <span class="kn">from</span> <span class="nn">xclim.core.calendar</span> <span class="kn">import</span> <span class="n">convert_calendar</span>
-<span class="kn">import</span> <span class="nn">xclim.indices</span> <span class="k">as</span> <span class="nn">xci</span>
+<span class="kn">import</span> <span class="nn">xclim.indicators</span> <span class="k">as</span> <span class="nn">xci</span>
 <span class="kn">import</span> <span class="nn">xclim.ensembles</span> <span class="k">as</span> <span class="nn">xce</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -458,11 +458,11 @@ CDD = \sum_{i=1}^{365}\left(T_{i} - T_{thresh}\right) I\left(T_{i} &gt; T_{thres
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
   warnings.warn(&quot;Cannot find the station inventory in the current working directory.&quot;)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmplr0ssqzc
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /tmp/tmpyqq3xbqe
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: In addition to the stations found, the following combinations may provide sufficient baseline data.
@@ -544,7 +544,7 @@ Station 31427 : EDMONTON CITY CENTRE AWOS (2005-2015)
       <td>2015</td>
       <td>1973.0</td>
       <td>2015.0</td>
-      <td>18.84175793351712 km</td>
+      <td>18.84175793351747 km</td>
     </tr>
     <tr>
       <th>2416</th>
@@ -563,7 +563,7 @@ Station 31427 : EDMONTON CITY CENTRE AWOS (2005-2015)
       <td>2012</td>
       <td>1959.0</td>
       <td>2012.0</td>
-      <td>20.72726507003484 km</td>
+      <td>20.727265070034136 km</td>
     </tr>
   </tbody>
 </table>
@@ -606,8 +606,11 @@ Station 31427 : EDMONTON CITY CENTRE AWOS (2005-2015)
     
     <span class="c1"># sort the data in proper chronological order</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-    
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+    <span class="c1"># we won&#39;t drop NaN&#39;s this time since xclim needs to be able</span>
+    <span class="c1"># to confirm that the frequency of the data is daily when calculating</span>
+    <span class="c1"># climate indicators like cooling degree days</span>
+    <span class="c1">#df = df.dropna()</span>
     
     <span class="k">return</span> <span class="n">df</span>
 </pre></div>
@@ -629,7 +632,7 @@ Station 31427 : EDMONTON CITY CENTRE AWOS (2005-2015)
     <span class="n">df</span> <span class="o">=</span> <span class="n">download_station_data</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="n">years_hist</span><span class="p">)</span>
     <span class="c1"># print first and last timestep so we can check if there is any time overlap</span>
     <span class="c1"># between the two records</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;start: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;end: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">stn_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;start: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;end: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">df_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -652,19 +655,37 @@ Station 31427 : EDMONTON CITY CENTRE AWOS (2005-2015)
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the above output shows no overlap in time between the two stations, so we can safely</span>
-<span class="c1"># concatenate them without dropping any data from one or the other</span>
-<span class="n">stn_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">df_list</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># concatenate them without dropping any data from the start/end of either.</span>
+<span class="c1"># However, we will need to drop the period of the first dataset that comes after</span>
+<span class="c1"># its record ends, and the period of the second dataset before its record begins.</span>
 
-<span class="c1"># now convert it to xarray format for easier use with the model data and xclim</span>
+<span class="c1"># select the valid period for the first station ID</span>
+<span class="n">df_id1</span> <span class="o">=</span> <span class="n">df_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">df_id1_end</span> <span class="o">=</span> <span class="n">df_id1</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">df_id1</span> <span class="o">=</span> <span class="n">df_id1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_id1</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">df_id1_end</span><span class="p">]</span>
 
-<span class="c1"># drop lat and lon variables, since we want these to be coordinates in the xr.Dataset</span>
-<span class="n">stn_lon</span> <span class="o">=</span> <span class="n">stn_df</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">360</span> <span class="c1"># convert lon to same convention as model data</span>
+<span class="c1"># select the valid period for the second station ID</span>
+<span class="n">df_id2</span> <span class="o">=</span> <span class="n">df_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">df_id2_start</span> <span class="o">=</span> <span class="n">df_id2</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">df_id2</span> <span class="o">=</span> <span class="n">df_id2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_id2</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">df_id2_start</span><span class="p">]</span>
+
+<span class="c1"># now concatenate the two records</span>
+<span class="n">stn_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_id1</span><span class="p">,</span> <span class="n">df_id2</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># convert lon to same convention as model data</span>
+<span class="n">stn_lon</span> <span class="o">=</span> <span class="n">stn_df</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">360</span> 
 <span class="n">stn_lat</span> <span class="o">=</span> <span class="n">stn_df</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
 
+<span class="c1"># drop lat and lon variables, since we want these to be coordinates in the xr.Dataset</span>
 <span class="n">stn_df</span> <span class="o">=</span> <span class="n">stn_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 
+<span class="c1"># now convert it to xarray format for easier use with the model data and xclim</span>
 <span class="n">stn_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">stn_df</span><span class="p">)</span>
 <span class="n">stn_ds</span> <span class="o">=</span> <span class="n">stn_ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="n">stn_lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">stn_lon</span><span class="p">)</span>
+
+<span class="c1"># save it for re-use in the following examples</span>
+<span class="n">stn_ds</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="s1">&#39;data_files/station_data_edmonton.nc&#39;</span><span class="p">)</span>
+
 <span class="n">stn_ds</span>
 </pre></div>
 </div>
@@ -1034,27 +1055,27 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:  (time: 11214)
+Dimensions:  (time: 11323)
 Coordinates:
   * time     (time) datetime64[ns] 1980-01-01 1980-01-02 ... 2010-12-31
     lat      float64 53.57
     lon      float64 246.5
 Data variables:
     tas      (time) float64 -9.4 -5.8 -10.3 -11.8 ... -11.0 -17.6 -18.0 -19.0
-    Name     (time) object &#x27;EDMONTON CITY CENTRE A&#x27; ... &#x27;EDMONTON CITY CENTRE...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-52ff8a78-10c7-4948-a868-475112982d38' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-52ff8a78-10c7-4948-a868-475112982d38' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 11214</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-575a6920-61d0-4057-bef1-05d877c62c36' class='xr-section-summary-in' type='checkbox'  checked><label for='section-575a6920-61d0-4057-bef1-05d877c62c36' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1980-01-01 ... 2010-12-31</div><input id='attrs-84a4575a-9426-49bf-8ec4-4c101fa94b76' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-84a4575a-9426-49bf-8ec4-4c101fa94b76' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1d9da649-38fb-4610-b3c2-397de2b90f11' class='xr-var-data-in' type='checkbox'><label for='data-1d9da649-38fb-4610-b3c2-397de2b90f11' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1980-01-01T00:00:00.000000000&#x27;, &#x27;1980-01-02T00:00:00.000000000&#x27;,
+    Name     (time) object &#x27;EDMONTON CITY CENTRE A&#x27; ... &#x27;EDMONTON CITY CENTRE...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-eb1bfd56-afc3-49ec-9cc1-64c2b6510842' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-eb1bfd56-afc3-49ec-9cc1-64c2b6510842' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 11323</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-04f28f87-71dc-481f-b77c-cad08f44506f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-04f28f87-71dc-481f-b77c-cad08f44506f' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1980-01-01 ... 2010-12-31</div><input id='attrs-199b5cd9-c50d-409d-a1d4-75de96622ac5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-199b5cd9-c50d-409d-a1d4-75de96622ac5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c9b01205-51ba-4b68-98c7-4b234d21902b' class='xr-var-data-in' type='checkbox'><label for='data-c9b01205-51ba-4b68-98c7-4b234d21902b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1980-01-01T00:00:00.000000000&#x27;, &#x27;1980-01-02T00:00:00.000000000&#x27;,
        &#x27;1980-01-03T00:00:00.000000000&#x27;, ..., &#x27;2010-12-29T00:00:00.000000000&#x27;,
        &#x27;2010-12-30T00:00:00.000000000&#x27;, &#x27;2010-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>53.57</div><input id='attrs-31f779dc-77a7-4a6c-acab-ebd126387a6f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-31f779dc-77a7-4a6c-acab-ebd126387a6f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8b4d2214-a2dc-45ce-861a-33195734e2b2' class='xr-var-data-in' type='checkbox'><label for='data-8b4d2214-a2dc-45ce-861a-33195734e2b2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(53.57)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>246.5</div><input id='attrs-9af5d1ea-2e5e-4557-af88-6030347e6062' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9af5d1ea-2e5e-4557-af88-6030347e6062' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-659c32a2-853d-4284-a9f0-66c0f0967c32' class='xr-var-data-in' type='checkbox'><label for='data-659c32a2-853d-4284-a9f0-66c0f0967c32' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(246.48)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f0517933-e1b1-4d4b-8e7f-de59c4a85ca2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f0517933-e1b1-4d4b-8e7f-de59c4a85ca2' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-9.4 -5.8 -10.3 ... -18.0 -19.0</div><input id='attrs-33761d18-b231-4a2b-8d1f-9f2c97ee01ed' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-33761d18-b231-4a2b-8d1f-9f2c97ee01ed' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-433da03a-e333-4194-9df7-fd9a25f2d121' class='xr-var-data-in' type='checkbox'><label for='data-433da03a-e333-4194-9df7-fd9a25f2d121' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ -9.4,  -5.8, -10.3, ..., -17.6, -18. , -19. ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Name</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;EDMONTON CITY CENTRE A&#x27; ... &#x27;ED...</div><input id='attrs-d9e857fc-8935-4d70-9bd6-ed79ccb1f1e8' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d9e857fc-8935-4d70-9bd6-ed79ccb1f1e8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-afa5a370-967f-4287-95a1-d46aa16670cc' class='xr-var-data-in' type='checkbox'><label for='data-afa5a370-967f-4287-95a1-d46aa16670cc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;EDMONTON CITY CENTRE A&#x27;, &#x27;EDMONTON CITY CENTRE A&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>53.57</div><input id='attrs-7eb4aca5-a106-440a-9c91-32a9a6cd3f16' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7eb4aca5-a106-440a-9c91-32a9a6cd3f16' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fe018ff8-e625-4c0e-86ea-8441385e6346' class='xr-var-data-in' type='checkbox'><label for='data-fe018ff8-e625-4c0e-86ea-8441385e6346' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(53.57)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>246.5</div><input id='attrs-6fb740eb-9d35-4e09-ae88-a5710095a5d4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6fb740eb-9d35-4e09-ae88-a5710095a5d4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-31b588a7-5b25-4cc6-9835-7b39c6dd4cf2' class='xr-var-data-in' type='checkbox'><label for='data-31b588a7-5b25-4cc6-9835-7b39c6dd4cf2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array(246.48)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-06d5019d-9e2f-4642-9591-55b9c827c40d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-06d5019d-9e2f-4642-9591-55b9c827c40d' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-9.4 -5.8 -10.3 ... -18.0 -19.0</div><input id='attrs-3cd813ee-92fb-43ba-aef7-cb1367c7bc53' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3cd813ee-92fb-43ba-aef7-cb1367c7bc53' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-17d2b741-192f-4c20-8178-deac5999e82a' class='xr-var-data-in' type='checkbox'><label for='data-17d2b741-192f-4c20-8178-deac5999e82a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ -9.4,  -5.8, -10.3, ..., -17.6, -18. , -19. ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>Name</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;EDMONTON CITY CENTRE A&#x27; ... &#x27;ED...</div><input id='attrs-2989cb78-8974-48d4-8c4c-c8ad9b1c153a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2989cb78-8974-48d4-8c4c-c8ad9b1c153a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0d18b205-8328-4121-971f-e058be3c4cf5' class='xr-var-data-in' type='checkbox'><label for='data-0d18b205-8328-4121-971f-e058be3c4cf5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;EDMONTON CITY CENTRE A&#x27;, &#x27;EDMONTON CITY CENTRE A&#x27;,
        &#x27;EDMONTON CITY CENTRE A&#x27;, ..., &#x27;EDMONTON CITY CENTRE AWOS&#x27;,
        &#x27;EDMONTON CITY CENTRE AWOS&#x27;, &#x27;EDMONTON CITY CENTRE AWOS&#x27;],
-      dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-cb3e2d5c-4f97-4cb0-8ae8-60d98428691b' class='xr-section-summary-in' type='checkbox'  ><label for='section-cb3e2d5c-4f97-4cb0-8ae8-60d98428691b' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0020bf24-3f4a-448a-9987-5ad39818a2d7' class='xr-index-data-in' type='checkbox'/><label for='index-0020bf24-3f4a-448a-9987-5ad39818a2d7' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1980-01-01&#x27;, &#x27;1980-01-02&#x27;, &#x27;1980-01-03&#x27;, &#x27;1980-01-04&#x27;,
+      dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8723a435-f83b-44d3-b1c3-ac9db9dcabb8' class='xr-section-summary-in' type='checkbox'  ><label for='section-8723a435-f83b-44d3-b1c3-ac9db9dcabb8' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-84f953ca-943a-4a0e-be7c-8e3bda215ac9' class='xr-index-data-in' type='checkbox'/><label for='index-84f953ca-943a-4a0e-be7c-8e3bda215ac9' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1980-01-01&#x27;, &#x27;1980-01-02&#x27;, &#x27;1980-01-03&#x27;, &#x27;1980-01-04&#x27;,
                &#x27;1980-01-05&#x27;, &#x27;1980-01-06&#x27;, &#x27;1980-01-07&#x27;, &#x27;1980-01-08&#x27;,
                &#x27;1980-01-09&#x27;, &#x27;1980-01-10&#x27;,
                ...
                &#x27;2010-12-22&#x27;, &#x27;2010-12-23&#x27;, &#x27;2010-12-24&#x27;, &#x27;2010-12-25&#x27;,
                &#x27;2010-12-26&#x27;, &#x27;2010-12-27&#x27;, &#x27;2010-12-28&#x27;, &#x27;2010-12-29&#x27;,
                &#x27;2010-12-30&#x27;, &#x27;2010-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=11214, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-68b647ef-ac31-4c57-af5c-25c6c4f0c1a3' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-68b647ef-ac31-4c57-af5c-25c6c4f0c1a3' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=11323, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ddb6fe8c-c4c2-4d3c-9506-60ae6d36ac22' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ddb6fe8c-c4c2-4d3c-9506-60ae6d36ac22' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </details>
 </div>
 <p>Having downloaded the station observational data, the next step is to download the raw model data. Since it tends to be more reliable than the ESGF, we’ll search the Google Cloud Services CMIP6 archive for data from our chosen model and scenarios.</p>
@@ -1064,7 +1085,8 @@ Data variables:
 <span class="n">df_catalog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_gcsfs_catalog</span><span class="p">)</span>
 
 <span class="c1"># search for our selected model, both historical and SSP3-7.0 scenarios</span>
-<span class="n">search_string</span> <span class="o">=</span> <span class="s2">&quot;table_id == &#39;day&#39; &amp; source_id == &#39;CESM2&#39; &amp; variable_id == &#39;tas&#39;&quot;</span> <span class="c1"># continue on the next line</span>
+<span class="n">search_string</span> <span class="o">=</span> <span class="s2">&quot;table_id == &#39;day&#39; &amp; source_id == &#39;CESM2&#39; &amp; variable_id == &#39;tas&#39;&quot;</span> 
+<span class="c1"># continue on the next line</span>
 <span class="n">search_string</span> <span class="o">+=</span> <span class="s2">&quot; &amp; experiment_id == [&#39;historical&#39;, &#39;ssp370&#39;]&quot;</span>
 <span class="n">df_search</span> <span class="o">=</span> <span class="n">df_catalog</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">search_string</span><span class="p">)</span>
 
@@ -1421,7 +1443,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/be78089ef0cb49539363557a53dc2c1aa0e7ec50f3a68a6ef1186307c371267c.png" src="../_images/be78089ef0cb49539363557a53dc2c1aa0e7ec50f3a68a6ef1186307c371267c.png" />
+<img alt="../_images/36d213a548cf43767a9f1bd6f4a14ef7a92ea9f6ed9eb2b4a7fd7dfe30b292f7.png" src="../_images/36d213a548cf43767a9f1bd6f4a14ef7a92ea9f6ed9eb2b4a7fd7dfe30b292f7.png" />
 </div>
 </div>
 <p>Strange, the observed data drops to a very low value at the end of the year and extends past the model data on the x axis. This is because the model calendar does not include leap years! To account for this discrepancy, we will drop leap days from the station data to rectify the difference in calendars, and then re-do the calculation.</p>
@@ -1472,7 +1494,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/45584cf562390f8cc41f37498bc6180db1f9918de58bd525ae0554a8993956bb.png" src="../_images/45584cf562390f8cc41f37498bc6180db1f9918de58bd525ae0554a8993956bb.png" />
+<img alt="../_images/1867d707e707d73b896976b16a34c92dc5565f2a674e287e3b27793aa593f9fd.png" src="../_images/1867d707e707d73b896976b16a34c92dc5565f2a674e287e3b27793aa593f9fd.png" />
 </div>
 </div>
 <p>This second plot is a more fair comparison of the daily climatologies. The model bias for this location (i.e. the difference between the obs and the historical simulation) isn’t especially large in this case, which is encouraging. The daily climatoloies do not agree perfectly, most notably in the summertime when the model historical climatology peaks later in the year than the observed climatology, but the one-standard-deviation (one-<span class="math notranslate nohighlight">\(\sigma\)</span>) ranges overlap a lot. We’ll continue to characterize the model bias in the next step by plotting the PDFs and CDFs of daily mean temperature for both datasets.</p>
@@ -1485,7 +1507,7 @@ Data variables:
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit Kernel Density Estimator so we can plot a smooth distribution</span>
 <span class="n">kde_hist_raw</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">tas_hist_raw</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="n">kde_obs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">tas_obs_noleap</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> 
+<span class="n">kde_obs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">tas_obs_noleap</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> 
 
 <span class="c1"># means and stdev ratios</span>
 <span class="n">tas_hist_raw_mean</span> <span class="o">=</span> <span class="n">tas_hist_raw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
@@ -1528,7 +1550,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/bcae2b8ccd284e982d0b2089242631c440f58cbeac4f0a3525bcb7968f2cefe5.png" src="../_images/bcae2b8ccd284e982d0b2089242631c440f58cbeac4f0a3525bcb7968f2cefe5.png" />
+<img alt="../_images/5fbe1c44fd14c3ce9df883f81173864a1230470b44f7c7866d871676562bcabc.png" src="../_images/5fbe1c44fd14c3ce9df883f81173864a1230470b44f7c7866d871676562bcabc.png" />
 </div>
 </div>
 <p>This situation is similar to Section 3.4.4 where we compared the temperature distributions for Toronto between CanESM5 and the Toronto City ECCC station. Here the mean bias is small and the overall variability is similar, but the model (CESM2) distribution is sharply bimodal while the observed temperature distribution is less so. This feature of the bias in the model temperatures cannot be determined by comparing the daily climatologies, but it’s important to account for. Thankfully, our quantile mapping based bias correction methods (like Quantile Delta Mapping) can help correct this. Later on, we’ll reproduce this plot with bias-corrected model data to see if it helps correct for the spurious bimodality of the daily mean temperature distribution.</p>
@@ -1545,12 +1567,26 @@ Data variables:
 <span class="n">tas_hist_raw</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
 
 <span class="c1"># calculate CDDs</span>
-<span class="n">cdd_obs</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_obs_noleap</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-<span class="n">cdd_hist_raw</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_hist_raw</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">cdd_obs</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_obs_noleap</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">cdd_hist_raw</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_hist_raw</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 
 <span class="c1"># long-term means for the historical period</span>
 <span class="n">cdd_obs_ltm</span> <span class="o">=</span> <span class="n">cdd_obs</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 <span class="n">cdd_hist_raw_ltm</span> <span class="o">=</span> <span class="n">cdd_hist_raw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
 </div>
@@ -1584,10 +1620,10 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/bd8e6ab2c3d0741cd4f21571b65422616b0afbd33fa8464b30a62a49c2884e2b.png" src="../_images/bd8e6ab2c3d0741cd4f21571b65422616b0afbd33fa8464b30a62a49c2884e2b.png" />
+<img alt="../_images/002b57ca124502101ddc20b41f34b010f35d92d9312a61e5963985a4b414cc04.png" src="../_images/002b57ca124502101ddc20b41f34b010f35d92d9312a61e5963985a4b414cc04.png" />
 </div>
 </div>
-<p>Despite good agreement regarding the daily climatology and the overall mean and standard deviation, the model shows a fairly sizable bias in the number of annual CDDs. 13 CDDs per year, compared to the observed long-term mean of about 86 CDDs per year, is a mean bias of about 15%. Going through the exercise of calculating the climate indicator using the raw model data has illuminated this important bias, which wouldn’t be easily deduced by examining the previous plots. The spurious low-temperature peak of the model PDF hints that there may be too few warm days, but we couldn’t make this conclusion without calculating the CDDs.</p>
+<p>Despite good agreement regarding the daily climatology and the overall mean and standard deviation, the model shows a fairly sizable bias in the number of annual CDDs. 12 CDDs per year, compared to the observed long-term mean of about 85 CDDs per year, is a mean bias of about 14%. Going through the exercise of calculating the climate indicator using the raw model data has illuminated this important bias, which wouldn’t be easily deduced by examining the previous plots. The spurious low-temperature peak of the model PDF hints that there may be too few warm days, but we couldn’t make this conclusion without calculating the CDDs.</p>
 </section>
 <section id="evaluating-the-climate-change-signal">
 <h2>6.1.4 Evaluating the Climate Change Signal<a class="headerlink" href="#evaluating-the-climate-change-signal" title="Permalink to this heading">#</a></h2>
@@ -1641,7 +1677,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/c5c29a5de8d3f6c74054fab0b84236e49bc0e8027c147fdc0f04545bb674fcf0.png" src="../_images/c5c29a5de8d3f6c74054fab0b84236e49bc0e8027c147fdc0f04545bb674fcf0.png" />
+<img alt="../_images/e7e05c747f80adb40da9eb8e1a101c171e96d8e7ceafac5436f352c067f9bf21.png" src="../_images/e7e05c747f80adb40da9eb8e1a101c171e96d8e7ceafac5436f352c067f9bf21.png" />
 </div>
 </div>
 <p>We see clear signs of warming in the end-of-century period under the SSP3-7.0 scenario, especially in the summer season. The low end of the one-<span class="math notranslate nohighlight">\(\sigma\)</span> range for this case is completely above the high end of the variability range for the model historical case. This is likely to result in large changes in our climate indicator, cooling degree days.</p>
@@ -1705,7 +1741,8 @@ Data variables:
                                               <span class="n">neff_ssp3_raw</span><span class="p">,</span>
                                               <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                                               <span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;less&#39;</span><span class="p">)</span> 
-<span class="c1"># alt hypothesis is that the first dataset (historical) has a lower mean than the second dataset (future)</span>
+<span class="c1"># alt hypothesis is that the first dataset (historical) </span>
+<span class="c1"># has a lower mean than the second dataset (future)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value for t-test: </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pval_neff</span><span class="p">)</span>
 </pre></div>
@@ -1729,7 +1766,7 @@ Data variables:
 <span class="n">tas_ssp3_raw</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
 
 <span class="c1"># calculate CDDs</span>
-<span class="n">cdd_ssp3_raw</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_ssp3_raw</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">cdd_ssp3_raw</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_ssp3_raw</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 
 <span class="c1"># long-term means</span>
 <span class="n">cdd_ssp3_raw_ltm</span> <span class="o">=</span> <span class="n">cdd_ssp3_raw</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
@@ -1737,6 +1774,14 @@ Data variables:
 <span class="c1"># stdevs for historical and ssp3</span>
 <span class="n">cdd_hist_raw_stdev</span> <span class="o">=</span> <span class="n">cdd_hist_raw</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 <span class="n">cdd_ssp3_raw_stdev</span> <span class="o">=</span> <span class="n">cdd_ssp3_raw</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
 </div>
@@ -1770,7 +1815,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/f53940c903ef641463cd771ae48e58e27373b64e19296c36c17451265d48c651.png" src="../_images/f53940c903ef641463cd771ae48e58e27373b64e19296c36c17451265d48c651.png" />
+<img alt="../_images/e5acfb462e12d42425c128b9ad937ae9d9308d89ac96ed9a375a1d7aee708e65.png" src="../_images/e5acfb462e12d42425c128b9ad937ae9d9308d89ac96ed9a375a1d7aee708e65.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1778,13 +1823,16 @@ Data variables:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform two_sample t-test to see if the future period has more CDDs</span>
 <span class="n">tstat</span><span class="p">,</span> <span class="n">pval_cdds</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind_from_stats</span><span class="p">(</span><span class="n">cdd_hist_raw_ltm</span><span class="p">,</span>
                                               <span class="n">cdd_hist_raw_stdev</span><span class="p">,</span>
-                                              <span class="nb">len</span><span class="p">(</span><span class="n">cdd_hist_raw</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="c1"># different years should be indep. of each other</span>
+                                              <span class="c1"># different years should be approx. indep. of each other</span>
+                                              <span class="c1"># so the numer of DOF is the number of years</span>
+                                              <span class="nb">len</span><span class="p">(</span><span class="n">cdd_hist_raw</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> 
                                               <span class="n">cdd_ssp3_raw_ltm</span><span class="p">,</span>
                                               <span class="n">cdd_ssp3_raw_stdev</span><span class="p">,</span>
                                               <span class="nb">len</span><span class="p">(</span><span class="n">cdd_ssp3_raw</span><span class="o">.</span><span class="n">time</span><span class="p">),</span>
                                               <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                                               <span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;less&#39;</span><span class="p">)</span> 
-<span class="c1"># alt hypothesis is that the first dataset (historical) has a lower mean than the second dataset (future)</span>
+<span class="c1"># alt hypothesis is that the first dataset (historical)</span>
+<span class="c1"># has a lower mean than the second dataset (future)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value for t-test: </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pval_cdds</span><span class="p">)</span>
 </pre></div>
@@ -1821,11 +1869,11 @@ Data variables:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># estimate the quantiles and calculate the adjustment factors</span>
-<span class="n">QDM_trained</span> <span class="o">=</span> <span class="n">sdba</span><span class="o">.</span><span class="n">adjustment</span><span class="o">.</span><span class="n">QuantileDeltaMapping</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">tas_obs_noleap</span><span class="p">,</span>      <span class="c1"># observational data</span>
+<span class="n">QDM_trained</span> <span class="o">=</span> <span class="n">sdba</span><span class="o">.</span><span class="n">adjustment</span><span class="o">.</span><span class="n">QuantileDeltaMapping</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">tas_obs_noleap</span><span class="p">,</span> <span class="c1"># observational data</span>
                                                          <span class="n">tas_hist_raw</span><span class="p">,</span> <span class="c1"># raw model historical data</span>
-                                             <span class="c1"># number of quantiles to estimate (see documentation)</span>
+<span class="c1"># number of quantiles to estimate (see documentation)</span>
                                                          <span class="n">nquantiles</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> 
-             <span class="c1"># additive adjustment, for interval variable (see documentation &amp; Cannon et al. 2015)</span>
+<span class="c1"># additive adjustment, for interval variable (see documentation &amp; Cannon et al. 2015)</span>
                                                          <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;+&quot;</span><span class="p">,</span>
 <span class="c1"># separate adjustment applied to each month, to correct for bias in seasonal cycle (see documentation)</span>
                                                          <span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;time.month&#39;</span> 
@@ -1833,7 +1881,7 @@ Data variables:
 
 <span class="c1"># apply the bias correction to the historical and SSP3-7.0 data</span>
 <span class="n">tas_hist_qdm</span> <span class="o">=</span> <span class="n">QDM_trained</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="n">tas_hist_raw</span><span class="p">,</span> 
-                    <span class="c1"># how to interpolate between the nquantiles discrete quantile estimates                                  </span>
+<span class="c1"># method for interpolating between the nquantiles discrete quantile estimates                                  </span>
                                  <span class="n">interp</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 
 <span class="n">tas_ssp3_qdm</span> <span class="o">=</span> <span class="n">QDM_trained</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="n">tas_ssp3_raw</span><span class="p">,</span>                                 
@@ -1920,7 +1968,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/36ccc175535c2efeb655a18f8372521285c83195b70993dfc3471afe42a84c75.png" src="../_images/36ccc175535c2efeb655a18f8372521285c83195b70993dfc3471afe42a84c75.png" />
+<img alt="../_images/f6deb4a873e76024d8396c9e482618efa08402aa85c6dd265a29d5f6388b7ab6.png" src="../_images/f6deb4a873e76024d8396c9e482618efa08402aa85c6dd265a29d5f6388b7ab6.png" />
 </div>
 </div>
 <p>The daily climatology of the QDM historical data matches much more closely with the station observations than the raw model did. Most notably, the uncertainty shading shows greater overlap, indicating a better match of the interannual variability for each day of the year. Additionally, the timing of the peak temperatures in the summertime matches better than it did for the raw model.</p>
@@ -1965,7 +2013,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/94386ce721a6ffefff8cfbaec7c4f26cffb8e8c285ce7bb611b2ae4d75db893b.png" src="../_images/94386ce721a6ffefff8cfbaec7c4f26cffb8e8c285ce7bb611b2ae4d75db893b.png" />
+<img alt="../_images/c250669fdd162166af2115f12446f087369d8605b4b5864e7ad6d8e73a0519bd.png" src="../_images/c250669fdd162166af2115f12446f087369d8605b4b5864e7ad6d8e73a0519bd.png" />
 </div>
 </div>
 <p>Comparing the PDFs of the raw model and bias-corrected output, we can see the impact of applying QDM. The bias-adjusted historical simulation matches the observed PDF much more closely, though it still has a slightly higher low-temperature peak than the observations. This may be an artefact introduced by the monthly grouping - we enforced that the distributions for each month of the year must match individually, not the overall distribution. We can test if the bias-adjusted data follows a significantly different distribution than the observations using the <a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test">Kolmogorov-Smirnov test</a>, like in Section 4.4.1. The null hypothesis of this test is that both samples being compared are drawn from the same underlying probability distribution. The p-value of 0.51 is sufficiently high that we fail to reject the null hypothesis, and thus there isn’t sufficient evidence to claim that they follow different sampling distributions.</p>
@@ -1982,8 +2030,8 @@ Data variables:
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate CDDs</span>
-<span class="n">cdd_hist_qdm</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_hist_qdm</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-<span class="n">cdd_ssp3_qdm</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_ssp3_qdm</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">cdd_hist_qdm</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_hist_qdm</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">cdd_ssp3_qdm</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas_ssp3_qdm</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 
 <span class="c1"># long-term means</span>
 <span class="n">cdd_hist_qdm_ltm</span> <span class="o">=</span> <span class="n">cdd_hist_qdm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
@@ -1992,6 +2040,20 @@ Data variables:
 <span class="c1"># stdevs</span>
 <span class="n">cdd_hist_qdm_stdev</span> <span class="o">=</span> <span class="n">cdd_hist_qdm</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 <span class="n">cdd_ssp3_qdm_stdev</span> <span class="o">=</span> <span class="n">cdd_ssp3_qdm</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
 </div>
@@ -2035,7 +2097,7 @@ Data variables:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1e6193895699a83b12bd975c95c4ab047da9ef10838d710b34d56c24d5972b61.png" src="../_images/1e6193895699a83b12bd975c95c4ab047da9ef10838d710b34d56c24d5972b61.png" />
+<img alt="../_images/354d1b3f29440a6b421902ab329aa2bf67f6611402f4e0a3e898d0e3ff762126.png" src="../_images/354d1b3f29440a6b421902ab329aa2bf67f6611402f4e0a3e898d0e3ff762126.png" />
 </div>
 </div>
 <p>The effect of the bias adjustment on the model historical CDDs is positive - the mean number of annual CDDs is very close to the observed long-term mean. The number of future CDDs also increases as a result of the bias correction, but the mean change is essentially unchanged. This behavior might lead you to question whether the bias correction was worth it at all, but remember that this model had a very low bias in daily mean temperature for our study site. Other models, which we’ll investigate in the next section, may not show the same behavior.</p>

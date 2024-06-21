@@ -403,7 +403,7 @@ document.write(`
 
 <span class="kn">from</span> <span class="nn">siphon.catalog</span> <span class="kn">import</span> <span class="n">TDSCatalog</span>
 <span class="kn">from</span> <span class="nn">xclim.core.calendar</span> <span class="kn">import</span> <span class="n">convert_calendar</span><span class="p">,</span> <span class="n">percentile_doy</span>
-<span class="kn">import</span> <span class="nn">xclim.indices</span> <span class="k">as</span> <span class="nn">xci</span>
+<span class="kn">import</span> <span class="nn">xclim.indicators</span> <span class="k">as</span> <span class="nn">xci</span>
 
 <span class="c1"># pysal.esda for spatial autocorrelation analysis</span>
 <span class="kn">import</span> <span class="nn">esda</span> 
@@ -425,15 +425,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/libpysal/cg/alpha_shapes.py:39: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/cg/alpha_shapes.py:39: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
   def nb_dist(x, y):
-/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/libpysal/cg/alpha_shapes.py:165: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/cg/alpha_shapes.py:165: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
   def get_faces(triangle):
-/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/libpysal/cg/alpha_shapes.py:199: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/cg/alpha_shapes.py:199: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
   def build_faces(faces, triangles_is, num_triangles, num_faces_single):
-/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/libpysal/cg/alpha_shapes.py:261: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/cg/alpha_shapes.py:261: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
   def nb_mask_faces(mask, faces):
-/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/libpysal/weights/util.py:23: UserWarning: geopandas not available. Some functionality will be disabled.
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/weights/util.py:23: UserWarning: geopandas not available. Some functionality will be disabled.
   warn(&quot;geopandas not available. Some functionality will be disabled.&quot;)
 </pre></div>
 </div>
@@ -534,7 +534,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ed927723c41e169d222e8866cfb7c25c82df5a561c4596702666c67abc62d1ad.png" src="../_images/ed927723c41e169d222e8866cfb7c25c82df5a561c4596702666c67abc62d1ad.png" />
+<img alt="../_images/d15aaeeb08ff155520a7a78f4e7450fc9d14c0322cbfdb90a4e56c6348c36873.png" src="../_images/d15aaeeb08ff155520a7a78f4e7450fc9d14c0322cbfdb90a4e56c6348c36873.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -553,7 +553,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fa7451bf4ca5720e0e4d0c4a5ed86c85092cf70a148bcaedd2ce14360fa64ddf.png" src="../_images/fa7451bf4ca5720e0e4d0c4a5ed86c85092cf70a148bcaedd2ce14360fa64ddf.png" />
+<img alt="../_images/190a0c35483f3298a0a2382455ec520ccc50e0ac84dfed16ab000e99ae4e3949.png" src="../_images/190a0c35483f3298a0a2382455ec520ccc50e0ac84dfed16ab000e99ae4e3949.png" />
 </div>
 </div>
 <section id="distribution-of-values">
@@ -618,7 +618,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/80d2e8b5776e6d00d4e9115365bc1f924f999c8bc1854568da447e82088bc69e.png" src="../_images/80d2e8b5776e6d00d4e9115365bc1f924f999c8bc1854568da447e82088bc69e.png" />
+<img alt="../_images/adbcaa71d0ccd747c2ee5bebda09f72b6942e1118f969c30adf28a8a70897cca.png" src="../_images/adbcaa71d0ccd747c2ee5bebda09f72b6942e1118f969c30adf28a8a70897cca.png" />
 </div>
 </div>
 <p>For the training period, the KS test p-values are mostly greater than the typical thresholds of 0.05 or 0.1 for rejecting the null hypothesis. This means for these locations we do not have sufficient evidence to say that the downscaled GCM data and the observations follow different probability distributions - which is good! This is not unexpected, since BCCAQv2 uses Quantile Delta Mapping for bias correction, and quantile mapping forces the distribution of the downscaled historical GCM data to match the observed distribution (as we saw in Section 4.2). However, it looks like there are some parts of the domain where the distributions are significantly different (according to the KS test) and even more regions in the validation period. Because we’re looking at only a short time period, this could be a sampling issue, but it may also indicate some issues with the downscaling method. Assessing results for multiple methods of downscaling would be necessary to get an idea of the performance of one method relative to others.</p>
@@ -767,7 +767,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/67f4670eb3c67cb698c8af8f9688419fef8207e6fe1c8a735e5ab415a9db5e5c.png" src="../_images/67f4670eb3c67cb698c8af8f9688419fef8207e6fe1c8a735e5ab415a9db5e5c.png" />
+<img alt="../_images/c463ec79859226c516e247cd0384629bb6d62f128b4187b8a986b4a18a843fde.png" src="../_images/c463ec79859226c516e247cd0384629bb6d62f128b4187b8a986b4a18a843fde.png" />
 </div>
 </div>
 <p>Everything looks good! The lag-zero autocorrelation is unity, which must be true since this is just the correlation of the data with itself. The curve rapidly decays for greater lags, which makes sense since the weather for a given day is likely to be similar to the weather for the days before and after, but shouldn’t be strongly related to what happens dozens of days before or after.</p>
@@ -798,7 +798,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/ba2557e929d7adb2dd91708d166ce6c245720674ce4c7e2b8132afa12d3a4eab.png" src="../_images/ba2557e929d7adb2dd91708d166ce6c245720674ce4c7e2b8132afa12d3a4eab.png" />
+<img alt="../_images/0de73b163625294999f773dd963e08be2471242a53b2c2b2a863f020182b59e6.png" src="../_images/0de73b163625294999f773dd963e08be2471242a53b2c2b2a863f020182b59e6.png" />
 </div>
 </div>
 <p>Note that the colourbars for each plot are different because the autocorrelations decay with increasing lags. Next, we will make the same plots for the downscaled GCM data for the validation period.</p>
@@ -842,7 +842,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e2cab150ae04e9bc913cae8b4ec96407a837f82009c01514520141d40931b8f0.png" src="../_images/e2cab150ae04e9bc913cae8b4ec96407a837f82009c01514520141d40931b8f0.png" />
+<img alt="../_images/7db454598107b7ba822d54457d7f109534c9ef7808c7fff5e3753b6193c34a66.png" src="../_images/7db454598107b7ba822d54457d7f109534c9ef7808c7fff5e3753b6193c34a66.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -870,7 +870,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1b26542445e7fbd6a5db0e4e2e2c9d320aae79a614def9b8a92afbc2ebec4011.png" src="../_images/1b26542445e7fbd6a5db0e4e2e2c9d320aae79a614def9b8a92afbc2ebec4011.png" />
+<img alt="../_images/b210d72f4ca527afe174f8e91f9837d8cdbe39a9e103698ded8caad17873f178.png" src="../_images/b210d72f4ca527afe174f8e91f9837d8cdbe39a9e103698ded8caad17873f178.png" />
 </div>
 </div>
 <p>For lags up to 4 days, the downscaled GCM data shows similar autocorrelations to the observations. But as we can see from both the maps and the curve for the arbitrarily selected grid cell, the autocorrelations decay much faster for the GCM than the observations. So for timescales longer than a week or so (twice 4 days), the temporal sequencing of events in the downscaled GCM output may not be reliable. This might not be much of a problem if the climate indicator for your problem is based on annual aggregated totals (i.e. heating/cooling degree days, tropical nights, etc.), but it could be problematic for certain applications - this is where your own domain knowledge is important for assessing which sets of downscaled climate data suits your needs.</p>
@@ -889,11 +889,25 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <span class="n">data_gcm_test</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degC&#39;</span>
 
 <span class="c1"># calculate Tropical Nights</span>
-<span class="n">tn_obs_train</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">tn_days_above</span><span class="p">(</span><span class="n">data_obs_train</span><span class="p">)</span>
-<span class="n">tn_obs_test</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">tn_days_above</span><span class="p">(</span><span class="n">data_obs_test</span><span class="p">)</span>
+<span class="n">tn_obs_train</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">tropical_nights</span><span class="p">(</span><span class="n">data_obs_train</span><span class="p">)</span>
+<span class="n">tn_obs_test</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">tropical_nights</span><span class="p">(</span><span class="n">data_obs_test</span><span class="p">)</span>
 
-<span class="n">tn_gcm_train</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">tn_days_above</span><span class="p">(</span><span class="n">data_gcm_train</span><span class="p">)</span>
-<span class="n">tn_gcm_test</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">tn_days_above</span><span class="p">(</span><span class="n">data_gcm_test</span><span class="p">)</span>
+<span class="n">tn_gcm_train</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">tropical_nights</span><span class="p">(</span><span class="n">data_gcm_train</span><span class="p">)</span>
+<span class="n">tn_gcm_test</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">tropical_nights</span><span class="p">(</span><span class="n">data_gcm_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
 </div>
@@ -936,7 +950,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/f40fd27b5f4f11ee3d7cd67161aba2d87b744554808a7407c63ed0a6482b512b.png" src="../_images/f40fd27b5f4f11ee3d7cd67161aba2d87b744554808a7407c63ed0a6482b512b.png" />
+<img alt="../_images/aa0552a2ffdc86b559c3c94dd3cf54cfc72c6e43a35073d62fac6131ccb80d53.png" src="../_images/aa0552a2ffdc86b559c3c94dd3cf54cfc72c6e43a35073d62fac6131ccb80d53.png" />
 </div>
 </div>
 <p>For the training period, the model seems to agree well with the observations regarding the typical number of tropical nights. For the validation period, the model significantly overestimates the frequency of tropical nights, which could be problematic for a study relating to changes to extreme high temperatures.</p>
@@ -946,7 +960,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <p>CanESM5 is known to have a higher Equilibrium Climate Sensitivity (ECS) than most other CMIP6 models. ECS is a measure of how much a climate model’s global mean temperature changes when you double the concentration of CO<span class="math notranslate nohighlight">\(_{2}\)</span>, so a high ECS means a model will project a faster rate of warming <span id="id4">[<a class="reference internal" href="../guidebook_references.html#id23" title="Neil C. Swart, Jason N. S. Cole, Viatcheslav V. Kharin, Mike Lazare, John F. Scinocca, Nathan P. Gillett, James Anstey, Vivek Arora, James R. Christian, Sarah Hanna, Yanjun Jiao, Warren G. Lee, Fouad Majaess, Oleg A. Saenko, Christian Seiler, Clint Seinen, Andrew Shao, Michael Sigmond, Larry Solheim, Knut von Salzen, Duo Yang, and Barbara Winter. The Canadian Earth System Model version 5 (CanESM5.0.3). Geoscientific Model Development, 12(11):4823–4873, November 2019. Publisher: Copernicus GmbH. URL: https://gmd.copernicus.org/articles/12/4823/2019/ (visited on 2023-09-06), doi:10.5194/gmd-12-4823-2019.">Swart <em>et al.</em>, 2019</a>]</span>.</p>
 </div>
 <p>The next extreme indicator we will calculate is the Cold Spell Duration Index (CSDI). CSDI is the annual number of days in periods of at least 6 consecutive days below the 10th percentile for that day of the year. The 10th percentile is calculated for the baseline period 1961-1990, and for each day of the year, a 5-day window is used (i.e. the 10th percentile for March 10th is calculated using all days between March 8th-12th, for all years in 1961-1990).</p>
-<p>If CSDI sounds complicated to code, you aren’t alone! We are very fortunate that <code class="docutils literal notranslate"><span class="pre">xclim</span></code> includes functions to do it for us. In the <code class="docutils literal notranslate"><span class="pre">xclim.indices</span></code> module, there are functions to compute many climate indices, including those from ClimDEX.</p>
+<p>If CSDI sounds complicated to code, you aren’t alone! We are very fortunate that <code class="docutils literal notranslate"><span class="pre">xclim</span></code> includes functions to do it for us. In the <code class="docutils literal notranslate"><span class="pre">xclim.indicators</span></code> module, there are functions to compute many climate indices, including those from ClimDEX.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select obs and downscaled GCM data for the reference period</span>
@@ -959,11 +973,31 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <span class="n">data_gcm_10p</span> <span class="o">=</span> <span class="n">percentile_doy</span><span class="p">(</span><span class="n">data_gcm_ref</span><span class="p">,</span> <span class="n">per</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">percentiles</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># calculate CSDI for train and test, obs and GCM</span>
-<span class="n">CSDI_obs_train</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_obs_train</span><span class="p">,</span> <span class="n">data_obs_10p</span><span class="p">)</span>
-<span class="n">CSDI_obs_test</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_obs_test</span><span class="p">,</span> <span class="n">data_obs_10p</span><span class="p">)</span>
+<span class="c1">#CSDI_obs_train = xci.cold_spell_duration_index(data_obs_train, data_obs_10p)</span>
+<span class="c1">#CSDI_obs_test = xci.cold_spell_duration_index(data_obs_test, data_obs_10p)</span>
 
-<span class="n">CSDI_gcm_train</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_gcm_train</span><span class="p">,</span> <span class="n">data_gcm_10p</span><span class="p">)</span>
-<span class="n">CSDI_gcm_test</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_gcm_test</span><span class="p">,</span> <span class="n">data_gcm_10p</span><span class="p">)</span>
+<span class="c1">#CSDI_gcm_train = xci.cold_spell_duration_index(data_gcm_train, data_gcm_10p)</span>
+<span class="c1">#CSDI_gcm_test = xci.cold_spell_duration_index(data_gcm_test, data_gcm_10p)</span>
+
+<span class="n">CSDI_obs_train</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_obs_train</span><span class="p">,</span> <span class="n">data_obs_10p</span><span class="p">)</span>
+<span class="n">CSDI_obs_test</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_obs_test</span><span class="p">,</span> <span class="n">data_obs_10p</span><span class="p">)</span>
+
+<span class="n">CSDI_gcm_train</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_gcm_train</span><span class="p">,</span> <span class="n">data_gcm_10p</span><span class="p">)</span>
+<span class="n">CSDI_gcm_test</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_gcm_test</span><span class="p">,</span> <span class="n">data_gcm_10p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+  _check_cell_methods(
+/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+  check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
 </div>
@@ -1007,7 +1041,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/dc35f6912a1ca70a974be2de92c3c13abc603dc1d801708e1fcde57fd75bb1e6.png" src="../_images/dc35f6912a1ca70a974be2de92c3c13abc603dc1d801708e1fcde57fd75bb1e6.png" />
+<img alt="../_images/6917a0e2bdeff760253f12cbf605bd139b40119d4d2bf3e36ce430dc59657bfa.png" src="../_images/6917a0e2bdeff760253f12cbf605bd139b40119d4d2bf3e36ce430dc59657bfa.png" />
 </div>
 </div>
 <p>Interestingly, the downscaled data agrees better with the observations for the validation period, though it is likely that this is due to the historical warming trend - there will be fewer days below the 10th percentile of the reference period because the overall distribution of temperatures has shifted to higher values over time.</p>

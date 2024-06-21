@@ -452,10 +452,10 @@ find_station(name=None, province=None, period=None, type=None, detect_recodes=Fa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmp1m77txi4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /tmp/tmpmg_fvbwv
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env/lib/python3.10/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
   warnings.warn(&quot;Cannot find the station inventory in the current working directory.&quot;)
 </pre></div>
 </div>
@@ -566,7 +566,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3fa2918efda3d83d0b4466cd73cfb211a577da1a98117aef458ef3553d5acf37.png" src="../_images/3fa2918efda3d83d0b4466cd73cfb211a577da1a98117aef458ef3553d5acf37.png" />
+<img alt="../_images/9931a895dfe4dc60c7a763f8fb99b1c84d5f0842f36f1783753fdbe2d5cbd467.png" src="../_images/9931a895dfe4dc60c7a763f8fb99b1c84d5f0842f36f1783753fdbe2d5cbd467.png" />
 </div>
 </div>
 <p>The plot shows that the data for the Station ID 5051 ends in the early 2000s, which isn’t exactly what was stated in the output of <code class="docutils literal notranslate"><span class="pre">ec3.find_station</span></code>. Let’s check exactly when the daily data for each of the three Station IDs starts and ends, by dropping NaNs and then finding the min and max date values.</p>
@@ -606,7 +606,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6f843f212c10f5556ea14c09063ecf6e582f8779c612cc55dd856449bf44c1da.png" src="../_images/6f843f212c10f5556ea14c09063ecf6e582f8779c612cc55dd856449bf44c1da.png" />
+<img alt="../_images/42d6876037ef2a04978af3f7faee7545624b16e98c77572574a3f34b7d6e2990.png" src="../_images/42d6876037ef2a04978af3f7faee7545624b16e98c77572574a3f34b7d6e2990.png" />
 </div>
 </div>
 <p>The data from the two sources agree very well during the overlapping period, though are not perfectly identical. Perhaps there was an instrument change that led to the ID change in the first place, it’s difficult to know. Regardless, in a situation like this it should be safe to choose the data from either record. We will choose the data from Station ID 31688 because it contributes to a greater proportion of the chosen time period. Now that all of the data cleaning is finished, let’s plot the daily maximum temperature over the whole record.</p>
@@ -628,7 +628,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/aafc102fa610afff0c0d056965bd3c3938235c95b31dc53e10868e836539f10e.png" src="../_images/aafc102fa610afff0c0d056965bd3c3938235c95b31dc53e10868e836539f10e.png" />
+<img alt="../_images/a26806a5ff7f72080f79cb0fe0b029c0df351fff71089c5e6e7d9edc90fc40c2.png" src="../_images/a26806a5ff7f72080f79cb0fe0b029c0df351fff71089c5e6e7d9edc90fc40c2.png" />
 </div>
 </div>
 <p>One feature that stands out is the oscillatory nature of the data. Each year there are maxima in the summer and minima in the winter, but because we’ve plotted many years of data, it can be hard to discern any other features, such as day-to-day changes. Let’s plot the data for one year in particular to see these features:</p>
@@ -643,7 +643,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0bf427c4c4d1716ce7c8ea5415f55a248164f71ee43f78f499eb00c7444666e1.png" src="../_images/0bf427c4c4d1716ce7c8ea5415f55a248164f71ee43f78f499eb00c7444666e1.png" />
+<img alt="../_images/4e3abcbef85fb35daa0e8a0610ff2d7913f9045b638572d45fb6fd96e3442d6c.png" src="../_images/4e3abcbef85fb35daa0e8a0610ff2d7913f9045b638572d45fb6fd96e3442d6c.png" />
 </div>
 </div>
 <p>Now we can really see the day-to-day variations in temperature, as well as the seasonal cycle. There were evidently a few warm days early in the year, and a short cold spell in early May, but otherwise, we see the temperature rising into the summer, peaking in July and August, and then falling again in the winter.</p>
@@ -679,7 +679,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b3b15417ee45447fc7e8ce653a88b79027b121313df8514f6f84ac655c964b9b.png" src="../_images/b3b15417ee45447fc7e8ce653a88b79027b121313df8514f6f84ac655c964b9b.png" />
+<img alt="../_images/eaccfacdd09cebe4aca899fee481382e51bf7216126ea569f0d5e0d1f81554e9.png" src="../_images/eaccfacdd09cebe4aca899fee481382e51bf7216126ea569f0d5e0d1f81554e9.png" />
 </div>
 </div>
 <p>While this plot isn’t perfectly smooth, the day-to-day variations in the solid line are smaller than in the time series for the year 2015, because of the long-term averaging. The shading represents the typical range of temperatures for each day. It’s important to note that grouped averaging for each day of the year individually isn’t the only way to calculate a climatology. A method that could give a smoother result would be to first calculate a rolling average of the data (i.e. 7-day rolling mean) before taking the long-term mean or standard deviation. This is valid since there isn’t a good reason why the typical temperature range for a given day should be meaningfully different than for the rest of the week.</p>
@@ -720,7 +720,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1ff53d34dd655c56e3df79e641eaaa2a886e9cd61b1e689cc881a596f8a751e0.png" src="../_images/1ff53d34dd655c56e3df79e641eaaa2a886e9cd61b1e689cc881a596f8a751e0.png" />
+<img alt="../_images/518c5ead2a721bc8a8c93e294cfb81c26a42bc5c72e64d5ecd2094e2c4003634.png" src="../_images/518c5ead2a721bc8a8c93e294cfb81c26a42bc5c72e64d5ecd2094e2c4003634.png" />
 </div>
 </div>
 <p>Temperature has a strong and relatively obvious seasonal cycle. But what about other climate variables, like precipitation? Let’s do the same analysis that we just did for daily maximum temperature, for daily total precipitation amounts.</p>
@@ -770,7 +770,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/aca3556b93ac1db492d9c8096f08664c90f26a069509b8608e797ec6ec7eb08b.png" src="../_images/aca3556b93ac1db492d9c8096f08664c90f26a069509b8608e797ec6ec7eb08b.png" />
+<img alt="../_images/c5becd3dcb9474e94cbc34b935fb2aa71427efa5d2dec9864b5be3909fedcb47.png" src="../_images/c5becd3dcb9474e94cbc34b935fb2aa71427efa5d2dec9864b5be3909fedcb47.png" />
 </div>
 </div>
 <p>The daily climatology of precipitation at this station clearly looks much different from that of temperature. There are no major swings over the course of the year, which means that it may be less important to account for the time of year when doing analysis with precipitation (unlike temperature, where conditions in winter are much different than for summer).</p>
@@ -810,7 +810,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6bb58abb2511ad3b605dd04c85dc4c05fb39c2489a062640fdfaf20ff2d63975.png" src="../_images/6bb58abb2511ad3b605dd04c85dc4c05fb39c2489a062640fdfaf20ff2d63975.png" />
+<img alt="../_images/045200bc5f1a9b0a4402a7c04191575226195e5ea05efee00aa8058b1611fe0d.png" src="../_images/045200bc5f1a9b0a4402a7c04191575226195e5ea05efee00aa8058b1611fe0d.png" />
 </div>
 </div>
 <div class="cell docutils container">
