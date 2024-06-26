@@ -38,6 +38,7 @@ List of packages:
 * `xarray` (workhorse package for netCDF data and arrays with coordinates)
 * `netCDF4` (backend package for xarray's netCDF file handling)
 * `zarr` (backend package for handling zarr data store files)
+* `clisops` (useful for spatial subsetting xarray data)
 * `ec3` (for downloading Canadian weather station observational data)
 * `esgf-pyclient` (for downloading climate model data)
 * `gcsfs` (for accessing climate model data stores on Google Cloud Services)

@@ -197,7 +197,7 @@
 <li class="toctree-l2"><a class="reference internal" href="section3.3_reanalysis.html">3.3 Reanalysis Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section3.4_climate_model_output_from_ESGF.html">3.4 Climate Model Output from ESGF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section3.5_model_data_on_google_cloud.html">3.5 Climate Model Data on Google Cloud</a></li>
-<li class="toctree-l2"><a class="reference internal" href="section3.6_model_data_with_intake_esm.html">Climate Model Data with Intake-ESM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="section3.6_model_data_with_intake_esm.html">3.6 Climate Model Data with Intake-ESM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter3_summary.html">3.6 Chapter Summary</a></li>
 </ul>
 </details></li>
@@ -379,6 +379,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-data-cleaning">3.1.1 Downloading and Data Cleaning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-cycles-and-climatologies">3.1.2 Seasonal Cycles and Climatologies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-values">3.1.3 Extreme Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acessing-the-adjusted-and-homogenized-canadian-climate-data-station-observations">3.1.4 Acessing the Adjusted and Homogenized Canadian Climate Data Station Observations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-other-sources-of-station-data">Appendix: Other Sources of Station Data</a></li>
 </ul>
@@ -427,7 +428,7 @@ document.write(`
 find_station(name=None, province=None, period=None, type=None, detect_recodes=False, target=None, dist=range(0, 101))
     Find data available in the Environment and Climate Change Canada
     historical data archive
-    
+
     Optional Parameters
     ----------
     name : str
@@ -466,10 +467,10 @@ find_station(name=None, province=None, period=None, type=None, detect_recodes=Fa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /tmp/tmpmg_fvbwv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading Station Inventory EN.csv to /var/folders/nt/0d8x2n0x1bdbrmp50m9nn6f00000gn/T/tmpbc_9lguo
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/ec3.py:105: UserWarning: Cannot find the station inventory in the current working directory.
   warnings.warn(&quot;Cannot find the station inventory in the current working directory.&quot;)
 </pre></div>
 </div>
@@ -580,7 +581,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9931a895dfe4dc60c7a763f8fb99b1c84d5f0842f36f1783753fdbe2d5cbd467.png" src="../_images/9931a895dfe4dc60c7a763f8fb99b1c84d5f0842f36f1783753fdbe2d5cbd467.png" />
+<img alt="../_images/323b717869e26e87fc12ecd85911a4a286a3a6cede90b60e322f0ae2e22facea.png" src="../_images/323b717869e26e87fc12ecd85911a4a286a3a6cede90b60e322f0ae2e22facea.png" />
 </div>
 </div>
 <p>The plot shows that the data for the Station ID 5051 ends in the early 2000s, which isn’t exactly what was stated in the output of <code class="docutils literal notranslate"><span class="pre">ec3.find_station</span></code>. Let’s check exactly when the daily data for each of the three Station IDs starts and ends, by dropping NaNs and then finding the min and max date values.</p>
@@ -620,7 +621,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/42d6876037ef2a04978af3f7faee7545624b16e98c77572574a3f34b7d6e2990.png" src="../_images/42d6876037ef2a04978af3f7faee7545624b16e98c77572574a3f34b7d6e2990.png" />
+<img alt="../_images/8d4697be0644422f8e9f1f711749b18c6c4fa908fe9c7b83f72ad922eadd20a3.png" src="../_images/8d4697be0644422f8e9f1f711749b18c6c4fa908fe9c7b83f72ad922eadd20a3.png" />
 </div>
 </div>
 <p>The data from the two sources agree very well during the overlapping period, though are not perfectly identical. Perhaps there was an instrument change that led to the ID change in the first place, it’s difficult to know. Regardless, in a situation like this it should be safe to choose the data from either record. We will choose the data from Station ID 31688 because it contributes to a greater proportion of the chosen time period. Now that all of the data cleaning is finished, let’s plot the daily maximum temperature over the whole record.</p>
@@ -642,7 +643,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a26806a5ff7f72080f79cb0fe0b029c0df351fff71089c5e6e7d9edc90fc40c2.png" src="../_images/a26806a5ff7f72080f79cb0fe0b029c0df351fff71089c5e6e7d9edc90fc40c2.png" />
+<img alt="../_images/ae8494e6c8dec016f2f30780d28abc7afad03ac464a0e0ae18ac677282ed24d7.png" src="../_images/ae8494e6c8dec016f2f30780d28abc7afad03ac464a0e0ae18ac677282ed24d7.png" />
 </div>
 </div>
 <p>One feature that stands out is the oscillatory nature of the data. Each year there are maxima in the summer and minima in the winter, but because we’ve plotted many years of data, it can be hard to discern any other features, such as day-to-day changes. Let’s plot the data for one year in particular to see these features:</p>
@@ -657,7 +658,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4e3abcbef85fb35daa0e8a0610ff2d7913f9045b638572d45fb6fd96e3442d6c.png" src="../_images/4e3abcbef85fb35daa0e8a0610ff2d7913f9045b638572d45fb6fd96e3442d6c.png" />
+<img alt="../_images/392a02c9890bcb1897aca646f8b7fda9118fc44494cbaef7824fa734c3ed87d2.png" src="../_images/392a02c9890bcb1897aca646f8b7fda9118fc44494cbaef7824fa734c3ed87d2.png" />
 </div>
 </div>
 <p>Now we can really see the day-to-day variations in temperature, as well as the seasonal cycle. There were evidently a few warm days early in the year, and a short cold spell in early May, but otherwise, we see the temperature rising into the summer, peaking in July and August, and then falling again in the winter.</p>
@@ -693,7 +694,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eaccfacdd09cebe4aca899fee481382e51bf7216126ea569f0d5e0d1f81554e9.png" src="../_images/eaccfacdd09cebe4aca899fee481382e51bf7216126ea569f0d5e0d1f81554e9.png" />
+<img alt="../_images/998f1736fc807b77da0bf3e352a849be32810476d53702a4413c29fc81df3c3b.png" src="../_images/998f1736fc807b77da0bf3e352a849be32810476d53702a4413c29fc81df3c3b.png" />
 </div>
 </div>
 <p>While this plot isn’t perfectly smooth, the day-to-day variations in the solid line are smaller than in the time series for the year 2015, because of the long-term averaging. The shading represents the typical range of temperatures for each day. It’s important to note that grouped averaging for each day of the year individually isn’t the only way to calculate a climatology. A method that could give a smoother result would be to first calculate a rolling average of the data (i.e. 7-day rolling mean) before taking the long-term mean or standard deviation. This is valid since there isn’t a good reason why the typical temperature range for a given day should be meaningfully different than for the rest of the week.</p>
@@ -734,7 +735,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/518c5ead2a721bc8a8c93e294cfb81c26a42bc5c72e64d5ecd2094e2c4003634.png" src="../_images/518c5ead2a721bc8a8c93e294cfb81c26a42bc5c72e64d5ecd2094e2c4003634.png" />
+<img alt="../_images/c51d5ab16eabbbdcd541d2bf03e89f8d7bc9f107e49e92fc27f84e983d56a74d.png" src="../_images/c51d5ab16eabbbdcd541d2bf03e89f8d7bc9f107e49e92fc27f84e983d56a74d.png" />
 </div>
 </div>
 <p>Temperature has a strong and relatively obvious seasonal cycle. But what about other climate variables, like precipitation? Let’s do the same analysis that we just did for daily maximum temperature, for daily total precipitation amounts.</p>
@@ -784,7 +785,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c5becd3dcb9474e94cbc34b935fb2aa71427efa5d2dec9864b5be3909fedcb47.png" src="../_images/c5becd3dcb9474e94cbc34b935fb2aa71427efa5d2dec9864b5be3909fedcb47.png" />
+<img alt="../_images/eb93798fe73248b7ab85567082656aa63526c4b1a10b8483116dda2b36c0de5a.png" src="../_images/eb93798fe73248b7ab85567082656aa63526c4b1a10b8483116dda2b36c0de5a.png" />
 </div>
 </div>
 <p>The daily climatology of precipitation at this station clearly looks much different from that of temperature. There are no major swings over the course of the year, which means that it may be less important to account for the time of year when doing analysis with precipitation (unlike temperature, where conditions in winter are much different than for summer).</p>
@@ -824,7 +825,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/045200bc5f1a9b0a4402a7c04191575226195e5ea05efee00aa8058b1611fe0d.png" src="../_images/045200bc5f1a9b0a4402a7c04191575226195e5ea05efee00aa8058b1611fe0d.png" />
+<img alt="../_images/49b9e2387a9090458cd1546b73e8e2048c5d114d6b6b48fbb4bf7cd401244bcb.png" src="../_images/49b9e2387a9090458cd1546b73e8e2048c5d114d6b6b48fbb4bf7cd401244bcb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -849,6 +850,2611 @@ None
 </div>
 <p>This very quick analysis has shown that the 50-year return value of daily precipitation for Toronto is about 87 mm. As a sanity check, the time series of annual maximum values for the 71-year period 1950-2021 has a peak value of just under 100 mm, so 87 mm could plausibly have a one-in-50 chance of occurrence in any given year.</p>
 <p>This analysis assumes that the distribution of precipitation in Toronto is <em>stationary</em> for the entire period used for calculation. In other words, there is no trend in the frequency or intensity of extreme events in the study period. When considering how climate change affects the return period values of a climate variable, one would need to allow for  time-dependence of the GEV parameters (or dependence on the level of global warming, to avoid dependence on the future forcing scenario). This more advanced method is outside the scope of this Guidebook. A simple alternative is to focus the future analysis on a time period distinct from the historical period used to establish the baseline climate.</p>
+</section>
+<section id="acessing-the-adjusted-and-homogenized-canadian-climate-data-station-observations">
+<h2>3.1.4 Acessing the Adjusted and Homogenized Canadian Climate Data Station Observations<a class="headerlink" href="#acessing-the-adjusted-and-homogenized-canadian-climate-data-station-observations" title="Link to this heading">#</a></h2>
+<p>An alternate source of station observations for Canada is the Adjusted and Homogenized Canadian Climate Data (AHCCD) archive. As the name implies, the AHCCD station data is a post-processed version of the ECCC station observations. The adjustments correct for non-climatic shifts in the data due to external factors such as changes in the instruments used to collect observations. These adjustments may make the AHCCD data may be more reliable and possibly more useful than the raw station data. Daily AHCCD observations are only available for temperature and precipitation, so the unadjusted station data must be used for analysis of other variables such as wind speed, or when hourly observations are required.</p>
+<p>The AHCCD data can be obtained from the <a class="reference external" href="https://pavics.ouranos.ca/datasets.html#a">PAVICS THREDDS server</a> using the Python package <a class="reference external" href="https://docs.xarray.dev/en/stable/"><code class="docutils literal notranslate"><span class="pre">xarray</span></code></a>, which will also be used in <a class="reference internal" href="section3.2_gridded_obs.html"><span class="std std-doc">Chapter 3.2</span></a> (and explained there in greater detail). Here we simply demonstrate how to access the AHCCD data and make a simple plot of the daily climatology.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import some new packages</span>
+<span class="kn">from</span> <span class="nn">siphon.catalog</span> <span class="kn">import</span> <span class="n">TDSCatalog</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">clisops.core</span> <span class="kn">import</span> <span class="n">subset</span> <span class="c1"># for selecting stations</span>
+
+<span class="c1"># this is the URL for PAVICS&#39; THREDDS server which hosts the AHCCD observations. You can</span>
+<span class="c1"># enter this URL into a browser (but change the .xml to .html) to explore the data catalog</span>
+<span class="n">url_AHCCD_PAVICS</span> <span class="o">=</span> <span class="s2">&quot;https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/datasets/station_obs/catalog.xml&quot;</span>
+
+<span class="c1"># Create Catalog object - this contains the info for the datasets in this directory</span>
+<span class="n">cat</span> <span class="o">=</span> <span class="n">TDSCatalog</span><span class="p">(</span><span class="n">url_AHCCD_PAVICS</span><span class="p">)</span>
+
+<span class="c1"># print the names of the datasets in the catalog we just accessed</span>
+<span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">cat</span><span class="o">.</span><span class="n">datasets</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ECCC_AHCCD_gen3_temperature.ncml
+ECCC_AHCCD_gen2_precipitation.ncml
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open up the temperature data using xarray. This will load an xarray.Dataset object,</span>
+<span class="c1"># which you can read about in the xarray documentation or in Section 3.2</span>
+<span class="n">cds</span> <span class="o">=</span> <span class="n">cat</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+
+<span class="c1"># the dataset will include data for all stations in the archive.</span>
+<span class="c1"># passing chunks = {&#39;station&#39;: 1} will load data for each</span>
+<span class="c1"># station separately, so if we only want to look at one</span>
+<span class="c1"># we won&#39;t need to load all of them.</span>
+<span class="n">ds_AHCCD</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">cds</span><span class="o">.</span><span class="n">access_urls</span><span class="p">[</span><span class="s1">&#39;OPENDAP&#39;</span><span class="p">],</span> 
+                          <span class="n">chunks</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;station&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+
+<span class="c1"># print out an interactive summary of the dataset</span>
+<span class="n">ds_AHCCD</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 1GB
+Dimensions:       (station: 780, time: 67145)
+Coordinates:
+  * station       (station) object 6kB &#x27;1012010&#x27; &#x27;1012573&#x27; ... &#x27;8504177&#x27;
+  * time          (time) datetime64[ns] 537kB 1840-03-01 ... 2023-12-31
+    stnid         (station) object 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    station_name  (station) object 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+Data variables: (12/14)
+    lon           (station) float64 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    lat           (station) float64 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    elev          (station) float64 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    prov          (station) object 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    fromyear      (station) float64 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    frommonth     (station) float64 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    ...            ...
+    pct_miss      (station) float64 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    joined        (station) object 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    rcs           (station) object 6kB dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;
+    tas           (station, time) float64 419MB dask.array&lt;chunksize=(1, 67145), meta=np.ndarray&gt;
+    tasmax        (station, time) float64 419MB dask.array&lt;chunksize=(1, 67145), meta=np.ndarray&gt;
+    tasmin        (station, time) float64 419MB dask.array&lt;chunksize=(1, 67145), meta=np.ndarray&gt;
+Attributes: (12/14)
+    title:                Third Generation of Homogenized Daily Temperature f...
+    history:              2024-06-11 : Convert from original format to NetCDF
+    type:                 station_obs
+    institute:            Environment and Climate Change Canada
+    institute_id:         ECCC
+    dataset_id:           AHCCD_gen3_day_temperature
+    ...                   ...
+    abstract:             Adjusted and Homogenized Canadian Climate Data (AHC...
+    dataset_description:  https://crd-data-donnees-rdc.ec.gc.ca/CDAS/products...
+    license_type:         permissive
+    license:              https:/open.canada.ca/en/open-government-licence-ca...
+    DODS.strlen:          1
+    DODS.dimName:         string1</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-c4fc7778-05be-4622-85d6-4a94c8a41d5b' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c4fc7778-05be-4622-85d6-4a94c8a41d5b' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>station</span>: 780</li><li><span class='xr-has-index'>time</span>: 67145</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-7f93cce4-2cfa-4c31-8a04-1ad12be7b535' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7f93cce4-2cfa-4c31-8a04-1ad12be7b535' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>station</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;1012010&#x27; &#x27;1012573&#x27; ... &#x27;8504177&#x27;</div><input id='attrs-42149f1a-fa9d-4f12-88f1-ad40c716739b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-42149f1a-fa9d-4f12-88f1-ad40c716739b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-826e787b-fde3-4650-873f-751e260f9062' class='xr-var-data-in' type='checkbox'><label for='data-826e787b-fde3-4650-873f-751e260f9062' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station identification number</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1012010&#x27;, &#x27;1012573&#x27;, &#x27;1013720&#x27;, ..., &#x27;8502592&#x27;, &#x27;8502799&#x27;, &#x27;8504177&#x27;],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1840-03-01 ... 2023-12-31</div><input id='attrs-8c1d0556-601b-4d7b-a8b3-381258007efd' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8c1d0556-601b-4d7b-a8b3-381258007efd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8278e137-2260-4881-a3a2-18386442018b' class='xr-var-data-in' type='checkbox'><label for='data-8278e137-2260-4881-a3a2-18386442018b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1840-03-01T00:00:00.000000000&#x27;, &#x27;1840-03-02T00:00:00.000000000&#x27;,
+       &#x27;1840-03-03T00:00:00.000000000&#x27;, ..., &#x27;2023-12-29T00:00:00.000000000&#x27;,
+       &#x27;2023-12-30T00:00:00.000000000&#x27;, &#x27;2023-12-31T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>stnid</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-4ef9d20d-888e-49fc-8960-1cc7d51952da' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4ef9d20d-888e-49fc-8960-1cc7d51952da' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7e7d10fc-e122-410b-83e6-bb4baaef6d33' class='xr-var-data-in' type='checkbox'><label for='data-7e7d10fc-e122-410b-83e6-bb4baaef6d33' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station identification number</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> object numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-9efcd6b5-413f-4303-a7c4-37a735248ba0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9efcd6b5-413f-4303-a7c4-37a735248ba0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-99cd4d58-5e8a-4ff2-9a55-64e12cc6caab' class='xr-var-data-in' type='checkbox'><label for='data-99cd4d58-5e8a-4ff2-9a55-64e12cc6caab' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> object numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-9e7c99a5-8a4c-4ea8-842c-90ab178a23cf' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9e7c99a5-8a4c-4ea8-842c-90ab178a23cf' class='xr-section-summary' >Data variables: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-fea1be2c-0d5e-46e0-8260-0f43ac3e867c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fea1be2c-0d5e-46e0-8260-0f43ac3e867c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9879f6fd-4dba-4140-882a-7bb8a6ea6802' class='xr-var-data-in' type='checkbox'><label for='data-9879f6fd-4dba-4140-882a-7bb8a6ea6802' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-fca6af8e-7d15-4266-9bed-a12537946d49' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fca6af8e-7d15-4266-9bed-a12537946d49' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-43c049f8-8a66-4af2-aed6-4a8d8e400624' class='xr-var-data-in' type='checkbox'><label for='data-43c049f8-8a66-4af2-aed6-4a8d8e400624' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>elev</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-4e8f2c71-7de4-4410-937c-3ce31b0c5437' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4e8f2c71-7de4-4410-937c-3ce31b0c5437' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ef3a123e-36d2-4632-8d15-48caefd041d2' class='xr-var-data-in' type='checkbox'><label for='data-ef3a123e-36d2-4632-8d15-48caefd041d2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>long_name :</span></dt><dd>elevation</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>prov</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-515cc445-896c-43a2-ae6c-3f118a5d2436' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-515cc445-896c-43a2-ae6c-3f118a5d2436' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-861ea19c-daee-4bed-9609-bc0e9660dc82' class='xr-var-data-in' type='checkbox'><label for='data-861ea19c-daee-4bed-9609-bc0e9660dc82' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>province</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> object numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>fromyear</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-881e51e7-9764-48cb-bb84-9f4ae7481701' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-881e51e7-9764-48cb-bb84-9f4ae7481701' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b31da4c2-bbda-4f0f-bf22-95b166e47d9e' class='xr-var-data-in' type='checkbox'><label for='data-b31da4c2-bbda-4f0f-bf22-95b166e47d9e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>from year</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>frommonth</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-cf525dbe-338a-48be-927b-e3b445b37a47' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cf525dbe-338a-48be-927b-e3b445b37a47' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-024c6a70-bf62-4613-99cc-4abe46fc7d06' class='xr-var-data-in' type='checkbox'><label for='data-024c6a70-bf62-4613-99cc-4abe46fc7d06' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>from month</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>toyear</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-4f2fc2b4-3262-4678-bacf-2ca6398fc4ee' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4f2fc2b4-3262-4678-bacf-2ca6398fc4ee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-97c6f049-de75-43c3-935e-d88c15cf3e3e' class='xr-var-data-in' type='checkbox'><label for='data-97c6f049-de75-43c3-935e-d88c15cf3e3e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>to year</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tomonth</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-38f6a8b8-a5c2-4141-a3a0-2c193f97b6de' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-38f6a8b8-a5c2-4141-a3a0-2c193f97b6de' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bf0fa990-c429-4236-ad19-18e7f91cdd38' class='xr-var-data-in' type='checkbox'><label for='data-bf0fa990-c429-4236-ad19-18e7f91cdd38' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>to month</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pct_miss</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-b337282b-fc0c-47b2-b8cb-0293aaaf0292' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b337282b-fc0c-47b2-b8cb-0293aaaf0292' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ac69e87c-3448-4cb4-a495-08649465b741' class='xr-var-data-in' type='checkbox'><label for='data-ac69e87c-3448-4cb4-a495-08649465b741' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>%Miss</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>joined</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-46fff480-e369-470a-8959-042770b84622' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-46fff480-e369-470a-8959-042770b84622' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3be6880c-75e4-40f9-8167-8d8f0bba50f7' class='xr-var-data-in' type='checkbox'><label for='data-3be6880c-75e4-40f9-8167-8d8f0bba50f7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Data is from multiple co-located stations</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> object numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rcs</span></div><div class='xr-var-dims'>(station)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1,), meta=np.ndarray&gt;</div><input id='attrs-679b4d64-0879-4c57-afc9-7c4486a4aa7e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-679b4d64-0879-4c57-afc9-7c4486a4aa7e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7b899f91-9ae5-42ff-a1b3-800bf0f58472' class='xr-var-data-in' type='checkbox'><label for='data-7b899f91-9ae5-42ff-a1b3-800bf0f58472' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 6.09 kiB </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780,) </td>
+                        <td> (1,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> object numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="6" y1="0" x2="6" y2="25" />
+  <line x1="12" y1="0" x2="12" y2="25" />
+  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="25" y1="0" x2="25" y2="25" />
+  <line x1="31" y1="0" x2="31" y2="25" />
+  <line x1="37" y1="0" x2="37" y2="25" />
+  <line x1="44" y1="0" x2="44" y2="25" />
+  <line x1="50" y1="0" x2="50" y2="25" />
+  <line x1="56" y1="0" x2="56" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
+  <line x1="69" y1="0" x2="69" y2="25" />
+  <line x1="75" y1="0" x2="75" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
+  <line x1="88" y1="0" x2="88" y2="25" />
+  <line x1="94" y1="0" x2="94" y2="25" />
+  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >780</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(station, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 67145), meta=np.ndarray&gt;</div><input id='attrs-be5e0868-466d-4f51-b2f0-6e131591b1ae' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-be5e0868-466d-4f51-b2f0-6e131591b1ae' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1bfb5e66-2f98-4635-afb6-25c0d689281f' class='xr-var-data-in' type='checkbox'><label for='data-1bfb5e66-2f98-4635-afb6-25c0d689281f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degC</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Daily Mean Air Temperature</dd><dt><span>comment :</span></dt><dd>ECCC Third Generation of Homogenized Temperature Data</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 399.58 MiB </td>
+                        <td> 524.57 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780, 67145) </td>
+                        <td> (1, 67145) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="76" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="2" x2="120" y2="2" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="5" x2="120" y2="5" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="9" x2="120" y2="9" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="13" x2="120" y2="13" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="16" x2="120" y2="16" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="20" x2="120" y2="20" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="24" x2="120" y2="24" />
+  <line x1="0" y1="26" x2="120" y2="26" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="26" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="26" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,26.14443261789471 0.0,26.14443261789471" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="46.144433" font-size="1.0rem" font-weight="100" text-anchor="middle" >67145</text>
+  <text x="140.000000" y="13.072216" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,140.000000,13.072216)">780</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tasmax</span></div><div class='xr-var-dims'>(station, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 67145), meta=np.ndarray&gt;</div><input id='attrs-0d9902f9-8ac5-4608-be26-578ef9b3503e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0d9902f9-8ac5-4608-be26-578ef9b3503e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b92ea238-012f-47ae-9a67-618871bd08a2' class='xr-var-data-in' type='checkbox'><label for='data-b92ea238-012f-47ae-9a67-618871bd08a2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degC</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Maximum Daily Air Temperature</dd><dt><span>comment :</span></dt><dd>ECCC Third Generation of Homogenized Temperature Data</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 399.58 MiB </td>
+                        <td> 524.57 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780, 67145) </td>
+                        <td> (1, 67145) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="76" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="2" x2="120" y2="2" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="5" x2="120" y2="5" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="9" x2="120" y2="9" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="13" x2="120" y2="13" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="16" x2="120" y2="16" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="20" x2="120" y2="20" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="24" x2="120" y2="24" />
+  <line x1="0" y1="26" x2="120" y2="26" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="26" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="26" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,26.14443261789471 0.0,26.14443261789471" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="46.144433" font-size="1.0rem" font-weight="100" text-anchor="middle" >67145</text>
+  <text x="140.000000" y="13.072216" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,140.000000,13.072216)">780</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tasmin</span></div><div class='xr-var-dims'>(station, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 67145), meta=np.ndarray&gt;</div><input id='attrs-5537e5d0-6930-4568-9b1c-2c639208f358' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5537e5d0-6930-4568-9b1c-2c639208f358' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b9fef591-4a66-4564-9d8f-778f3677fed3' class='xr-var-data-in' type='checkbox'><label for='data-b9fef591-4a66-4564-9d8f-778f3677fed3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degC</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Minimum Daily Air Temperature</dd><dt><span>comment :</span></dt><dd>ECCC Third Generation of Homogenized Temperature Data</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 399.58 MiB </td>
+                        <td> 524.57 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (780, 67145) </td>
+                        <td> (1, 67145) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 780 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="76" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="2" x2="120" y2="2" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="5" x2="120" y2="5" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="9" x2="120" y2="9" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="13" x2="120" y2="13" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="16" x2="120" y2="16" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="20" x2="120" y2="20" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="24" x2="120" y2="24" />
+  <line x1="0" y1="26" x2="120" y2="26" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="26" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="26" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,26.14443261789471 0.0,26.14443261789471" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="46.144433" font-size="1.0rem" font-weight="100" text-anchor="middle" >67145</text>
+  <text x="140.000000" y="13.072216" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,140.000000,13.072216)">780</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-c25c0e09-9f0f-4f9d-a8fd-f11f2721a62c' class='xr-section-summary-in' type='checkbox'  ><label for='section-c25c0e09-9f0f-4f9d-a8fd-f11f2721a62c' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>station</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-fabd3d37-9453-4eda-b41d-94325efba846' class='xr-index-data-in' type='checkbox'/><label for='index-fabd3d37-9453-4eda-b41d-94325efba846' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([&#x27;1012010&#x27;, &#x27;1012573&#x27;, &#x27;1013720&#x27;, &#x27;1016940&#x27;, &#x27;1016995&#x27;, &#x27;1017099&#x27;,
+       &#x27;1017230&#x27;, &#x27;1018598&#x27;, &#x27;1018611&#x27;, &#x27;1018621&#x27;,
+       ...
+       &#x27;8403820&#x27;, &#x27;8403851&#x27;, &#x27;8404343&#x27;, &#x27;8501106&#x27;, &#x27;8501131&#x27;, &#x27;8501900&#x27;,
+       &#x27;8502400&#x27;, &#x27;8502592&#x27;, &#x27;8502799&#x27;, &#x27;8504177&#x27;],
+      dtype=&#x27;object&#x27;, name=&#x27;station&#x27;, length=780))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-90272e8d-7c34-4d05-b5d9-c490b05997b9' class='xr-index-data-in' type='checkbox'/><label for='index-90272e8d-7c34-4d05-b5d9-c490b05997b9' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1840-03-01&#x27;, &#x27;1840-03-02&#x27;, &#x27;1840-03-03&#x27;, &#x27;1840-03-04&#x27;,
+               &#x27;1840-03-05&#x27;, &#x27;1840-03-06&#x27;, &#x27;1840-03-07&#x27;, &#x27;1840-03-08&#x27;,
+               &#x27;1840-03-09&#x27;, &#x27;1840-03-10&#x27;,
+               ...
+               &#x27;2023-12-22&#x27;, &#x27;2023-12-23&#x27;, &#x27;2023-12-24&#x27;, &#x27;2023-12-25&#x27;,
+               &#x27;2023-12-26&#x27;, &#x27;2023-12-27&#x27;, &#x27;2023-12-28&#x27;, &#x27;2023-12-29&#x27;,
+               &#x27;2023-12-30&#x27;, &#x27;2023-12-31&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=67145, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-42632932-f881-4dd1-a998-3068f67cd984' class='xr-section-summary-in' type='checkbox'  ><label for='section-42632932-f881-4dd1-a998-3068f67cd984' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>Third Generation of Homogenized Daily Temperature for Canada Update to December 2023</dd><dt><span>history :</span></dt><dd>2024-06-11 : Convert from original format to NetCDF</dd><dt><span>type :</span></dt><dd>station_obs</dd><dt><span>institute :</span></dt><dd>Environment and Climate Change Canada</dd><dt><span>institute_id :</span></dt><dd>ECCC</dd><dt><span>dataset_id :</span></dt><dd>AHCCD_gen3_day_temperature</dd><dt><span>frequency :</span></dt><dd>day</dd><dt><span>citation :</span></dt><dd>Vincent, L.A., M.M. Hartwell and X.L. Wang, 2020: A Third Generation of Homogenized Temperature for Trend Analysis and Monitoring Changes in Canada’s Climate. Atmosphere-Ocean. https://doi.org/10.1080/07055900.2020.1765728 </dd><dt><span>abstract :</span></dt><dd>Adjusted and Homogenized Canadian Climate Data (AHCCD) are climate station datasets from Environment Climate Change Canada that incorporate adjustments (derived from statistical procedures) to the original historical station data to account for discontinuities from non-climatic factors, such as instrument changes or station relocation. AHCCD was developed for use in climate research, including climate change studies. Long-term data records are often impacted by changes (e.g. site exposure, location, instrumentation, observer, and observing procedures) that are not related to climate. These non-climatic changes were detected and removed using statistical procedures. When necessary, data were corrected for some measurement techniques that are known to possibly lead to underestimations or overestimations. In addition, data from nearby stations were sometimes combined to create longer time series.</dd><dt><span>dataset_description :</span></dt><dd>https://crd-data-donnees-rdc.ec.gc.ca/CDAS/products/AHCCD_daily/Temperature_Documentation_Gen3.doc</dd><dt><span>license_type :</span></dt><dd>permissive</dd><dt><span>license :</span></dt><dd>https:/open.canada.ca/en/open-government-licence-canada</dd><dt><span>DODS.strlen :</span></dt><dd>1</dd><dt><span>DODS.dimName :</span></dt><dd>string1</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll pick a station with lat and lon closest to the </span>
+<span class="c1"># Toronto coordinates we were looking at before.</span>
+<span class="c1"># we&#39;ll use the package clisops to help with this.</span>
+<span class="n">ds_AHCCD_Toronto</span> <span class="o">=</span> <span class="n">subset</span><span class="o">.</span><span class="n">subset_gridpoint</span><span class="p">(</span><span class="n">ds_AHCCD</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">toronto_lon</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="n">toronto_lat</span><span class="p">)</span>
+
+<span class="n">ds_AHCCD_Toronto</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 2MB
+Dimensions:       (time: 67145)
+Coordinates:
+    station       &lt;U7 28B &#x27;6158355&#x27;
+  * time          (time) datetime64[ns] 537kB 1840-03-01 ... 2023-12-31
+    stnid         object 8B &#x27;6158355&#x27;
+    station_name  object 8B &#x27;TORONTO CITY&#x27;
+Data variables: (12/14)
+    lon           float64 8B -79.4
+    lat           float64 8B 43.67
+    elev          float64 8B dask.array&lt;chunksize=(), meta=np.ndarray&gt;
+    prov          object 8B dask.array&lt;chunksize=(), meta=np.ndarray&gt;
+    fromyear      float64 8B dask.array&lt;chunksize=(), meta=np.ndarray&gt;
+    frommonth     float64 8B dask.array&lt;chunksize=(), meta=np.ndarray&gt;
+    ...            ...
+    pct_miss      float64 8B dask.array&lt;chunksize=(), meta=np.ndarray&gt;
+    joined        object 8B dask.array&lt;chunksize=(), meta=np.ndarray&gt;
+    rcs           object 8B dask.array&lt;chunksize=(), meta=np.ndarray&gt;
+    tas           (time) float64 537kB dask.array&lt;chunksize=(67145,), meta=np.ndarray&gt;
+    tasmax        (time) float64 537kB dask.array&lt;chunksize=(67145,), meta=np.ndarray&gt;
+    tasmin        (time) float64 537kB dask.array&lt;chunksize=(67145,), meta=np.ndarray&gt;
+Attributes: (12/14)
+    title:                Third Generation of Homogenized Daily Temperature f...
+    history:              2024-06-11 : Convert from original format to NetCDF
+    type:                 station_obs
+    institute:            Environment and Climate Change Canada
+    institute_id:         ECCC
+    dataset_id:           AHCCD_gen3_day_temperature
+    ...                   ...
+    abstract:             Adjusted and Homogenized Canadian Climate Data (AHC...
+    dataset_description:  https://crd-data-donnees-rdc.ec.gc.ca/CDAS/products...
+    license_type:         permissive
+    license:              https:/open.canada.ca/en/open-government-licence-ca...
+    DODS.strlen:          1
+    DODS.dimName:         string1</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-e7742d33-fbab-4dec-a553-8772394e8d2e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-e7742d33-fbab-4dec-a553-8772394e8d2e' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 67145</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a90a3025-c91f-452c-a1f8-0e3ecbd19bc5' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a90a3025-c91f-452c-a1f8-0e3ecbd19bc5' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>station</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>&lt;U7</div><div class='xr-var-preview xr-preview'>&#x27;6158355&#x27;</div><input id='attrs-d7f50b85-7522-46dc-a454-50f3c5897b6c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d7f50b85-7522-46dc-a454-50f3c5897b6c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6d2d6867-16bd-400c-b528-aeafc3243a10' class='xr-var-data-in' type='checkbox'><label for='data-6d2d6867-16bd-400c-b528-aeafc3243a10' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station identification number</dd></dl></div><div class='xr-var-data'><pre>array(&#x27;6158355&#x27;, dtype=&#x27;&lt;U7&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1840-03-01 ... 2023-12-31</div><input id='attrs-ad33efe4-97f4-462b-b6d5-7440812980b1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ad33efe4-97f4-462b-b6d5-7440812980b1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a507500c-898b-402b-9058-063568384558' class='xr-var-data-in' type='checkbox'><label for='data-a507500c-898b-402b-9058-063568384558' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1840-03-01T00:00:00.000000000&#x27;, &#x27;1840-03-02T00:00:00.000000000&#x27;,
+       &#x27;1840-03-03T00:00:00.000000000&#x27;, ..., &#x27;2023-12-29T00:00:00.000000000&#x27;,
+       &#x27;2023-12-30T00:00:00.000000000&#x27;, &#x27;2023-12-31T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>stnid</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;6158355&#x27;</div><input id='attrs-1a8fff1e-f042-4e94-9b60-23f760099e2d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1a8fff1e-f042-4e94-9b60-23f760099e2d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7acbac82-807e-415f-aa59-d8737bcfbe8c' class='xr-var-data-in' type='checkbox'><label for='data-7acbac82-807e-415f-aa59-d8737bcfbe8c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station identification number</dd></dl></div><div class='xr-var-data'><pre>array(&#x27;6158355&#x27;, dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;TORONTO CITY&#x27;</div><input id='attrs-ff3e477c-0868-42a5-aeb3-2a5d8efa63a9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ff3e477c-0868-42a5-aeb3-2a5d8efa63a9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1f743ca8-52c5-434c-b13e-4b3226d3b20e' class='xr-var-data-in' type='checkbox'><label for='data-1f743ca8-52c5-434c-b13e-4b3226d3b20e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array(&#x27;TORONTO CITY&#x27;, dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-96f3b4dd-623d-42d2-8d4b-c3225b304e72' class='xr-section-summary-in' type='checkbox'  checked><label for='section-96f3b4dd-623d-42d2-8d4b-c3225b304e72' class='xr-section-summary' >Data variables: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-79.4</div><input id='attrs-711dfbf4-c97e-44fa-9dd8-2d67f35c21dc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-711dfbf4-c97e-44fa-9dd8-2d67f35c21dc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2dd26b6a-0e4f-41f7-9582-ce4fb44127a8' class='xr-var-data-in' type='checkbox'><label for='data-2dd26b6a-0e4f-41f7-9582-ce4fb44127a8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array(-79.4)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>43.67</div><input id='attrs-3b0426a3-0b20-45be-bb58-514b3c7f837b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3b0426a3-0b20-45be-bb58-514b3c7f837b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-94b14f99-ce46-47fe-9640-b0dc94bde801' class='xr-var-data-in' type='checkbox'><label for='data-94b14f99-ce46-47fe-9640-b0dc94bde801' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array(43.67)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>elev</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(), meta=np.ndarray&gt;</div><input id='attrs-d000f313-ad3a-4c78-a902-01e27276df7a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d000f313-ad3a-4c78-a902-01e27276df7a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7cf86f43-4f0d-40dd-bb8f-5ddc0c20fe7c' class='xr-var-data-in' type='checkbox'><label for='data-7cf86f43-4f0d-40dd-bb8f-5ddc0c20fe7c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>long_name :</span></dt><dd>elevation</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> () </td>
+                        <td> () </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>prov</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(), meta=np.ndarray&gt;</div><input id='attrs-c44827a5-385e-4f33-bd6e-f43d2d433e41' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c44827a5-385e-4f33-bd6e-f43d2d433e41' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7e831fba-d772-4228-986f-b56c2f1e51fd' class='xr-var-data-in' type='checkbox'><label for='data-7e831fba-d772-4228-986f-b56c2f1e51fd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>province</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> () </td>
+                        <td> () </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> object numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>fromyear</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(), meta=np.ndarray&gt;</div><input id='attrs-b9b9b761-cfe3-4c51-a66d-5e08c6d28890' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b9b9b761-cfe3-4c51-a66d-5e08c6d28890' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cd690b08-61e5-49b0-a468-0c9b3f296f19' class='xr-var-data-in' type='checkbox'><label for='data-cd690b08-61e5-49b0-a468-0c9b3f296f19' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>from year</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> () </td>
+                        <td> () </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>frommonth</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(), meta=np.ndarray&gt;</div><input id='attrs-71d96ba5-eaa3-4f96-b555-0c6632909084' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-71d96ba5-eaa3-4f96-b555-0c6632909084' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0cdf34d8-9773-4c50-99af-fa282bf73b71' class='xr-var-data-in' type='checkbox'><label for='data-0cdf34d8-9773-4c50-99af-fa282bf73b71' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>from month</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> () </td>
+                        <td> () </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>toyear</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(), meta=np.ndarray&gt;</div><input id='attrs-a563e44d-217d-4be8-b618-eacd39070ef0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a563e44d-217d-4be8-b618-eacd39070ef0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f30121d0-5022-4278-b54c-208b521e05f2' class='xr-var-data-in' type='checkbox'><label for='data-f30121d0-5022-4278-b54c-208b521e05f2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>to year</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> () </td>
+                        <td> () </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tomonth</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(), meta=np.ndarray&gt;</div><input id='attrs-ce3c175a-14b2-4066-92dd-2437a3591fba' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ce3c175a-14b2-4066-92dd-2437a3591fba' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-81d4a33e-56c4-42ac-921f-82d93cc55071' class='xr-var-data-in' type='checkbox'><label for='data-81d4a33e-56c4-42ac-921f-82d93cc55071' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>to month</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> () </td>
+                        <td> () </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pct_miss</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(), meta=np.ndarray&gt;</div><input id='attrs-4f2afd2e-91c8-4684-be6e-e38a9bb58142' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4f2afd2e-91c8-4684-be6e-e38a9bb58142' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1db6fdb3-4773-480e-846e-7d8f9588d90b' class='xr-var-data-in' type='checkbox'><label for='data-1db6fdb3-4773-480e-846e-7d8f9588d90b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>%Miss</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> () </td>
+                        <td> () </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>joined</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(), meta=np.ndarray&gt;</div><input id='attrs-5c545fe8-c184-4e8f-98f6-00a5a25f0575' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5c545fe8-c184-4e8f-98f6-00a5a25f0575' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-568e902f-6712-4913-95b8-a97bf87a42d3' class='xr-var-data-in' type='checkbox'><label for='data-568e902f-6712-4913-95b8-a97bf87a42d3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Data is from multiple co-located stations</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> () </td>
+                        <td> () </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> object numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rcs</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(), meta=np.ndarray&gt;</div><input id='attrs-ac5b9068-05dd-4657-9094-f138209a06f0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ac5b9068-05dd-4657-9094-f138209a06f0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0f2a7fb1-6595-4e78-97f9-b83f720cd3f2' class='xr-var-data-in' type='checkbox'><label for='data-0f2a7fb1-6595-4e78-97f9-b83f720cd3f2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 8 B </td>
+                        <td> 8 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> () </td>
+                        <td> () </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> object numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(67145,), meta=np.ndarray&gt;</div><input id='attrs-e8de87a4-ca46-4403-b538-6167c96ca566' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e8de87a4-ca46-4403-b538-6167c96ca566' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1c3c56a0-bbb1-40ea-8bb2-3d61702e85ab' class='xr-var-data-in' type='checkbox'><label for='data-1c3c56a0-bbb1-40ea-8bb2-3d61702e85ab' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degC</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Daily Mean Air Temperature</dd><dt><span>comment :</span></dt><dd>ECCC Third Generation of Homogenized Temperature Data</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 524.57 kiB </td>
+                        <td> 524.57 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (67145,) </td>
+                        <td> (67145,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >67145</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tasmax</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(67145,), meta=np.ndarray&gt;</div><input id='attrs-ebb9ca18-da6a-4fd1-ac38-14773693aa14' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ebb9ca18-da6a-4fd1-ac38-14773693aa14' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8da777b3-7399-4ca1-8f57-8d10599cc517' class='xr-var-data-in' type='checkbox'><label for='data-8da777b3-7399-4ca1-8f57-8d10599cc517' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degC</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Maximum Daily Air Temperature</dd><dt><span>comment :</span></dt><dd>ECCC Third Generation of Homogenized Temperature Data</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 524.57 kiB </td>
+                        <td> 524.57 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (67145,) </td>
+                        <td> (67145,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >67145</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tasmin</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(67145,), meta=np.ndarray&gt;</div><input id='attrs-4b18769d-153b-4a23-8297-4de8001acda0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4b18769d-153b-4a23-8297-4de8001acda0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d87c5288-3f5f-4534-b403-d979925612a5' class='xr-var-data-in' type='checkbox'><label for='data-d87c5288-3f5f-4534-b403-d979925612a5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degC</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Minimum Daily Air Temperature</dd><dt><span>comment :</span></dt><dd>ECCC Third Generation of Homogenized Temperature Data</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 524.57 kiB </td>
+                        <td> 524.57 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (67145,) </td>
+                        <td> (67145,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 5 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="75" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="25" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >67145</text>
+  <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-642bc9f9-15f7-4f59-93e2-129115a7e61b' class='xr-section-summary-in' type='checkbox'  ><label for='section-642bc9f9-15f7-4f59-93e2-129115a7e61b' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6396bf5c-1d1a-498b-a662-f5826e4cd8b4' class='xr-index-data-in' type='checkbox'/><label for='index-6396bf5c-1d1a-498b-a662-f5826e4cd8b4' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1840-03-01&#x27;, &#x27;1840-03-02&#x27;, &#x27;1840-03-03&#x27;, &#x27;1840-03-04&#x27;,
+               &#x27;1840-03-05&#x27;, &#x27;1840-03-06&#x27;, &#x27;1840-03-07&#x27;, &#x27;1840-03-08&#x27;,
+               &#x27;1840-03-09&#x27;, &#x27;1840-03-10&#x27;,
+               ...
+               &#x27;2023-12-22&#x27;, &#x27;2023-12-23&#x27;, &#x27;2023-12-24&#x27;, &#x27;2023-12-25&#x27;,
+               &#x27;2023-12-26&#x27;, &#x27;2023-12-27&#x27;, &#x27;2023-12-28&#x27;, &#x27;2023-12-29&#x27;,
+               &#x27;2023-12-30&#x27;, &#x27;2023-12-31&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=67145, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-81035cae-6991-4d20-9f4a-61ab74318f6d' class='xr-section-summary-in' type='checkbox'  ><label for='section-81035cae-6991-4d20-9f4a-61ab74318f6d' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>Third Generation of Homogenized Daily Temperature for Canada Update to December 2023</dd><dt><span>history :</span></dt><dd>2024-06-11 : Convert from original format to NetCDF</dd><dt><span>type :</span></dt><dd>station_obs</dd><dt><span>institute :</span></dt><dd>Environment and Climate Change Canada</dd><dt><span>institute_id :</span></dt><dd>ECCC</dd><dt><span>dataset_id :</span></dt><dd>AHCCD_gen3_day_temperature</dd><dt><span>frequency :</span></dt><dd>day</dd><dt><span>citation :</span></dt><dd>Vincent, L.A., M.M. Hartwell and X.L. Wang, 2020: A Third Generation of Homogenized Temperature for Trend Analysis and Monitoring Changes in Canada’s Climate. Atmosphere-Ocean. https://doi.org/10.1080/07055900.2020.1765728 </dd><dt><span>abstract :</span></dt><dd>Adjusted and Homogenized Canadian Climate Data (AHCCD) are climate station datasets from Environment Climate Change Canada that incorporate adjustments (derived from statistical procedures) to the original historical station data to account for discontinuities from non-climatic factors, such as instrument changes or station relocation. AHCCD was developed for use in climate research, including climate change studies. Long-term data records are often impacted by changes (e.g. site exposure, location, instrumentation, observer, and observing procedures) that are not related to climate. These non-climatic changes were detected and removed using statistical procedures. When necessary, data were corrected for some measurement techniques that are known to possibly lead to underestimations or overestimations. In addition, data from nearby stations were sometimes combined to create longer time series.</dd><dt><span>dataset_description :</span></dt><dd>https://crd-data-donnees-rdc.ec.gc.ca/CDAS/products/AHCCD_daily/Temperature_Documentation_Gen3.doc</dd><dt><span>license_type :</span></dt><dd>permissive</dd><dt><span>license :</span></dt><dd>https:/open.canada.ca/en/open-government-licence-canada</dd><dt><span>DODS.strlen :</span></dt><dd>1</dd><dt><span>DODS.dimName :</span></dt><dd>string1</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now select the same time period as before</span>
+<span class="n">ds_AHCCD_Toronto</span> <span class="o">=</span> <span class="n">ds_AHCCD_Toronto</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">ds_AHCCD_Toronto</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">2022</span><span class="p">)))</span>
+<span class="c1"># calculate the daily max temperature climatology and plot.</span>
+<span class="n">tasmax_clim_AHCCD</span> <span class="o">=</span> <span class="n">ds_AHCCD_Toronto</span><span class="o">.</span><span class="n">tasmax</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Daily Climatology of Daily Maximum Temperature </span><span class="se">\n</span><span class="s2"> at Toronto City Weather Station (1992-2021)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Day of the Year&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot the AHCCD climatology</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tasmax_clim_AHCCD</span><span class="o">.</span><span class="n">dayofyear</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+         <span class="n">tasmax_clim_AHCCD</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+         <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;AHCCD&quot;</span><span class="p">)</span>
+
+<span class="c1"># also include the unadjusted tasmax climatology to compare</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tmax_toronto_clim_avg</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+         <span class="n">tmax_toronto_clim_avg</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+         <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Unadjusted&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a1ab5c174ae063d6c5c0f6127a03a5cf3605e1f523f366d7cdb84b9da29a2f51.png" src="../_images/a1ab5c174ae063d6c5c0f6127a03a5cf3605e1f523f366d7cdb84b9da29a2f51.png" />
+</div>
+</div>
+<p>The above plot shows that the effect of the adjustments applied when constructing the AHCCD dataset is minimal for the Toronto City station, but there are some small differences for some days. Other stations may have larger differences. Great care was taken when developing the AHCCD data so when in doubt, trust AHCCD.</p>
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
@@ -927,6 +3533,7 @@ None
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-data-cleaning">3.1.1 Downloading and Data Cleaning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-cycles-and-climatologies">3.1.2 Seasonal Cycles and Climatologies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-values">3.1.3 Extreme Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acessing-the-adjusted-and-homogenized-canadian-climate-data-station-observations">3.1.4 Acessing the Adjusted and Homogenized Canadian Climate Data Station Observations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-other-sources-of-station-data">Appendix: Other Sources of Station Data</a></li>
 </ul>
