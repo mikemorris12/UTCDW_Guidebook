@@ -198,7 +198,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3.4 Climate Model Output from ESGF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section3.5_model_data_on_google_cloud.html">3.5 Climate Model Data on Google Cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="section3.6_model_data_with_intake_esm.html">3.6 Climate Model Data with Intake-ESM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter3_summary.html">3.6 Chapter Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter3_summary.html">3.7 Chapter Summary</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter4/chapter4.html">Chapter 4: Statistical Downscaling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -413,7 +413,7 @@ document.write(`
 <p>To search the ESGF archive we must first establish a connection to an ESGF node using the <code class="docutils literal notranslate"><span class="pre">pyesgf.search.SearchConnection</span></code> class. To do this, we pass the URL for the node to <code class="docutils literal notranslate"><span class="pre">SearchConnection</span></code>. Since each node may only host a subset of the complete CMIP archive, the argument <code class="docutils literal notranslate"><span class="pre">distrib</span> <span class="pre">=</span> <span class="pre">True</span></code> tells the API to search across all nodes, not just the one we connected to.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are sometimes network/service issues with the ESGF nodes, meaning you may sometimes get unexpected errors when using esgf-pyclient or when downloading data from the ESGF. You can try connecting to a different node, or waiting and trying to run the code later. The URLs for each of the nodes, and their operating status, can be found <a class="reference external" href="https://esgf-node.llnl.gov/status/">on this page</a>. If you’re really stuck, you can try accessing CMIP data through Google Cloud Services, following the tutorial in Section 3.5.</p>
+<p>There are sometimes network/service issues with the ESGF nodes, meaning you may sometimes get unexpected errors when using esgf-pyclient or when downloading data from the ESGF. You can try connecting to a different node, or waiting and trying to run the code later. The URLs for each of the nodes, and their operating status, can be found <a class="reference external" href="https://esgf-node.llnl.gov/status/">on this page</a>. If you’re really stuck, you can try accessing CMIP data through Google Cloud Services, following the tutorial in <a class="reference internal" href="section3.5_model_data_on_google_cloud.html"><span class="std std-doc">Section 3.5</span></a>. Another option is to use the <code class="docutils literal notranslate"><span class="pre">intake-esm</span></code> Python package to access climate model output, which is the focus of <a class="reference internal" href="section3.6_model_data_with_intake_esm.html"><span class="std std-doc">Section 3.6</span></a>. These more modern options are easier to use, so it’s ok if your main takeaway from this section is data analysis, starting at Section 3.4.3.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
