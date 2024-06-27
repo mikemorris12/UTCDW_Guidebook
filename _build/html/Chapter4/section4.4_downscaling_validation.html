@@ -438,20 +438,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/cg/alpha_shapes.py:39: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def nb_dist(x, y):
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/cg/alpha_shapes.py:165: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def get_faces(triangle):
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/cg/alpha_shapes.py:199: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def build_faces(faces, triangles_is, num_triangles, num_faces_single):
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/cg/alpha_shapes.py:261: NumbaDeprecationWarning: <span class=" -Color -Color-Bold">The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.</span>
-  def nb_mask_faces(mask, faces):
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/libpysal/weights/util.py:23: UserWarning: geopandas not available. Some functionality will be disabled.
-  warn(&quot;geopandas not available. Some functionality will be disabled.&quot;)
-</pre></div>
-</div>
-</div>
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -529,6 +515,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/calendar.py:92: FutureWarning: `xclim` function convert_calendar is deprecated in favour of xarray.coding.calendar_ops.convert_calendar or obj.convert_calendar and will be removed in v0.51.0. Please adjust your script.
+  warn(
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/calendar.py:92: FutureWarning: `xclim` function convert_calendar is deprecated in favour of xarray.coding.calendar_ops.convert_calendar or obj.convert_calendar and will be removed in v0.51.0. Please adjust your script.
+  warn(
+</pre></div>
+</div>
+</div>
 </details>
 </div>
 <div class="cell docutils container">
@@ -538,7 +532,8 @@ document.write(`
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">data_mean_obs_train</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
-                                 <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">extendrect</span> <span class="o">=</span> <span class="kc">True</span><span class="p">),</span>
+                                 <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> 
+                                                    <span class="n">extendrect</span> <span class="o">=</span> <span class="kc">True</span><span class="p">),</span>
                                  <span class="n">zorder</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAKES</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
@@ -548,7 +543,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d15aaeeb08ff155520a7a78f4e7450fc9d14c0322cbfdb90a4e56c6348c36873.png" src="../_images/d15aaeeb08ff155520a7a78f4e7450fc9d14c0322cbfdb90a4e56c6348c36873.png" />
+<img alt="../_images/c5492133f3f38eeaa32842254e7fc85abccca28e5f8fa77722af0d1b25e1202e.png" src="../_images/c5492133f3f38eeaa32842254e7fc85abccca28e5f8fa77722af0d1b25e1202e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -557,7 +552,8 @@ document.write(`
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">data_mean_gcm_train</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
-                                 <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">extendrect</span> <span class="o">=</span> <span class="kc">True</span><span class="p">),</span>
+                                 <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> 
+                                                    <span class="n">extendrect</span> <span class="o">=</span> <span class="kc">True</span><span class="p">),</span>
                                  <span class="n">zorder</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAKES</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
@@ -567,7 +563,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/190a0c35483f3298a0a2382455ec520ccc50e0ac84dfed16ab000e99ae4e3949.png" src="../_images/190a0c35483f3298a0a2382455ec520ccc50e0ac84dfed16ab000e99ae4e3949.png" />
+<img alt="../_images/24fee857fcb0ea7f6f145b6f91700fe0bdbecc095e7efc1148e8da15e35026b7.png" src="../_images/24fee857fcb0ea7f6f145b6f91700fe0bdbecc095e7efc1148e8da15e35026b7.png" />
 </div>
 </div>
 <section id="distribution-of-values">
@@ -581,7 +577,7 @@ document.write(`
 
 <span class="c1"># perform the test at each grid cell</span>
 <span class="n">ks_pvals_train</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span><span class="n">get_ks_pval</span><span class="p">,</span> 
-                                <span class="c1"># coordinate values are slightly mismatched, interp gcm to obs grid</span>
+<span class="c1"># coordinate values are slightly mismatched, interp gcm to obs grid</span>
                                 <span class="n">data_gcm_train</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="n">data_obs_train</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> 
                                                       <span class="n">lon</span> <span class="o">=</span> <span class="n">data_obs_train</span><span class="o">.</span><span class="n">lon</span><span class="p">),</span>
                                 <span class="n">data_obs_train</span><span class="p">,</span>
@@ -632,7 +628,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/adbcaa71d0ccd747c2ee5bebda09f72b6942e1118f969c30adf28a8a70897cca.png" src="../_images/adbcaa71d0ccd747c2ee5bebda09f72b6942e1118f969c30adf28a8a70897cca.png" />
+<img alt="../_images/ac8d60e29e4cb7d669017ad6bec32f9753144e057a1b22d40928254a28df5d46.png" src="../_images/ac8d60e29e4cb7d669017ad6bec32f9753144e057a1b22d40928254a28df5d46.png" />
 </div>
 </div>
 <p>For the training period, the KS test p-values are mostly greater than the typical thresholds of 0.05 or 0.1 for rejecting the null hypothesis. This means for these locations we do not have sufficient evidence to say that the downscaled GCM data and the observations follow different probability distributions - which is good! This is not unexpected, since BCCAQv2 uses Quantile Delta Mapping for bias correction, and quantile mapping forces the distribution of the downscaled historical GCM data to match the observed distribution (as we saw in Section 4.2). However, it looks like there are some parts of the domain where the distributions are significantly different (according to the KS test) and even more regions in the validation period. Because we’re looking at only a short time period, this could be a sampling issue, but it may also indicate some issues with the downscaling method. Assessing results for multiple methods of downscaling would be necessary to get an idea of the performance of one method relative to others.</p>
@@ -706,8 +702,10 @@ I = \frac{N}{W} \frac{\sum_{i=1}^{N} \sum_{j=1}^{N} w_{ij} (x_{i} - \overline{x}
 <span class="n">moran_gcm_test_std</span> <span class="o">=</span> <span class="n">moran_gcm_test</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Obs Moran I: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">moran_obs_test_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s2">&quot;+/- </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">moran_obs_test_std</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downscaled GCM Moran I: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">moran_gcm_test_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s2">&quot;+/- </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">moran_gcm_test_std</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Obs Moran I: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">moran_obs_test_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+      <span class="s2">&quot;+/- </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">moran_obs_test_std</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downscaled GCM Moran I: </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">moran_gcm_test_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+      <span class="s2">&quot;+/- </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">moran_gcm_test_std</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -746,13 +744,15 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">autocov</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
 <span class="c1"># calculate the numerator of the r_k expression</span>
-<span class="n">autocov_obs_test</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">autocov</span><span class="p">,</span> 
-                                               <span class="n">data_obs_test_demeaned</span><span class="o">.</span><span class="n">get_axis_num</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">),</span>
-                                               <span class="n">data_obs_test_demeaned</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-<span class="c1"># convert from a dask array to an xr.DataArray</span>
-<span class="n">autocov_obs_test</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">data_obs_test</span><span class="p">)</span> <span class="o">+</span> <span class="n">autocov_obs_test</span>
+<span class="n">autocov_obs_test</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span><span class="n">autocov</span><span class="p">,</span> <span class="n">data_obs_test_demeaned</span><span class="p">,</span>
+                                  <span class="n">input_core_dims</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">]],</span>
+                                  <span class="n">output_core_dims</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">]],</span>
+                                  <span class="n">output_dtypes</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                                  <span class="n">vectorize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                  <span class="n">dask</span> <span class="o">=</span> <span class="s1">&#39;allowed&#39;</span><span class="p">)</span>
 
-<span class="c1"># re-name the &#39;time&#39; dimension to &#39;lag&#39; to reflect what the results represent, and assign lag values</span>
+<span class="c1"># re-name the &#39;time&#39; dimension to &#39;lag&#39; </span>
+<span class="c1"># to reflect what the results represent, and assign lag values</span>
 <span class="n">autocov_obs_test</span> <span class="o">=</span> <span class="n">autocov_obs_test</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;lag&#39;</span><span class="p">})</span>
 <span class="n">autocov_obs_test</span><span class="p">[</span><span class="s1">&#39;lag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">ntime_obs_test</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">ntime_obs_test</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -781,7 +781,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/c463ec79859226c516e247cd0384629bb6d62f128b4187b8a986b4a18a843fde.png" src="../_images/c463ec79859226c516e247cd0384629bb6d62f128b4187b8a986b4a18a843fde.png" />
+<img alt="../_images/5ee47bdd070813325fc722464be164af81cd82502a6ae02fdd9b2675f7803a57.png" src="../_images/5ee47bdd070813325fc722464be164af81cd82502a6ae02fdd9b2675f7803a57.png" />
 </div>
 </div>
 <p>Everything looks good! The lag-zero autocorrelation is unity, which must be true since this is just the correlation of the data with itself. The curve rapidly decays for greater lags, which makes sense since the weather for a given day is likely to be similar to the weather for the days before and after, but shouldn’t be strongly related to what happens dozens of days before or after.</p>
@@ -794,16 +794,21 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes_array</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes_array</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+                               <span class="n">ncols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
+                               <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">,</span> 
+                               <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Observed Autocorrelations For Validation Period&quot;</span><span class="p">)</span>
 <span class="n">axes</span> <span class="o">=</span> <span class="n">axes_array</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)):</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">autocor_obs_test</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lag</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
                                                         <span class="n">levels</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> 
-                                                        <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">})</span>
+                                                        <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> 
+                                                                       <span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">})</span>
                                                         
     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
-    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAKES</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAKES</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> 
+                        <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lag </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -812,7 +817,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/0de73b163625294999f773dd963e08be2471242a53b2c2b2a863f020182b59e6.png" src="../_images/0de73b163625294999f773dd963e08be2471242a53b2c2b2a863f020182b59e6.png" />
+<img alt="../_images/a1c092b20a690379a2aafc41f48f3f6d36b9257223a3c6f8e87bfc40c64062db.png" src="../_images/a1c092b20a690379a2aafc41f48f3f6d36b9257223a3c6f8e87bfc40c64062db.png" />
 </div>
 </div>
 <p>Note that the colourbars for each plot are different because the autocorrelations decay with increasing lags. Next, we will make the same plots for the downscaled GCM data for the validation period.</p>
@@ -825,11 +830,14 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <span class="n">var_gcm_test</span> <span class="o">=</span> <span class="n">data_gcm_test_demeaned</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 <span class="n">ntime_gcm_test</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_gcm_test</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 
-<span class="n">autocov_gcm_test</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">autocov</span><span class="p">,</span> 
-                                               <span class="n">data_gcm_test_demeaned</span><span class="o">.</span><span class="n">get_axis_num</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">),</span>
-                                               <span class="n">data_gcm_test_demeaned</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 
-<span class="n">autocov_gcm_test</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">data_gcm_test</span><span class="p">)</span> <span class="o">+</span> <span class="n">autocov_gcm_test</span>
+<span class="n">autocov_gcm_test</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span><span class="n">autocov</span><span class="p">,</span> <span class="n">data_gcm_test_demeaned</span><span class="p">,</span>
+                                  <span class="n">input_core_dims</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">]],</span>
+                                  <span class="n">output_core_dims</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">]],</span>
+                                  <span class="n">output_dtypes</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                                  <span class="n">vectorize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                  <span class="n">dask</span> <span class="o">=</span> <span class="s1">&#39;allowed&#39;</span><span class="p">)</span>
+
 <span class="n">autocov_gcm_test</span> <span class="o">=</span> <span class="n">autocov_gcm_test</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;lag&#39;</span><span class="p">})</span>
 <span class="n">autocov_gcm_test</span><span class="p">[</span><span class="s1">&#39;lag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">ntime_gcm_test</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">ntime_gcm_test</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -856,7 +864,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/7db454598107b7ba822d54457d7f109534c9ef7808c7fff5e3753b6193c34a66.png" src="../_images/7db454598107b7ba822d54457d7f109534c9ef7808c7fff5e3753b6193c34a66.png" />
+<img alt="../_images/8f7ff57055b19167d9016d4467f9279d8d3415e6c00d6cc76b5b39135d586ba6.png" src="../_images/8f7ff57055b19167d9016d4467f9279d8d3415e6c00d6cc76b5b39135d586ba6.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -866,16 +874,20 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes_array</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes_array</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+                               <span class="n">ncols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
+                               <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Downscaled GCM Autocorrelations For Validation Period&quot;</span><span class="p">)</span>
 <span class="n">axes</span> <span class="o">=</span> <span class="n">axes_array</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)):</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">autocor_gcm_test</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lag</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
                                                         <span class="n">levels</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> 
-                                                        <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">})</span>
+                                                        <span class="n">cbar_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> 
+                                                                       <span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">})</span>
                                                         
     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
-    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAKES</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAKES</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> 
+                        <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lag </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -884,7 +896,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b210d72f4ca527afe174f8e91f9837d8cdbe39a9e103698ded8caad17873f178.png" src="../_images/b210d72f4ca527afe174f8e91f9837d8cdbe39a9e103698ded8caad17873f178.png" />
+<img alt="../_images/89089c9c8c0f36766158aa21f521cd52b57891b23dfff5fd48137876da86ce5e.png" src="../_images/89089c9c8c0f36766158aa21f521cd52b57891b23dfff5fd48137876da86ce5e.png" />
 </div>
 </div>
 <p>For lags up to 4 days, the downscaled GCM data shows similar autocorrelations to the observations. But as we can see from both the maps and the curve for the arbitrarily selected grid cell, the autocorrelations decay much faster for the GCM than the observations. So for timescales longer than a week or so (twice 4 days), the temporal sequencing of events in the downscaled GCM output may not be reliable. This might not be much of a problem if the climate indicator for your problem is based on annual aggregated totals (i.e. heating/cooling degree days, tropical nights, etc.), but it could be problematic for certain applications - this is where your own domain knowledge is important for assessing which sets of downscaled climate data suits your needs.</p>
@@ -912,15 +924,15 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:42: UserWarning: Variable does not have a `cell_methods` attribute.
   _check_cell_methods(
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:46: UserWarning: Variable does not have a `standard_name` attribute.
   check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:42: UserWarning: Variable does not have a `cell_methods` attribute.
   _check_cell_methods(
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:46: UserWarning: Variable does not have a `standard_name` attribute.
   check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
@@ -936,19 +948,24 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot maps of average annual Tropical Nights</span>
 <span class="n">clevs_tn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes_array</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes_array</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+                               <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">)</span>
 <span class="n">axes</span> <span class="o">=</span> <span class="n">axes_array</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 
-<span class="n">tn_obs_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">tn_obs_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> 
+                                        <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Observations (Training)&quot;</span><span class="p">)</span>
 
-<span class="n">tn_obs_test</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">tn_obs_test</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> 
+                                       <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Observations (Validation)&quot;</span><span class="p">)</span>
 
-<span class="n">tn_gcm_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">tn_gcm_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> 
+                                        <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Downscaled GCM (Training)&quot;</span><span class="p">)</span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">tn_gcm_test</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">tn_gcm_test</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_tn</span><span class="p">,</span> 
+                                           <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Downscaled GCM (Validation)&quot;</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> 
@@ -964,7 +981,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/aa0552a2ffdc86b559c3c94dd3cf54cfc72c6e43a35073d62fac6131ccb80d53.png" src="../_images/aa0552a2ffdc86b559c3c94dd3cf54cfc72c6e43a35073d62fac6131ccb80d53.png" />
+<img alt="../_images/3d30c42adcda7e17676503c2ae8a9bea3a97da434277db305667b6da91072027.png" src="../_images/3d30c42adcda7e17676503c2ae8a9bea3a97da434277db305667b6da91072027.png" />
 </div>
 </div>
 <p>For the training period, the model seems to agree well with the observations regarding the typical number of tropical nights. For the validation period, the model significantly overestimates the frequency of tropical nights, which could be problematic for a study relating to changes to extreme high temperatures.</p>
@@ -987,12 +1004,6 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <span class="n">data_gcm_10p</span> <span class="o">=</span> <span class="n">percentile_doy</span><span class="p">(</span><span class="n">data_gcm_ref</span><span class="p">,</span> <span class="n">per</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">percentiles</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># calculate CSDI for train and test, obs and GCM</span>
-<span class="c1">#CSDI_obs_train = xci.cold_spell_duration_index(data_obs_train, data_obs_10p)</span>
-<span class="c1">#CSDI_obs_test = xci.cold_spell_duration_index(data_obs_test, data_obs_10p)</span>
-
-<span class="c1">#CSDI_gcm_train = xci.cold_spell_duration_index(data_gcm_train, data_gcm_10p)</span>
-<span class="c1">#CSDI_gcm_test = xci.cold_spell_duration_index(data_gcm_test, data_gcm_10p)</span>
-
 <span class="n">CSDI_obs_train</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_obs_train</span><span class="p">,</span> <span class="n">data_obs_10p</span><span class="p">)</span>
 <span class="n">CSDI_obs_test</span> <span class="o">=</span> <span class="n">xci</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">cold_spell_duration_index</span><span class="p">(</span><span class="n">data_obs_test</span><span class="p">,</span> <span class="n">data_obs_10p</span><span class="p">)</span>
 
@@ -1002,15 +1013,15 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:42: UserWarning: Variable does not have a `cell_methods` attribute.
   _check_cell_methods(
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:46: UserWarning: Variable does not have a `standard_name` attribute.
   check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:42: UserWarning: Variable does not have a `cell_methods` attribute.
   _check_cell_methods(
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:46: UserWarning: Variable does not have a `standard_name` attribute.
   check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
@@ -1026,19 +1037,24 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot maps of annual CDSI</span>
 <span class="n">clevs_csdi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes_array</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes_array</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+                               <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">subplot_kw</span> <span class="o">=</span> <span class="n">spkws</span><span class="p">)</span>
 <span class="n">axes</span> <span class="o">=</span> <span class="n">axes_array</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 
-<span class="n">CSDI_obs_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_csdi</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">CSDI_obs_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_csdi</span><span class="p">,</span> 
+                                          <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Observations (Training)&quot;</span><span class="p">)</span>
 
-<span class="n">CSDI_obs_test</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_csdi</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">CSDI_obs_test</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_csdi</span><span class="p">,</span> 
+                                         <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Observations (Validation)&quot;</span><span class="p">)</span>
 
-<span class="n">CSDI_gcm_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_csdi</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">CSDI_gcm_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_csdi</span><span class="p">,</span> 
+                                          <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Downscaled GCM (Training)&quot;</span><span class="p">)</span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">CSDI_gcm_test</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_csdi</span><span class="p">,</span> <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">CSDI_gcm_test</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">clevs_csdi</span><span class="p">,</span> 
+                                             <span class="n">add_colorbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Downscaled GCM (Validation)&quot;</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> 
@@ -1055,7 +1071,7 @@ r_{k} = \frac{\sum_{t = k+1}^{T} (x_{t} - \overline{x})(x_{t-k} - \overline{x})}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/6917a0e2bdeff760253f12cbf605bd139b40119d4d2bf3e36ce430dc59657bfa.png" src="../_images/6917a0e2bdeff760253f12cbf605bd139b40119d4d2bf3e36ce430dc59657bfa.png" />
+<img alt="../_images/7186d1e7f025706bac97988f9fff5cda48682ce12d2bced9982616a0c7041d84.png" src="../_images/7186d1e7f025706bac97988f9fff5cda48682ce12d2bced9982616a0c7041d84.png" />
 </div>
 </div>
 <p>Interestingly, the downscaled data agrees better with the observations for the validation period, though it is likely that this is due to the historical warming trend - there will be fewer days below the 10th percentile of the reference period because the overall distribution of temperatures has shifted to higher values over time.</p>

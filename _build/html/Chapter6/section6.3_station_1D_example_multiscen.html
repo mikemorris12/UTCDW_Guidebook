@@ -422,7 +422,8 @@ document.write(`
 <span class="n">lon_edm</span> <span class="o">=</span> <span class="o">-</span><span class="mf">113.5</span>
 
 <span class="c1"># time periods for historical and future periods</span>
-<span class="n">years_hist</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2011</span><span class="p">)</span> <span class="c1"># remember that range(start, end) is not inclusive of `end`</span>
+ <span class="c1"># remember that range(start, end) is not inclusive of `end`</span>
+<span class="n">years_hist</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2011</span><span class="p">)</span>
 <span class="n">years_future</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2070</span><span class="p">,</span> <span class="mi">2101</span><span class="p">)</span>
 
 <span class="c1"># url for the CSV file that contains the data catalog</span>
@@ -476,7 +477,8 @@ document.write(`
 <span class="n">scenarios</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp126&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp245&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp370&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">]</span>
 
 <span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AWI-CM-1-1-MR&#39;</span><span class="p">,</span> <span class="s1">&#39;CESM2&#39;</span><span class="p">,</span> <span class="s1">&#39;CanESM5&#39;</span><span class="p">,</span> <span class="s1">&#39;EC-Earth3&#39;</span><span class="p">,</span> 
-          <span class="s1">&#39;FGOALS-g3&#39;</span><span class="p">,</span><span class="s1">&#39;INM-CM5-0&#39;</span><span class="p">,</span> <span class="s1">&#39;IPSL-CM6A-LR&#39;</span><span class="p">,</span> <span class="s1">&#39;MPI-ESM1-2-LR&#39;</span><span class="p">,</span> <span class="s1">&#39;MRI-ESM2-0&#39;</span><span class="p">]</span>
+          <span class="s1">&#39;FGOALS-g3&#39;</span><span class="p">,</span><span class="s1">&#39;INM-CM5-0&#39;</span><span class="p">,</span> <span class="s1">&#39;IPSL-CM6A-LR&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;MPI-ESM1-2-LR&#39;</span><span class="p">,</span> <span class="s1">&#39;MRI-ESM2-0&#39;</span><span class="p">]</span>
 
 <span class="n">search_string_mm</span> <span class="o">=</span> <span class="s2">&quot;table_id == &#39;day&#39; &amp; variable_id == &#39;tas&#39;&quot;</span>
 <span class="n">search_string_mm</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; &amp; experiment_id == </span><span class="si">{</span><span class="n">scenarios</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -485,7 +487,8 @@ document.write(`
 
 <span class="c1"># for each model, select only one ensemble member</span>
 <span class="n">df_search_mm</span> <span class="o">=</span> <span class="n">df_search_mm</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;member_id&#39;</span><span class="p">)</span>
-<span class="n">df_search_mm_onemember</span> <span class="o">=</span> <span class="n">df_search_mm</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span> <span class="s1">&#39;experiment_id&#39;</span><span class="p">],</span> <span class="n">keep</span> <span class="o">=</span> <span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="n">df_search_mm_onemember</span> <span class="o">=</span> <span class="n">df_search_mm</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span> <span class="s1">&#39;experiment_id&#39;</span><span class="p">],</span>
+                                                      <span class="n">keep</span> <span class="o">=</span> <span class="s1">&#39;first&#39;</span><span class="p">)</span>
 <span class="n">df_search_mm_onemember</span> <span class="o">=</span> <span class="n">df_search_mm_onemember</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;source_id&#39;</span><span class="p">)</span>
 <span class="n">df_search_mm_onemember</span>
 </pre></div>
@@ -1426,20 +1429,32 @@ INM-CM5-0
     <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;========================</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">=============================&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;historical&#39;</span><span class="p">)</span>
-        <span class="n">tas_model_hist</span> <span class="o">=</span> <span class="n">get_and_process_data</span><span class="p">(</span><span class="n">catalog_df</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="s1">&#39;historical&#39;</span><span class="p">,</span> 
-                                              <span class="n">gcs</span><span class="p">,</span> <span class="n">stn_lat</span><span class="p">,</span> <span class="n">stn_lon</span><span class="p">,</span> <span class="n">years_hist</span><span class="p">)</span>
+        <span class="n">tas_model_hist</span> <span class="o">=</span> <span class="n">get_and_process_data</span><span class="p">(</span><span class="n">catalog_df</span><span class="p">,</span> 
+                                              <span class="n">model</span><span class="p">,</span> 
+                                              <span class="s1">&#39;historical&#39;</span><span class="p">,</span> 
+                                              <span class="n">gcs</span><span class="p">,</span> 
+                                              <span class="n">stn_lat</span><span class="p">,</span>
+                                              <span class="n">stn_lon</span><span class="p">,</span> 
+                                              <span class="n">years_hist</span><span class="p">)</span>
         <span class="n">ds_list_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tas_model_hist</span><span class="p">)</span>
     
         <span class="c1"># get the future simulation data for this model, for each scenario</span>
         <span class="n">ds_list_scen</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span> <span class="c1"># exclude &#39;historical&#39; from this iteration</span>
+        <span class="c1"># exclude &#39;historical&#39; from this iteration</span>
+        <span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span> 
             <span class="nb">print</span><span class="p">(</span><span class="n">scenario</span><span class="p">)</span>
-            <span class="n">tas_model_future</span> <span class="o">=</span> <span class="n">get_and_process_data</span><span class="p">(</span><span class="n">catalog_df</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> 
-                                                    <span class="n">gcs</span><span class="p">,</span> <span class="n">stn_lat</span><span class="p">,</span> <span class="n">stn_lon</span><span class="p">,</span> <span class="n">years_future</span><span class="p">)</span>
+            <span class="n">tas_model_future</span> <span class="o">=</span> <span class="n">get_and_process_data</span><span class="p">(</span><span class="n">catalog_df</span><span class="p">,</span> 
+                                                    <span class="n">model</span><span class="p">,</span> 
+                                                    <span class="n">scenario</span><span class="p">,</span> 
+                                                    <span class="n">gcs</span><span class="p">,</span>
+                                                    <span class="n">stn_lat</span><span class="p">,</span>
+                                                    <span class="n">stn_lon</span><span class="p">,</span> 
+                                                    <span class="n">years_future</span><span class="p">)</span>
             <span class="n">ds_list_scen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tas_model_future</span><span class="p">)</span>
     
-        <span class="c1"># create ensemble for this one model, where the &#39;realization&#39; dim represents the different scenarios</span>
-        <span class="n">ds_future</span> <span class="o">=</span> <span class="n">xce</span><span class="o">.</span><span class="n">create_ensemble</span><span class="p">(</span><span class="n">ds_list_scen</span><span class="p">,</span> <span class="n">realizations</span> <span class="o">=</span> <span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="c1"># create ensemble for this one model, where the &#39;realization&#39; dim represents the different scenarios</span>
+        <span class="n">ds_future</span> <span class="o">=</span> <span class="n">xce</span><span class="o">.</span><span class="n">create_ensemble</span><span class="p">(</span><span class="n">ds_list_scen</span><span class="p">,</span> 
+                                        <span class="n">realizations</span> <span class="o">=</span> <span class="n">scenarios</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
     
         <span class="c1"># rename the &#39;realization&#39; dim</span>
         <span class="n">ds_future</span> <span class="o">=</span> <span class="n">ds_future</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;realization&#39;</span><span class="p">:</span> <span class="s1">&#39;scenario&#39;</span><span class="p">})</span>
@@ -1482,9 +1497,14 @@ INM-CM5-0
 
 <span class="c1"># use the function to download the data, this may take a few minutes to run</span>
 <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fout_hist</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fout_future</span><span class="p">)):</span>
-    <span class="n">ds_ens_hist_raw</span><span class="p">,</span> <span class="n">ds_ens_future_raw</span> <span class="o">=</span> <span class="n">download_data_multimodel_multiscen</span><span class="p">(</span><span class="n">df_search_mm_onemember</span><span class="p">,</span> <span class="n">gcs</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> 
-                                                                            <span class="n">scenarios</span><span class="p">,</span> <span class="n">stn_lat</span><span class="p">,</span> <span class="n">stn_lon</span><span class="p">,</span> 
-                                                                            <span class="n">years_hist</span><span class="p">,</span> <span class="n">years_future</span><span class="p">)</span>
+    <span class="n">ds_ens_hist_raw</span><span class="p">,</span> <span class="n">ds_ens_future_raw</span> <span class="o">=</span> <span class="n">download_data_multimodel_multiscen</span><span class="p">(</span><span class="n">df_search_mm_onemember</span><span class="p">,</span> 
+                                                                            <span class="n">gcs</span><span class="p">,</span> 
+                                                                            <span class="n">models</span><span class="p">,</span> 
+                                                                            <span class="n">scenarios</span><span class="p">,</span> 
+                                                                            <span class="n">stn_lat</span><span class="p">,</span> 
+                                                                            <span class="n">stn_lon</span><span class="p">,</span> 
+                                                                            <span class="n">years_hist</span><span class="p">,</span> 
+                                                                            <span class="n">years_future</span><span class="p">)</span>
 
     <span class="c1"># write the data to output files </span>
     <span class="n">ds_ens_hist_raw</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">fout_hist</span><span class="p">)</span>
@@ -1518,7 +1538,8 @@ INM-CM5-0
 
 <span class="c1"># add historical and future scenarios to the same DataArray so the xarray plotting routines show it on the legend</span>
 <span class="n">tas_ensmean_hist_raw_clim</span> <span class="o">=</span> <span class="n">tas_ensmean_hist_raw_clim</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">scenario</span> <span class="o">=</span> <span class="s1">&#39;historical&#39;</span><span class="p">)</span>
-<span class="n">tas_clim_model_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tas_ensmean_hist_raw_clim</span><span class="p">,</span> <span class="n">tas_ensmean_future_raw_clim</span><span class="p">],</span>
+<span class="n">tas_clim_model_raw</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tas_ensmean_hist_raw_clim</span><span class="p">,</span>
+                                <span class="n">tas_ensmean_future_raw_clim</span><span class="p">],</span>
                                 <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1536,7 +1557,9 @@ INM-CM5-0
 
 <span class="c1"># daily climatologies as 1D curves</span>
 <span class="c1"># obs</span>
-<span class="n">tas_dailyclim_obs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Station Obs&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">tas_dailyclim_obs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> 
+                            <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Station Obs&quot;</span><span class="p">,</span> 
+                            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># models</span>
 <span class="n">tas_clim_model_raw</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
@@ -1556,7 +1579,7 @@ INM-CM5-0
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4a9aca787d2af40e8e2ae7f2be56cfeafc104f91cd60bc200d47692d5f400ecf.png" src="../_images/4a9aca787d2af40e8e2ae7f2be56cfeafc104f91cd60bc200d47692d5f400ecf.png" />
+<img alt="../_images/63d8964c84f6eb6cb16859b2df1490d697aa916ff1c726f20c455eb27c1ec3b8.png" src="../_images/63d8964c84f6eb6cb16859b2df1490d697aa916ff1c726f20c455eb27c1ec3b8.png" />
 </div>
 </div>
 <p>This plot shows how the multi-model average daily mean temperature climatology varies with the future scenario. The historical climatology (blue) shows a slight cold bias relative to the observations (black), which will hopefully be eliminated after bias-correcting the models. The future scenarios all show warming relative to the historical period, though only the two highest-emission scenarios (SSP3-7.0 and SSP5-8.5) have peaks that exceed the observed range of variability.</p>
@@ -1595,21 +1618,19 @@ INM-CM5-0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:42: UserWarning: Variable does not have a `cell_methods` attribute.
   _check_cell_methods(
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:46: UserWarning: Variable does not have a `standard_name` attribute.
   check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:42: UserWarning: Variable does not have a `cell_methods` attribute.
   _check_cell_methods(
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:46: UserWarning: Variable does not have a `standard_name` attribute.
   check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:42: UserWarning: Variable does not have a `cell_methods` attribute.
   _check_cell_methods(
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:46: UserWarning: Variable does not have a `standard_name` attribute.
   check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
@@ -1640,7 +1661,7 @@ INM-CM5-0
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b1b5fe94cd21ebe6e56f62762b05a33d693b733788d05709a99143c2aa97ba03.png" src="../_images/b1b5fe94cd21ebe6e56f62762b05a33d693b733788d05709a99143c2aa97ba03.png" />
+<img alt="../_images/0efc355f0b1c61d875f1c0e878a83a6d1b845e88df906f6761ba5dc8c51039cb.png" src="../_images/0efc355f0b1c61d875f1c0e878a83a6d1b845e88df906f6761ba5dc8c51039cb.png" />
 </div>
 </div>
 <p>In this plot, the blue bars show the multi-model mean change in the average annual CDDs, while the black error bars represent the standard deviation across models for the given scenario. Clearly, scenario uncertainty plays a large role in the overall range of projections, with the low end of the SSP5-8.5 projections not overlapping at all with the high end of the SSP2-1.6 projections. The error bar doesn’t overlap with zero for any scenario, so all scenarios project a statistically significant increase in CDDs.</p>
@@ -1654,7 +1675,8 @@ INM-CM5-0
 <span class="n">cdds_mm_delta_raw_model_spread_pct_scenmean</span> <span class="o">=</span> <span class="n">cdds_mm_delta_raw_model_spread_pct</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
 <span class="n">cdds_mm_delta_raw_model_spread_pct_scenmean</span><span class="p">[</span><span class="s1">&#39;scenario&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mean&#39;</span>
 
-<span class="n">model_spread_pct</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cdds_mm_delta_raw_model_spread_pct</span><span class="p">,</span> <span class="n">cdds_mm_delta_raw_model_spread_pct_scenmean</span><span class="p">],</span>
+<span class="n">model_spread_pct</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cdds_mm_delta_raw_model_spread_pct</span><span class="p">,</span> 
+                              <span class="n">cdds_mm_delta_raw_model_spread_pct_scenmean</span><span class="p">],</span>
                              <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
 
 <span class="c1"># this will print out the results in a nice table, with the percentages rounded to 2 decimal places</span>
@@ -1720,7 +1742,10 @@ INM-CM5-0
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdds_raw_delta_scen_spread</span> <span class="o">=</span> <span class="n">cdds_mm_delta_raw_ensmean</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
 <span class="n">cdds_delta_raw_scen_spread_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">cdds_raw_delta_scen_spread</span> <span class="o">/</span> <span class="n">cdds_mm_delta_raw_ensmean</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scenario Uncercainty for Raw Model Output: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">cdds_delta_raw_scen_spread_pct</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="c1"># round the results to the nearest hundredth for printing</span>
+<span class="n">spread_pct_rounded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">cdds_delta_raw_scen_spread_pct</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scenario Uncercainty for Raw Model Output: </span><span class="si">{</span><span class="n">spread_pct_rounded</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1790,9 +1815,11 @@ INM-CM5-0
 <span class="n">tas_clim_hist_qdm_ensmean</span> <span class="o">=</span> <span class="n">tas_clim_hist_qdm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
 <span class="n">tas_clim_future_qdm_ensmean</span> <span class="o">=</span> <span class="n">tas_clim_future_qdm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
 
-<span class="c1"># add historical and future scenarios to the same DataArray so the xarray plotting routines show it on the legend</span>
+<span class="c1"># add historical and future scenarios to the same DataArray </span>
+<span class="c1"># so the xarray plotting routines show it on the legend</span>
 <span class="n">tas_clim_hist_qdm_ensmean</span> <span class="o">=</span> <span class="n">tas_clim_hist_qdm_ensmean</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">scenario</span> <span class="o">=</span> <span class="s1">&#39;historical&#39;</span><span class="p">)</span>
-<span class="n">tas_clim_model_qdm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tas_clim_hist_qdm_ensmean</span><span class="p">,</span> <span class="n">tas_clim_future_qdm_ensmean</span><span class="p">],</span>
+<span class="n">tas_clim_model_qdm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tas_clim_hist_qdm_ensmean</span><span class="p">,</span> 
+                                <span class="n">tas_clim_future_qdm_ensmean</span><span class="p">],</span>
                                 <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1811,7 +1838,9 @@ INM-CM5-0
 
 <span class="c1"># daily climatologies as 1D curves</span>
 <span class="c1"># obs</span>
-<span class="n">tas_dailyclim_obs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Station Obs&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">tas_dailyclim_obs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> 
+                            <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Station Obs&quot;</span><span class="p">,</span> 
+                            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># models</span>
 <span class="n">tas_clim_model_qdm</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
@@ -1832,7 +1861,7 @@ INM-CM5-0
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a6342d6cd8ede7e0c9eec59d57495b205b9b46c37686bf885bbd344eee2edb47.png" src="../_images/a6342d6cd8ede7e0c9eec59d57495b205b9b46c37686bf885bbd344eee2edb47.png" />
+<img alt="../_images/63d33f31cb96d32960ae05949babe09011f7eaf6d81cf1cfd0dfcac27eab25e6.png" src="../_images/63d33f31cb96d32960ae05949babe09011f7eaf6d81cf1cfd0dfcac27eab25e6.png" />
 </div>
 </div>
 <p>The character of the changes to the daily climatology of <code class="docutils literal notranslate"><span class="pre">tas</span></code> isn’t really changed by the bias correction, but the historical multi-model mean (blue) now matches the observed climatology (black) more closely. Next, let’s test the statistical significance of mean change to <code class="docutils literal notranslate"><span class="pre">tas</span></code> for each scenario.</p>
@@ -1850,7 +1879,7 @@ INM-CM5-0
     <span class="n">times</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ntime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
     <span class="c1"># data not including the first timestep</span>
     <span class="n">data_lag</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ntime</span><span class="p">))</span>
-    <span class="c1"># match up time values, otherwise the xr.corr function won&#39;t return the correct output</span>
+<span class="c1"># match up time values, otherwise the xr.corr function won&#39;t return the correct output</span>
     <span class="n">data_lag</span> <span class="o">=</span> <span class="n">data_lag</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">times</span><span class="p">)</span>
     
     <span class="c1"># calculate correlation</span>
@@ -1891,7 +1920,8 @@ INM-CM5-0
                                             <span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;greater&#39;</span><span class="p">)</span> 
     <span class="n">pvals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pval</span><span class="p">)</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s1">&#39;scenario&#39;</span><span class="p">:</span> <span class="n">tas_ens_future_qdm_mean</span><span class="o">.</span><span class="n">scenario</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;p-value&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="mi">4</span><span class="p">)})</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s1">&#39;scenario&#39;</span><span class="p">:</span> <span class="n">tas_ens_future_qdm_mean</span><span class="o">.</span><span class="n">scenario</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+                        <span class="s1">&#39;p-value&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="mi">4</span><span class="p">)})</span>
 </pre></div>
 </div>
 </div>
@@ -1977,15 +2007,15 @@ INM-CM5-0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:42: UserWarning: Variable does not have a `cell_methods` attribute.
   _check_cell_methods(
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:46: UserWarning: Variable does not have a `standard_name` attribute.
   check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:41: UserWarning: Variable does not have a `cell_methods` attribute.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:42: UserWarning: Variable does not have a `cell_methods` attribute.
   _check_cell_methods(
-/home/mmorris/miniconda3/envs/UTCDW2/lib/python3.9/site-packages/xclim/core/cfchecks.py:45: UserWarning: Variable does not have a `standard_name` attribute.
+/Users/mikemorris/opt/anaconda3/envs/UTCDW-env2/lib/python3.12/site-packages/xclim/core/cfchecks.py:46: UserWarning: Variable does not have a `standard_name` attribute.
   check_valid(vardata, &quot;standard_name&quot;, data[&quot;standard_name&quot;])
 </pre></div>
 </div>
@@ -2012,7 +2042,8 @@ INM-CM5-0
 <span class="c1"># raw model changes</span>
 <span class="n">bars_raw</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">cdds_mm_delta_raw_ensmean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> 
                   <span class="n">yerr</span> <span class="o">=</span> <span class="n">cdds_mm_delta_raw_model_spread</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
-                   <span class="c1"># add hatching to make the two bars differ visually in another way than just the colour.</span>
+                   <span class="c1"># add hatching to make the two bars differ visually</span>
+                   <span class="c1"># in another way than just the colour.</span>
                    <span class="c1"># this helps make the plots more colorblind-friendly</span>
                   <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Raw Model Output&quot;</span><span class="p">,</span> <span class="n">hatch</span> <span class="o">=</span> <span class="s1">&#39;xx&#39;</span><span class="p">,</span>
                   <span class="n">capsize</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">error_kw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;elinewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
@@ -2039,7 +2070,7 @@ INM-CM5-0
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/8d20bdb0bac95b7b9eb5f1037fb435fe08bd6a304c9c6da4f4e6da88d0af254d.png" src="../_images/8d20bdb0bac95b7b9eb5f1037fb435fe08bd6a304c9c6da4f4e6da88d0af254d.png" />
+<img alt="../_images/436812b1915c5a3c29ac8f1dcab0be77c2bb459182a9395112b0b6cae3bd5a9d.png" src="../_images/436812b1915c5a3c29ac8f1dcab0be77c2bb459182a9395112b0b6cae3bd5a9d.png" />
 </div>
 </div>
 <p>The effect of the bias correction was to increase the magnitude of the CDD projections for each scenario, though the size of the model spread and scenario spread appear mostly unchanged. As we did for the raw model projections, we can quantify the relative contributions of model uncertainty and scenario uncertainty by comparing the spread across models/scenarios to the mean change across models/scenarios.</p>
@@ -2051,7 +2082,8 @@ INM-CM5-0
 <span class="n">cdds_delta_qdm_model_spread_pct_scenmean</span> <span class="o">=</span> <span class="n">cdds_delta_qdm_model_spread_pct</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
 <span class="n">cdds_delta_qdm_model_spread_pct_scenmean</span><span class="p">[</span><span class="s1">&#39;scenario&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mean&#39;</span>
 
-<span class="n">model_spread_pct_qdm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cdds_delta_qdm_model_spread_pct</span><span class="p">,</span> <span class="n">cdds_delta_qdm_model_spread_pct_scenmean</span><span class="p">],</span>
+<span class="n">model_spread_pct_qdm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cdds_delta_qdm_model_spread_pct</span><span class="p">,</span> 
+                                  <span class="n">cdds_delta_qdm_model_spread_pct_scenmean</span><span class="p">],</span>
                                   <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">model_spread_pct_qdm</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -2112,8 +2144,9 @@ INM-CM5-0
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdds_qdm_delta_scen_spread</span> <span class="o">=</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">)</span>
 <span class="n">cdds_delta_qdm_scen_spread_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">cdds_qdm_delta_scen_spread</span> <span class="o">/</span> <span class="n">cdds_qdm_delta_ensmean</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;scenario&#39;</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">spread_pct_rounded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">cdds_delta_qdm_scen_spread_pct</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scenario Uncercainty After Bias-Adjustment: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">cdds_delta_qdm_scen_spread_pct</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scenario Uncercainty After Bias-Adjustment: </span><span class="si">{</span><span class="n">spread_pct_rounded</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2132,9 +2165,12 @@ INM-CM5-0
 <span class="c1"># multi-model mean historical CDDs</span>
 <span class="n">cdds_hist_qdm_ltm_mm_mean</span> <span class="o">=</span> <span class="n">cdds_hist_qdm_ltm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
 
+<span class="n">low_range</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">cdd_change_10p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdds_hist_qdm_ltm_mm_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">high_range</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">cdd_change_90p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdds_hist_qdm_ltm_mm_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
 <span class="n">results_str</span> <span class="o">=</span> <span class="s2">&quot;Likely Range of Mean CDD Change from 1980-2010 to 2070-2100: &quot;</span>
-<span class="n">results_str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cdd_change_10p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdds_hist_qdm_ltm_mm_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="si">}</span><span class="s2">% to &quot;</span>
-<span class="n">results_str</span> <span class="o">+=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cdd_change_90p</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">cdds_hist_qdm_ltm_mm_mean</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="si">}</span><span class="s2">%&quot;</span>
+<span class="n">results_str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">low_range</span><span class="si">}</span><span class="s2">% to &quot;</span>
+<span class="n">results_str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">high_range</span><span class="si">}</span><span class="s2">%&quot;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">results_str</span><span class="p">)</span>
 </pre></div>

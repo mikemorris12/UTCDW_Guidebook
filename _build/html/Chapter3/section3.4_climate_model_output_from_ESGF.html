@@ -437,6 +437,41 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;percent&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;%&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;year&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;yr&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;C&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;d&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;h&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;degrees_north&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;degrees_east&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;degrees&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.UnitDefinition&#39;&gt;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pint.util:Redefining &#39;[speed]&#39; (&lt;class &#39;pint.delegates.txt_defparser.plain.DerivedDimensionDefinition&#39;&gt;)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -499,7 +534,8 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">new_context</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;CMIP6&quot;</span><span class="p">,</span>
                          <span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;historical,ssp585&#39;</span><span class="p">,</span>
                          <span class="n">source_id</span> <span class="o">=</span> <span class="s2">&quot;CanESM5&quot;</span><span class="p">,</span>
-                         <span class="n">frequency</span> <span class="o">=</span> <span class="s1">&#39;mon&#39;</span><span class="p">,</span> <span class="c1"># monthly (&#39;day&#39; for daily, &#39;6hr&#39; for 6-hourly, etc.)</span>
+                         <span class="c1"># monthly (&#39;day&#39; for daily, &#39;6hr&#39; for 6-hourly, etc.)</span>
+                         <span class="n">frequency</span> <span class="o">=</span> <span class="s1">&#39;mon&#39;</span><span class="p">,</span> 
                          <span class="n">member_id</span><span class="o">=</span><span class="s2">&quot;r1i1p1f1&quot;</span><span class="p">,</span>
                          <span class="n">variable_id</span> <span class="o">=</span> <span class="s2">&quot;tas&quot;</span><span class="p">)</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
@@ -672,7 +708,8 @@ tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a directory (inside the current working directory) to save the data to</span>
 <span class="n">data_directory</span> <span class="o">=</span> <span class="s2">&quot;CanESM5_tas_monthly&quot;</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data_directory</span><span class="p">):</span> <span class="c1"># only make the directory if it doesn&#39;t already exist</span>
+<span class="c1"># only make the directory if it doesn&#39;t already exist</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data_directory</span><span class="p">):</span> 
     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">data_directory</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -690,9 +727,9 @@ tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_218101-230012.nc
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path_to_write</span><span class="p">):</span> 
         <span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">path_to_write</span><span class="p">)</span>
     
-    <span class="c1"># if there is an error downloading a file, you&#39;ll need to either delete the file,</span>
-    <span class="c1"># or change this block of code to call download(url, path_to_write) without </span>
-    <span class="c1"># first checking if path_to_write exists,</span>
+<span class="c1"># if there is an error downloading a file, you&#39;ll need to either delete the file,</span>
+<span class="c1"># or change this block of code to call download(url, path_to_write) without </span>
+<span class="c1"># first checking if path_to_write exists,</span>
 </pre></div>
 </div>
 </div>
@@ -781,7 +818,8 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># interpolate the CanESM5 model data to the station location</span>
 <span class="n">station_lat</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">station_lon</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">360</span> <span class="c1"># model data longitudes go from (0, 360) instead of (-180, 180)</span>
+<span class="c1"># add 360 since the model data longitudes go from (0, 360) instead of (-180, 180)</span>
+<span class="n">station_lon</span> <span class="o">=</span> <span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">360</span> 
 
 <span class="n">tas_CanESM5</span> <span class="o">=</span> <span class="n">ds_CanESM5</span><span class="o">.</span><span class="n">tas</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="n">station_lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">station_lon</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span>
 </pre></div>
@@ -793,7 +831,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># station and model data have different time datatypes, so make a time axis with</span>
 <span class="c1"># xarray to use for the obs</span>
 <span class="n">times_obs</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">cftime_range</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">df_obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> 
-                            <span class="c1"># need to add an extra month to the endpoint to make it closed at the right</span>
+<span class="c1"># need to add an extra month to the endpoint to make it closed at the right</span>
                             <span class="n">end</span> <span class="o">=</span> <span class="n">df_obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span> 
                             <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">calendar</span> <span class="o">=</span> <span class="s1">&#39;noleap&#39;</span><span class="p">)</span>
 <span class="c1"># plot the time series</span>
@@ -808,7 +846,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2bec85af8d2e2388fc4332ddc53c4841bac7b759b07863e060d25fd93d2dc40c.png" src="../_images/2bec85af8d2e2388fc4332ddc53c4841bac7b759b07863e060d25fd93d2dc40c.png" />
+<img alt="../_images/0eb1e86a9c1acd0d43f3f24998404e12e527f266181e4638e8cf57d4d0d70d95.png" src="../_images/0eb1e86a9c1acd0d43f3f24998404e12e527f266181e4638e8cf57d4d0d70d95.png" />
 </div>
 </div>
 <p>While we should not expect the individual months of the simulated data to match up with the station observations, the degree of overlap is encouraging that the model agrees decently well with observations.</p>
@@ -819,12 +857,14 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select model data during obs period</span>
-<span class="n">obs_year_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">times_obs</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">times_obs</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># add one so the range includes the max year</span>
+<span class="c1"># add one to the max year so the range includes the max year</span>
+<span class="n">obs_year_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">times_obs</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">times_obs</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> 
 <span class="n">tas_CanESM5_obsperiod</span> <span class="o">=</span> <span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">tas_CanESM5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">obs_year_range</span><span class="p">))</span>
 
 <span class="c1"># fit Kernel Density Estimator so we can plot a smooth distribution</span>
 <span class="n">kde_CanESM5</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">tas_CanESM5_obsperiod</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="n">kde_obs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="c1"># need to drop missing values or else scipy complains</span>
+<span class="c1"># need to drop missing values or else scipy complains</span>
+<span class="n">kde_obs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">df_obs</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> 
 
 
 <span class="c1"># mean values for each dataset</span>
@@ -846,7 +886,8 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of Monthly Mean Temperatures in Toronto&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">kde_CanESM5</span><span class="p">(</span><span class="n">temperatures</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CanESM5&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">kde_obs</span><span class="p">(</span><span class="n">temperatures</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Station Obs&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">([</span><span class="n">tas_CanESM5_mean</span><span class="p">,</span> <span class="n">tas_obs_mean</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">],</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">([</span><span class="n">tas_CanESM5_mean</span><span class="p">,</span> <span class="n">tas_obs_mean</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+           <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">],</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability Density&quot;</span><span class="p">)</span>
@@ -862,7 +903,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51412ef2bb0abca694a511fd0626ff27afd3a2c0d45b77add573efb915b1dfb2.png" src="../_images/51412ef2bb0abca694a511fd0626ff27afd3a2c0d45b77add573efb915b1dfb2.png" />
+<img alt="../_images/e98f0d79fe1207b439638e37fbd056c4189b311079ad76c71a6073c1057a8f49.png" src="../_images/e98f0d79fe1207b439638e37fbd056c4189b311079ad76c71a6073c1057a8f49.png" />
 </div>
 </div>
 <p>Indeed, the model data for this location is biased slightly low, and has too high of a standard deviation, compared to the station observations. For sub-monthly data, these biases could possibly be worse, which is one reason why downscaling and bias-correction are necessary parts of climate impact analysis.</p>
@@ -883,7 +924,8 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Climatology of Monthly Mean Temperatures in Toronto&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">tas_monthlyclim_CanESM5</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CanESM5&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">tas_monthlyclim_obs</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Station Obs&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">monthlyclim_bias</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Model Bias&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">monthlyclim_bias</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Model Bias&#39;</span><span class="p">,</span> 
+         <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Month of the Year&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Temperature ($^{\circ}$C)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -893,7 +935,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0e5b7941a580a82fff15475f77ff62a3c2280610b3b194cad8871592868fc9c6.png" src="../_images/0e5b7941a580a82fff15475f77ff62a3c2280610b3b194cad8871592868fc9c6.png" />
+<img alt="../_images/4d0f42c577264e8743c7b706e85852400b078940a976e8919efcf152dbdf120a.png" src="../_images/4d0f42c577264e8743c7b706e85852400b078940a976e8919efcf152dbdf120a.png" />
 </div>
 </div>
 <p>This plot is much more informative! The overall negative mean bias is due to the fact that the model’s winter months are too cold, but in the annual mean this bias is somewhat washed out by the summer months being slightly too hot. This is also why the model data higher standard deviation than the observations - the contrast between the summer and winter seasons is greater than in observations. This example demonstrates that for variables with a strong seasonal cycle like temperature, bias correction should account for seasonally-varying biases. This can be done by grouping the data by the day or month of the year, and applying separate corrections to each of these groups. This example also illustrates why it’s important to learn some basic climate science before working with climate data, and to do exploratory analysis with the observations and raw model data before doing bias correction or downscaling. If one lacked the required background knowledge or if they didn’t assess the raw model biases and went directly to downscaling, they’d likely produce downscaled projections that still suffer from seasonally-dependent biases.</p>
@@ -963,9 +1005,11 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
                                               <span class="n">neff_future</span><span class="p">,</span>
                                               <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                                               <span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;less&#39;</span><span class="p">)</span> 
-<span class="c1"># alt hypothesis is that the first dataset (historical) has a lower mean than the second dataset (future)</span>
+<span class="c1"># alt hypothesis is that the first dataset (historical) </span>
+<span class="c1"># has a lower mean than the second dataset (future)</span>
 
-<span class="c1"># do it again using the total sample size, to demonstrate how the p-value will be underestimated</span>
+<span class="c1"># do it again using the total sample size, </span>
+<span class="c1"># to demonstrate how the p-value will be underestimated</span>
 <span class="n">tstat</span><span class="p">,</span> <span class="n">pval_ntot</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind_from_stats</span><span class="p">(</span><span class="n">tas_CanESM5_hist_mean</span><span class="p">,</span>
                                               <span class="n">tas_CanESM5_hist_std</span><span class="p">,</span>
                                               <span class="nb">len</span><span class="p">(</span><span class="n">tas_CanESM5_hist</span><span class="o">.</span><span class="n">time</span><span class="p">),</span>
@@ -983,9 +1027,7 @@ Size of tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412.nc: 52.443019 MB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total Sample Size p-value: 0.000000
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Effective Sample Size p-value: 0.001478
+Effective Sample Size p-value: 0.001478
 </pre></div>
 </div>
 </div>
@@ -1033,14 +1075,16 @@ z = \left\{
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mann_kendall_pvalue</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
-    <span class="c1"># kendall tau  - the np.arange(N) is there to represent the monotonically increasing time axis</span>
+    <span class="c1"># kendall tau  - the np.arange(N) is there to represent</span>
+    <span class="c1"># the monotonically increasing time axis</span>
     <span class="n">tau</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kendalltau</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
     
     <span class="c1"># use tau to calculate the S statistic</span>
     <span class="n">S</span> <span class="o">=</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 
     <span class="c1"># calculate the variance and effective variance,</span>
-    <span class="c1"># taking advantage of our effective_sample_size function from the last example</span>
+    <span class="c1"># taking advantage of our effective_sample_size function </span>
+    <span class="c1"># from the last example</span>
     <span class="n">var_S</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">18</span>
     <span class="n">N_eff</span> <span class="o">=</span> <span class="n">effective_sample_size</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="n">correction_factor</span> <span class="o">=</span> <span class="n">N</span> <span class="o">/</span> <span class="n">N_eff</span>
@@ -1049,7 +1093,8 @@ z = \left\{
     <span class="c1"># standardize S to a z-score</span>
     <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">S</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_S_eff</span><span class="p">)</span>
     
-    <span class="c1"># calculate one-sided p-value using the standard normal distribution</span>
+    <span class="c1"># calculate one-sided p-value </span>
+    <span class="c1"># using the standard normal distribution</span>
     <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">pval</span>
@@ -1179,16 +1224,18 @@ z = \left\{
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a list of the files to create the ensemble, using the wildcard character *. </span>
-<span class="c1"># note that the order of the files is random when using glob.glob and the wildcard character,</span>
-<span class="c1"># so the order of the &#39;realization&#39; dimension created by xclim.ensembles.create_ensemble</span>
-<span class="c1"># will also be random. You can specify the order of the &#39;realization&#39; coordinates</span>
+<span class="c1"># note that the order of the files is random when using glob.glob and the </span>
+<span class="c1"># wildcard character, so the order of the &#39;realization&#39; dimension created by </span>
+<span class="c1"># xclim.ensembles.create_ensemble will also be random.</span>
+<span class="c1"># You can specify the order of the &#39;realization&#39; coordinates</span>
 <span class="c1"># by making your own ordered list of file names.</span>
 <span class="n">historical_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">data_directory</span> <span class="o">+</span> <span class="s2">&quot;/tas_Amon_CanESM5_historical_*_gn_185001-201412.nc&quot;</span><span class="p">)</span>
 
 <span class="c1"># open up the two historical files using xclim.ensembles</span>
 <span class="n">ds_ensemble</span> <span class="o">=</span> <span class="n">ensembles</span><span class="o">.</span><span class="n">create_ensemble</span><span class="p">(</span><span class="n">historical_files</span><span class="p">)</span>
 
-<span class="c1"># print a summary of the dataset - the dimension &#39;realization&#39; represents the ensemble member</span>
+<span class="c1"># Print a summary of the dataset.</span>
+<span class="c1"># The dimension &#39;realization&#39; represents the ensemble member</span>
 <span class="n">ds_ensemble</span>
 </pre></div>
 </div>
@@ -1557,20 +1604,20 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:      (time: 1980, realization: 4, bnds: 2, lat: 64, lon: 128)
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 260MB
+Dimensions:      (realization: 4, time: 1980, bnds: 2, lat: 64, lon: 128)
 Coordinates:
-  * time         (time) object 1850-01-16 12:00:00 ... 2014-12-16 12:00:00
-  * lat          (lat) float64 -87.86 -85.1 -82.31 -79.53 ... 82.31 85.1 87.86
-  * lon          (lon) float64 0.0 2.812 5.625 8.438 ... 348.8 351.6 354.4 357.2
-    height       float64 2.0
-  * realization  (realization) int64 0 1 2 3
+  * time         (time) object 16kB 1850-01-16 12:00:00 ... 2014-12-16 12:00:00
+  * lat          (lat) float64 512B -87.86 -85.1 -82.31 ... 82.31 85.1 87.86
+  * lon          (lon) float64 1kB 0.0 2.812 5.625 8.438 ... 351.6 354.4 357.2
+    height       float64 8B 2.0
+  * realization  (realization) int64 32B 0 1 2 3
 Dimensions without coordinates: bnds
 Data variables:
-    time_bnds    (realization, time, bnds) float64 dask.array&lt;chunksize=(1, 1980, 2), meta=np.ndarray&gt;
-    lat_bnds     (realization, lat, bnds) float64 dask.array&lt;chunksize=(1, 64, 2), meta=np.ndarray&gt;
-    lon_bnds     (realization, lon, bnds) float64 dask.array&lt;chunksize=(1, 128, 2), meta=np.ndarray&gt;
-    tas          (realization, time, lat, lon) float32 dask.array&lt;chunksize=(1, 1980, 64, 128), meta=np.ndarray&gt;
+    time_bnds    (realization, time, bnds) float64 127kB dask.array&lt;chunksize=(1, 1980, 2), meta=np.ndarray&gt;
+    lat_bnds     (realization, lat, bnds) float64 4kB dask.array&lt;chunksize=(1, 64, 2), meta=np.ndarray&gt;
+    lon_bnds     (realization, lon, bnds) float64 8kB dask.array&lt;chunksize=(1, 128, 2), meta=np.ndarray&gt;
+    tas          (realization, time, lat, lon) float32 260MB dask.array&lt;chunksize=(1, 1980, 64, 128), meta=np.ndarray&gt;
 Attributes: (12/53)
     CCCma_model_hash:            3dedf95315d603326fde4f5340dc0519d80d10c0
     CCCma_parent_runid:          rc3-pictrl
@@ -1584,14 +1631,14 @@ Attributes: (12/53)
     variant_label:               r1i1p1f1
     version:                     v20190429
     license:                     CMIP6 model data produced by The Government ...
-    cmor_version:                3.4.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-19884fda-ae13-419d-acea-430ab663b8d7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-19884fda-ae13-419d-acea-430ab663b8d7' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1980</li><li><span class='xr-has-index'>realization</span>: 4</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lat</span>: 64</li><li><span class='xr-has-index'>lon</span>: 128</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-ae9e99ba-8d71-4ac7-94fd-62dcc7c0666c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ae9e99ba-8d71-4ac7-94fd-62dcc7c0666c' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-16 12:00:00 ... 2014-12-...</div><input id='attrs-ae234c16-e196-4b86-8629-24842d000368' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ae234c16-e196-4b86-8629-24842d000368' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d3316f05-7497-45f0-b60e-cbf694a8f291' class='xr-var-data-in' type='checkbox'><label for='data-d3316f05-7497-45f0-b60e-cbf694a8f291' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 16, 12, 0, 0, 0, has_year_zero=True),
+    cmor_version:                3.4.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-21bd01ec-3350-4d10-87fd-156aa89e21c4' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-21bd01ec-3350-4d10-87fd-156aa89e21c4' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>realization</span>: 4</li><li><span class='xr-has-index'>time</span>: 1980</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lat</span>: 64</li><li><span class='xr-has-index'>lon</span>: 128</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-affecd2b-278d-4637-a641-5dc2dcda8813' class='xr-section-summary-in' type='checkbox'  checked><label for='section-affecd2b-278d-4637-a641-5dc2dcda8813' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-16 12:00:00 ... 2014-12-...</div><input id='attrs-58c5520b-f429-42b6-9a3b-3049350f023c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-58c5520b-f429-42b6-9a3b-3049350f023c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-46fe907e-6944-4b46-8718-fd96a599434d' class='xr-var-data-in' type='checkbox'><label for='data-46fe907e-6944-4b46-8718-fd96a599434d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 16, 12, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(1850, 2, 15, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(1850, 3, 16, 12, 0, 0, 0, has_year_zero=True),
        ...,
        cftime.DatetimeNoLeap(2014, 10, 16, 12, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2014, 11, 16, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2014, 12, 16, 12, 0, 0, 0, has_year_zero=True)],
-      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.86 -85.1 -82.31 ... 85.1 87.86</div><input id='attrs-03bc5571-5ce7-4fab-aca2-6644bf077275' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-03bc5571-5ce7-4fab-aca2-6644bf077275' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3df2b97f-d900-493e-bb05-389d29a4f1cb' class='xr-var-data-in' type='checkbox'><label for='data-3df2b97f-d900-493e-bb05-389d29a4f1cb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([-87.863799, -85.096527, -82.312913, -79.525607, -76.7369  , -73.947515,
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-87.86 -85.1 -82.31 ... 85.1 87.86</div><input id='attrs-30a9ae02-13f9-4e5e-8bf4-f5978952ada1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-30a9ae02-13f9-4e5e-8bf4-f5978952ada1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a62ad385-5f8f-46eb-a72e-03b1323e8dcf' class='xr-var-data-in' type='checkbox'><label for='data-a62ad385-5f8f-46eb-a72e-03b1323e8dcf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([-87.863799, -85.096527, -82.312913, -79.525607, -76.7369  , -73.947515,
        -71.157752, -68.367756, -65.577607, -62.787352, -59.99702 , -57.206632,
        -54.4162  , -51.625734, -48.835241, -46.044727, -43.254195, -40.463648,
        -37.67309 , -34.882521, -32.091944, -29.30136 , -26.510769, -23.720174,
@@ -1601,7 +1648,7 @@ Attributes: (12/53)
         29.30136 ,  32.091944,  34.882521,  37.67309 ,  40.463648,  43.254195,
         46.044727,  48.835241,  51.625734,  54.4162  ,  57.206632,  59.99702 ,
         62.787352,  65.577607,  68.367756,  71.157752,  73.947515,  76.7369  ,
-        79.525607,  82.312913,  85.096527,  87.863799])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 2.812 5.625 ... 354.4 357.2</div><input id='attrs-bffef89b-16b6-43ad-8484-fd42958375a5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bffef89b-16b6-43ad-8484-fd42958375a5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2aa29de2-ece3-4472-8ea9-72222d69556d' class='xr-var-data-in' type='checkbox'><label for='data-2aa29de2-ece3-4472-8ea9-72222d69556d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.    ,   2.8125,   5.625 ,   8.4375,  11.25  ,  14.0625,  16.875 ,
+        79.525607,  82.312913,  85.096527,  87.863799])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 2.812 5.625 ... 354.4 357.2</div><input id='attrs-b438db98-55f5-4150-962e-98ff43c4d54c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b438db98-55f5-4150-962e-98ff43c4d54c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e6e549c3-ca2f-4134-8a59-b3f38a0c25bd' class='xr-var-data-in' type='checkbox'><label for='data-e6e549c3-ca2f-4134-8a59-b3f38a0c25bd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.    ,   2.8125,   5.625 ,   8.4375,  11.25  ,  14.0625,  16.875 ,
         19.6875,  22.5   ,  25.3125,  28.125 ,  30.9375,  33.75  ,  36.5625,
         39.375 ,  42.1875,  45.    ,  47.8125,  50.625 ,  53.4375,  56.25  ,
         59.0625,  61.875 ,  64.6875,  67.5   ,  70.3125,  73.125 ,  75.9375,
@@ -1619,7 +1666,7 @@ Attributes: (12/53)
        295.3125, 298.125 , 300.9375, 303.75  , 306.5625, 309.375 , 312.1875,
        315.    , 317.8125, 320.625 , 323.4375, 326.25  , 329.0625, 331.875 ,
        334.6875, 337.5   , 340.3125, 343.125 , 345.9375, 348.75  , 351.5625,
-       354.375 , 357.1875])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>height</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>2.0</div><input id='attrs-58dc0727-2449-4f61-8be4-8088632fe527' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-58dc0727-2449-4f61-8be4-8088632fe527' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-50ba1694-7684-4ea0-8bec-f0636312d0a4' class='xr-var-data-in' type='checkbox'><label for='data-50ba1694-7684-4ea0-8bec-f0636312d0a4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>long_name :</span></dt><dd>height</dd><dt><span>standard_name :</span></dt><dd>height</dd></dl></div><div class='xr-var-data'><pre>array(2.)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>realization</span></div><div class='xr-var-dims'>(realization)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3</div><input id='attrs-b2bac979-d138-4634-9840-1b1ea27c2725' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b2bac979-d138-4634-9840-1b1ea27c2725' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-eecb8fa2-5bbc-4289-8ec9-e759d45b1f04' class='xr-var-data-in' type='checkbox'><label for='data-eecb8fa2-5bbc-4289-8ec9-e759d45b1f04' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>E</dd></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-cfd423c9-2e26-44ab-88a4-ad60fd75b155' class='xr-section-summary-in' type='checkbox'  checked><label for='section-cfd423c9-2e26-44ab-88a4-ad60fd75b155' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(realization, time, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1980, 2), meta=np.ndarray&gt;</div><input id='attrs-1d2d2a83-1e47-4e33-86ca-21ab90df6393' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1d2d2a83-1e47-4e33-86ca-21ab90df6393' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a8b9daa0-baa3-45a7-80cc-251ca98ad39d' class='xr-var-data-in' type='checkbox'><label for='data-a8b9daa0-baa3-45a7-80cc-251ca98ad39d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>calendar :</span></dt><dd>365_day</dd></dl></div><div class='xr-var-data'><table>
+       354.375 , 357.1875])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>height</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>2.0</div><input id='attrs-97588c37-21b2-401b-9b9b-ff833281d651' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-97588c37-21b2-401b-9b9b-ff833281d651' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-59003248-9e5c-4ee4-ac53-eafaaf6a62ce' class='xr-var-data-in' type='checkbox'><label for='data-59003248-9e5c-4ee4-ac53-eafaaf6a62ce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>long_name :</span></dt><dd>height</dd><dt><span>standard_name :</span></dt><dd>height</dd></dl></div><div class='xr-var-data'><pre>array(2.)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>realization</span></div><div class='xr-var-dims'>(realization)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>0 1 2 3</div><input id='attrs-82dbfcf2-0577-4ca9-b6fa-5f5751fa3ce7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-82dbfcf2-0577-4ca9-b6fa-5f5751fa3ce7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-38cf5ab1-fd5d-4a4f-8538-3a50fab44730' class='xr-var-data-in' type='checkbox'><label for='data-38cf5ab1-fd5d-4a4f-8538-3a50fab44730' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>E</dd></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1fae40fb-6f7f-4875-8c5e-c300f2720498' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1fae40fb-6f7f-4875-8c5e-c300f2720498' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(realization, time, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1980, 2), meta=np.ndarray&gt;</div><input id='attrs-7e9aafa7-07de-4f1b-a808-4cb617b9e129' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7e9aafa7-07de-4f1b-a808-4cb617b9e129' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8385d347-d24c-444a-b739-8d870979dac7' class='xr-var-data-in' type='checkbox'><label for='data-8385d347-d24c-444a-b739-8d870979dac7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>calendar :</span></dt><dd>365_day</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1703,7 +1750,7 @@ Attributes: (12/53)
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(realization, lat, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 64, 2), meta=np.ndarray&gt;</div><input id='attrs-7d1e2d29-654c-40b4-a6aa-5819971a3ffe' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7d1e2d29-654c-40b4-a6aa-5819971a3ffe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5813fce7-4782-49fe-8aa8-3140cf124464' class='xr-var-data-in' type='checkbox'><label for='data-5813fce7-4782-49fe-8aa8-3140cf124464' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(realization, lat, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 64, 2), meta=np.ndarray&gt;</div><input id='attrs-489d2a38-9eac-4bc4-b6af-53bf6c958a58' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-489d2a38-9eac-4bc4-b6af-53bf6c958a58' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4f7908fd-a15e-4b9d-a4a6-c9d412926bd3' class='xr-var-data-in' type='checkbox'><label for='data-4f7908fd-a15e-4b9d-a4a6-c9d412926bd3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1787,7 +1834,7 @@ Attributes: (12/53)
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(realization, lon, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 128, 2), meta=np.ndarray&gt;</div><input id='attrs-7f8145f4-3bd4-4f5b-bdd7-43e1f379c12f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7f8145f4-3bd4-4f5b-bdd7-43e1f379c12f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f7bffd39-7707-4bad-9096-a1deee6f1f16' class='xr-var-data-in' type='checkbox'><label for='data-f7bffd39-7707-4bad-9096-a1deee6f1f16' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(realization, lon, bnds)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 128, 2), meta=np.ndarray&gt;</div><input id='attrs-dcce07ff-95b5-4828-8d0d-e868eab53e97' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-dcce07ff-95b5-4828-8d0d-e868eab53e97' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-aec0570b-edbf-404f-9bc8-95741e4651bd' class='xr-var-data-in' type='checkbox'><label for='data-aec0570b-edbf-404f-9bc8-95741e4651bd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1871,7 +1918,7 @@ Attributes: (12/53)
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(realization, time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1980, 64, 128), meta=np.ndarray&gt;</div><input id='attrs-e031c518-26b2-4d9a-9efb-ff4c38f18eca' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e031c518-26b2-4d9a-9efb-ff4c38f18eca' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d28206ec-e012-4702-a941-d9f63bc58c7f' class='xr-var-data-in' type='checkbox'><label for='data-d28206ec-e012-4702-a941-d9f63bc58c7f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Air Temperature</dd><dt><span>comment :</span></dt><dd>ST+273.16, CMIP_table_comment: near-surface (usually, 2 meter) air temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>original_name :</span></dt><dd>ST</dd><dt><span>history :</span></dt><dd>degctok 2019-04-30T17:32:17Z altered by CMOR: Treated scalar dimension: &#x27;height&#x27;. 2019-04-30T17:32:17Z altered by CMOR: Reordered dimensions, original order: lat lon time. 2019-04-30T17:32:17Z altered by CMOR: replaced missing value flag (1e+38) with standard missing value (1e+20).</dd><dt><span>cell_methods :</span></dt><dd>area: time: mean</dd><dt><span>cell_measures :</span></dt><dd>area: areacella</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(realization, time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1980, 64, 128), meta=np.ndarray&gt;</div><input id='attrs-daa568df-5f40-455a-8072-0935289fb1b0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-daa568df-5f40-455a-8072-0935289fb1b0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fbc2e645-6822-484d-be52-5b52388664c1' class='xr-var-data-in' type='checkbox'><label for='data-fbc2e645-6822-484d-be52-5b52388664c1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>long_name :</span></dt><dd>Near-Surface Air Temperature</dd><dt><span>comment :</span></dt><dd>ST+273.16, CMIP_table_comment: near-surface (usually, 2 meter) air temperature</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>original_name :</span></dt><dd>ST</dd><dt><span>history :</span></dt><dd>degctok 2019-04-30T17:32:17Z altered by CMOR: Treated scalar dimension: &#x27;height&#x27;. 2019-04-30T17:32:17Z altered by CMOR: Reordered dimensions, original order: lat lon time. 2019-04-30T17:32:17Z altered by CMOR: replaced missing value flag (1e+38) with standard missing value (1e+20).</dd><dt><span>cell_methods :</span></dt><dd>area: time: mean</dd><dt><span>cell_measures :</span></dt><dd>area: areacella</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1968,7 +2015,7 @@ Attributes: (12/53)
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-5ec1d31a-fc75-4ceb-8c9c-3bb15de8f7ac' class='xr-section-summary-in' type='checkbox'  ><label for='section-5ec1d31a-fc75-4ceb-8c9c-3bb15de8f7ac' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f4f09e3e-5ab3-4d8e-93cb-040c8bbc5edf' class='xr-index-data-in' type='checkbox'/><label for='index-f4f09e3e-5ab3-4d8e-93cb-040c8bbc5edf' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([1850-01-16 12:00:00, 1850-02-15 00:00:00, 1850-03-16 12:00:00,
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-f664ab04-e200-4cf9-b438-9191b97c4aa5' class='xr-section-summary-in' type='checkbox'  ><label for='section-f664ab04-e200-4cf9-b438-9191b97c4aa5' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-66424b5c-de43-47aa-8153-f15c9a93fce8' class='xr-index-data-in' type='checkbox'/><label for='index-66424b5c-de43-47aa-8153-f15c9a93fce8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(CFTimeIndex([1850-01-16 12:00:00, 1850-02-15 00:00:00, 1850-03-16 12:00:00,
              1850-04-16 00:00:00, 1850-05-16 12:00:00, 1850-06-16 00:00:00,
              1850-07-16 12:00:00, 1850-08-16 12:00:00, 1850-09-16 00:00:00,
              1850-10-16 12:00:00,
@@ -1977,7 +2024,7 @@ Attributes: (12/53)
              2014-06-16 00:00:00, 2014-07-16 12:00:00, 2014-08-16 12:00:00,
              2014-09-16 00:00:00, 2014-10-16 12:00:00, 2014-11-16 00:00:00,
              2014-12-16 12:00:00],
-            dtype=&#x27;object&#x27;, length=1980, calendar=&#x27;noleap&#x27;, freq=&#x27;None&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0c604672-3870-4e3b-aef3-30e2448ee746' class='xr-index-data-in' type='checkbox'/><label for='index-0c604672-3870-4e3b-aef3-30e2448ee746' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ -87.86379883923273,  -85.09652698831745,  -82.31291294788636,
+            dtype=&#x27;object&#x27;, length=1980, calendar=&#x27;noleap&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a56789db-69ac-48b7-a079-ad00d88633f2' class='xr-index-data-in' type='checkbox'/><label for='index-a56789db-69ac-48b7-a079-ad00d88633f2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ -87.86379883923273,  -85.09652698831745,  -82.31291294788636,
         -79.52560657265951,   -76.7368996803684,  -73.94751515398974,
         -71.15775201158739,  -68.36775610831324,  -65.57760701082788,
         -62.78735179896313, -59.997020108491355,   -57.2066315276433,
@@ -1999,12 +2046,12 @@ Attributes: (12/53)
          71.15775201158739,   73.94751515398974,    76.7368996803684,
          79.52560657265951,   82.31291294788636,   85.09652698831745,
          87.86379883923273],
-      dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-34932556-ad0c-4419-a161-f73396ddf095' class='xr-index-data-in' type='checkbox'/><label for='index-34932556-ad0c-4419-a161-f73396ddf095' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([     0.0,   2.8125,    5.625,   8.4375,    11.25,  14.0625,   16.875,
+      dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5d028972-15c9-4498-b447-c8a4998ea3d9' class='xr-index-data-in' type='checkbox'/><label for='index-5d028972-15c9-4498-b447-c8a4998ea3d9' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([     0.0,   2.8125,    5.625,   8.4375,    11.25,  14.0625,   16.875,
         19.6875,     22.5,  25.3125,
        ...
         331.875, 334.6875,    337.5, 340.3125,  343.125, 345.9375,   348.75,
        351.5625,  354.375, 357.1875],
-      dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=128))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>realization</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-24353697-e9c1-48a4-9037-2bf72d178fe2' class='xr-index-data-in' type='checkbox'/><label for='index-24353697-e9c1-48a4-9037-2bf72d178fe2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3], dtype=&#x27;int64&#x27;, name=&#x27;realization&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ad2b746c-7b00-4635-b871-a54e6a29460e' class='xr-section-summary-in' type='checkbox'  ><label for='section-ad2b746c-7b00-4635-b871-a54e6a29460e' class='xr-section-summary' >Attributes: <span>(53)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CCCma_model_hash :</span></dt><dd>3dedf95315d603326fde4f5340dc0519d80d10c0</dd><dt><span>CCCma_parent_runid :</span></dt><dd>rc3-pictrl</dd><dt><span>CCCma_pycmor_hash :</span></dt><dd>33c30511acc319a98240633965a04ca99c26427e</dd><dt><span>CCCma_runid :</span></dt><dd>rc3.1-his01</dd><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>YMDH_branch_time_in_child :</span></dt><dd>1850:01:01:00</dd><dt><span>YMDH_branch_time_in_parent :</span></dt><dd>5201:01:01:00</dd><dt><span>activity_id :</span></dt><dd>CMIP</dd><dt><span>branch_method :</span></dt><dd>Spin-up documentation</dd><dt><span>branch_time_in_child :</span></dt><dd>0.0</dd><dt><span>branch_time_in_parent :</span></dt><dd>1223115.0</dd><dt><span>contact :</span></dt><dd>ec.cccma.info-info.ccmac.ec@canada.ca</dd><dt><span>creation_date :</span></dt><dd>2019-04-30T17:32:17Z</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>all-forcing simulation of the recent past</dd><dt><span>experiment_id :</span></dt><dd>historical</dd><dt><span>external_variables :</span></dt><dd>areacella</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>further_info_url :</span></dt><dd>https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.historical.none.r1i1p1f1</dd><dt><span>grid :</span></dt><dd>T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa</dd><dt><span>grid_label :</span></dt><dd>gn</dd><dt><span>history :</span></dt><dd>2019-04-30T17:32:17Z ;rewrote data to be consistent with CMIP for variable tas found in table Amon.;
+      dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=128))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>realization</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-366d9c48-9598-4d92-97a1-d2561e7c977c' class='xr-index-data-in' type='checkbox'/><label for='index-366d9c48-9598-4d92-97a1-d2561e7c977c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([0, 1, 2, 3], dtype=&#x27;int64&#x27;, name=&#x27;realization&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-59186586-9f8d-4bf5-8df1-4c670d0f3bc0' class='xr-section-summary-in' type='checkbox'  ><label for='section-59186586-9f8d-4bf5-8df1-4c670d0f3bc0' class='xr-section-summary' >Attributes: <span>(53)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CCCma_model_hash :</span></dt><dd>3dedf95315d603326fde4f5340dc0519d80d10c0</dd><dt><span>CCCma_parent_runid :</span></dt><dd>rc3-pictrl</dd><dt><span>CCCma_pycmor_hash :</span></dt><dd>33c30511acc319a98240633965a04ca99c26427e</dd><dt><span>CCCma_runid :</span></dt><dd>rc3.1-his01</dd><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>YMDH_branch_time_in_child :</span></dt><dd>1850:01:01:00</dd><dt><span>YMDH_branch_time_in_parent :</span></dt><dd>5201:01:01:00</dd><dt><span>activity_id :</span></dt><dd>CMIP</dd><dt><span>branch_method :</span></dt><dd>Spin-up documentation</dd><dt><span>branch_time_in_child :</span></dt><dd>0.0</dd><dt><span>branch_time_in_parent :</span></dt><dd>1223115.0</dd><dt><span>contact :</span></dt><dd>ec.cccma.info-info.ccmac.ec@canada.ca</dd><dt><span>creation_date :</span></dt><dd>2019-04-30T17:32:17Z</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>all-forcing simulation of the recent past</dd><dt><span>experiment_id :</span></dt><dd>historical</dd><dt><span>external_variables :</span></dt><dd>areacella</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>further_info_url :</span></dt><dd>https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.historical.none.r1i1p1f1</dd><dt><span>grid :</span></dt><dd>T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa</dd><dt><span>grid_label :</span></dt><dd>gn</dd><dt><span>history :</span></dt><dd>2019-04-30T17:32:17Z ;rewrote data to be consistent with CMIP for variable tas found in table Amon.;
 Output from $runid</dd><dt><span>initialization_index :</span></dt><dd>1</dd><dt><span>institution :</span></dt><dd>Canadian Centre for Climate Modelling and Analysis, Environment and Climate Change Canada, Victoria, BC V8P 5C2, Canada</dd><dt><span>institution_id :</span></dt><dd>CCCma</dd><dt><span>mip_era :</span></dt><dd>CMIP6</dd><dt><span>nominal_resolution :</span></dt><dd>500 km</dd><dt><span>parent_activity_id :</span></dt><dd>CMIP</dd><dt><span>parent_experiment_id :</span></dt><dd>piControl</dd><dt><span>parent_mip_era :</span></dt><dd>CMIP6</dd><dt><span>parent_source_id :</span></dt><dd>CanESM5</dd><dt><span>parent_time_units :</span></dt><dd>days since 1850-01-01 0:0:0.0</dd><dt><span>parent_variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>physics_index :</span></dt><dd>1</dd><dt><span>product :</span></dt><dd>model-output</dd><dt><span>realization_index :</span></dt><dd>1</dd><dt><span>realm :</span></dt><dd>atmos</dd><dt><span>references :</span></dt><dd>Geophysical Model Development Special issue on CanESM5 (https://www.geosci-model-dev.net/special_issues.html)</dd><dt><span>source :</span></dt><dd>CanESM5 (2019): 
 aerosol: interactive
 atmos: CanAM5 (T63L49 native atmosphere, T63 Linear Gaussian Grid; 128 x 64 longitude/latitude; 49 levels; top level 1 hPa)
@@ -2057,7 +2104,7 @@ seaIce: LIM2</dd><dt><span>source_id :</span></dt><dd>CanESM5</dd><dt><span>sour
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d2e8a43655c4a7f5734b0ac1cab9a7948c3bf1c8feba5f5661a921d0d2e0c417.png" src="../_images/d2e8a43655c4a7f5734b0ac1cab9a7948c3bf1c8feba5f5661a921d0d2e0c417.png" />
+<img alt="../_images/7c416b16f469bb42aabede456cb23481f89b90fafcad75e9626e9f44f2b067f7.png" src="../_images/7c416b16f469bb42aabede456cb23481f89b90fafcad75e9626e9f44f2b067f7.png" />
 </div>
 </div>
 <p>In the above plot, you can see how even the annual mean temperatures vary significantly across the ensemble, and show larger fluctuations than the ensemble mean (thick blue curve). The ensemble mean does not agree perfectly with the observations, because of model bias. Also, note that the year-to-year fluctuations in the ensemble mean are smaller than those for the observations. This is because observations reflect only one possible realization of the climate, so internal variability is still present. For observations, we can only disentangle forced trends (like the effects of increasing greenhouse gases) from internal variability using long-term trends. Over a short record, what might appear as a trend might actually be due to internal variability at decadal or interannual timescales. For model simulations, aggregating over multiple realizations smooths out the effects of internal variability and can give us a better estimate of the forced trend by itself. To get a plausible range of values, accounting for internal variability, you can use a measure of ensemble spread, like the standard deviation or range between a low and high quantile (e.g. 10th-90th percentile range).</p>
