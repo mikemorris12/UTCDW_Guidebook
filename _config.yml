@@ -18,6 +18,10 @@ repository:
 
 html:
   use_respository_button: true
+  extra_footer: |
+    <p>
+    &copy; 2024 -- This work is licensed under Creative Commons Attribution Share Alike 4.0 International (CC-BY-SA) <br>
+    </p>
 
 bibtex_bibfiles:
     - guidebook_references.bib
