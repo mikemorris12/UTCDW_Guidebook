@@ -2,7 +2,7 @@
 
 *Michael Morris, Paul J. Kushner, and Karen L. Smith*
 
-*Version 1.1.0 -- Last updated 12 July 2024*
+*Version 1.1.0 -- Last updated 19 July 2024*
 
 Welcome to the Guidebook for the University of Toronto Climate Downscaling Workflow. If you're accessing these resources, it means you are interested in using data to study how climate change may affect a particular domain in the built or natural environment. The purpose of the UTCDW Guidebook is to help you develop the skills and knowledge needed to design and conduct a climate change impact analysis study and perform your own statistical downscaling of climate model data. This Guidebook takes advantage of the [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) format to intermix text explaining concepts and methods with code that demonstrates application.
 
@@ -32,6 +32,8 @@ Funding for this project was provided by the [Centre for Climate Science and Eng
 
 ## License
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/). You are free to copy, redistribute, and share this book, in any medium, or format. You may also adapt the book, improve it, and re-use it in your own materials. However, keep in mind that you must give credit where credit is due, and any works that you produce based on this work are subject to the same license. For more details, click the badge below.
+The Guidebook is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/). You are free to copy, redistribute, and share this book, in any medium, or format. You may also adapt the book, improve it, and re-use it in your own materials. However, keep in mind that you must give credit where credit is due, and any works that you produce based on this work are subject to the same license. For more details, click the badge below.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+The code in this repository is licensed under the [MIT License](https://github.com/mikemorris12/UTCDW_Guidebook/blob/master/LICENSE-CODE).
