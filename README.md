@@ -2,7 +2,7 @@
 
 *Michael Morris, Paul J. Kushner, and Karen L. Smith*
 
-*Version 1.1.0 -- Last updated 19 July 2024*
+*Version 1.1.0 -- Last updated 19 August 2024*
 
 Welcome to the Guidebook for the University of Toronto Climate Downscaling Workflow. If you're accessing these resources, it means you are interested in using data to study how climate change may affect a particular domain in the built or natural environment. The purpose of the UTCDW Guidebook is to help you develop the skills and knowledge needed to design and conduct a climate change impact analysis study and perform your own statistical downscaling of climate model data. This Guidebook takes advantage of the [Jupyter Book](https://jupyterbook.org/en/stable/intro.html) format to intermix text explaining concepts and methods with code that demonstrates application.
 
@@ -29,6 +29,12 @@ The contents of the UTCDW Guidebook were written predominantly by Michael Morris
 ## Funding Acknowledgement
 
 Funding for this project was provided by the [Centre for Climate Science and Engineering](https://uoftcse.ca/), [Climate Positive Energy](https://cpe.utoronto.ca/), and the University of Toronto [Data Sciences Institute](https://datasciences.utoronto.ca/).
+
+## Publication
+
+The UTCDW Guidebook has been peer-reviewed and has an associated paper published in the [Journal of Open Source Education](https://jose.theoj.org/). You can find the paper by clicking the icon below.
+
+[![DOI](https://jose.theoj.org/papers/10.21105/jose.00243/status.svg)](https://doi.org/10.21105/jose.00243)
 
 ## License
 
