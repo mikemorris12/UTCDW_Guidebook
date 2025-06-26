@@ -31,3 +31,4 @@ dependencies:
   - esda
   - intake-esm
   - clisops
+  - xsdba

@@ -7,8 +7,8 @@ statistical downscaling method (Werner & Cannon, 2016)
 import dask
 import numpy as np 
 import xarray as xr
-import xclim.sdba as sdba
-from xclim.core.calendar import convert_calendar
+import xsdba
+from xarray.coding.calendar_ops import convert_calendar
 import xskillscore as xs
 import pandas as pd
 import xesmf as xe
@@ -55,13 +55,13 @@ def bias_correct_gcm(gcm_hist, gcm_future, obs_data, method = 'DQM', grouper = '
     """
     Apply a quantile mapping based bias correction to the raw GCM data using obs_data as the reference dataset. 
     Bias correction method is default Detrended Quantile Mapping, but can be any of the three quantile mapping methods 
-    implemented in xclim.sdba
+    implemented in xsdba
 
     * gcm_hist (xr.DataArray) - Raw GCM data for the historical baseline period. Must have an appropriate 'units' attribute.
     * gcm_future (xr.DataArray) - Raw GCM data for the future projection period. Must have the same units as gcm_hist.
     * obs_data (xr.DataArray) - Observational data coarsened to the raw GCM grid. Must have the same units as gcm_hist.
     * method ({'DQM', 'QDM', 'EQM'}) - Quantile mapping bias-correction method to be deployed. Default is 'DQM'.
-    * grouper (Union[str, xclim.sdba.base.Grouper]). The grouping information. See xclim.sdba.base.Grouper for details. 
+    * grouper (Union[str, xsdba.base.Grouper]). The grouping information. See xsdba.base.Grouper for details. 
       Default is “time.month”, meaning data is grouped by the month of the year before applying the adjustments separately
       to each group.
     * kind ({'+', '*'}) - Type of adjustment to apply, additive or multaplicative. Default is "+".
@@ -71,11 +71,11 @@ def bias_correct_gcm(gcm_hist, gcm_future, obs_data, method = 'DQM', grouper = '
     """
 
     if method == "DQM":
-        BiasAdjuster = sdba.DetrendedQuantileMapping
+        BiasAdjuster = xsdba.DetrendedQuantileMapping
     elif method == "QDM":
-        BiasAdjuster = sdba.QuantileDeltaMapping
+        BiasAdjuster = xsdba.QuantileDeltaMapping
     elif method == "EQM":
-        BiasAdjuster = sdba.EmpiricalQuantileMapping
+        BiasAdjuster = xsdba.EmpiricalQuantileMapping
 
     TrainedBiasAdjuster = BiasAdjuster.train(obs_data, gcm_hist, group = grouper, kind = kind, nquantiles = nquantiles)
 
@@ -231,8 +231,8 @@ def get_analogue_weights(field_gcm, obs_analogues, #obs_coarse, analogue_times,
     obs_flat = obs_flat.fillna(0)
 
     if jitter: # for precip data, replace small values with uniform random noise.
-        gcm_flat = sdba.processing.jitter_under_thresh(gcm_flat, jitter_thresh)
-        obs_flat = sdba.processing.jitter_under_thresh(obs_flat, jitter_thresh)
+        gcm_flat = xsdba.processing.jitter_under_thresh(gcm_flat, jitter_thresh)
+        obs_flat = xsdba.processing.jitter_under_thresh(obs_flat, jitter_thresh)
 
     if transform == 'sqrt': # apply square root transform to ensure positive valued output.
         gcm_flat = np.sqrt(gcm_flat)
@@ -390,7 +390,6 @@ def construct_analogues(data_gcm, obs_coarse, obs_fine,
                                                 transform = transform, 
                                                 penalty = penalty)
          da_list.append(CA_sample)
-
     # call compute to process the data
     da_list_comp = dask.compute(da_list)[0]
     # concatenate all the downscaled data together over the time dimension
@@ -429,7 +428,7 @@ def BCCA(data_gcm_hist, data_gcm_future, data_obs_fine,
     * window_unit ({'day'}) - the unit of time associated with window_size. 
       Currently only 'day' is supported, i.e. all obs candidates must be within +/- window_size number of days.
     * bc_method ({'DQM', 'QDM', 'EQM'}) - Quantile mapping bias-correction method to be deployed. Default is 'DQM'.
-    * bc_grouper (Union[str, xclim.sdba.base.Grouper]). The grouping information for bias-correction. See xclim.sdba.base.Grouper for details. 
+    * bc_grouper (Union[str, xsdba.base.Grouper]). The grouping information for bias-correction. See xsdba.base.Grouper for details. 
       Default is “time.month”, meaning data is grouped by the month of the year before applying the adjustments separately
       to each group.
     * bc_kind ({'+', '*'}) - Type of adjustment to apply in the bias-correction step, additive or multaplicative. Default is "+".
@@ -458,7 +457,7 @@ def BCCA(data_gcm_hist, data_gcm_future, data_obs_fine,
 
     # convert obs calendar to exclude leap years
     if convert_obs_calendar:
-        data_obs_fine = convert_calendar(data_obs_fine, target = 'noleap')
+        data_obs_fine = convert_calendar(data_obs_fine, 'noleap')
 
     # coarsen obs to GCM grid
     print('coarsening obs')
@@ -509,7 +508,6 @@ def BCCA(data_gcm_hist, data_gcm_future, data_obs_fine,
     
     print('done')
     return data_gcm_hist_CA, data_gcm_future_CA
-
 
 
 

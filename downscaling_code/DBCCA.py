@@ -9,8 +9,8 @@ statistical downscaling method (Werner & Cannon, 2016)
 import os
 import numpy as np 
 import xarray as xr
-import xclim.sdba as sdba
-from xclim.core.calendar import convert_calendar
+import xsdba
+from xarray.coding.calendar_ops import convert_calendar
 
 from BCCA import BCCA, bias_correct_gcm
 
@@ -41,7 +41,7 @@ def DBCCA(data_gcm_hist, data_gcm_future, data_obs_fine, varname,
       Currently only 'day' is supported, i.e. all obs candidates must be within +/- window_size number of days.
     * bc_method_bcca ({'DQM', 'QDM', 'EQM'}) - Quantile mapping bias-correction method to be deployed in the first BC step. Default is 'DQM'.
     * bc_method_dbcca ({'DQM', 'QDM', 'EQM'}) - Quantile mapping bias-correction method to be deployed in the second BC step. Default is 'QDM'.
-    * bc_grouper (Union[str, xclim.sdba.base.Grouper]). The grouping information for bias-correction. See xclim.sdba.base.Grouper for details. 
+    * bc_grouper (Union[str, xsdba.base.Grouper]). The grouping information for bias-correction. See xsdba.base.Grouper for details. 
       Default is “time.month”, meaning data is grouped by the month of the year before applying the adjustments separately
       to each group.
     * bc_kind ({'+', '*'}) - Type of adjustment to apply in the bias-correction step, additive or multaplicative. Default is "+".
@@ -99,7 +99,7 @@ def DBCCA(data_gcm_hist, data_gcm_future, data_obs_fine, varname,
 
     # convert obs calendar to exclude leap years
     if convert_obs_calendar:
-        data_obs_fine = convert_calendar(data_obs_fine, target = 'noleap')
+        data_obs_fine = convert_calendar(data_obs_fine, 'noleap')
 
      # do the second bias correction
     print(f'doing {bc_method_dbcca} bias correction to BCCA data')
@@ -129,4 +129,3 @@ def DBCCA(data_gcm_hist, data_gcm_future, data_obs_fine, varname,
 
     
     
-
